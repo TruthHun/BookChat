@@ -11,7 +11,7 @@
 
 - 第一个版本： 纯模板页面，实现页面间的链接跳转
 
-- 第二个版本： 约定所有API口，请求动态数据
+- 第二个版本： 约定所有API接口，请求动态数据
 
 - 第三个版本： 套接`BookStack`的API接口，实现真正意义上的书籍阅读（届时会提前发布`BookStack` v2.x版本）
 
@@ -36,13 +36,13 @@
 ### 首页
 
 
-<img width="480" src="screenshot/index1.png"/>
+<img width="480" style="border:1px solid #ccc" src="screenshot/index1.png"/>
 
 <br/>
 <br/>
 <br/>
 
-<img width="480" src="screenshot/index2.png"/>
+<img width="480" style="border:1px solid #ccc"  src="screenshot/index2.png"/>
 
 <br/>
 <br/>
@@ -54,7 +54,7 @@
 ### 分类
 
 
-<img width="480" src="screenshot/cate.png"/>
+<img width="480" style="border:1px solid #ccc"  src="screenshot/cate.png"/>
 
 
 <br/>
@@ -67,7 +67,7 @@
 ### 书架
 
 
-<img width="480" src="screenshot/bookshelf.png"/>
+<img width="480" style="border:1px solid #ccc"  src="screenshot/bookshelf.png"/>
 
 
 <br/>
@@ -79,7 +79,7 @@
 
 ### 用户中心
 
-<img width="480" src="screenshot/me.png"/>
+<img width="480" style="border:1px solid #ccc"  src="screenshot/me.png"/>
 
 
 
