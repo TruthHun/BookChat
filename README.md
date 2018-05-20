@@ -35,22 +35,27 @@
 
 ### 首页
 
-![index1](screenshot/index1.png)
+
+<img width="480" src="screenshot/index1.png"/>
 
 <br/>
 <br/>
 <br/>
 
-![index2](screenshot/index2.png)
+<img width="480" src="screenshot/index2.png"/>
+
 <br/>
 <br/>
 <br/>
 <br/>
 <br/>
 <br/>
+
 ### 分类
 
-![category](screenshot/cate.png)
+
+<img width="480" src="screenshot/cate.png"/>
+
 
 <br/>
 <br/>
@@ -58,9 +63,11 @@
 <br/>
 <br/>
 <br/>
+
 ### 书架
 
-![bookshelf](screenshot/bookshelf.png)
+
+<img width="480" src="screenshot/bookshelf.png"/>
 
 
 <br/>
@@ -69,9 +76,11 @@
 <br/>
 <br/>
 <br/>
+
 ### 用户中心
 
-![me](screenshot/me.png)
+<img width="480" src="screenshot/me.png"/>
+
 
 
 
