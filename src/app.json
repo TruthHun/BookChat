@@ -1,0 +1,60 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/search/search",
+    "pages/list/list",
+    "pages/read/read",
+    "pages/bookself/bookself",
+    "pages/cate/cate",
+    "pages/star/star",
+    "pages/fans/fans",
+    "pages/share/share",
+    "pages/history/history",
+    "pages/comment/comment",
+    "pages/bookmarks/bookmarks",
+    "pages/menu/menu",
+    "pages/about/about",
+    "pages/login/login",
+    "pages/reg/reg",
+    "pages/me/me",
+    "pages/release/release",
+    "pages/intro/intro"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "BookChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/images/home.png",
+        "selectedIconPath": "/assets/images/home-selected.png"
+      },
+      {
+        "pagePath": "pages/cate/cate",
+        "text": "分类",
+        "iconPath": "/assets/images/cate.png",
+        "selectedIconPath": "/assets/images/cate-selected.png"
+      },
+      {
+        "pagePath": "pages/bookself/bookself",
+        "text": "书架",
+        "iconPath": "/assets/images/collect.png",
+        "selectedIconPath": "/assets/images/collect-selected.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "/assets/images/me.png",
+        "selectedIconPath": "/assets/images/me-selected.png"
+      }
+    ],
+    "backgroundColor": "#ffffff",
+    "color": "#888888",
+    "selectedColor": "#1aad19"
+  }
+}

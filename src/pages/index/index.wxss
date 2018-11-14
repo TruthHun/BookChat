@@ -1,0 +1,98 @@
+/**index.wxss**/
+page{
+  padding-bottom: 30rpx;
+}
+
+.slide-image{
+   width: 100%; 
+}
+swiper-item{
+  border-radius: 6rpx;
+}
+.search{
+  margin-top: 15rpx;
+}
+.search label{
+  position: relative;
+}
+.search icon{
+  position: absolute;
+  z-index: 99;
+  left: 20rpx;
+  top:20rpx;
+  font-size: 30rpx;
+}
+.search input{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 6rpx;
+  background: #f8f8f8;
+  color: #888;
+  font-size: 32rpx;
+  padding-left: 90rpx;
+}
+
+
+.recommend .panel-body{
+  display: flex;
+  /* justify-content:space-around; */
+  justify-content: space-between;
+}
+ .panel-body navigator{
+  width: 30%;
+} 
+.panel-body navigator image{
+  margin: 0 auto;
+  display: block;
+  width: 100%;
+  border-radius: 6rpx;
+}
+.recommend .title{
+  font-size: 28rpx;
+  color: #666;
+  text-align: left;
+  line-height: 160%;
+  margin-top: 15rpx;
+}
+
+.cate-data .row{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40rpx;
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 40rpx;
+}
+.cate-data .row:last-of-type{
+  border-bottom: 0px;
+  padding-bottom: 0rpx;
+  margin-bottom: 0rpx;
+}
+.cate-data .row navigator{
+  width: 100%
+}
+.cate-data .row .row-left{
+  width: 25%;
+}
+
+.cate-data .row .row-right{
+  flex: 1;
+  box-sizing: border-box;
+  padding-left: 32rpx;
+}
+.cate-data .row .info{
+  margin: 10rpx 0rpx 10rpx;
+}
+.cate-data .info image{
+  width: 24rpx; height: 24rpx; position: relative; top:4rpx;
+}
+.cate-data .desc{
+  text-indent: 2em;
+}
+.cate-data .info{
+  display: flex; flex-direction: row; font-size: 24rpx; color: #b2b2b2;
+}
+.cate-data .info view{
+  flex: 1;
+}
+
+.cate-data{margin-top: 10rpx;}

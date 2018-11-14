@@ -1,0 +1,8 @@
+/*  新  */
+.item{margin-bottom: 30rpx;}
+.item>.row{border:1px solid #efefef;border-radius:6rpx;box-sizing: border-box;padding: 15rpx;padding-bottom: 6rpx;}
+.item:nth-of-type(2n)>.row{margin-left: 15rpx;}
+.item:nth-of-type(2n+1)>.row{margin-right: 15rpx;}
+.img-responsive{border-radius: 6rpx;border:1px solid #efefef;}
+.item>.row .col-8{padding-left: 15rpx;box-sizing: border-box;}
+.text-muted{margin-top: 10rpx;}

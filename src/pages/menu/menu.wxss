@@ -1,0 +1,78 @@
+/* pages/menu/menu.wxss */
+
+/* search */
+.search icon{
+  position: absolute;
+  z-index: 99;
+  left: 50rpx;
+  top: 20rpx;
+  font-size: 30rpx;
+}
+.search input{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 6rpx;
+  background: #f8f8f8;
+  color: #888;
+  font-size: 32rpx;
+  padding-left: 90rpx;
+}
+
+/* book info */
+.book{
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 30rpx;
+}
+.book navigator image{
+  width: 100%; border-radius: 6rpx;
+}
+.book-title{
+  white-space: nowrap;
+  padding-top: 7rpx;
+}
+.book-info{
+  box-sizing: border-box;
+  padding-left: 30rpx;
+}
+
+/* menu */
+
+.menu{
+  padding-top: 30rpx;
+  padding-bottom: 120rpx;
+  line-height: 250%;
+  overflow-x: hidden;
+}
+.ul{
+  padding-left: 0rpx;
+}
+.li{
+  padding-left: 2em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+.li.active{
+  color: #008cff;
+}
+.readed{
+  color: #888888;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA0ElEQVQ4T92SMQtBURiGn49SKPu9d/EPlB/gB9hlMlmk7iDXotQdSDlW2Yx+gNXmT5iVe0w2Bpajq4i6V7dMnPE753163/N+wpdHvtTza4CjW+CSdbAn20f05BG0n4PTBqSElc8j/jWEJAMYP8PhtAapYGjiqEW0g8BbATucqftsx9TSHIrhvIrQxlLz1+beHehuC1LhgyG2GmD8FPq8RKhHiaMj6F4fGIHpAGWQRpw4/g8CTyHi3a1G2I6P8Hqje2OEPZaafdrWZC18IPwB4AbdfTERzxYCSwAAAABJRU5ErkJggg==') no-repeat 0rpx center;
+}
+
+/* footer */
+.footer{
+  box-shadow: 0rpx 0rpx 10rpx #efefef;
+  border-top:1px solid #efefef;
+  background-color: #fff;
+  position: fixed;
+  height: 90rpx;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  line-height: 90rpx;
+}
+.footer .active{
+  color: #008cff;
+}

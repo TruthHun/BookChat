@@ -1,0 +1,24 @@
+textarea{
+  padding: 30rpx;
+  border: 1rpx solid #efefef;
+  border-left: 0rpx;
+  border-right: 0rpx;
+  width: 100%;
+}
+.comment-score{
+  border-bottom: 1rpx solid #efefef;
+  padding-bottom: 20rpx;
+}
+.comment-score image{
+  display: inline-block;width: 36rpx;height: 36rpx;
+  margin-left: 30rpx;
+}
+.comment-score text{display: inline-block;margin-left: 36rpx;position: relative;top: -6rpx;}
+.submit{
+  padding: 30rpx;
+  line-height: 1.8;
+}
+.btn-submit{
+  border-radius: 6rpx;
+  border-color: #E64340;
+}

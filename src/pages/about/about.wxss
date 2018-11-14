@@ -1,0 +1,7 @@
+/* pages/about/about.wxss */
+.content{
+  line-height: 200%;
+}
+.content view{
+  text-indent: 2em;margin-bottom: 15rpx;
+}

@@ -1,0 +1,66 @@
+<view class='base-padding base-margin-bttom'>
+
+  <view class='box'>
+    
+    <navigator url='/pages/intro/intro' class='book text-muted'>
+      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/beego.png'></image>
+      <view class='progress'>
+        <view>阅读进度<view class='pull-right'>20%</view></view>
+        <progress percent="20" />
+      </view>
+      <view class='font-lv3  ellipsis-2row'>Beego开发手册Beego开发手册Beego开发手册</view>
+    </navigator>
+
+    <navigator url='/pages/intro/intro' class='book text-muted'>
+      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/goweb.jpeg'></image>
+      <view class='progress'>
+        <view>阅读进度<view class='pull-right'>20%</view></view>
+        <progress percent="20" />
+      </view>
+      <view class='font-lv3  ellipsis-2row'>Go Web编程</view>
+    </navigator>
+
+    <navigator url='/pages/intro/intro' class='book text-muted'>
+      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/http2.png'></image>
+      <view class='progress'>
+        <view>阅读进度<view class='pull-right'>20%</view></view>
+        <progress percent="20" />
+      </view>
+      <view class='font-lv3  ellipsis-2row'>http2详解</view>
+    </navigator>
+
+    <navigator url='/pages/intro/intro' class='book text-muted'>
+      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/grpc.png'></image>
+      <view class='progress'>
+        <view>阅读进度<view class='pull-right'>20%</view></view>
+        <progress percent="20"/>
+      </view>
+      <view class='font-lv3  ellipsis-2row'>Go-gRPC</view>
+    </navigator>
+
+    <navigator url='/pages/intro/intro' class='book text-muted'>
+      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/shell.jpeg'></image>
+      <view class='progress'>
+        <view>阅读进度<view class='pull-right'>20%</view></view>
+        <progress percent="20" />
+      </view>
+      <view class='font-lv3  ellipsis-2row'>Shell编程范例</view>
+    </navigator>
+
+    <navigator url='/pages/intro/intro' class='book text-muted'>
+      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/es6.jpeg'></image>
+      <view class='progress'>
+        <view>阅读进度<view class='pull-right'>20%</view></view>
+        <progress percent="20" />
+      </view>
+      <view class='font-lv3  ellipsis-2row'>ECMAScript 6 入门</view>
+    </navigator>
+
+    <!--  为了使之对齐，如果不是3的倍数，余数是多少，则就补多少个book-empty  -->
+    <!--  最后这里哪怕添加三个空的book-empty，对布局也不会有影响，因为没有高度...  -->
+    <view class='book book-empty text-muted'></view>
+    <view class='book book-empty text-muted'></view>
+
+
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<view class='base-padding'>
+  <view class='form-body'>
+    <view class='row'>
+      <view class='col-3'>账户</view>
+      <view class='col-9'>
+        <input name="username" auto-focus='true' placeholder="请输入用户名或邮箱"/>
+      </view>
+    </view>
+    <view class='row'>
+      <view class='col-3'>密码</view>
+      <view class='col-9'>
+        <input password name="password" placeholder="请输入密码"/>
+      </view>
+    </view>
+  </view>
+  <view class='row'>
+    <button class='btn-submit btn-block'> 马上登录 </button>
+  </view>
+  <view class='row'>
+    <button class='btn-auth btn-block'> 使用微信授权登录 </button>
+  </view>
+</view>

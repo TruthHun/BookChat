@@ -1,0 +1,22 @@
+.box{
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.box .book{
+  width: 30%;
+  margin-bottom: 40rpx;
+  color: #666;
+}
+
+.box .book .progress{
+  font-size: 24rpx;
+  margin-bottom: 10rpx;
+  color: #999;
+}
+.book image{
+  width: 100%;
+}

@@ -1,0 +1,34 @@
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class="wxParse">
+  <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>
+
+<!-- <view class='links font-lv3'>
+  <view class='links-pre row'>
+    <text class='color-grey col-2'>上一章:</text>
+    <navigator class='col-10'>书栈(BookStack)使用手册</navigator>
+  </view>
+  <view class='links-next row'>
+    <text class='color-grey col-2'>下一章:</text>
+    <navigator class='col-10'>用DocHub开源文库程序，构建你自己的百度文库</navigator>
+  </view>
+</view> -->
+<view class='footer row font-lv3'>
+  <view class='col'>
+    <image src='../../assets/images/pre.png'></image>
+  </view>
+  <view class='col'>
+    <image src='../../assets/images/menu.png'></image>
+  </view>
+  <view class='col'>
+    <image src='../../assets/images/bookmark-add.png'></image>
+  </view>
+  <view class='col'>
+    <image src='../../assets/images/next.png'></image>
+  </view>
+  <view class='col'>
+    <image src='../../assets/images/more.png'></image>
+    <!-- more : 字体大小设置，字体更换，背景色调整(护眼模式和白天模式)、亮度调整 -->
+    <!-- <image src='../../assets/images/font.png'></image> -->
+  </view>
+</view>

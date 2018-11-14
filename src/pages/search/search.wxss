@@ -1,0 +1,36 @@
+.search{
+  margin-top: 15rpx;
+}
+.search label{
+  position: relative;
+}
+.search icon{
+  position: absolute;
+  z-index: 99;
+  left: 20rpx;
+  top:20rpx;
+  font-size: 30rpx;
+}
+.search input{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-radius: 6rpx;
+  background: #f8f8f8;
+  color: #888;
+  font-size: 32rpx;
+  padding-left: 90rpx;
+}
+
+.result .col-9{
+  box-sizing: border-box;
+  padding-left: 30rpx;
+}
+
+.result .row{
+  margin-bottom: 30rpx; padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.result .color-grey{
+  line-height: 150%;text-indent: 2em;
+}

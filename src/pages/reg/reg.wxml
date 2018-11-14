@@ -1,0 +1,54 @@
+<view class='base-padding'>
+  <view class='form-body'>
+    <view class='row'>
+      <view class='col-3'>邮箱</view>
+      <view class='col-9'>
+        <input name="email" placeholder="请输入邮箱地址"/>
+      </view>
+    </view>
+
+    <view class='row'>
+      <view class='col-3'>验证码</view>
+      <view class='col-6'>
+        <input name="captcha" placeholder="邮箱验证码"/>
+      </view>
+      <view class='col-3 text-right'>
+        <button size='mini' class='btn-captcha' type='warn'>获取</button>
+      </view>
+    </view>
+    <view class='row'>
+      <view class='col-3'>用户名</view>
+      <view class='col-9'>
+        <input name="username" placeholder="请输入用户名"/>
+      </view>
+    </view>
+    <view class='row'>
+      <view class='col-3'>用户昵称</view>
+      <view class='col-9'>
+        <input name="nickname" placeholder="请输入昵称"/>
+      </view>
+    </view>
+    <view class='row'>
+      <view class='col-3'>用户密码</view>
+      <view class='col-9'>
+        <input password name="password" placeholder="请输入密码"/>
+      </view>
+    </view>
+    <view class='row'>
+      <view class='col-3'>确认密码</view>
+      <view class='col-9'>
+        <input password name="repassword" placeholder="请再次输入密码"/>
+      </view>
+    </view>
+  </view>
+  <view class='row text-center'>
+    <view class='color-grey mgb-30rpx font-lv3'>以上资料项全为必填项，请认真填写</view>
+  </view>
+  <view class='row'>
+    <button class='btn-submit btn-block'> 立即注册 </button>
+  </view>
+  <view class='row'>
+    <button class='btn-auth btn-block'> 使用微信授权登录 </button>
+  </view>
+  
+</view>

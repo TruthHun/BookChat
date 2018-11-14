@@ -1,0 +1,26 @@
+/* pages/read/read.wxss */
+@import "/wxParse/wxParse.wxss";
+
+.wxParse{
+  padding: 15rpx;
+  padding-bottom: 150rpx;
+}
+
+
+/* --- footer ---- */
+/* footer */
+.footer{
+  box-shadow: 0rpx 0rpx 10rpx #efefef;
+  border-top:1px solid #efefef;
+  background-color: #fff;
+  position: fixed;
+  height: 90rpx;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  line-height: 90rpx;
+}
+.footer image{
+  margin-top: 20rpx;
+  width: 50rpx;height: 50rpx;
+}

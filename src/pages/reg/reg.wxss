@@ -1,0 +1,26 @@
+/* pages/reg/reg.wxss */
+
+.form-body{margin-bottom: 30rpx;}
+
+.form-body .row{
+  border-bottom: 1rpx solid #efefef;
+  color: #353535;height: 100rpx;line-height: 100rpx;
+}
+.form-body .row input{
+  margin-top: 24rpx;
+}
+
+.btn-captcha{
+  border-radius: 6rpx;
+}
+
+.btn-block{
+    width: 100%;border-radius: 6rpx;color: #fff;margin-bottom: 30rpx;
+}
+.btn-submit{
+  background-color: #00acff;border-color: #00acff;
+}
+
+.btn-auth{
+    background-color: #00c706;border-color: #00c706;
+}

@@ -1,0 +1,24 @@
+<view class='base-padding font-lv3 color-semi content'>
+  <view><text class='color-black'>BookChat</text> 是由 <text class='color-black'>进击的皇虫</text> 开发的通用书籍阅读微信小程序。小程序采用CSS3的flex实现页面布局，预计会迭代发布三个版本：</view>
+  <view> 第一个版本： 纯模板页面，实现页面间的链接跳转 </view>
+  <view> 第二个版本： 约定所有API接口，请求动态数据 </view>
+  <view> 第三个版本： 套接BookStack的API接口，实现真正意义上的书籍阅读（届时会提前发布BookStack v2.x版本）</view>
+  <view>当前只是 <text class='color-black'>BookChat v1.0</text> 版本.</view>
+  <view class='strong'>BookChat 开源地址</view>
+  <view>
+      <view>Gitee: https://gitee.com/truthhun/BookChat</view>
+      <view>GitHub: https://github.com/truthhun/BookChat</view>
+  </view>
+  <view class='strong'>更多开源程序，请关注个人开源主页</view>
+  <view>
+      <view>Gitee: https://gitee.com/truthhun</view>
+      <view>GitHub: https://github.com/truthhun</view>
+  </view>
+  <view class='strong'>联系方式</view>
+  <view>
+      <view>QQ: 1272881215</view>
+      <view>邮箱: TruthHun@QQ.COM</view>
+  </view>
+  <view>如果您觉得BookChat帮助到了您，可以通过下方微信二维码在您力所能及的范围内给我们小小的赞助，以支持和鼓励BookChat开源项目.</view>
+  <image mode='widthFix' style='width: 100%;' src='../../assets/images/qrcode.jpeg'></image>
+</view>

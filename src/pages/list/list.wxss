@@ -1,0 +1,31 @@
+
+.list .col-9{
+  box-sizing: border-box;
+  padding-left: 30rpx;
+}
+
+.list .row{
+  margin-bottom: 30rpx; padding-bottom: 30rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.list .color-grey{
+  line-height: 150%;text-indent: 2em;
+}
+
+.breadcrumb{
+  border-bottom: 1rpx solid #dddddd;
+  line-height: 250%;
+  margin-top: 15rpx;
+}
+.breadcrumb .col{text-align: center;}
+.breadcrumb .active{
+  color: #00acff;
+  border:1rpx solid #dddddd;
+  border-bottom: 0rpx;
+  padding-bottom: 2rpx;
+  margin-bottom: -2rpx;
+  background-color: #ffffff;
+  border-top-left-radius: 6rpx;
+  border-top-right-radius: 6rpx;
+}
