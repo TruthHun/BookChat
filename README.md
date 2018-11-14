@@ -1,5 +1,7 @@
 # BookChat - 通用的书籍阅读微信小程序
 
+![LOGO](screenshot/logo.png)
+
 ## 项目介绍
 
 微信叫`WeChat`，所以我们叫`BookChat`.
