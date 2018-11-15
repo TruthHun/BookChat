@@ -4,9 +4,10 @@
 
 ## 项目介绍
 
+
 微信叫`WeChat`，所以我们叫`BookChat`.
 
-`BookChat` - 基于 Apache 2.0 开源协议进行开源的通用书籍阅读微信小程序.
+`BookChat` - 基于 Apache 2.0 开源协议进行开源的通用书籍阅读微信小程序，助您轻松实现小说、电子书、各种文档手册和书籍的在线阅读。
 
 
 起初仅仅是想作为[BookStack](https://www.bookstack.cn)的配套小程序，但是后来想了一下，小说书籍和文档阅读类的小程序，不外乎也就是那些功能，所以把`BookChat`开发为通用的书籍阅读类小程序，以方便更多想要开发阅读类小程序的个人和企业。
@@ -17,21 +18,19 @@
 
 ## 开发设计
 
-小程序采用CSS3的`flex`实现的页面布局，文字大小和主题配色参照了腾讯官方的[微信小程序设计指南](https://developers.weixin.qq.com/miniprogram/design/index.html)。
-
-由于没有人帮设计小图标，`BookChat`小程序中的各类小图标，基本上都是从[iconfont](http://iconfont.cn)找的，所以非常感谢热心的设计师们把自己精心设计的小图标分享出来.
+`BookChat`采用CSS3的`flex`实现的页面布局，文字大小和主题配色参照了腾讯官方的[微信小程序设计指南](https://developers.weixin.qq.com/miniprogram/design/index.html)，小程序的图标来自热心的设计师们在[iconfont](http://iconfont.cn/)分享的小图标，HTML和markdown文本的渲染采用[wxParse](https://github.com/icindy/wxParse)。
 
 小程序的源码，放在`src`目录下.
 
 `BookChat`小程序，预计会迭代发布三个版本：
 
-- [x] 第一个版本： 纯模板页面，实现页面间的链接跳转
+ **第一个版本**： 纯模板页面小程序，实现页面间的链接跳转。适合有能力开发前后端的个人或企业。
 
-- [ ] 第二个版本： 使用 [YAPI](https://github.com/YMFE/yapi) 约定所有API接口，请求动态数据
+ **第二个版本**： 使用 [YAPI](https://github.com/YMFE/yapi) 约定所有后端API接口参数，实现对动态数据的请求和渲染。适用于拥有后端API接口开发能力的个人或企业。
 
-- [ ] 第三个版本： 套接`BookStack`的API接口，实现真正意义上的书籍阅读（届时会提前发布`BookStack` v2.x版本）
+ **第三个版本**： 套接 [BookStack](https://gitee.com/truthhun/BookStack) 的API接口，实现真正意义上的书籍阅读（届时会提前发布BookStack v2.x版本）。适用于没有开发能力的个人或企业。
 
-目前实现了第一个版本.
+当前最新版本为v1.0版本，即第一个版本.
 
 由于没有原型，小程序的功能和页面布局，主要借(抄)鉴(袭)了3个手机APP，所以，请允许我免费给他们打个小广告：
 
@@ -55,6 +54,10 @@
 
 > 说明：该群是一个技术交流群。如果是开源程序遇到问题，请直接提交issues，群里不解答问题.
 
+## 源码托管
+
+- Gitee: https://gitee.com/truthhun/BookChat
+- GitHub: https://github.com/TruthHun/BookChat
 
 ## 小程序体验
 
