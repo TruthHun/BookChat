@@ -14,6 +14,11 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const now = () => {
+  return parseInt(new Date().getTime() / 1000)
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  now: now
 }

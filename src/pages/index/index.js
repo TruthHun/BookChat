@@ -1,32 +1,41 @@
-//index.js
-//获取应用实例
+// index.js
+// 获取应用实例
 const app = getApp()
-const api = require('../../config.js')
+const config = require('../../config.js')
+const api = require('../../utils/api.js')
+
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
+    banners: {},
+    hideBanner: 'hidden', // 默认隐藏横幅，如果横幅存在，则把该值置空
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
     duration: 1000
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  onLoad: function() {
+    wx.showLoading({
+      title: '玩命加载中...',
     })
-  },
-  onLoad: function () {
-    
-    
-  },
+
+    let that = this;
+
+    api.getBanners(function(res) {
+      if (config.debug) console.log('api.getBanners:', res);
+      if (res.data.data.banners && res.data.data.banners.length > 0) {
+        that.setData({
+          banners: res.data.data.banners,
+          hideBanner: ''
+        })
+      }
+    })
+
+    api.getCategories(function(res){
+      if (config.debug) console.log('api.getCategories:', res);
+    })
+
+    wx.hideLoading()
+
+  }
 })

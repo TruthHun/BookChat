@@ -5,6 +5,8 @@ page{
   font-family:-apple-system-font,Helvetica Neue,sans-serif;
 }
 
+.hidden{display: none !important;}
+
 .text-center{text-align: center;}
 
 /*  字体大小规范  */

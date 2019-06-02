@@ -3,39 +3,41 @@
 <view class='search base-padding base-margin-bottom'>
   <label>
     <icon type='search'></icon>
-    <input type='search' placeholder="请输入搜索关键字"/>
+    <input type='search' placeholder="请输入搜索关键字" />
   </label>
 </view>
 
 <!--  banner  -->
-<view class='swiper base-padding base-margin-bottom'>
+<view class='swiper base-padding base-margin-bottom {{hideBanner}}'>
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-      <block wx:for="{{imgUrls}}">
-        <swiper-item>
-          <image src="{{item}}" mode='center' class="slide-image"/>
-        </swiper-item>
-      </block>
+    <block wx:for="{{banners}}" wx:key="index" wx:for-item='item'>
+      <swiper-item>
+        <navigator url='{{item.link}}'>
+          <image bindtab='letsgo' src="{{item.image}}" mode='center' class="slide-image" />
+        </navigator>
+      </swiper-item>
+    </block>
   </swiper>
 </view>
 
 <!--  推荐  -->
 <view class='panel base-padding recommend base-margin-bottom'>
   <view class='panel-heading'>
-    <view class='panel-title font-lv1 strong'>站长推荐 
+    <view class='panel-title font-lv1 strong'>站长推荐
       <view class='pull-right font-lv3 color-link'>换一批</view>
     </view>
   </view>
   <view class='panel-body'>
     <navigator url="/pages/intro/intro">
-      <image mode='widthFix'  class='box-shadow cover' src='../../assets/images/example/es.jpeg'/>
+      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/es.jpeg' />
       <view class='font-lv3 ellipsis-2row mgt-15rpx'>Elasticsearch权威指南中文版</view>
     </navigator>
     <navigator url="/pages/intro/intro">
-      <image mode='widthFix' class='box-shadow' src='../../assets/images/example/go.jpeg'/>
+      <image mode='widthFix' class='box-shadow' src='../../assets/images/example/go.jpeg' />
       <view class='font-lv3 ellipsis-2row mgt-15rpx'>Go入门指南</view>
     </navigator>
     <navigator url="/pages/intro/intro">
-      <image mode='widthFix' class='box-shadow' src='../../assets/images/example/es6.jpeg'/>
+      <image mode='widthFix' class='box-shadow' src='../../assets/images/example/es6.jpeg' />
       <view class='font-lv3 ellipsis-2row mgt-15rpx'>ECMAScript 6入门</view>
     </navigator>
   </view>
@@ -47,156 +49,157 @@
 
 <view class='panel base-padding base-margin-bottom cate-data'>
   <view class='panel-heading'>
-    <view class='panel-title font-lv1 strong'>前端 <view class='pull-right color-link font-lv3'>更多</view>
+    <view class='panel-title font-lv1 strong'>前端
+      <view class='pull-right color-link font-lv3'>更多</view>
     </view>
   </view>
   <view class='panel-body'>
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/go.jpeg'/>
-          </navigator>
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/go.jpeg' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url='/pages/intro/intro' class='ellipsis-1row font-lv2'>Go入门指南</navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
         </view>
-        <view class='row-right'>
-          <navigator url='/pages/intro/intro' class='ellipsis-1row font-lv2'>Go入门指南</navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-          <view class='text-muted ellipsis-3row desc'>在接触 Go 语言之后，对这门编程语言非常着迷，期间也陆陆续续开始一些帮助国内编程爱好者了解和发展 Go 语言的工作，比如开始录制视频教程《Go编程基础》。但由于目前国内并没有比较好的 Go 语言书籍，而国外的优秀书籍因为英文的缘故在一定程度上也为不少 Go 语言爱好者带来了一些学习上的困扰，不仅为了加快扩散 Go 爱好者的国内群体，本人在完成阅读这本名叫 《The Way to Go》 之后，决定每天抽出一点时间来进行翻译的工作，并且以开源的形式免费分享给有需要的 Go 语言爱好者。
-          </view>
+        <view class='text-muted ellipsis-3row desc'>在接触 Go 语言之后，对这门编程语言非常着迷，期间也陆陆续续开始一些帮助国内编程爱好者了解和发展 Go 语言的工作，比如开始录制视频教程《Go编程基础》。但由于目前国内并没有比较好的 Go 语言书籍，而国外的优秀书籍因为英文的缘故在一定程度上也为不少 Go 语言爱好者带来了一些学习上的困扰，不仅为了加快扩散 Go 爱好者的国内群体，本人在完成阅读这本名叫 《The Way to Go》 之后，决定每天抽出一点时间来进行翻译的工作，并且以开源的形式免费分享给有需要的 Go 语言爱好者。
         </view>
       </view>
-
-
-
-
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/beego.png'/>
-          </navigator>
-        </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Beego开发手册</navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-          <view class='text-muted ellipsis-3row desc'>beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
-        </view>
-        </view>
-      </view>
-
-
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/c.png'/>
-          </navigator>
-        </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>笨办法学C </navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-        </view>
-          <view class='text-muted ellipsis-3row desc'>这本书的目的是让你足够熟悉C语言，并能够使用它编写自己的软件，或者修改其他人的代码。这本书的最后，我们会从一本叫做“K&R C”的名著中选取实际的代码，并且用你学过的知识来做代码审查。
     </view>
+
+
+
+
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/beego.png' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Beego开发手册</navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
+        </view>
+        <view class='text-muted ellipsis-3row desc'>beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
         </view>
       </view>
-
-
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/docker.png'/>
-          </navigator>
-        </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Docker — 从入门到实战</navigator>
-          
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-
-          <view class='text-muted ellipsis-3row desc'>Docker 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的运行效率，降低了云计算资源供应的成本！使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松！
     </view>
-        </view>
-      </view>
 
 
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/es6.jpeg'/>
-          </navigator>
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/c.png' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>笨办法学C </navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
         </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>ECMAScript 6入门</navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-          <view class='text-muted ellipsis-3row desc'>《ECMAScript 6入门》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新增的语法特性。
-          </view>
+        <view class='text-muted ellipsis-3row desc'>这本书的目的是让你足够熟悉C语言，并能够使用它编写自己的软件，或者修改其他人的代码。这本书的最后，我们会从一本叫做“K&R C”的名著中选取实际的代码，并且用你学过的知识来做代码审查。
         </view>
       </view>
+    </view>
+
+
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/docker.png' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Docker — 从入门到实战</navigator>
+
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
+        </view>
+
+        <view class='text-muted ellipsis-3row desc'>Docker 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的运行效率，降低了云计算资源供应的成本！使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松！
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/es6.jpeg' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>ECMAScript 6入门</navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
+        </view>
+        <view class='text-muted ellipsis-3row desc'>《ECMAScript 6入门》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新增的语法特性。
+        </view>
+      </view>
+    </view>
   </view>
 </view>
 
@@ -204,156 +207,157 @@
 
 <view class='panel base-padding base-margin-bottom cate-data'>
   <view class='panel-heading'>
-    <view class='panel-title font-lv1 strong'>后端 <view class='pull-right color-link font-lv3'>更多</view>
+    <view class='panel-title font-lv1 strong'>后端
+      <view class='pull-right color-link font-lv3'>更多</view>
     </view>
   </view>
   <view class='panel-body'>
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/go.jpeg'/>
-          </navigator>
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/go.jpeg' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url='/pages/intro/intro' class='ellipsis-1row font-lv2'>Go入门指南</navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
         </view>
-        <view class='row-right'>
-          <navigator url='/pages/intro/intro' class='ellipsis-1row font-lv2'>Go入门指南</navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-          <view class='text-muted ellipsis-3row desc'>在接触 Go 语言之后，对这门编程语言非常着迷，期间也陆陆续续开始一些帮助国内编程爱好者了解和发展 Go 语言的工作，比如开始录制视频教程《Go编程基础》。但由于目前国内并没有比较好的 Go 语言书籍，而国外的优秀书籍因为英文的缘故在一定程度上也为不少 Go 语言爱好者带来了一些学习上的困扰，不仅为了加快扩散 Go 爱好者的国内群体，本人在完成阅读这本名叫 《The Way to Go》 之后，决定每天抽出一点时间来进行翻译的工作，并且以开源的形式免费分享给有需要的 Go 语言爱好者。
-          </view>
+        <view class='text-muted ellipsis-3row desc'>在接触 Go 语言之后，对这门编程语言非常着迷，期间也陆陆续续开始一些帮助国内编程爱好者了解和发展 Go 语言的工作，比如开始录制视频教程《Go编程基础》。但由于目前国内并没有比较好的 Go 语言书籍，而国外的优秀书籍因为英文的缘故在一定程度上也为不少 Go 语言爱好者带来了一些学习上的困扰，不仅为了加快扩散 Go 爱好者的国内群体，本人在完成阅读这本名叫 《The Way to Go》 之后，决定每天抽出一点时间来进行翻译的工作，并且以开源的形式免费分享给有需要的 Go 语言爱好者。
         </view>
       </view>
-
-
-
-
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/beego.png'/>
-          </navigator>
-        </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Beego开发手册</navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-          <view class='text-muted ellipsis-3row desc'>beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
-        </view>
-        </view>
-      </view>
-
-
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/c.png'/>
-          </navigator>
-        </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>笨办法学C </navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-        </view>
-          <view class='text-muted ellipsis-3row desc'>这本书的目的是让你足够熟悉C语言，并能够使用它编写自己的软件，或者修改其他人的代码。这本书的最后，我们会从一本叫做“K&R C”的名著中选取实际的代码，并且用你学过的知识来做代码审查。
     </view>
+
+
+
+
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/beego.png' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Beego开发手册</navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
+        </view>
+        <view class='text-muted ellipsis-3row desc'>beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
         </view>
       </view>
-
-
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/docker.png'/>
-          </navigator>
-        </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Docker — 从入门到实战</navigator>
-          
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-
-          <view class='text-muted ellipsis-3row desc'>Docker 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的运行效率，降低了云计算资源供应的成本！使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松！
     </view>
-        </view>
-      </view>
 
 
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/es6.jpeg'/>
-          </navigator>
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/c.png' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>笨办法学C </navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
         </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>ECMAScript 6入门</navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-          <view class='text-muted ellipsis-3row desc'>《ECMAScript 6入门》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新增的语法特性。
-          </view>
+        <view class='text-muted ellipsis-3row desc'>这本书的目的是让你足够熟悉C语言，并能够使用它编写自己的软件，或者修改其他人的代码。这本书的最后，我们会从一本叫做“K&R C”的名著中选取实际的代码，并且用你学过的知识来做代码审查。
         </view>
       </view>
+    </view>
+
+
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/docker.png' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Docker — 从入门到实战</navigator>
+
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
+        </view>
+
+        <view class='text-muted ellipsis-3row desc'>Docker 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的运行效率，降低了云计算资源供应的成本！使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松！
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/es6.jpeg' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>ECMAScript 6入门</navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
+        </view>
+        <view class='text-muted ellipsis-3row desc'>《ECMAScript 6入门》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新增的语法特性。
+        </view>
+      </view>
+    </view>
   </view>
 </view>
 
@@ -362,157 +366,156 @@
 
 <view class='panel base-padding base-margin-bottom cate-data'>
   <view class='panel-heading'>
-    <view class='panel-title font-lv1 strong'>数据库 <view class='pull-right color-link font-lv3'>更多</view>
+    <view class='panel-title font-lv1 strong'>数据库
+      <view class='pull-right color-link font-lv3'>更多</view>
     </view>
   </view>
   <view class='panel-body'>
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/go.jpeg'/>
-          </navigator>
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/go.jpeg' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url='/pages/intro/intro' class='ellipsis-1row font-lv2'>Go入门指南</navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
         </view>
-        <view class='row-right'>
-          <navigator url='/pages/intro/intro' class='ellipsis-1row font-lv2'>Go入门指南</navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-          <view class='text-muted ellipsis-3row desc'>在接触 Go 语言之后，对这门编程语言非常着迷，期间也陆陆续续开始一些帮助国内编程爱好者了解和发展 Go 语言的工作，比如开始录制视频教程《Go编程基础》。但由于目前国内并没有比较好的 Go 语言书籍，而国外的优秀书籍因为英文的缘故在一定程度上也为不少 Go 语言爱好者带来了一些学习上的困扰，不仅为了加快扩散 Go 爱好者的国内群体，本人在完成阅读这本名叫 《The Way to Go》 之后，决定每天抽出一点时间来进行翻译的工作，并且以开源的形式免费分享给有需要的 Go 语言爱好者。
-          </view>
+        <view class='text-muted ellipsis-3row desc'>在接触 Go 语言之后，对这门编程语言非常着迷，期间也陆陆续续开始一些帮助国内编程爱好者了解和发展 Go 语言的工作，比如开始录制视频教程《Go编程基础》。但由于目前国内并没有比较好的 Go 语言书籍，而国外的优秀书籍因为英文的缘故在一定程度上也为不少 Go 语言爱好者带来了一些学习上的困扰，不仅为了加快扩散 Go 爱好者的国内群体，本人在完成阅读这本名叫 《The Way to Go》 之后，决定每天抽出一点时间来进行翻译的工作，并且以开源的形式免费分享给有需要的 Go 语言爱好者。
         </view>
       </view>
-
-
-
-
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/beego.png'/>
-          </navigator>
-        </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Beego开发手册</navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-          <view class='text-muted ellipsis-3row desc'>beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
-        </view>
-        </view>
-      </view>
-
-
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/c.png'/>
-          </navigator>
-        </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>笨办法学C </navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-        </view>
-          <view class='text-muted ellipsis-3row desc'>这本书的目的是让你足够熟悉C语言，并能够使用它编写自己的软件，或者修改其他人的代码。这本书的最后，我们会从一本叫做“K&R C”的名著中选取实际的代码，并且用你学过的知识来做代码审查。
     </view>
+
+
+
+
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/beego.png' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Beego开发手册</navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
+        </view>
+        <view class='text-muted ellipsis-3row desc'>beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
         </view>
       </view>
-
-
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/docker.png'/>
-          </navigator>
-        </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Docker — 从入门到实战</navigator>
-          
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-
-          <view class='text-muted ellipsis-3row desc'>Docker 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的运行效率，降低了云计算资源供应的成本！使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松！
     </view>
-        </view>
-      </view>
 
 
- 
-      <view class='row'>
-        <view class='row-left'>
-          <navigator url="/pages/intro/intro">
-            <image mode='widthFix' class='box-shadow' src='../../assets/images/example/es6.jpeg'/>
-          </navigator>
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/c.png' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>笨办法学C </navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
         </view>
-        <view class='row-right'>
-          <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>ECMAScript 6入门</navigator>
-          <view class='text-muted info'>
-            <view>
-              <image src='../../assets/images/clock.png'></image>
-              1 天前
-            </view>
-            <view>
-              <image src='../../assets/images/document.png'></image>
-              1312 章节
-            </view>
-            <view>
-              <image src='../../assets/images/eye.png'></image>
-              1312 阅读
-            </view>
-          </view>
-          <view class='text-muted ellipsis-3row desc'>《ECMAScript 6入门》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新增的语法特性。
-          </view>
+        <view class='text-muted ellipsis-3row desc'>这本书的目的是让你足够熟悉C语言，并能够使用它编写自己的软件，或者修改其他人的代码。这本书的最后，我们会从一本叫做“K&R C”的名著中选取实际的代码，并且用你学过的知识来做代码审查。
         </view>
       </view>
+    </view>
+
+
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/docker.png' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>Docker — 从入门到实战</navigator>
+
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
+        </view>
+
+        <view class='text-muted ellipsis-3row desc'>Docker 是个划时代的开源项目，它彻底释放了计算虚拟化的威力，极大提高了应用的运行效率，降低了云计算资源供应的成本！使用 Docker，可以让应用的部署、测试和分发都变得前所未有的高效和轻松！
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class='row'>
+      <view class='row-left'>
+        <navigator url="/pages/intro/intro">
+          <image mode='widthFix' class='box-shadow' src='../../assets/images/example/es6.jpeg' />
+        </navigator>
+      </view>
+      <view class='row-right'>
+        <navigator url="/pages/intro/intro" class='ellipsis-1row font-lv2'>ECMAScript 6入门</navigator>
+        <view class='text-muted info'>
+          <view>
+            <image src='../../assets/images/clock.png'></image>
+            1 天前
+          </view>
+          <view>
+            <image src='../../assets/images/document.png'></image>
+            1312 章节
+          </view>
+          <view>
+            <image src='../../assets/images/eye.png'></image>
+            1312 阅读
+          </view>
+        </view>
+        <view class='text-muted ellipsis-3row desc'>《ECMAScript 6入门》是一本开源的 JavaScript 语言教程，全面介绍 ECMAScript 6 新增的语法特性。
+        </view>
+      </view>
+    </view>
   </view>
 </view>
-
-

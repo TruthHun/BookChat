@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/search/search",
     "pages/list/list",
@@ -18,13 +18,14 @@
     "pages/reg/reg",
     "pages/me/me",
     "pages/release/release",
-    "pages/intro/intro"
+    "pages/intro/intro",
+    "pages/hello"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "BookChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "list": [
@@ -56,5 +57,6 @@
     "backgroundColor": "#ffffff",
     "color": "#888888",
     "selectedColor": "#1aad19"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
