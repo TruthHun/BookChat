@@ -1,4 +1,4 @@
-let host='http://localhost:8181/bookchat';
+let host='https://www.bookstack.cn/bookchat';
 
 const api = {
   banners: `${host}/api/v1/banners`, 

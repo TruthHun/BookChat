@@ -96,3 +96,18 @@ swiper-item{
 }
 
 .cate-data{margin-top: 10rpx;}
+
+.hor {
+  display: flex;
+  flex-direction: row;
+  width:100%;
+}
+.hor navigator{
+  width: 170rpx;margin:3rpx 15rpx;
+}
+.hor navigator:first-of-type{margin-left: 3rpx}
+.hor navigator:last-of-type{margin-right: 3rpx}
+
+.hor navigator image{
+  width: 170rpx;
+}

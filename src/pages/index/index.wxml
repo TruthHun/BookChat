@@ -20,33 +20,29 @@
   </swiper>
 </view>
 
+
 <!--  推荐  -->
 <view class='panel base-padding recommend base-margin-bottom'>
   <view class='panel-heading'>
-    <view class='panel-title font-lv1 strong'>站长推荐
-      <view class='pull-right font-lv3 color-link'>换一批</view>
-    </view>
+    <view class='panel-title font-lv1 strong'>最新推荐</view>
   </view>
   <view class='panel-body'>
-    <navigator url="/pages/intro/intro">
-      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/es.jpeg' />
-      <view class='font-lv3 ellipsis-2row mgt-15rpx'>Elasticsearch权威指南中文版</view>
-    </navigator>
-    <navigator url="/pages/intro/intro">
-      <image mode='widthFix' class='box-shadow' src='../../assets/images/example/go.jpeg' />
-      <view class='font-lv3 ellipsis-2row mgt-15rpx'>Go入门指南</view>
-    </navigator>
-    <navigator url="/pages/intro/intro">
-      <image mode='widthFix' class='box-shadow' src='../../assets/images/example/es6.jpeg' />
-      <view class='font-lv3 ellipsis-2row mgt-15rpx'>ECMAScript 6入门</view>
-    </navigator>
+    <scroll-view scroll-x>
+      <view class='hor'>
+        <block wx:for="{{recommendBooks}}" wx:key='index' wx:for-item="book">
+          <navigator url="/pages/intro/intro">
+            <image mode='widthFix' class='box-shadow cover' src='{{book.cover}}/cover' />
+            <view class='font-lv3 ellipsis-2row mgt-15rpx'>{{book.book_name}}</view>
+          </navigator>
+        </block>
+      </view>
+    </scroll-view>
   </view>
 </view>
 
 
 
 <!--  各种分类的书籍的展示  -->
-
 <view class='panel base-padding base-margin-bottom cate-data'>
   <view class='panel-heading'>
     <view class='panel-title font-lv1 strong'>前端

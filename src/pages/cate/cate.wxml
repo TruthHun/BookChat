@@ -6,10 +6,11 @@
       </view>
       <view class='row'>
         <block wx:for="{{categories}}" wx:key='index1' wx:for-item="child">
-          <navigator url='/pages/list/list?cid={{child.id}}' class='col-6 item'  wx:if="{{child.cnt>0 && child.pid==category.id && child.status}}">
+          <navigator url='/pages/list/list?cid={{child.id}}' class='col-6 item' wx:if="{{child.cnt>0 && child.pid==category.id && child.status}}">
             <view class='row'>
               <view class='col-4'>
-                <image class='img-responsive' mode='widthFix' src='{{child.icon}}'></image>
+                <image wx:if="{{child.icon.length>0}}" class='img-responsive' mode='widthFix' src='{{child.icon}}'></image>
+                <image wx:else class='img-responsive' mode='widthFix' src='../../assets/images/cate-default.png'></image>
               </view>
               <view class='col-8'>
                 <view class='ellipsis-1row'>{{child.title}}</view>

@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/cate/cate",
     "pages/index/index",
     "pages/search/search",
     "pages/list/list",
@@ -18,6 +17,7 @@
     "pages/reg/reg",
     "pages/me/me",
     "pages/release/release",
+    "pages/cate/cate",
     "pages/intro/intro",
     "pages/hello"
   ],
