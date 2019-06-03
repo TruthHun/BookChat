@@ -56,12 +56,15 @@
               <image mode='widthFix' class='box-shadow' src='{{book.cover}}' />
             </navigator>
           </view>
-          <navigator  url='/pages/intro/intro?id={{book.book_id}}' class='row-right'>
+          <navigator url='/pages/intro/intro?id={{book.book_id}}' class='row-right'>
             <view class='ellipsis-1row font-lv2'>{{book.book_name}}</view>
             <view class='text-muted info'>
-              <view><image src='../../assets/images/clock.png'></image> {{book.created_at}}</view>
-              <view><image src='../../assets/images/document.png'></image> {{book.cnt_doc}} 章节</view>
-              <view><image src='../../assets/images/eye.png'></image> {{book.view}} 阅读</view>
+              <view>
+                <image src='../../assets/images/eye.png'></image>{{book.view}} 阅读</view>
+              <view>
+                <image src='../../assets/images/document.png'></image>{{book.cnt_doc}} 章节</view>
+              <view>
+                <image src='../../assets/images/clock.png'></image> {{book.created_at}}</view>
             </view>
             <view class='text-muted ellipsis-2row desc'>{{book.description}}</view>
           </navigator>
