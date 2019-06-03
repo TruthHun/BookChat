@@ -7,6 +7,7 @@ const api = {
   logout: `${host}/api/v1/logout`,
   categories: `${host}/api/v1/book/categories`,
   bookLists: `${host}/api/v1/book/lists`,
+  bookListsByCids: `${host}/api/v1/book/lists-by-cids`,
   bookInfo: `${host}/api/v1/book/info`,
   bookMenu: `${host}/api/v1/book/menu`,
   bookDownload: `${host}/api/v1/book/download`,

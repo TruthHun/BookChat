@@ -75,8 +75,28 @@ const getBooks = (page, size, sort, cid, callback) => {
   })
 }
 
+const getBooksByCids = (cids, page,size,sort,callback) =>{
+  wx.request({
+    url: config.api.bookListsByCids,
+    data: {
+      page,
+      size,
+      sort,
+      cids
+    },
+    success: function (res) {
+      if (res.data.data.books) {
+        callback(res.data.data.books)
+      } else {
+        callback({})
+      }
+    }
+  })
+}
+
 module.exports = {
   getBanners: getBanners,
   getCategories: getCategories,
-  getBooks: getBooks
+  getBooks: getBooks,
+  getBooksByCids: getBooksByCids,
 }

@@ -161,7 +161,7 @@ page{
   padding: 0rpx 30rpx;
 }
 .base-margin-bottom{
-  margin-bottom: 45rpx;
+  margin-bottom: 60rpx;
 }
 .pull-right{
   float: right;

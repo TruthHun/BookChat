@@ -3,12 +3,13 @@
 const app = getApp()
 const config = require('../../config.js')
 const api = require('../../utils/api.js')
+const util = require('../../utils/util.js')
 
 Page({
   data: {
     userInfo: {},
     banners: {},
-    hideBanner: 'hidden', // 默认隐藏横幅，如果横幅存在，则把该值置空
+    categoryBooks: [],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -19,20 +20,53 @@ Page({
       title: '玩命加载中...',
     })
 
-    let that = this;
+    let that = this
 
     api.getBanners(function(res) {
-      if (config.debug) console.log('api.getBanners:', res);
+      if (config.debug) console.log('api.getBanners:', res)
       if (res.data.data.banners && res.data.data.banners.length > 0) {
         that.setData({
-          banners: res.data.data.banners,
-          hideBanner: ''
+          banners: res.data.data.banners
         })
       }
     })
 
     api.getCategories(function(res) {
-      if (config.debug) console.log('api.getCategories:', res);
+      if (config.debug) console.log('api.getCategories:', res)
+      if (res.length > 0) {
+        let cids = []
+        let categories = res.filter(function(category) {
+          let b = category.pid == 0 && category.cnt > 0
+          if (b) cids.push(category.id)
+          return b
+        })
+        if (cids.length > 0) {
+          api.getBooksByCids(cids.join(","), 1, 5, "new", function(books) {
+            if (config.debug) console.log('api.getBooksByCids:', books)
+            let categoryBooks = categories.map(function(category) {
+              let book = books[category.id]
+              if (book != undefined && book.length > 0) {
+                book = book.map(function(item){
+                  item.created_at = util.relativeTime(item.created_at)
+                  return item
+                })
+                category.books = book
+              } else {
+                category.books = []
+              }
+              return category
+            })
+            if (config.debug) console.log('categoryBooks:', categoryBooks)
+            that.setData({
+              categoryBooks: categoryBooks
+            })
+          })
+        }
+      }
+
+
+
+
     })
 
     // 获取最新推荐
@@ -43,7 +77,7 @@ Page({
       })
     })
   },
-  onReady: function(){
+  onReady: function() {
     wx.hideLoading()
   }
 })
