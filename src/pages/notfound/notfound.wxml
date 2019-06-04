@@ -1,0 +1,8 @@
+<!--pages/notfound/notfound.wxml-->
+<view>
+<view>
+  <image src='../../assets/images/404.png'></image>
+</view>
+<text class='font-lv1'>404</text>
+<text>确认过眼神，没有发现您要找的人</text>
+</view>

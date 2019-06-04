@@ -1,13 +1,16 @@
-//index.js
-//获取应用实例
-const app = getApp()
-const api = require('../../config.js')
+const config = require('../../config.js')
+const api = require('../../utils/api.js')
+const util = require('../../utils/util.js')
+
 Page({
   data: {
     motto: 'Hello World'
   },
-  onLoad: function () {
-    
-    
+  onLoad: function (options) {
+    wx.redirectTo({
+      url: '/pages/notfound/notfound',
+    })
+    let id = parseInt(options.id)
+    console.log(options)
   }
 })

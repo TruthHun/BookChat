@@ -1,6 +1,3 @@
-// index.js
-// 获取应用实例
-const app = getApp()
 const config = require('../../config.js')
 const api = require('../../utils/api.js')
 const util = require('../../utils/util.js')
