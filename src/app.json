@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/notfound/notfound",
     "pages/index/index",
     "pages/search/search",
     "pages/list/list",
@@ -20,7 +19,7 @@
     "pages/release/release",
     "pages/cate/cate",
     "pages/intro/intro",
-    "pages/hello/hello"
+    "pages/notfound/notfound"
   ],
   "window": {
     "backgroundTextStyle": "light",

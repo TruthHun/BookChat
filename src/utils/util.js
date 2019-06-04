@@ -53,11 +53,32 @@ const relativeTime = t => {
   return '刚刚';
 }
 
+const getUser = ()=>{
+  try {
+    var value = wx.getStorageSync('user')
+    if (value) {
+      return JSON.parse(value)
+    }
+  } catch (e) {
+    // Do something when catch error
+    console.log(e)
+    return {}
+  }
+}
 
+const getToken = () =>{
+  let user = getUser()
+  if (user && user.token!=undefined) {
+    return user.token
+  }
+  return ""
+}
 
 module.exports = {
   formatTime,
   now,
   toTimestamp,
+  getUser,
+  getToken,
   relativeTime
 }

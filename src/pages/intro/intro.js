@@ -4,13 +4,31 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
-    motto: 'Hello World'
+    book:{}
   },
   onLoad: function (options) {
-    wx.redirectTo({
-      url: '/pages/notfound/notfound',
-    })
     let id = parseInt(options.id)
-    console.log(options)
+    if (id<=0){
+      wx.redirectTo({
+        url: '/pages/notfound/notfound',
+      })
+      return
+    }
+
+    let that = this
+
+    api.getBook(id,function(book){
+      if(config.debug) console.log("api.getBook：",book)
+      wx.setNavigationBarTitle({
+        title: book.book_name,
+      })
+      that.setData({book})
+    })
+
+    api.getRelatedBooks(id,function(books){
+      if (config.debug) console.log("api.getRelatedBooks: ", books)
+      that.setData({ relatedBooks:books })
+    })
+
   }
 })

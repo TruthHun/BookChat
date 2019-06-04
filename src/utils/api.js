@@ -94,9 +94,55 @@ const getBooksByCids = (cids, page,size,sort,callback) =>{
   })
 }
 
+const getBook = (identify,callback) =>{
+  let header = { 'content-type': 'application/json'}
+  if (util.getToken()) header["authorization"]=util.getToken()
+  wx.request({
+    url: config.api.bookInfo,
+    header,
+    data:{
+      "identify": identify,
+    },
+    success:function(res){
+      if (res.statusCode==404){
+        wx.redirectTo({
+          url: '/pages/notfound/notfound',
+        })
+        return
+      }
+      if(res.data.data.book){
+        callback(res.data.data.book)
+      }else{
+        wx.redirectTo({
+          url: '/pages/notfound/notfound',
+        })
+      }
+    }
+  })
+} 
+
+
+const getRelatedBooks = (bookId,callback) =>{
+  wx.request({
+    url: config.api.bookRelated,
+    data: {
+      "book_id":bookId,
+    },
+    success:function(res){
+      if(res.data.data.books){
+        callback(res.data.data.books)
+      }else{
+        callback([])
+      }
+    }
+  })
+}
+
 module.exports = {
   getBanners: getBanners,
   getCategories: getCategories,
   getBooks: getBooks,
+  getBook:getBook,
   getBooksByCids: getBooksByCids,
+  getRelatedBooks: getRelatedBooks,
 }

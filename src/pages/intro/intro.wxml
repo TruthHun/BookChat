@@ -1,13 +1,18 @@
 <view class='row info'>
   <view class='col-4'>
-    <image mode='widthFix'  class='cover box-shadow' src='../../assets/images/example/beego.png'></image>
+    <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
   </view>
   <view class='col-8'>
-    <text class='ellipsis-2row font-lv1'>Beego开发手册</text>
-    <view class='score score-50 mgt-30rpx'> <text>5.0 分</text></view>
-    <view class='mgt-15rpx font-lv3 color-semi'><image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image> 进击的皇虫</view>
+    <text class='ellipsis-2row font-lv1'>{{book.book_name}}</text>
+    <view class='score score-{{book.score}} mgt-30rpx'>
+      <text>5.0 分</text>
+    </view>
+    <view class='mgt-15rpx font-lv3 color-semi'>
+      <image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image> {{book.user}}</view>
     <view class='progress mgt-30rpx'>
-      <view class='font-lv3 color-grey'>阅读进度<view class='pull-right'>20%</view></view>
+      <view class='font-lv3 color-grey'>阅读进度
+        <view class='pull-right'>20%</view>
+      </view>
       <progress class='mgt-15rpx' percent="20" />
     </view>
   </view>
@@ -16,27 +21,47 @@
 <view class='data'>
   <view class='row'>
     <view class='col'>
-      <text class='font-lv3'>212</text>
+      <text class='font-lv3'>{{book.cnt_doc}}</text>
       <text class='text-muted font-lv5'>章节</text>
     </view>
     <view class='col'>
-      <text class='font-lv3'>212</text>
+      <text class='font-lv3'>{{book.view}}</text>
       <text class='text-muted font-lv5'>阅读</text>
     </view>
     <view class='col'>
-      <text class='font-lv3'>212</text>
+      <text class='font-lv3'>{{book.star}}</text>
       <text class='text-muted font-lv5'>收藏</text>
     </view>
   </view>
 </view>
 
-<view class='intro font-lv3 color-grey'>
-    beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
-</view>
+<view class='intro font-lv3 color-grey'>{{book.description}}</view>
 <navigator url='/pages/menu/menu' class='menu row'>
   <view class='col font-lv3'>查看目录</view>
-  <view class='col font-lv4 color-grey text-right'>最后更新于：1小时前 ></view>
+  <view class='col font-lv4 color-grey text-right'>最后更新于：1小时前</view>
 </navigator>
+
+<!-- TODO: 这里放几本相关书籍 -->
+
+<view wx:if="{{relatedBooks.length>0}}" class='panel related-books'>
+  <view class='panel-heading base-padding'>
+    <view class='panel-title pdt-30rpx strong font-lv2'>相关书籍</view>
+  </view>
+  <view class='panel-body base-padding'>
+    <scroll-view scroll-x>
+      <view class='hor'>
+        <block wx:for="{{relatedBooks}}" wx:key='index' wx:for-item="book">
+          <navigator url="/pages/intro/intro?id={{book.book_id}}">
+            <image mode='widthFix' class='box-shadow cover' src='{{book.cover}}' />
+            <view class='font-lv3 ellipsis-2row mgt-15rpx'>{{book.book_name}}</view>
+          </navigator>
+        </block>
+      </view>
+    </scroll-view>
+
+  </view>
+</view>
+
 
 <view class='panel comments'>
   <view class='panel-heading base-padding'>
@@ -123,7 +148,7 @@
         </view>
       </view>
     </view>
-  
+
   </view>
 </view>
 
@@ -134,32 +159,32 @@
 <!-- 底部功能栏  -->
 <view class='fix-bottom'>
   <view class='row'>
-      <navigator url='' class='col item-min'>
-        <image src='../../assets/images/download.png'></image>
-        <text>下载</text>
+    <navigator url='' class='col item-min'>
+      <image src='../../assets/images/download.png'></image>
+      <text>下载</text>
+    </navigator>
+    <navigator url='/pages/bookmarks/bookmarks' class='col item-min'>
+      <image src='../../assets/images/bookmark.png'></image>
+      <text>书签</text>
+    </navigator>
+
+    <view class='col'>
+      <navigator url='/pages/read/read' class='read'>
+        <image src='../../assets/images/read-white.png' mode='scaleToFill'></image>
+        <text>阅读</text>
       </navigator>
-      <navigator url='/pages/bookmarks/bookmarks' class='col item-min'>
-        <image src='../../assets/images/bookmark.png'></image>
-        <text>书签</text>
-      </navigator>
-      
-      <view class='col'>
-        <navigator url='/pages/read/read' class='read'>
-          <image src='../../assets/images/read-white.png' mode='scaleToFill'></image>
-          <text>阅读</text>
-        </navigator>
-      </view>
-      <!-- <navigator url='/pages/share/share' class='col item-min'>
+    </view>
+    <!-- <navigator url='/pages/share/share' class='col item-min'>
         <image src='../../assets/images/share.png'></image>
         <text>分享</text>
       </navigator> -->
-      <navigator  url='' class='col item-min'>
-        <image src='../../assets/images/star.png'></image>
-        <text>收藏</text>
-      </navigator>
-      <navigator url='/pages/comment/comment' class='col item-min'>
-        <image src='../../assets/images/comment.png'></image>
-        <text>点评</text>
-      </navigator>
-    </view>
+    <navigator url='' class='col item-min'>
+      <image src='../../assets/images/star.png'></image>
+      <text>收藏</text>
+    </navigator>
+    <navigator url='/pages/comment/comment' class='col item-min'>
+      <image src='../../assets/images/comment.png'></image>
+      <text>点评</text>
+    </navigator>
+  </view>
 </view>
