@@ -10,6 +10,7 @@ Page({
     userInfo: {},
     banners: {},
     categoryBooks: [],
+    recommendBooks: [],
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
@@ -63,10 +64,6 @@ Page({
           })
         }
       }
-
-
-
-
     })
 
     // 获取最新推荐
