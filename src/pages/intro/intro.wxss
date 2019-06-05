@@ -93,6 +93,14 @@ page {
   text-indent: 2em;
 }
 
+.intro .ellipsis-1row {
+  word-break: break-all;
+  padding-top: 10rpx;
+  font-size: 13px;
+  margin-bottom: -10rpx;
+  color: #aaa;
+}
+
 /*  目录入口  */
 
 .menu {
@@ -120,8 +128,10 @@ page {
   border-bottom: 10rpx solid #efefef;
   padding-bottom: 30rpx;
 }
-.related-books .panel-heading{
-  border-bottom: 1px solid #efefef;padding-bottom: 30rpx;
+
+.related-books .panel-heading {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 30rpx;
 }
 
 .user .text-muted {

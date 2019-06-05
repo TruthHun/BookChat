@@ -5,7 +5,7 @@
   <view class='col-8'>
     <text class='ellipsis-2row font-lv1'>{{book.book_name}}</text>
     <view class='score score-{{book.score}} mgt-30rpx'>
-      <text>5.0 分</text>
+      <text>{{book.float_score}} 分</text>
     </view>
     <view class='mgt-15rpx font-lv3 color-semi'>
       <image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image> {{book.user}}</view>
@@ -35,10 +35,13 @@
   </view>
 </view>
 
-<view class='intro font-lv3 color-grey'>{{book.description}}</view>
+<view class='intro font-lv3 color-grey'>
+  <text>{{book.description}}</text>
+  <view wx:if="{{book.author.length>0}}" class='ellipsis-1row'>来源: {{book.author}} - {{book.author_url}}</view>
+</view>
 <navigator url='/pages/menu/menu' class='menu row'>
   <view class='col font-lv3'>查看目录</view>
-  <view class='col font-lv4 color-grey text-right'>最后更新于：1小时前</view>
+  <view class='col font-lv4 color-grey text-right'>最后更新：{{book.updated_at}}</view>
 </navigator>
 
 <!-- TODO: 这里放几本相关书籍 -->

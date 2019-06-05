@@ -22,6 +22,8 @@ Page({
       wx.setNavigationBarTitle({
         title: book.book_name,
       })
+      book.updated_at=util.relativeTime(book.updated_at)
+      book.float_score = (book.score/10).toFixed(1)
       that.setData({book})
     })
 
