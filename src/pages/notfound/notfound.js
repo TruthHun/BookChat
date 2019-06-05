@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '内容不存在',
+      title: '没找到对象',
     })
   },
 
