@@ -13,7 +13,7 @@ Page({
 
     let id = parseInt(options.id)
     if (id<=0){
-      wx.redirectTo({
+      wx.navigateTo({
         url: '/pages/notfound/notfound',
       })
       return

@@ -2,7 +2,7 @@
   <block wx:for="{{categories}}" wx:key='index' wx:for-item="category">
     <view class='panel' wx:if="{{category.pid==0 && category.cnt >0 && category.status}}">
       <view class='panel-heading'>
-        <view class='font-lv1 strong'>前端</view>
+        <view class='font-lv1 strong'>{{category.title}}</view>
       </view>
       <view class='row'>
         <block wx:for="{{categories}}" wx:key='index1' wx:for-item="child">

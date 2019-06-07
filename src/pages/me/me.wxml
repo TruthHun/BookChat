@@ -1,8 +1,8 @@
 <view class='base-padding row'>
   <view class='user'>
-    <image src='../../assets/images/example/avatar.jpeg'></image>
-    <view class='username'>进击的皇虫</view>
-    <view class='color-grey font-lv3'>当你的知识再也支撑不起你的野心，该静下心来认真学习了。</view>
+    <image src='{{user.avatar}}'></image>
+    <view class='username'>{{user.nickname}}</view>
+    <view class='color-grey font-lv3'>{{user.intro}}</view>
   </view>
 </view>
 
@@ -27,6 +27,11 @@
     我的关注 
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
+  <view bindtap='logout' class='col-12'>
+    <image src='../../assets/images/login.png'></image>
+    退出登录 
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </view>
 </view>
 
 <view class='base-padding row base-info'>
