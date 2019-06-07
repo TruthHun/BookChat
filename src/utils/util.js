@@ -53,7 +53,7 @@ const relativeTime = t => {
   return '刚刚';
 }
 
-const getUser = ()=>{
+const getUser = () => {
   try {
     var value = wx.getStorageSync('user')
     if (value) {
@@ -66,12 +66,37 @@ const getUser = ()=>{
   }
 }
 
-const getToken = () =>{
+const getToken = () => {
   let user = getUser()
-  if (user && user.token!=undefined) {
+  if (user && user.token != undefined) {
     return user.token
   }
   return ""
+}
+
+// 只有请求结果返回 200 的时候，才会resolve，否则reject
+const request = (api, params = {}, method = "GET", header = {}) =>{
+  return new Promise(function (resolve, reject) {
+    if (!header["content-type"]){
+      header["content-type"]="application/json"
+    }
+    wx.request({
+      url: api,
+      data: params,
+      method: method,
+      header: header,
+      success: function (res) {
+        if (res.statusCode == 200) {
+          resolve(res.data);
+        }else {
+          reject(res);
+        }
+      },
+      fail: function (err) {
+        reject(err)
+      }
+    })
+  });
 }
 
 module.exports = {
@@ -80,5 +105,6 @@ module.exports = {
   toTimestamp,
   getUser,
   getToken,
-  relativeTime
+  relativeTime,
+  request,
 }

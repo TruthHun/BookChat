@@ -5,7 +5,8 @@ const app = getApp()
 
 Page({
   data: {
-    categories: {}
+    categories: {},
+    height: 0
   },
   onLoad: function() {
     wx.showLoading({
@@ -14,11 +15,13 @@ Page({
 
     let that = this;
 
-    api.getCategories(function(res) {
-      if (config.debug) console.log('api.getCategories: ', res);
+    api.getCategories().then((categories)=>{
+      if (config.debug) console.log('api.getCategories: ', categories);
       that.setData({
-        categories: res
+        categories: categories
       })
+    }).catch((e)=>{
+      console.log(e)
     })
   },
   onReady: function(){

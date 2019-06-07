@@ -20,16 +20,34 @@ Page({
 
     let that = this
 
-    api.getBanners(function(res) {
+    util.request(config.api.banners).then((res) => {
       if (config.debug) console.log('api.getBanners:', res)
-      if (res.data.data.banners && res.data.data.banners.length > 0) {
+      if (res.data.banners && res.data.banners.length > 0) {
         that.setData({
-          banners: res.data.data.banners
+          banners: res.data.banners
         })
       }
+    }).catch((e) => {
+      console.log(e)
     })
 
-    api.getCategories(function(res) {
+    util.request(config.api.bookLists, {
+      page: 1,
+      size: 12,
+      sort: 'latest-recommend'
+    }).then((res) => {
+      if (config.debug) console.log("recommenBooks:", res)
+      if (res.data.books) {
+        that.setData({
+          "recommendBooks": res.data.books
+        })
+      }
+
+    }).catch((e) => {
+      console.log(e)
+    })
+
+    api.getCategories().then(function(res) {
       if (config.debug) console.log('api.getCategories:', res)
       if (res.length > 0) {
         let cids = []
@@ -44,8 +62,11 @@ Page({
             let categoryBooks = categories.map(function(category) {
               let book = books[category.id]
               if (book != undefined && book.length > 0) {
-                book = book.map(function(item){
+                book = book.map(function(item) {
                   item.created_at = util.relativeTime(item.created_at)
+                  if (item.view>1000){
+                    item.view = (item.view / 1000).toFixed(1)+"k"
+                  }
                   return item
                 })
                 category.books = book
@@ -61,14 +82,8 @@ Page({
           })
         }
       }
-    })
-
-    // 获取最新推荐
-    api.getBooks(1, 10, "latest-recommend", 0, function(res) {
-      if (config.debug) console.log("api.getBooks,recommenBooks:", res)
-      that.setData({
-        "recommendBooks": res
-      })
+    }).catch(function(e) {
+      console.log(e)
     })
   },
   onReady: function() {

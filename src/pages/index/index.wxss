@@ -52,7 +52,7 @@ swiper-item {
 .panel-body navigator image {
   margin: 0 auto;
   display: block;
-  width: 100%;
+  width: 170rpx;height: 223.5rpx;
   border-radius: 6rpx;
 }
 
@@ -141,4 +141,5 @@ swiper-item {
 
 .hor navigator image {
   width: 170rpx;
+  height: 223.4rpx;
 }

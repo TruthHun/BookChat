@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/cate/cate",
     "pages/search/search",
     "pages/list/list",
     "pages/read/read",
@@ -17,7 +18,6 @@
     "pages/reg/reg",
     "pages/me/me",
     "pages/release/release",
-    "pages/cate/cate",
     "pages/intro/intro",
     "pages/notfound/notfound"
   ],

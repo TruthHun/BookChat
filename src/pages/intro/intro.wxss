@@ -21,7 +21,7 @@ page {
 }
 
 .info .cover {
-  max-width: 100%;
+  width: 230rpx;height: 302.3rpx;
 }
 
 .title {
@@ -235,5 +235,5 @@ page {
 }
 
 .hor navigator image {
-  width: 170rpx;
+  width: 170rpx;height: 223.5rpx;
 }

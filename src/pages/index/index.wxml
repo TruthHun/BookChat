@@ -31,7 +31,7 @@
       <view class='hor'>
         <block wx:for="{{recommendBooks}}" wx:key='index' wx:for-item="book">
           <navigator url="/pages/intro/intro?id={{book.book_id}}">
-            <image mode='widthFix' class='box-shadow cover' src='{{book.cover}}' />
+            <image mode='widthFix' lazy-load='true' class='box-shadow cover' src='{{book.cover}}' />
             <view class='font-lv3 ellipsis-2row mgt-15rpx'>{{book.book_name}}</view>
           </navigator>
         </block>
@@ -53,18 +53,25 @@
         <view class='row'>
           <view class='row-left'>
             <navigator url="/pages/intro/intro?id={{book.book_id}}">
-              <image mode='widthFix' class='box-shadow' src='{{book.cover}}' />
+              <image lazy-load='true' mode='widthFix' class='box-shadow' src='{{book.cover}}' />
             </navigator>
           </view>
           <navigator url='/pages/intro/intro?id={{book.book_id}}' class='row-right'>
             <view class='ellipsis-1row font-lv2'>{{book.book_name}}</view>
             <view class='text-muted info'>
-              <view>
-                <image src='../../assets/images/eye.png'></image>{{book.view}} 阅读</view>
-              <view>
-                <image src='../../assets/images/document.png'></image>{{book.cnt_doc}} 章节</view>
-              <view>
-                <image src='../../assets/images/clock.png'></image> {{book.created_at}}</view>
+              <view class='col-4'>
+                <image src='../../assets/images/eye.png'></image>
+                <text>{{book.view}} 阅读</text>
+              </view>
+              <view class='col-4'>
+                <image src='../../assets/images/document.png'></image>
+                <text>{{book.cnt_doc}} 章节</text>
+              </view>
+              <view class='col-4'>
+                <image src='../../assets/images/clock.png'></image>
+                <text>{{book.created_at}}</text>
+              </view>
+
             </view>
             <view class='text-muted ellipsis-2row desc'>{{book.description}}</view>
           </navigator>
