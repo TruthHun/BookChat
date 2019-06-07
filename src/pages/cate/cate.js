@@ -1,5 +1,6 @@
-const api = require('../../utils/api.js');
-const config = require('../../config.js');
+const api = require('../../utils/api.js')
+const util = require('../../utils/util.js')
+const config = require('../../config.js')
 
 const app = getApp()
 
@@ -9,9 +10,7 @@ Page({
     height: 0
   },
   onLoad: function() {
-    wx.showLoading({
-      title: '玩命加载中...',
-    })
+    util.loading()
 
     let that = this;
 

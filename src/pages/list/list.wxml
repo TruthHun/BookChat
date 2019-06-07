@@ -2,9 +2,10 @@
   <view class='row'>
     <view class='col-8'>
       <view class='row'>
-        <view class="col {{tab=='new' ? 'active': ''}}">最新</view>
-        <view class="col {{tab=='hot' ? 'active': ''}}">热门</view>
-        <view class="col {{tab=='recommend' ? 'active': ''}}">推荐</view>
+      <view bindtap='tabClick' data-tab='popular' data-title='热门' class="col {{tab=='popular' ? 'active': ''}}">热门</view>
+        <view bindtap='tabClick' data-tab='new' data-title='最新' class="col {{tab=='new' ? 'active': ''}}">最新</view>
+        
+        <view bindtap='tabClick' data-tab='recommend' data-title='推荐' class="col {{tab=='recommend' ? 'active': ''}}">推荐</view>
       </view>
     </view>
   </view>
@@ -21,10 +22,7 @@
       </navigator>
     </view>
   </block>
-
-
-
 </view>
-<view class='pagination pdb-30rpx'>
-  <view class='text-center font-lv3 color-grey'>上拉加载下一页</view>
+<view wx:if="{{page==0}}" class='pagination pdb-30rpx'>
+  <view class='text-center font-lv3 color-grey pdb-30rpx'>我也是有底线的</view>
 </view>

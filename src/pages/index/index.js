@@ -14,9 +14,7 @@ Page({
     duration: 1000,
   },
   onLoad: function() {
-    wx.showLoading({
-      title: '玩命加载中...',
-    })
+    util.loading()
 
     let that = this
 
@@ -36,13 +34,12 @@ Page({
       size: 12,
       sort: 'latest-recommend'
     }).then((res) => {
-      if (config.debug) console.log("recommenBooks:", res)
+      if (config.debug) console.log(config.api.bookLists, res)
       if (res.data.books) {
         that.setData({
           "recommendBooks": res.data.books
         })
       }
-
     }).catch((e) => {
       console.log(e)
     })
@@ -57,8 +54,11 @@ Page({
           return b
         })
         if (cids.length > 0) {
-          api.getBooksByCids(cids.join(","), 1, 5, "new", function(books) {
-            if (config.debug) console.log('api.getBooksByCids:', books)
+          util.request(config.api.bookListsByCids,{
+            page: 1, size: 5, sort: 'new', cids: cids
+          }).then((res)=> {
+            let books = res.data.books
+            if (config.debug) console.log(config.api.bookListsByCids, books)
             let categoryBooks = categories.map(function(category) {
               let book = books[category.id]
               if (book != undefined && book.length > 0) {

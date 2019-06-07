@@ -80,6 +80,10 @@ const request = (api, params = {}, method = "GET", header = {}) =>{
     if (!header["content-type"]){
       header["content-type"]="application/json"
     }
+
+    let token = getToken()
+    if (token) header['authorization']=token
+
     wx.request({
       url: api,
       data: params,
@@ -99,6 +103,12 @@ const request = (api, params = {}, method = "GET", header = {}) =>{
   });
 }
 
+const loading = ()=>{
+  wx.showLoading({
+    title: '玩命加载中...',
+  })
+}
+
 module.exports = {
   formatTime,
   now,
@@ -107,4 +117,5 @@ module.exports = {
   getToken,
   relativeTime,
   request,
+  loading,
 }

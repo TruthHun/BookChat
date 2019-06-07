@@ -7,6 +7,10 @@ Page({
     book:{}
   },
   onLoad: function (options) {
+    wx.showLoading({
+      title: '玩命加载中...',
+    })
+
     let id = parseInt(options.id)
     if (id<=0){
       wx.redirectTo({
@@ -16,9 +20,9 @@ Page({
     }
 
     let that = this
-
-    api.getBook(id,function(book){
-      if(config.debug) console.log("api.getBook：",book)
+    util.request(config.api.bookInfo, { identify:id}).then((res)=>{
+      if (config.debug) console.log(config.api.bookInfo,res)
+      let book=res.data.book
       wx.setNavigationBarTitle({
         title: book.book_name,
       })
@@ -27,10 +31,12 @@ Page({
       that.setData({book})
     })
 
-    api.getRelatedBooks(id,function(books){
-      if (config.debug) console.log("api.getRelatedBooks: ", books)
-      that.setData({ relatedBooks:books })
+    util.request(config.api.bookRelated,{book_id:id}).then((res)=>{
+      if (config.debug) console.log(config.api.bookRelated, res)
+      if(res.data.books) that.setData({ relatedBooks:res.data.books })
     })
-
+  },
+  onReady:function(){
+    wx.hideLoading()
   }
 })
