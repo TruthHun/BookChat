@@ -1,32 +1,34 @@
 <view class='base-padding'>
-  <view class='form-body'>
-  <view>
-    <image src='../../assets/images/logo.png'></image>
-  </view>
-    <view class='row'>
-      <view class='col-3'>账户</view>
-      <view class='col-9'>
-        <input name="username" auto-focus='true' placeholder="请输入用户名或邮箱"/>
+  <form bindsubmit='formSubmit'>
+    <view class='form-body'>
+      <view>
+        <image src='../../assets/images/logo.png'></image>
+      </view>
+      <view class='row'>
+        <view class='col-3'>账号</view>
+        <view class='col-9'>
+          <input name="username" auto-focus='true' placeholder="请输入用户名或邮箱" />
+        </view>
+      </view>
+      <view class='row'>
+        <view class='col-3'>密码</view>
+        <view class='col-9'>
+          <input password name="password" placeholder="请输入密码" />
+        </view>
       </view>
     </view>
-    <view class='row'>
-      <view class='col-3'>密码</view>
-      <view class='col-9'>
-        <input password name="password" placeholder="请输入密码"/>
-      </view>
+    <view class='row mgb-30rpx font-lv3 color-grey'>
+      <navigator class='col' url='/pages/about/about'>关于我们</navigator>
+      <navigator class='col text-right' url='/pages/findpwd/findpwd'>忘记密码？</navigator>
     </view>
-  </view>
-  <view class='row mgb-30rpx font-lv3 color-grey'>
-    <navigator class='col' url='/pages/about/about'>关于我们</navigator>
-    <navigator class='col text-right' url='/pages/findpwd/findpwd'>忘记密码？</navigator>
-  </view>
-  <view class='row'>
-    <button class='btn-submit btn-block'> 马上登录 </button>
-  </view>
-  <view class='row'>
-    <button bindtap='wechatLogin' class='btn-auth btn-block'> 使用微信授权登录 </button>
-  </view>
-  <view class='row'>
-    <button class='btn-block btn-reg' bindtap='toRegister'> 立即注册 </button>
-  </view>
+    <view class='row'>
+      <button class='btn-submit btn-block' form-type='submit'> 马上登录 </button>
+    </view>
+    <view class='row'>
+      <button bindtap='wechatLogin' class='btn-auth btn-block'> 使用微信授权登录 </button>
+    </view>
+    <view class='row'>
+      <button class='btn-block btn-reg' bindtap='toRegister'> 立即注册 </button>
+    </view>
+  </form>
 </view>

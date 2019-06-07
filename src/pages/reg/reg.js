@@ -67,5 +67,11 @@ Page({
     wx.navigateTo({
       url: '/pages/login/login',
     })
+  },
+  wechatLogin: function () {
+    wx.showModal({
+      title: '温馨提示',
+      content: 'BookChat暂未开通微信授权登录，敬请期待',
+    })
   }
 })

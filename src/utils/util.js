@@ -1,3 +1,5 @@
+const keyUser = 'user';
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -53,9 +55,17 @@ const relativeTime = t => {
   return '刚刚';
 }
 
+const clearUser = () => {
+  wx.setStorageSync(keyUser, '')
+}
+
+const setUser = (user) => {
+  wx.setStorageSync(keyUser, JSON.stringify(user))
+}
+
 const getUser = () => {
   try {
-    var value = wx.getStorageSync('user')
+    var value = wx.getStorageSync(keyUser)
     if (value) {
       return JSON.parse(value)
     }
@@ -75,47 +85,73 @@ const getToken = () => {
 }
 
 // 只有请求结果返回 200 的时候，才会resolve，否则reject
-const request = (api, params = {}, method = "GET", header = {}) =>{
-  return new Promise(function (resolve, reject) {
-    if (!header["content-type"]){
-      header["content-type"]="application/json"
+const request = (api, params = {}, method = "GET", header = {}) => {
+  return new Promise(function(resolve, reject) {
+    if (!header["content-type"]) {
+      header["content-type"] = "application/json"
     }
 
+    if (method.toUpperCase() == 'POST') header["content-type"] = "application/x-www-form-urlencoded"
+
     let token = getToken()
-    if (token) header['authorization']=token
+    if (token) header['authorization'] = token
 
     wx.request({
       url: api,
       data: params,
       method: method,
       header: header,
-      success: function (res) {
+      success: function(res) {
         if (res.statusCode == 200) {
           resolve(res.data);
-        }else {
+        } else {
           reject(res);
         }
       },
-      fail: function (err) {
+      fail: function(err) {
         reject(err)
       }
     })
   });
 }
 
-const loading = ()=>{
+const loading = (title) => {
+  title = title ? title : '玩命加载中...'
   wx.showLoading({
-    title: '玩命加载中...',
+    title: title,
   })
 }
+
+const toastError = (content) => {
+  wx.showToast({
+    title: content,
+    // image: '../../assets/images/error.png',
+    icon: 'none',
+    duration: 3000
+  })
+}
+
+const toastSuccess = (content) => {
+  wx.showToast({
+    title: content,
+    image: '../../assets/images/success.png',
+    duration: 2000
+  })
+}
+
+
 
 module.exports = {
   formatTime,
   now,
   toTimestamp,
-  getUser,
-  getToken,
   relativeTime,
   request,
   loading,
+  toastError,
+  toastSuccess,
+  setUser,
+  clearUser,
+  getUser,
+  getToken,
 }

@@ -9,7 +9,6 @@ Page({
       wx.redirectTo({
         url: '/pages/login/login',
       })
-      return
     }
   }
 })

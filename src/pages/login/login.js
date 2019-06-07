@@ -1,4 +1,6 @@
-// pages/login/login.js
+const util = require('../../utils/util.js')
+const config = require('../../config.js')
+
 Page({
 
   /**
@@ -12,55 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {
 
   },
   wechatLogin: function() {
@@ -72,6 +32,46 @@ Page({
   toRegister: function() {
     wx.navigateTo({
       url: '/pages/reg/reg',
+    })
+  },
+  formSubmit: function(e) {
+    if (config.debug) console.log("formSubmit", e);
+
+    if (e.detail.value.password == '' || e.detail.value.username == '') {
+      util.toastError('账号和密码均不能为空')
+      return
+    }
+
+    util.loading('正在登录中...')
+
+    util.request(config.api.login, e.detail.value, 'POST').then((res) => {
+      if (config.debug) console.log(config.api.login, res);
+
+      wx.hideLoading()
+
+      let user = res.data.user
+      if (user == undefined || user.uid <= 0 || user.token == '') {
+        util.toastError('登录失败：未知错误')
+        return
+      }
+
+      util.setUser(user)
+
+      util.toastSuccess('登录成功')
+
+      setTimeout(function() {
+        wx.switchTab({
+          url: '/pages/me/me',
+        })
+      }, 1500)
+
+    }).catch((err) => {
+      wx.hideLoading()
+      if (err.data) {
+        util.toastError(err.data.message)
+      } else {
+        util.toastError(err.errMsg)
+      }
     })
   }
 })
