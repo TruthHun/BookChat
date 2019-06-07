@@ -6,7 +6,7 @@
 
 .list .row{
   margin-bottom: 30rpx; padding-bottom: 30rpx;
-  border-bottom: 1rpx solid #efefef;
+  border-bottom: 1rpx solid #efefef;display: flex;
 }
 
 .list .color-grey{
@@ -30,3 +30,6 @@
   border-top-right-radius: 6rpx;
 }
 .cover{width: 170rpx;height: 223.5rpx;}
+.info{box-sizing: border-box;border-bottom: 0 !important;display: flex;margin:20rpx 0;}
+.info .col{flex: 1;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.info image{width: 24rpx;height: 24rpx;position: relative;top:4rpx;}

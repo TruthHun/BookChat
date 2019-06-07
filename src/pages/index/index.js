@@ -62,13 +62,6 @@ Page({
             let categoryBooks = categories.map(function(category) {
               let book = books[category.id]
               if (book != undefined && book.length > 0) {
-                book = book.map(function(item) {
-                  item.created_at = util.relativeTime(item.created_at)
-                  if (item.view>1000){
-                    item.view = (item.view / 1000).toFixed(1)+"k"
-                  }
-                  return item
-                })
                 category.books = book
               } else {
                 category.books = []

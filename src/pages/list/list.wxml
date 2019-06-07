@@ -1,24 +1,38 @@
+<wxs src="../common.wxs" module="common"/>
 <view class='breadcrumb base-padding base-margin-bottom'>
   <view class='row'>
     <view class='col-8'>
       <view class='row'>
-      <view bindtap='tabClick' data-tab='popular' data-title='热门' class="col {{tab=='popular' ? 'active': ''}}">热门</view>
+        <view bindtap='tabClick' data-tab='popular' data-title='热门' class="col {{tab=='popular' ? 'active': ''}}">热门</view>
         <view bindtap='tabClick' data-tab='new' data-title='最新' class="col {{tab=='new' ? 'active': ''}}">最新</view>
-        
         <view bindtap='tabClick' data-tab='recommend' data-title='推荐' class="col {{tab=='recommend' ? 'active': ''}}">推荐</view>
       </view>
     </view>
   </view>
 </view>
-<view  wx:if="{{books.length>0}}"  class='list base-padding base-margin-bottom'>
+<view wx:if="{{books.length>0}}" class='list base-padding base-margin-bottom'>
   <block wx:for="{{books}}" wx:key='index' wx:for-item="book">
     <view class='row'>
       <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-3'>
         <image mode='widthFix' class='box-shadow cover' src='{{book.cover}}' />
       </navigator>
-      <navigator  url='/pages/intro/intro?id={{book.book_id}}' class='col-9'>
+      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-9'>
         <view class='font-lv1 mgb-15rpx ellipsis-1row'>{{book.book_name}}</view>
-        <view class='font-lv3 color-grey ellipsis-4row'>{{book.description}}</view>
+        <view class='font-lv4 color-light info'>
+            <view class='col'>
+              <image src='../../assets/images/eye.png'></image>
+              <text> {{common.fixView(book.view)}} 阅读</text>
+            </view>
+            <view class='col'>
+              <image src='../../assets/images/document.png'></image>
+              <text> {{book.cnt_doc}} 章节</text>
+            </view>
+            <view class='col'>
+              <image src='../../assets/images/clock.png'></image>
+              <text> {{common.relativeTime(book.created_at)}}</text>
+            </view>
+        </view>
+        <view class='font-lv3 color-grey ellipsis-2row'>{{book.description}}</view>
       </navigator>
     </view>
   </block>

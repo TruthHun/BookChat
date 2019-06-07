@@ -1,4 +1,5 @@
-<!--index.wxml-->
+<wxs src="../common.wxs" module="common"/>
+
 <!--  搜索框  -->
 <view class='search base-padding base-margin-bottom'>
   <label>
@@ -61,7 +62,7 @@
             <view class='text-muted info'>
               <view class='col-4'>
                 <image src='../../assets/images/eye.png'></image>
-                <text>{{book.view}} 阅读</text>
+                <text>{{common.fixView(book.view)}} 阅读</text>
               </view>
               <view class='col-4'>
                 <image src='../../assets/images/document.png'></image>
@@ -69,9 +70,8 @@
               </view>
               <view class='col-4'>
                 <image src='../../assets/images/clock.png'></image>
-                <text>{{book.created_at}}</text>
+                <text>{{common.relativeTime(book.created_at)}}</text>
               </view>
-
             </view>
             <view class='text-muted ellipsis-2row desc'>{{book.description}}</view>
           </navigator>

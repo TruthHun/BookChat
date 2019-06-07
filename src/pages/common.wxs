@@ -1,0 +1,42 @@
+function fixView(view){
+  if (view > 1000) {
+    view = (view / 1000).toFixed(1) + "k"
+  }
+  return view
+}
+
+
+function relativeTime(t){
+
+  var timestamp = parseInt(getDate(t)/1000)
+  var n = parseInt(getDate() / 1000)
+  var diff = n - timestamp
+
+  var minute = 60;
+  var hour = minute * 60;
+  var day = hour * 24;
+  var month = day * 30;
+
+  var monthC = diff / month;
+  var dayC = diff / day;
+  var hourC = diff / hour;
+  var minC = diff / minute;
+
+  if (monthC > 12) {
+    return parseInt(monthC / 12) + " 年前";
+  } else if (monthC >= 1) {
+    return parseInt(monthC) + " 月前";
+  } else if (dayC >= 1) {
+    return parseInt(dayC) + " 天前";
+  } else if (hourC >= 1) {
+    return parseInt(hourC) + " 小时前";
+  } else if (minC >= 1) {
+    return parseInt(minC) + " 分钟前";
+  }
+  return '刚刚';
+}
+
+module.exports = {
+  fixView: fixView,
+  relativeTime: relativeTime,
+};
