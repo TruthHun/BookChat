@@ -1,5 +1,8 @@
 <view class='base-padding'>
   <view class='form-body'>
+  <view>
+    <image src='../../assets/images/logo.png'></image>
+  </view>
     <view class='row'>
       <view class='col-3'>账户</view>
       <view class='col-9'>
@@ -13,10 +16,17 @@
       </view>
     </view>
   </view>
+  <view class='row mgb-30rpx font-lv3 color-grey'>
+    <navigator class='col' url='/pages/about/about'>关于我们</navigator>
+    <navigator class='col text-right' url='/pages/findpwd/findpwd'>忘记密码？</navigator>
+  </view>
   <view class='row'>
     <button class='btn-submit btn-block'> 马上登录 </button>
   </view>
   <view class='row'>
-    <button class='btn-auth btn-block'> 使用微信授权登录 </button>
+    <button bindtap='wechatLogin' class='btn-auth btn-block'> 使用微信授权登录 </button>
+  </view>
+  <view class='row'>
+    <button class='btn-block btn-reg' bindtap='toRegister'> 立即注册 </button>
   </view>
 </view>

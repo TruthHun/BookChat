@@ -24,3 +24,8 @@
 .btn-auth{
     background-color: #00c706;border-color: #00c706;
 }
+.btn-reg,.btn-login{
+    color: #353535;
+}
+
+image{width: 160rpx;height: 160rpx;display: block;margin:30rpx auto;}

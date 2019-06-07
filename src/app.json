@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/me/me",
     "pages/cate/cate",
     "pages/index/index",
     "pages/search/search",
@@ -16,8 +17,8 @@
     "pages/about/about",
     "pages/login/login",
     "pages/reg/reg",
-    "pages/me/me",
     "pages/release/release",
+    "pages/findpwd/findpwd",
     "pages/intro/intro",
     "pages/notfound/notfound"
   ],
