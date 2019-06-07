@@ -1,3 +1,4 @@
+<wxs src="../common.wxs" module="common"/>
 <view class='row info'>
   <view class='col-4'>
     <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
@@ -41,7 +42,7 @@
 </view>
 <navigator url='/pages/menu/menu' class='menu row'>
   <view class='col font-lv3'>查看目录</view>
-  <view class='col font-lv4 color-grey text-right'>最后更新：{{book.updated_at}}</view>
+  <view class='col font-lv4 color-grey text-right'>最后更新：{{common.relativeTime(book.updated_at)}}</view>
 </navigator>
 
 <!-- TODO: 这里放几本相关书籍 -->
