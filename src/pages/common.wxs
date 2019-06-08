@@ -1,5 +1,7 @@
 function fixView(view){
-  if (view > 1000) {
+  if(view > 10000){
+    view = (view / 10000).toFixed(1) + "w"
+  }else if (view > 1000) {
     view = (view / 1000).toFixed(1) + "k"
   }
   return view

@@ -16,6 +16,7 @@ Page({
     tabTitle: '最新',
     categoryTitle: '书籍列表',
     size: 10,
+    tips:'我也是有底线的',
   },
 
   /**
@@ -77,10 +78,15 @@ Page({
         if (res.data.books.length >= that.data.size) page = that.data.page + 1
         books = books.concat(res.data.books)
       }
-      console.log(page)
+
+      let tips = '哼，我也是一只有底线的猿'
+
+      if (books.length == 0) tips = '我是一只小小小鸟，怎么肥也肥不糕...猿来没找到内容...'
+
       that.setData({
         page: page,
-        books: books
+        books: books,
+        tips: tips,
       })
     }).catch((e) => {
       console.log(e)

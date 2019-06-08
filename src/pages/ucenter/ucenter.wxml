@@ -1,0 +1,86 @@
+<wxs src="../common.wxs" module="common" />
+
+<view class='base-padding row user'>
+  <image src='{{user.avatar}}'></image>
+  <view class='username'>{{user.nickname}}</view>
+  <view class='color-grey font-lv3'>{{user.intro}}</view>
+</view>
+
+<view class='breadcrumb base-padding base-margin-bottom'>
+  <view class='row'>
+    <view class='col-10'>
+      <view class='row'>
+        <view bindtap='tabClick' data-tab='release' data-title='发布' class='col {{tab=="release" ? "active":""}}'>发布</view>
+        <view bindtap='tabClick' data-tab='star' data-title='收藏' class='col {{tab=="star" ? "active":""}}'>收藏</view>
+        <view bindtap='tabClick' data-tab='follow' data-title='关注' class='col {{tab=="follow" ? "active":""}}'>关注</view>
+        <view bindtap='tabClick' data-tab='fans' data-title='粉丝' class='col {{tab=="fans" ? "active":""}}'>粉丝</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view wx:if="{{tab == 'release' && lists.length>0}}" class='list base-padding base-margin-bottom'>
+  <block wx:for="{{lists}}" wx:key='index' wx:for-item="book">
+    <view class='row'>
+      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-3'>
+        <image mode='widthFix' lazy-load='true' class='box-shadow cover' src='{{book.cover}}' />
+      </navigator>
+      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-9'>
+        <view class='font-lv1 mgb-15rpx ellipsis-1row'>{{book.book_name}}</view>
+        <view class='font-lv4 color-light info'>
+          <view class='col'>
+            <image src='../../assets/images/eye.png'></image>
+            <text> {{common.fixView(book.view)}} 阅读</text>
+          </view>
+          <view class='col'>
+            <image src='../../assets/images/document.png'></image>
+            <text> {{book.cnt_doc}} 章节</text>
+          </view>
+          <view class='col'>
+            <image src='../../assets/images/clock.png'></image>
+            <text> {{common.relativeTime(book.created_at)}}</text>
+          </view>
+        </view>
+        <view class='font-lv3 color-grey ellipsis-2row'>{{book.description}}</view>
+      </navigator>
+    </view>
+  </block>
+</view>
+
+<view wx:if="{{tab == 'star' && lists.length>0}}" class='list base-padding base-margin-bottom'>
+  <block wx:for="{{lists}}" wx:key='index' wx:for-item="book">
+    <view class='row'>
+      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-3'>
+        <image mode='widthFix' lazy-load='true' class='box-shadow cover' src='{{book.cover}}' />
+      </navigator>
+      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-9'>
+        <view class='font-lv1 mgb-15rpx ellipsis-1row'>{{book.book_name}}</view>
+        <view class='font-lv4 color-light info'>
+          <view class='col'>
+            <image src='../../assets/images/eye.png'></image>
+            <text> {{common.fixView(book.view)}} 阅读</text>
+          </view>
+          <view class='col'>
+            <image src='../../assets/images/document.png'></image>
+            <text> {{book.cnt_doc}} 章节</text>
+          </view>
+          <view class='col'>
+            <image src='../../assets/images/star.png'></image>
+            <text> {{book.star}} 收藏</text>
+          </view>
+        </view>
+        <view class='font-lv3 color-grey ellipsis-2row'>{{book.description}}</view>
+      </navigator>
+    </view>
+  </block>
+</view>
+
+<view wx:if="{{page==0}}" class='pagination pdb-30rpx'>
+  <view class='text-center font-lv3 color-grey pdb-30rpx'>{{tips}}</view>
+</view>
+<view wx:else class='pagination pdb-30rpx'>
+  <view class='text-center font-lv3 color-grey pdb-30rpx'>
+    <image src='/assets/images/loading.png' class='icon'></image>
+  </view>
+</view>

@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/me/me",
+    "pages/ucenter/ucenter",
     "pages/index/index",
+    "pages/me/me",
     "pages/cate/cate",
     "pages/search/search",
     "pages/list/list",
@@ -17,7 +18,6 @@
     "pages/about/about",
     "pages/login/login",
     "pages/reg/reg",
-    "pages/release/release",
     "pages/findpwd/findpwd",
     "pages/intro/intro",
     "pages/notfound/notfound"

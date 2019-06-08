@@ -36,8 +36,8 @@ Page({
     util.toastSuccess('退出成功')
     this.initUser()
   },
-  userEvent: function(e) {
-    if (config.debug) console.log("userEvent", e)
+  userLoginEvent: function(e) {
+    if (config.debug) console.log("userLoginEvent", e)
     if (this.data.user.uid == 0) {
       wx.navigateTo({
         url: '/pages/login/login',

@@ -1,3 +1,66 @@
+.user {
+  text-align: center;
+  border-bottom: 10rpx solid #f6f6f6;
+  padding-bottom: 15rpx;
+}
+
+.user .text-muted {
+  text-align: center;
+}
+
+.username {
+  margin: 15rpx auto;
+}
+
+.user image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 90rpx;
+  border: 1px solid #ddd;
+  display: block;
+  margin: 0 auto;
+}
+
+.user view {
+  display: block;
+  width: 100%;
+}
+
+.base-info image {
+  height: 40rpx;
+  width: 40rpx;
+  position: relative;
+  top: 8rpx;
+  margin-right: 30rpx;
+}
+
+.base-info image.pull-right {
+  margin-right: 0rpx;
+}
+
+.base-info {
+  padding-top: 0rpx;
+  padding-bottom: 0rpx;
+}
+
+.base-info .col-12 {
+  border-bottom: 1px solid #f6f6f6;
+  padding-bottom: 30rpx;
+  padding-top: 30rpx;
+  color: #666;
+}
+
+.base-info .col-12:last-of-type {
+  border-bottom: 0rpx;
+  margin-bottom: 0rpx;
+}
+
+.breadcrumb {
+  border-bottom: 1rpx solid #ddd;
+  line-height: 250%;
+  margin-top: 15rpx;
+}
+
 .breadcrumb .col {
   text-align: center;
 }
@@ -12,6 +75,7 @@
   border-top-left-radius: 6rpx;
   border-top-right-radius: 6rpx;
 }
+
 
 .list .col-9 {
   box-sizing: border-box;

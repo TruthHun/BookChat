@@ -38,7 +38,7 @@
   </block>
 </view>
 <view wx:if="{{page==0}}" class='pagination pdb-30rpx'>
-  <view class='text-center font-lv3 color-grey pdb-30rpx'>我也是有底线的</view>
+  <view class='text-center font-lv3 color-grey pdb-30rpx'>{{tips}}</view>
 </view>
 <view wx:else class='pagination pdb-30rpx'>
   <view class='text-center font-lv3 color-grey pdb-30rpx'>

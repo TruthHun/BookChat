@@ -20,6 +20,7 @@ const api = {
   searchDoc: `${host}/api/v1/search/doc`,
   bookmark: `${host}/api/v1/book/bookmark`,
   read: `${host}/api/v1/book/read`,
+  userInfo: `${host}/api/v1/user/info`,
   userRelease: `${host}/api/v1/user/release`,
   userFans: `${host}/api/v1/user/fans`,
   userFollow: `${host}/api/v1/user/follow`,
