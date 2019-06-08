@@ -1,5 +1,9 @@
+// api host，最后不要带斜杠
 let host='https://www.bookstack.cn/bookchat';
 // let host = 'http://localhost:8181/bookchat'
+
+// 是否是调试模式。如果是生产环境，请设置为false
+const debug = true
 
 const api = {
   banners: `${host}/api/v1/banners`, 
@@ -26,7 +30,6 @@ const api = {
   changePassword: `${host}/api/v1/user/change-password`
 }
 
-const debug=true
 
 module.exports = {
   api: api,

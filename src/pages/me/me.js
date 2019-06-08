@@ -4,18 +4,19 @@ const config = require('../../config.js')
 Page({
   data: {
     user: {
-      'nickname':'请先登录',
+      'uid':0,
+      'nickname':'游客，请戳我登录',
       'avatar': '/assets/images/logo.png',
       'intro':'分享知识，共享智慧；知识，因分享，传承久远'
-    }
+    },
+    now: new Date().getFullYear(),
   },
   onLoad: function() {
     let that = this
     let user = util.getUser()
-
     if (user != undefined && user.token != undefined && user.uid>0) {
       that.setData({
-        user: user
+        user: user,
       })
     }
   },
@@ -33,5 +34,14 @@ Page({
         url: '/pages/index/index',
       })
     }, 1000)
+  },
+  userEvent:function(e){
+    if (config.debug) console.log("userEvent",e)
+    if(this.data.user.uid==0){
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+      return
+    }
   }
 })

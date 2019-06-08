@@ -7,7 +7,7 @@ const categoriesExpire = 60; // 60 second
 
 // 获取书籍分类
 const getCategories = () => {
-  if (config.debug) console.log(config.api.banners);
+  if (config.debug) console.log(config.api.categories);
   // 从缓存中读取，判断缓存存不存在，并且有没有过期
 
   return new Promise((resolve, reject) => {

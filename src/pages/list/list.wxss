@@ -33,3 +33,4 @@
 .info{box-sizing: border-box;border-bottom: 0 !important;display: flex;margin:20rpx 0;}
 .info .col{flex: 1;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 .info image{width: 24rpx;height: 24rpx;position: relative;top:4rpx;}
+.icon{width: 64rpx;height: 64rpx;margin: 0 auto;display: block}

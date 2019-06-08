@@ -1,4 +1,4 @@
-<view class='base-padding row'>
+<view class='base-padding row' bindtap='userEvent'>
   <view class='user'>
     <image src='{{user.avatar}}'></image>
     <view class='username'>{{user.nickname}}</view>
@@ -7,29 +7,29 @@
 </view>
 
 <view class='base-padding row base-info'>
-  <navigator url='/pages/release/release' class='col-12'>
+  <navigator url="{{user.uid>0? '/pages/release/release?tab=release':'/pages/login/login'}}" class='col-12'>
     <image src='../../assets/images/book.png'></image>
     我的发布
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
-  <navigator url='/pages/release/release' class='col-12'>
+  <navigator url='{{user.uid>0?"/pages/release/release?tab=star":"/pages/login/login"}}' class='col-12'>
     <image src='../../assets/images/star.png'></image>
-    我的收藏 
+    我的收藏
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
-  <navigator url='/pages/release/release' class='col-12'>
+  <navigator url='{{user.uid>0?"/pages/release/release?tab=fans":"/pages/login/login"}}' class='col-12'>
     <image src='../../assets/images/fans.png'></image>
-    我的粉丝 
+    我的粉丝
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
-  <navigator url='/pages/release/release' class='col-12'>
+  <navigator url='{{user.uid>0?"/pages/release/release?tab=follow":"/pages/login/login"}}' class='col-12'>
     <image src='../../assets/images/follow.png'></image>
-    我的关注 
+    我的关注
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
-  <view bindtap='logout' class='col-12'>
+  <view wx:if="{{user.uid>0}}" bindtap='logout' class='col-12'>
     <image src='../../assets/images/login.png'></image>
-    退出登录 
+    退出登录
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </view>
 </view>
@@ -37,36 +37,48 @@
 <view class='base-padding row base-info'>
   <navigator url='/pages/about/about' class='col-12'>
     <image src='../../assets/images/about-us.png'></image>
-    关于我们 
+    关于我们
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
   <navigator class='col-12'>
     <image src='../../assets/images/share.png'></image>
-    分享好友 
+    分享好友
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
 </view>
 
 <view class='base-padding row base-info'>
   <view class='col-12 text-center'>
-    <!-- <image src='../../assets/images/follow.png'></image> -->
-    <text class='font-lv4 color-grey'>以下是其他页面入口，目前BookChat v1.0小程序只是模板页面</text> 
-    <!-- <image class='pull-right' src='../../assets/images/right-angle.png'></image> -->
+  <view>
+      <text class='font-lv4 color-grey'>Copyright © 2018-{{now}} BookStack.CN</text>
+    </view>
+    <view>
+      <text class='font-lv4 color-grey'>License：Apache 2.0</text>
+    </view>
+    <view>
+      <text class='font-lv4 color-grey'>Author：TruthHun</text>
+    </view>
+    <view>
+      <text class='font-lv4 color-grey'>Version：2.0</text>
+    </view>
+    
+    
+    
   </view>
-  <navigator class='col-12' url='/pages/reg/reg'>
+  <!-- <navigator class='col-12' url='/pages/reg/reg'>
     <image src='../../assets/images/reg.png'></image>
     用户注册
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
   <navigator url='/pages/login/login' class='col-12'>
     <image src='../../assets/images/login.png'></image>
-    用户登录 
+    用户登录
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
   <navigator url='/pages/search/search' class='col-12'>
     <image src='../../assets/images/search.png'></image>
-    书籍搜索 
+    书籍搜索
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
-  </navigator>
-  
+  </navigator> -->
+
 </view>

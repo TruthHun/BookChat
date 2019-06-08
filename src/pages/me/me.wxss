@@ -7,7 +7,7 @@ page{
   padding: 30rpx;
 }
 .row:last-of-type{
-  padding-bottom: 80rpx;
+  /* padding-bottom: 80rpx; */
   margin-bottom: 0rpx;
 }
 .user{

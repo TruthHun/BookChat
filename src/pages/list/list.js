@@ -28,7 +28,7 @@ Page({
       cid: cid
     })
     that.setTitle()
-    that.loadBooks()
+    that.loadBooks(true)
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -61,8 +61,6 @@ Page({
     let that = this
     if (that.data.page == 0) return
 
-    util.loading()
-
     util.request(config.api.bookLists, {
       page: that.data.page,
       cid: that.data.cid,
@@ -84,10 +82,8 @@ Page({
         page: page,
         books: books
       })
-      wx.hideLoading()
     }).catch((e) => {
       console.log(e)
-      wx.hideLoading()
     })
   },
   setTitle: function() {
