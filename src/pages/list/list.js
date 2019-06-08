@@ -94,7 +94,7 @@ Page({
   },
   setTitle: function() {
     let that = this
-    tabTitle = that.data.tabTitle
+    let tabTitle = that.data.tabTitle
 
     switch (that.data.tab) {
       case 'new':
@@ -119,7 +119,7 @@ Page({
         })
       }
       wx.setNavigationBarTitle({
-        title: that.data.categoryTitle + ' - ' + tabTitle,
+        title: that.data.categoryTitle + ' · ' + tabTitle,
       })
     }).catch((e) => {
       console.log(e)
