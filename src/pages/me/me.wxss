@@ -48,6 +48,6 @@ page{
 }
 
 .base-info .col-12:last-of-type{
-  border-bottom: 0rpx;
+  /* border-bottom: 0rpx; */
   margin-bottom: 0rpx;
 }
