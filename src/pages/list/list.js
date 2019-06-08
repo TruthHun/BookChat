@@ -16,7 +16,7 @@ Page({
     tabTitle: '最新',
     categoryTitle: '书籍列表',
     size: 10,
-    tips:'我也是有底线的',
+    tips: '我也是有底线的',
   },
 
   /**
@@ -94,6 +94,23 @@ Page({
   },
   setTitle: function() {
     let that = this
+    tabTitle = that.data.tabTitle
+
+    switch (that.data.tab) {
+      case 'new':
+        tabTitle = '最新';
+        break
+      case 'recommend':
+        tabTitle = '推荐';
+        break;
+      case 'popular':
+        tabTitle = '热门';
+        break;
+      default:
+        tabTitle = '热门';
+        break;
+    }
+
     api.getCategoryByCid(that.data.cid).then((category) => {
       if (config.debug) console.log('api.getCategoryByCid', category)
       if (category && category.title) {
@@ -102,7 +119,7 @@ Page({
         })
       }
       wx.setNavigationBarTitle({
-        title: that.data.categoryTitle + ' - ' + that.data.tabTitle,
+        title: that.data.categoryTitle + ' - ' + tabTitle,
       })
     }).catch((e) => {
       console.log(e)

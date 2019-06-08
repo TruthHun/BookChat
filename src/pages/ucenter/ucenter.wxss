@@ -1,7 +1,7 @@
 .user {
   text-align: center;
   border-bottom: 10rpx solid #f6f6f6;
-  padding-bottom: 15rpx;
+  padding-bottom: 30rpx;
 }
 
 .user .text-muted {
@@ -9,17 +9,19 @@
 }
 
 .username {
-  margin: 15rpx auto;
+  margin: 30rpx auto;
 }
 
 .user image {
-  width: 180rpx;
-  height: 180rpx;
-  border-radius: 90rpx;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
   border: 1px solid #ddd;
   display: block;
   margin: 0 auto;
 }
+
+.list-users .row{border-bottom: 0 !important;}
 
 .user view {
   display: block;
@@ -132,3 +134,6 @@
   margin: 0 auto;
   display: block;
 }
+.list-users{text-align: center;}
+.list-users .col-4{margin-bottom: 60rpx;}
+.list-users image{width: 160rpx;height: 160rpx;border-radius: 50%;border: 1px solid #ddd;}
