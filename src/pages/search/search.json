@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "书籍搜索"
+  "navigationBarTitleText": "书籍搜索",
+  "usingComponents": {
+    "search": "/components/common/search"
+  }
 }

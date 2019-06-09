@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "书架"
+  "navigationBarTitleText": "书架",
+  "usingComponents":{
+    "search":"/components/common/search"
+  }
 }

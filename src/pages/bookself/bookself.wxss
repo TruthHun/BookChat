@@ -15,33 +15,6 @@
   margin-top: 60rpx;
 }
 
-form {
-  position: relative;
-  display: block;
-}
-
-form input {
-  box-sizing: border-box;
-  width: 100%;
-  background-color:#f8f8f8;
-  line-height: 90rpx;
-  height: 90rpx;
-  display: block;
-  border-radius: 10rpx;
-  text-align: left;
-  padding: 0 90rpx 0 26rpx;
-}
-
-form image {
-  position: absolute;
-  top: 0rpx;
-  right: 0rpx;
-  box-sizing: border-box;
-  height: 90rpx;
-  width: 90rpx;
-  padding: 20rpx;
-}
-
 .book {
   width: 206rpx;
   max-width: 100%;

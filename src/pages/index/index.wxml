@@ -2,10 +2,7 @@
 
 <!--  搜索框  -->
 <view class='search base-padding base-margin-bottom'>
-  <form>
-    <input bindinput='changeValue' bindconfirm='search' name="wd" type='search' placeholder="Search..." />
-    <image bindtap='formSubmit' src='/assets/images/search.png'></image>
-  </form>
+  <search/>
 </view>
 
 <!--  banner  -->

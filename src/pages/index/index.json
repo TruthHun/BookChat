@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "BookChat"
+  "navigationBarTitleText": "BookChat",
+  "usingComponents":{
+    "search":"/components/common/search"
+  }
 }

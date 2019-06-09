@@ -6,10 +6,7 @@
       <view>我们给了你一个华丽的书架</view>
       <view>你却没有一本书籍...</view>
       <view class='action'>
-        <form>
-          <input bindinput='changeValue' bindconfirm='search' name="wd" type='search' placeholder="Search..." />
-          <image bindtap='formSubmit' src='/assets/images/search.png'></image>
-        </form>
+        <search/>
       </view>
     </block>
     <block wx:if="{{token == ''}}">

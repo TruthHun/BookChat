@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/search/search",
     "pages/bookself/bookself",
     "pages/ucenter/ucenter",
     "pages/me/me",
     "pages/cate/cate",
-    "pages/search/search",
     "pages/list/list",
     "pages/read/read",
     "pages/star/star",

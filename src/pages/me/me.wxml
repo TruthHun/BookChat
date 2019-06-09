@@ -23,7 +23,7 @@
     我的收藏
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
-   <navigator url='{{user.uid>0?"/pages/ucenter/ucenter?tab=follow":"/pages/login/login"}}' class='col-12'>
+  <navigator url='{{user.uid>0?"/pages/ucenter/ucenter?tab=follow":"/pages/login/login"}}' class='col-12'>
     <image src='../../assets/images/follow.png'></image>
     我的关注
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
@@ -58,7 +58,7 @@
 
 <view class='base-padding row base-info'>
   <view class='col-12 text-center'>
-  <view>
+    <view>
       <text class='font-lv4 color-grey'>Copyright © 2018-{{now}} BookStack.CN</text>
     </view>
     <view>
