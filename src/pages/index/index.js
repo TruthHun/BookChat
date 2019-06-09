@@ -12,8 +12,18 @@ Page({
     autoplay: true,
     interval: 3000,
     duration: 500,
+    width: '100%',
+    height: '150px'
   },
   onLoad: function() {
+    let info = wx.getSystemInfoSync()
+    let width = info.windowWidth * info.pixelRatio - 60;// 转成 rpx，因为小程序边距设置为 30rpx
+    let height = width / config.bannerRatio
+    this.setData({
+      width: width / info.pixelRatio + "px",
+      height: height / info.pixelRatio + "px"
+    })
+
     util.loading()
 
     let that = this
@@ -54,9 +64,12 @@ Page({
           return b
         })
         if (cids.length > 0) {
-          util.request(config.api.bookListsByCids,{
-            page: 1, size: 5, sort: 'new', cids: cids
-          }).then((res)=> {
+          util.request(config.api.bookListsByCids, {
+            page: 1,
+            size: 5,
+            sort: 'new',
+            cids: cids
+          }).then((res) => {
             let books = res.data.books
             if (config.debug) console.log(config.api.bookListsByCids, books)
             let categoryBooks = categories.map(function(category) {

@@ -5,6 +5,9 @@ let host='https://www.bookstack.cn/bookchat';
 // 是否是调试模式。如果是生产环境，请设置为false
 const debug = true
 
+// 横幅图片比例，宽高比，小数或者比例
+const bannerRatio = 825/315
+
 const api = {
   banners: `${host}/api/v1/banners`, 
   register: `${host}/api/v1/register`, 
@@ -31,8 +34,8 @@ const api = {
   changePassword: `${host}/api/v1/user/change-password`
 }
 
-
 module.exports = {
-  api: api,
-  debug:debug
+  api,
+  debug,
+  bannerRatio
 }

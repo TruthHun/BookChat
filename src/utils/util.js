@@ -140,7 +140,6 @@ const toastSuccess = (content) => {
 }
 
 
-
 module.exports = {
   formatTime,
   now,

@@ -10,11 +10,11 @@
 
 <!--  banner  -->
 <view wx:if="{{banners.length>0}}" class='swiper base-padding base-margin-bottom'>
-  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <swiper style='height:{{height}}' indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
     <block wx:for="{{banners}}" wx:key="index" wx:for-item='item'>
       <swiper-item>
         <navigator url='{{item.link}}'>
-          <image bindtab='letsgo' src="{{item.image}}" mode='center' class="slide-image" />
+          <image bindtab='letsgo' src="{{item.image}}" style='width:{{width}};height:{{height}}' class="slide-image" />
         </navigator>
       </swiper-item>
     </block>

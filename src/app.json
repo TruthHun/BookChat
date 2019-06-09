@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/bookself/bookself",
     "pages/index/index",
+    "pages/bookself/bookself",
     "pages/ucenter/ucenter",
     "pages/me/me",
     "pages/cate/cate",
