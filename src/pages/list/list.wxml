@@ -10,38 +10,12 @@
     </view>
   </view>
 </view>
-<view wx:if="{{books.length>0}}" class='list base-padding base-margin-bottom'>
-  <block wx:for="{{books}}" wx:key='index' wx:for-item="book">
-    <view class='row'>
-      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-3'>
-        <image mode='widthFix' lazy-load='true' class='box-shadow cover' src='{{book.cover}}' />
-      </navigator>
-      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-9'>
-        <view class='font-lv1 mgb-15rpx ellipsis-1row'>{{book.book_name}}</view>
-        <view class='font-lv4 color-light info'>
-          <view class='col'>
-            <image src='../../assets/images/eye.png'></image>
-            <text> {{common.fixView(book.view)}} 阅读</text>
-          </view>
-          <view class='col'>
-            <image src='../../assets/images/document.png'></image>
-            <text> {{book.cnt_doc}} 章节</text>
-          </view>
-          <view class='col'>
-            <image src='../../assets/images/clock.png'></image>
-            <text> {{common.relativeTime(book.created_at)}}</text>
-          </view>
-        </view>
-        <view class='font-lv3 color-grey ellipsis-2row'>{{book.description}}</view>
-      </navigator>
-    </view>
-  </block>
-</view>
-<view wx:if="{{page==0}}" class='pagination pdb-30rpx'>
+<book-list books="{{books}}" iclass="base-padding base-margin-bottom"/>
+<view wx:if="{{page==0}}" class='footer'>
   <view class='text-center font-lv3 color-grey pdb-30rpx'>{{tips}}</view>
 </view>
-<view wx:else class='pagination pdb-30rpx'>
+<view wx:else class='footer'>
   <view class='text-center font-lv3 color-grey pdb-30rpx'>
-    <image src='/assets/images/loading.png' class='icon'></image>
+    <image src='/assets/images/loading.png' class='loading'></image>
   </view>
 </view>

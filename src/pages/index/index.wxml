@@ -47,7 +47,8 @@
       </view>
     </view>
     <view class='panel-body'>
-      <block wx:for="{{category.books}}" wx:key="index1" wx:for-item="book">
+    <book-list books="{{category.books}}"/>
+      <!-- <block wx:for="{{category.books}}" wx:key="index1" wx:for-item="book">
         <view class='row'>
           <view class='row-left'>
             <navigator url="/pages/intro/intro?id={{book.book_id}}">
@@ -73,7 +74,7 @@
             <view class='text-muted ellipsis-2row desc'>{{book.description}}</view>
           </navigator>
         </view>
-      </block>
+      </block> -->
     </view>
   </view>
 </block>

@@ -25,13 +25,6 @@ swiper-item {
   width: 30%;
 }
 
-.panel-body navigator image {
-  margin: 0 auto;
-  display: block;
-  width: 170rpx;height: 223.5rpx;
-  border-radius: 6rpx;
-}
-
 .recommend .title {
   font-size: 28rpx;
   color: #666;

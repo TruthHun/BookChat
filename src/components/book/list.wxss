@@ -1,57 +1,58 @@
-/* components/book/list/list.wxss */
+/* components/book/list.wxss */
+@import "../../app.wxss";
 
-.list .col-9 {
+.book-list .col-9 {
   box-sizing: border-box;
   padding-left: 30rpx;
 }
 
-.list .row {
+.book-list .row {
   margin-bottom: 30rpx;
   padding-bottom: 30rpx;
   border-bottom: 1rpx solid #efefef;
   display: flex;
 }
 
-.list .color-grey {
+.book-list .color-grey {
   line-height: 150%;
   text-indent: 2em;
 }
 
-.breadcrumb {
-  border-bottom: 1rpx solid #ddd;
-  line-height: 250%;
-  margin-top: 15rpx;
-}
-
-.cover {
+.book-list .cover {
   width: 170rpx;
   height: 223.5rpx;
 }
 
-.info {
+.book-list .info {
   box-sizing: border-box;
   border-bottom: 0 !important;
   display: flex;
   margin: 20rpx 0;
 }
 
-.info .col {
+.book-list .info .col {
   flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.info image {
+.book-list .info image {
   width: 24rpx;
   height: 24rpx;
   position: relative;
   top: 4rpx;
 }
 
-.icon {
+.book-list .icon {
   width: 64rpx;
   height: 64rpx;
   margin: 0 auto;
   display: block;
+}
+
+.book-list .row:last-of-type {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }

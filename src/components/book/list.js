@@ -4,9 +4,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    books:{
+    books: {
       type: Array,
       value: []
+    },
+    iclass: {
+      type: String,
+      value: ""
     }
   },
 

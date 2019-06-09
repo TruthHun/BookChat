@@ -1,6 +1,6 @@
 
 <wxs src="../../pages/common.wxs" module="common" />
-<view wx:if="{{books.length>0}}" class='list base-padding base-margin-bottom'>
+<view wx:if="{{books.length>0}}" class='book-list {{iclass}}'>
   <block wx:for="{{books}}" wx:key='index' wx:for-item="book">
     <view class='row'>
       <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-3'>

@@ -2,3 +2,4 @@
 <view class='search base-padding base-margin-bottom'>
   <search />
 </view>
+<book-list books="{{books}}" />
