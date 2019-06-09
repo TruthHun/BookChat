@@ -1,32 +1,89 @@
-//index.js
-//获取应用实例
-const app = getApp()
-const api = require('../../config.js')
+const config = require('../../config.js')
+const util = require('../../utils/util.js')
+
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: true,
-    autoplay: true,
-    interval: 5000,
-    duration: 1000
+    page: 1,
+    size: 12,
+    books: [],
+    token: '',
+    showTips: false,
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
+  onLoad: function() {
+  },
+  onShow: function() {
+    this.loadBooks()
+  },
+  onReachBottom: function() {
+    this.loadBooks()
+  },
+  loadBooks: function() {
+    let token = util.getToken() || ''
+    if (!token) {
+      this.setData({
+        showTips: true,
+        books: [],
+        token: token,
+      })
+      return
+    }
+
+    let that = this
+
+    if (that.data.page == 0) return
+    util.request(config.api.bookshelf, {
+      page: that.data.page,
+      size: that.data.size,
+    }).then((res) => {
+      if (config.debug) console.log(config.api.bookshelf, res)
+      if (res.data && res.data.books && res.data.readed) {
+        let page = that.data.page
+        if (res.data.books.length >= that.data.size) {
+          page++
+        } else {
+          page = 0
+        }
+        this.setData({
+          showTips: true,
+          books: that.data.books.concat(res.data.books),
+          token: token,
+          page: page,
+        })
+      } else {
+        this.setData({
+          showTips: true,
+          token: token,
+          page: 1,
+        })
+      }
+    }).catch((e) => {
+      let books = that.data.books
+      if (e.statusCode == 401) {
+        token = ''
+        util.clearUser()
+        books = []
+      }
+      this.setData({
+        showTips: true,
+        token: token,
+        books: books,
+        showTips: true,
+        page: 1,
+      })
     })
   },
-  onLoad: function () {
-    
-    
+  login: function(e) {
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/login/login',
+    })
   },
+  search: function(e) {
+    if (config.debug) console.log("search event", e)
+    if (e.detail.value != '') {
+      wx.navigateTo({
+        url: '/pages/search/search?wd=' + e.detail.value,
+      })
+    }
+  }
 })

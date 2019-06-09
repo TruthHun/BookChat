@@ -7,23 +7,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    loading:false
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    
-  },
-  onUnload: function () {
-    
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+  onShow:function(){
+    let token = util.getToken()
+    if(token){
+      wx.switchTab({
+        url: '/pages/me/me',
+      })
+    }
+    return
   },
   wechatLogin: function() {
     wx.showModal({
@@ -39,21 +32,22 @@ Page({
   formSubmit: function(e) {
     if (config.debug) console.log("formSubmit", e);
 
+    if (this.data.loading) return;
+
     if (e.detail.value.password == '' || e.detail.value.username == '') {
       util.toastError('账号和密码均不能为空')
       return
     }
 
-    util.loading('正在登录中...')
+    this.setData({loading:true})
 
     util.request(config.api.login, e.detail.value, 'POST').then((res) => {
       if (config.debug) console.log(config.api.login, res);
 
-      wx.hideLoading()
-
       let user = res.data.user
       if (user == undefined || user.uid <= 0 || user.token == '') {
         util.toastError('登录失败：未知错误')
+        this.setData({ loading: false })
         return
       }
 
@@ -68,7 +62,7 @@ Page({
       }, 1500)
 
     }).catch((err) => {
-      wx.hideLoading()
+      this.setData({ loading: false })
       if (err.data) {
         util.toastError(err.data.message)
       } else {

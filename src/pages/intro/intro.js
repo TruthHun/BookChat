@@ -27,6 +27,7 @@ Page({
         title: book.book_name,
       })
       book.float_score = (book.score/10).toFixed(1)
+      book.description = book.description || book.book_name
       that.setData({book})
     })
 

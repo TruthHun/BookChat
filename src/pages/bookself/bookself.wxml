@@ -1,66 +1,44 @@
-<view class='base-padding base-margin-bttom'>
-
-  <view class='box'>
-    
-    <navigator url='/pages/intro/intro' class='book text-muted'>
-      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/beego.png'></image>
-      <view class='progress'>
-        <view>阅读进度<view class='pull-right'>20%</view></view>
-        <progress percent="20" />
+<view class='row box'>
+  <view wx:if="{{showTips && books.length ==0 }}" class='tips col-12 font-lv2'>
+    <block wx:if="{{token != ''}}">
+      <view>黑夜给了你一双黑色的眼睛</view>
+      <view>你用它去寻找光明...</view>
+      <view>我们给了你一个华丽的书架</view>
+      <view>你却没有一本书籍...</view>
+      <view class='action'>
+        <form>
+          <input bindconfirm='search' name="wd" type='search' placeholder="Search..." />
+          <image src='/assets/images/search.png'></image>
+        </form>
       </view>
-      <view class='font-lv3  ellipsis-2row'>Beego开发手册Beego开发手册Beego开发手册</view>
-    </navigator>
-
-    <navigator url='/pages/intro/intro' class='book text-muted'>
-      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/goweb.jpeg'></image>
-      <view class='progress'>
-        <view>阅读进度<view class='pull-right'>20%</view></view>
-        <progress percent="20" />
+    </block>
+    <block wx:if="{{token == ''}}">
+      <view>黑夜给了你一双黑色的眼睛</view>
+      <view>你用它去寻找光明...</view>
+      <view>我们给了你一个华丽的书架</view>
+      <view>你却没登录...</view>
+      <view class='action'>
+        <button bindtap='login'>码上登录</button>
       </view>
-      <view class='font-lv3  ellipsis-2row'>Go Web编程</view>
-    </navigator>
-
-    <navigator url='/pages/intro/intro' class='book text-muted'>
-      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/http2.png'></image>
-      <view class='progress'>
-        <view>阅读进度<view class='pull-right'>20%</view></view>
-        <progress percent="20" />
-      </view>
-      <view class='font-lv3  ellipsis-2row'>http2详解</view>
-    </navigator>
-
-    <navigator url='/pages/intro/intro' class='book text-muted'>
-      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/grpc.png'></image>
-      <view class='progress'>
-        <view>阅读进度<view class='pull-right'>20%</view></view>
-        <progress percent="20"/>
-      </view>
-      <view class='font-lv3  ellipsis-2row'>Go-gRPC</view>
-    </navigator>
-
-    <navigator url='/pages/intro/intro' class='book text-muted'>
-      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/shell.jpeg'></image>
-      <view class='progress'>
-        <view>阅读进度<view class='pull-right'>20%</view></view>
-        <progress percent="20" />
-      </view>
-      <view class='font-lv3  ellipsis-2row'>Shell编程范例</view>
-    </navigator>
-
-    <navigator url='/pages/intro/intro' class='book text-muted'>
-      <image mode='widthFix' class='box-shadow cover' src='../../assets/images/example/es6.jpeg'></image>
-      <view class='progress'>
-        <view>阅读进度<view class='pull-right'>20%</view></view>
-        <progress percent="20" />
-      </view>
-      <view class='font-lv3  ellipsis-2row'>ECMAScript 6 入门</view>
-    </navigator>
-
-    <!--  为了使之对齐，如果不是3的倍数，余数是多少，则就补多少个book-empty  -->
-    <!--  最后这里哪怕添加三个空的book-empty，对布局也不会有影响，因为没有高度...  -->
-    <view class='book book-empty text-muted'></view>
-    <view class='book book-empty text-muted'></view>
-
-
+    </block>
   </view>
+  <block wx:if="{{books.length>0}}">
+    <view wx:for="{{books}}" wx:key="index" wx:for-item="book" class='col-4'>
+      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book text-muted'>
+        <image mode='widthFix' class='box-shadow cover' src='{{book.cover}}'></image>
+        <!-- <view class='progress'>
+          <view>
+            <text>阅读进度</text>
+            <text class='pull-right'>20%</text>
+          </view>
+          <progress percent="20.08"/>
+        </view> -->
+        <view class='font-lv3  ellipsis-2row'>{{book.book_name}}</view>
+      </navigator>
+    </view>
+  </block>
+</view>
+
+<view wx:if="{{page>0 && books.length>0}}" class='text-center font-lv3 color-grey pdb-30rpx'>
+  <image src='/assets/images/loading.png' class='icon'></image>
 </view>

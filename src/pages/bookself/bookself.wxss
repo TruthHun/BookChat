@@ -1,22 +1,69 @@
-.box{
-  margin-top: 30rpx;
-  display: flex;
-  justify-content: space-between; 
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: flex-start;
-}
-.box .book{
-  width: 30%;
-  margin-bottom: 40rpx;
-  color: #666;
+.box {
+  padding: 15rpx;
 }
 
-.box .book .progress{
-  font-size: 24rpx;
-  margin-bottom: 10rpx;
-  color: #999;
-}
-.book image{
+.tips {
   width: 100%;
+  box-sizing: border-box;
+  padding: 120rpx 15rpx 0;
+  text-align: center;
+  color: #888;
+  line-height: 200%;
 }
+
+.tips .action {
+  margin-top: 60rpx;
+}
+
+.tips image {
+  width: 100%;
+  border-radius: 6rpx;
+  position: fixed;
+  bottom: 30rpx;
+}
+
+.tips form {
+  position: relative;
+  display: block;
+}
+
+.tips form input {
+  box-sizing: border-box;
+  width: 100%;
+  background-color:#f8f8f8;
+  line-height: 90rpx;
+  height: 90rpx;
+  display: block;
+  border-radius: 10rpx;
+  text-align: left;
+  padding: 0 90rpx 0 26rpx;
+}
+
+.tips form image {
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  box-sizing: border-box;
+  height: 90rpx;
+  width: 90rpx;
+  padding: 20rpx;
+}
+
+.book {
+  width: 206rpx;
+  max-width: 100%;
+  display: block;
+  margin: 30rpx auto;
+}
+
+.progress progress {
+  margin-bottom: 15rpx;
+}
+
+.book image {
+  width: 206rpx;
+  height: 271.6rpx;
+  margin-bottom: 15rpx;
+}
+
+.icon{width: 32rpx;height: 32rpx;}

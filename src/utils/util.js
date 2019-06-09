@@ -56,7 +56,7 @@ const relativeTime = t => {
 }
 
 const clearUser = () => {
-  wx.setStorageSync(keyUser, '')
+  wx.setStorageSync(keyUser, '{}')
 }
 
 const setUser = (user) => {
