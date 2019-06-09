@@ -69,7 +69,7 @@
 
 
 <view wx:if="{{page==0}}" class='pagination pdb-30rpx'>
-  <view class='text-center font-lv3 color-grey pdb-30rpx'>{{tips}}</view>
+  <view wx:if="{{lists.length==0}}" class='text-center font-lv3 color-grey pdb-30rpx'>{{tips}}</view>
 </view>
 <view wx:else class='pagination pdb-30rpx'>
   <view class='text-center font-lv3 color-grey pdb-30rpx'>

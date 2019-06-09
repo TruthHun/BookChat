@@ -221,7 +221,6 @@ Page({
         lists: lists,
         page: page
       })
-
     }).catch((e) => {
       console.log(e)
     })
