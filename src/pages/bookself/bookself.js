@@ -8,6 +8,7 @@ Page({
     books: [],
     token: '',
     showTips: false,
+    wd: '',
   },
   onLoad: function() {
   },
@@ -85,5 +86,15 @@ Page({
         url: '/pages/search/search?wd=' + e.detail.value,
       })
     }
+  },
+  formSubmit:function(e){
+    if(this.data.wd!=''){
+      wx.navigateTo({
+        url: '/pages/search/search?wd=' + this.data.wd,
+      })
+    }
+  },
+  changeValue:function(e){
+    this.setData({wd:e.detail.value})
   }
 })

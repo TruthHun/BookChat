@@ -31,10 +31,19 @@ Page({
     })
   },
   logout: function(e) {
-    util.request(config.api.logout)// 只需调用，不需要处理返回结果
-    util.clearUser()
-    util.toastSuccess('退出成功')
-    this.initUser()
+    let that = this
+    wx.showModal({
+      title: '温馨提示',
+      content: '您确定要退出登录吗？',
+      success(res) {
+        if (res.confirm) {
+          util.request(config.api.logout)// 只需调用，不需要处理返回结果
+          util.clearUser()
+          util.toastSuccess('退出成功')
+          that.initUser()
+        }
+      }
+    })
   },
   userLoginEvent: function(e) {
     if (config.debug) console.log("userLoginEvent", e)

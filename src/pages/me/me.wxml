@@ -5,7 +5,13 @@
     <view class='color-grey font-lv3'>{{user.intro}}</view>
   </view>
 </view>
-
+<view class='base-padding row base-info'>
+  <navigator url='/pages/search/search' class='col-12'>
+    <image src='../../assets/images/search.png'></image>
+    书籍搜索
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </navigator>
+</view>
 <view class='base-padding row base-info'>
   <navigator url="{{user.uid>0? '/pages/ucenter/ucenter?tab=release':'/pages/login/login'}}" class='col-12'>
     <image src='../../assets/images/book.png'></image>
@@ -27,11 +33,6 @@
     我的粉丝
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
-  <view wx:if="{{user.uid>0}}" bindtap='logout' class='col-12'>
-    <image src='../../assets/images/login.png'></image>
-    退出登录
-    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
-  </view>
 </view>
 
 <view class='base-padding row base-info'>
@@ -45,6 +46,14 @@
     分享好友
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
+</view>
+
+<view class='base-padding row base-info'>
+  <view wx:if="{{user.uid>0}}" bindtap='logout' class='col-12'>
+    <image src='../../assets/images/login.png'></image>
+    退出登录
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </view>
 </view>
 
 <view class='base-padding row base-info'>

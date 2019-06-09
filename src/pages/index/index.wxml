@@ -1,11 +1,11 @@
-<wxs src="../common.wxs" module="common"/>
+<wxs src="../common.wxs" module="common" />
 
 <!--  搜索框  -->
 <view class='search base-padding base-margin-bottom'>
-  <label>
-    <icon type='search'></icon>
-    <input type='search' placeholder="请输入搜索关键字" />
-  </label>
+  <form>
+    <input bindinput='changeValue' bindconfirm='search' name="wd" type='search' placeholder="Search..." />
+    <image bindtap='formSubmit' src='/assets/images/search.png'></image>
+  </form>
 </view>
 
 <!--  banner  -->

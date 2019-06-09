@@ -4,6 +4,34 @@ page {
   padding-bottom: 30rpx;
 }
 
+form {
+  margin-top: 30rpx;
+  position: relative;
+  display: block;
+}
+
+form input {
+  box-sizing: border-box;
+  width: 100%;
+  background-color:#f8f8f8;
+  line-height: 90rpx;
+  height: 90rpx;
+  display: block;
+  border-radius: 10rpx;
+  text-align: left;
+  padding: 0 90rpx 0 26rpx;
+}
+
+form image {
+  position: absolute;
+  top: 0rpx;
+  right: 0rpx;
+  box-sizing: border-box;
+  height: 90rpx;
+  width: 90rpx;
+  padding: 20rpx;
+}
+
 .slide-image {
   width: 690rpx;
 }
@@ -13,31 +41,7 @@ swiper-item {
   border-radius: 6rpx;
 }
 
-.search {
-  margin-top: 15rpx;
-}
 
-.search label {
-  position: relative;
-}
-
-.search icon {
-  position: absolute;
-  z-index: 99;
-  left: 20rpx;
-  top: 20rpx;
-  font-size: 30rpx;
-}
-
-.search input {
-  height: 90rpx;
-  line-height: 90rpx;
-  border-radius: 6rpx;
-  background: #f8f8f8;
-  color: #888;
-  font-size: 32rpx;
-  padding-left: 90rpx;
-}
 
 .recommend .panel-body {
   display: flex;

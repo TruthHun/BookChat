@@ -15,19 +15,12 @@
   margin-top: 60rpx;
 }
 
-.tips image {
-  width: 100%;
-  border-radius: 6rpx;
-  position: fixed;
-  bottom: 30rpx;
-}
-
-.tips form {
+form {
   position: relative;
   display: block;
 }
 
-.tips form input {
+form input {
   box-sizing: border-box;
   width: 100%;
   background-color:#f8f8f8;
@@ -39,7 +32,7 @@
   padding: 0 90rpx 0 26rpx;
 }
 
-.tips form image {
+form image {
   position: absolute;
   top: 0rpx;
   right: 0rpx;
