@@ -14,16 +14,19 @@ Page({
 
     let that = this;
 
-    api.getCategories().then((categories)=>{
+    api.getCategories().then((categories) => {
       if (config.debug) console.log('api.getCategories: ', categories);
       that.setData({
         categories: categories
       })
-    }).catch((e)=>{
+    }).catch((e) => {
       console.log(e)
     })
   },
-  onReady: function(){
+  onReady: function() {
     wx.hideLoading()
+  },
+  tabClick:function(e){
+    console.log(e)
   }
 })

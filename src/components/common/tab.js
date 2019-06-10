@@ -4,6 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    gridLen: {
+      type: Number,
+      value: 12, //1 ~ 12
+    },
     tabs: {
       type: Array,
       value: []
@@ -16,7 +20,6 @@ Component({
    */
   data: {
     activeValue: '',
-    gridLen: 12, //1 ~ 12
   },
 
   /**

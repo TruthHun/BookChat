@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "分类"
+  "navigationBarTitleText": "分类",
+  "usingComponents": {
+    "tab": "/components/common/tab"
+  }
 }

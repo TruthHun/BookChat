@@ -1,17 +1,21 @@
-.breadcrumb .col {
-  text-align: center;
+.breadcrumb{
+  border-bottom: 1rpx solid #dddddd;
+  line-height: 250%;
+  margin-top: 15rpx;
 }
-
-.breadcrumb .active {
+.breadcrumb .col{text-align: center;}
+.breadcrumb .active{
   color: #00acff;
-  border: 1rpx solid #ddd;
+  border:1rpx solid #dddddd;
   border-bottom: 0rpx;
   padding-bottom: 2rpx;
   margin-bottom: -2rpx;
-  background-color: #fff;
+  background-color: #ffffff;
   border-top-left-radius: 6rpx;
   border-top-right-radius: 6rpx;
 }
-
-.footer{padding-bottom: 30rpx;padding-top:60rpx;border-top: 1px solid #eee;}
-.loading{width: 32rpx;height: 32rpx;}
+.footer{padding-bottom: 30rpx;padding-top:30rpx;}
+.loading{width: 64rpx;height: 64rpx;}
+.tab{
+  margin-bottom: 30rpx;
+}

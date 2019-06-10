@@ -1,5 +1,5 @@
 <wxs src="../common.wxs" module="common" />
-<view class='breadcrumb base-padding base-margin-bottom'>
+<!-- <view class='breadcrumb base-padding base-margin-bottom'>
   <view class='row'>
     <view class='col-8'>
       <view class='row'>
@@ -9,8 +9,16 @@
       </view>
     </view>
   </view>
+</view> -->
+
+<view class='tab'>
+  <tab tabs="{{tabs}}" gridLen="8" bindclick="tabClick" istyle="margin-bottom:30rpx;" />
 </view>
-<book-list books="{{books}}" iclass="base-padding base-margin-bottom"/>
+
+<view class='base-padding base-margin-bottom'>
+  <book-list books="{{books}}" />
+</view>
+
 <view wx:if="{{page==0}}" class='footer'>
   <view class='text-center font-lv3 color-grey pdb-30rpx'>{{tips}}</view>
 </view>

@@ -1,4 +1,4 @@
-<view class='tab'>
+<view wx:if="{{tabs.length>0}}" class='tab'>
   <view class='row'>
     <view class='col-{{gridLen}}'>
       <view class='row'>

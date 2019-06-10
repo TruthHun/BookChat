@@ -12,11 +12,21 @@ Page({
     cid: 0,
     page: 1,
     books: [],
-    tab: 'popular',
-    tabTitle: '最新',
+    tabValue: 'popular',
+    tabTitle: '热门',
     categoryTitle: '书籍列表',
     size: 10,
-    tips: '我也是有底线的',
+    tips: '哼，我也是一只有底线的猿',
+    tabs: [{
+      title: '热门',
+      value: 'popular'
+    }, {
+      title: '最新',
+      value: 'new'
+    }, {
+      title: '推荐',
+      value: 'recommend'
+    }]
   },
 
   /**
@@ -47,11 +57,11 @@ Page({
   tabClick: function(e) {
     if (config.debug) console.log("tabClick", e)
 
-    if (e.target.dataset.tab == this.data.tab) return;
+    if (e.detail.tabValue == this.data.tabValue) return;
 
     this.setData({
-      tab: e.target.dataset.tab,
-      tabTitle: e.target.dataset.title,
+      tabValue: e.detail.value,
+      tabTitle: e.detail.title,
       page: 1,
       books: [],
     })
@@ -66,7 +76,7 @@ Page({
       page: that.data.page,
       cid: that.data.cid,
       size: that.data.size,
-      sort: that.data.tab
+      sort: that.data.tabValue
     }).then((res) => {
       if (config.debug) console.log(config.api.bookLists, res)
 
@@ -81,7 +91,7 @@ Page({
 
       let tips = '哼，我也是一只有底线的猿'
 
-      if (books.length == 0) tips = '我是一只小小小鸟，怎么肥也肥不糕...猿来没找到内容...'
+      if (books.length == 0) tips = '(-。-) 猿来没有内容'
 
       that.setData({
         page: page,
