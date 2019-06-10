@@ -1,0 +1,25 @@
+/* components/common/tab.wxss */
+@import '../../app.wxss';
+
+.tab {
+  border-bottom: 1px solid #ddd;
+  line-height: 250%;
+  margin-top: 15rpx;
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+
+.tab .col {
+  text-align: center;
+}
+
+.tab .active {
+  color: #00acff;
+  border: 1px solid #ddd;
+  border-bottom: 0rpx;
+  padding-bottom: 2rpx;
+  margin-bottom: -2rpx;
+  background-color: #fff;
+  border-top-left-radius: 6rpx;
+  border-top-right-radius: 6rpx;
+}

@@ -9,7 +9,7 @@
 .book-list .row {
   margin-bottom: 30rpx;
   padding-bottom: 30rpx;
-  border-bottom: 1rpx solid #efefef;
+  border-bottom: 1px solid #efefef;
   display: flex;
 }
 
