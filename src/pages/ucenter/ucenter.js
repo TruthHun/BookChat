@@ -8,12 +8,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tab: 'fans',
+    tabValue: 'fans',
     page: 1,
     size: 10,
     lists: [],
     user: {},
     tips: '没有发现更多资猿...',
+    tabs: [{
+      title: '发布',
+      value: "release"
+    }, {
+      title: "收藏",
+      value: "star",
+    }, {
+      title: "关注",
+      value: "follow"
+    }, {
+      title: "粉丝",
+      value: "fans"
+    }]
   },
 
   /**
@@ -22,12 +35,14 @@ Page({
   onLoad: function(options) {
     if (config.debug) console.log("params", options)
 
-    if(options.tab) this.setData({tab:options.tab})
+    if (options.tab) this.setData({
+      tabValue: options.tab
+    })
 
     let user = util.getUser() || {
       uid: 0
     }
-  
+
     let uid = options.uid || 0
 
 
@@ -75,7 +90,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    switch (this.data.tab) {
+    switch (this.data.tabValue) {
       case 'release':
         this.getRelease();
         break;
@@ -93,18 +108,18 @@ Page({
   tabClick: function(e) {
     if (config.debug) console.log("tabClick", e)
 
-    if (e.target.dataset.tab == this.data.tab) return;
+    if (e.detail.value == this.data.tabValue) return;
 
     this.setData({
       lists: [],
       page: 1,
-      tab: e.target.dataset.tab,
+      tabValue: e.detail.value,
     })
     this.getLists()
     this.setTitile(e.target.dataset.title)
   },
   getLists: function() {
-    switch (this.data.tab) {
+    switch (this.data.tabValue) {
       case 'release':
         this.getRelease()
         break;
@@ -133,7 +148,7 @@ Page({
   },
   setTitile(title) {
     if (title == undefined || title == '') {
-      switch (this.data.tab) {
+      switch (this.data.tabValue) {
         case 'release':
           title = '发布';
           break;
@@ -178,7 +193,7 @@ Page({
           page++
         }
         lists = lists.concat(res.data.books)
-      }else{
+      } else {
         page = 0
       }
 
@@ -213,7 +228,7 @@ Page({
           page++
         }
         lists = lists.concat(res.data.users)
-      }else{
+      } else {
         page = 0
       }
 

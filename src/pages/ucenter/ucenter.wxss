@@ -57,26 +57,6 @@
   margin-bottom: 0rpx;
 }
 
-.breadcrumb {
-  border-bottom: 1rpx solid #ddd;
-  line-height: 250%;
-  margin-top: 15rpx;
-}
-
-.breadcrumb .col {
-  text-align: center;
-}
-
-.breadcrumb .active {
-  color: #00acff;
-  border: 1rpx solid #ddd;
-  border-bottom: 0rpx;
-  padding-bottom: 2rpx;
-  margin-bottom: -2rpx;
-  background-color: #fff;
-  border-top-left-radius: 6rpx;
-  border-top-right-radius: 6rpx;
-}
 
 
 .list .col-9 {

@@ -6,7 +6,11 @@
   <view class='color-grey font-lv3'>{{user.intro}}</view>
 </view>
 
-<view class='breadcrumb base-padding base-margin-bottom'>
+<view class='base-margin-bottom'>
+  <tab tabs="{{tabs}}" bindclick="tabClick" gridLen="10"/>
+</view>
+
+<!-- <view class='breadcrumb base-padding base-margin-bottom'>
   <view class='row'>
     <view class='col-10'>
       <view class='row'>
@@ -17,10 +21,10 @@
       </view>
     </view>
   </view>
-</view>
+</view> -->
 
 
-<view wx:if="{{(tab == 'release' || tab == 'star') && lists.length>0}}" class='list base-padding base-margin-bottom'>
+<view wx:if="{{(tabValue == 'release' || tabValue == 'star') && lists.length>0}}" class='list base-padding base-margin-bottom'>
   <block wx:for="{{lists}}" wx:key='index' wx:for-item="book">
     <view class='row'>
       <navigator url='/pages/intro/intro?id={{book.book_id}}' class='col-3'>
@@ -37,22 +41,22 @@
             <image src='../../assets/images/document.png'></image>
             <text> {{book.cnt_doc}} 章节</text>
           </view>
-          <view wx:if="{{tab =='release'}}" class='col'>
+          <view wx:if="{{tabValue =='release'}}" class='col'>
             <image src='../../assets/images/clock.png'></image>
             <text> {{common.relativeTime(book.created_at)}}</text>
           </view>
-          <view wx:if="{{tab=='star'}}" class='col'>
+          <view wx:if="{{tabValue=='star'}}" class='col'>
             <image src='../../assets/images/star.png'></image>
             <text> {{book.star}} 收藏</text>
           </view>
         </view>
-        <view class='font-lv3 color-grey ellipsis-2row'>{{book.description}}</view>
+        <view class='font-lv3 color-grey ellipsis-2row'>{{book.description ? book.description : book.book_name}}</view>
       </navigator>
     </view>
   </block>
 </view>
 
-<view wx:if="{{(tab == 'fans' || tab =='follow') && lists.length>0}}" class='list list-users'>
+<view wx:if="{{(tabValue == 'fans' || tabValue =='follow') && lists.length>0}}" class='list list-users'>
   <view class='row'>
     <block wx:for="{{lists}}" wx:key="index" wx:for-item="user">
       <navigator class='col-4' url='/pages/ucenter/ucenter?uid={{user.uid}}'>

@@ -22,7 +22,7 @@
             <text> {{common.relativeTime(book.created_at)}}</text>
           </view>
         </view>
-        <view class='font-lv3 color-grey ellipsis-2row'>{{book.description}}</view>
+        <view class='font-lv3 color-grey ellipsis-2row'>{{book.description ? book.description : book.book_name}}</view>
       </navigator>
     </view>
   </block>
