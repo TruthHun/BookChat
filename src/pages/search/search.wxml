@@ -1,5 +1,9 @@
 <!--  搜索框  -->
+
 <view class='search base-padding base-margin-bottom'>
-  <search />
+  <search focus="{{focus}}" wd="{{wd}}" />
 </view>
-<book-list books="{{books}}" />
+
+<view class='base-padding'>
+  <book-list books="{{books}}" />
+</view>

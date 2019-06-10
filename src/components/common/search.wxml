@@ -1,4 +1,4 @@
 <form class='search'>
-  <input bindinput='changeValue' bindconfirm='search' name="wd" value="{{wd}}" type='search' placeholder="{{placeholder}}" />
+  <input auto-focus='{{focus}}' bindinput='changeValue' bindconfirm='search' name="wd" value="{{wd}}" type='search' placeholder="{{placeholder}}" />
   <image bindtap='formSubmit' src='/assets/images/search.png'></image>
 </form>

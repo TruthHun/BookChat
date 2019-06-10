@@ -11,6 +11,10 @@ Component({
     placeholder: {
       type: String,
       value: 'Search...'
+    },
+    focus: {
+      type: Boolean,
+      value: false,
     }
   },
 
