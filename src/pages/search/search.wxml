@@ -1,9 +1,33 @@
+<wxs src="../../pages/common.wxs" module="common" />
 <view class='search base-padding mgb-30rpx'>
-  <search focus="{{focus}}" wd="{{wd}}" />
+  <search bindsearch="search" focus="{{focus}}" wd="{{wd}}" />
 </view>
 
-<tab wx:if="{{lists.Length>0}}" tabs="{{tabs}}" gridLen="6" />
+<view wx:if="{{showTab}}" class="base-margin-bottom">
+  <tab bindclick="tabClick" tabs="{{tabs}}" gridLen="6" />
+</view>
 
 <view class='base-padding'>
-  <book-list books="{{books}}" />
+  <book-list wx:if="{{tabValue == 'book'}}" books="{{lists}}" />
+  <block wx:if="{{tabValue == 'doc'}}">
+    <view wx:esle class='doc-list'>
+      <view wx:for="{{lists}}" wx:key="index" wx:for-item="doc" class='row'>
+        <view class='col-12 doc-title font-lv1 ellipsis-1row'>
+          <navigator url='/pages/read/read?identify={{doc.book_id}}/{{doc.identify}}'>{{doc.title}}</navigator>
+        </view>
+        <view class='col-12 doc-info color-light font-lv4'>
+          <view class='item'>
+            <image src='/assets/images/eye.png'></image>
+            <text>{{common.fixView(doc.vcnt)}}</text>
+          </view>
+          <view class='item'>
+            <image src='/assets/images/clock.png'></image>
+            <text>{{common.relativeTime(doc.created_at)}}</text>
+          </view>
+          <navigator class='item' url='/pages/intro/intro?id={{doc.book_id}}'>《{{doc.book_name}}》</navigator>
+        </view>
+        <navigator class='col-12 doc-intro color-grey font-lv3 ellipsis-3row' url='/pages/read/read?identify={{doc.book_id}}/{{doc.identify}}'>{{doc.content}}</navigator>
+      </view>
+    </view>
+  </block>
 </view>

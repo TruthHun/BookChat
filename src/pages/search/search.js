@@ -5,6 +5,10 @@ Page({
   data: {
     lists: [],
     wd: '',
+    page: 1,
+    size: 10,
+    tabValue: "book",
+    showTab:false,
     focus: false,
     tabs: [{
         title: "书籍",
@@ -24,9 +28,63 @@ Page({
       })
       return
     }
-
-    this.setData({wd:wd})
-
+    this.setData({
+      wd: wd,
+      page: 1,
+      lists: [],
+      showTab:true,
+    })
+    this.execSearch(wd)
+  },
+  tabClick: function(e) {
+    if (e.detail.value == this.data.tabValue){
+      return
+    }
+    this.setData({
+      tabValue: e.detail.value,
+      page: 1,
+      lists: [],
+      showTab: true
+    })
+    this.execSearch(this.data.wd)
+  },
+  search: function(e) {
+    this.setData({
+      wd: e.detail,
+      page: 1,
+      lists: [],
+      showTab: true
+    })
+    this.execSearch()
+  },
+  execSearch: function() {
+    let that = this
+    let api = config.api.searchDoc
+    if (that.data.tabValue != "doc") {
+      api = config.api.searchBook
+    }
+    util.request(api, {
+      wd: that.data.wd,
+      page: that.data.page,
+      size: that.data.size,
+    }).then((res) => {
+      if (config.debug) console.log(config.api.searchBook, res)
+      let page = that.data.page + 1
+      let result = []
+      if (res.data && res.data.result) {
+        result = res.data.result
+        if (res.data.result.length < that.data.size) {
+          page = 0
+        }
+      } else {
+        page = 0
+      }
+      that.setData({
+        page: page,
+        lists: result
+      })
+    }).catch((e) => {
+      if (config.debug) console.log(e)
+    })
   }
-
 })

@@ -1,13 +1,5 @@
-.result .col-9{
-  box-sizing: border-box;
-  padding-left: 30rpx;
-}
-
-.result .row{
-  margin-bottom: 30rpx; padding-bottom: 30rpx;
-  border-bottom: 1rpx solid #efefef;
-}
-
-.result .color-grey{
-  line-height: 150%;text-indent: 2em;
-}
+.doc-info{font-size: 24rpx;margin:20rpx 0;}
+.doc-info image{height: 20rpx;width: 20rpx;margin-right: 6rpx;}
+.doc-info .item{display: inline-block;margin-right: 16rpx;}
+.doc-intro{font-size: 28rpx;line-height: 170%;}
+.doc-list .row{border-bottom: 1px solid #efefef;margin-bottom: 30rpx;padding-bottom: 30rpx;}
