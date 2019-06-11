@@ -2,6 +2,7 @@
   "navigationBarTitleText": "书籍搜索",
   "usingComponents": {
     "search": "/components/common/search",
-    "book-list":"/components/book/list"
+    "book-list":"/components/book/list",
+    "tab":"/components/common/tab"
   }
 }

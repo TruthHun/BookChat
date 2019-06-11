@@ -2,7 +2,7 @@
 
 <!--  搜索框  -->
 <view class='search base-padding base-margin-bottom'>
-  <search/>
+  <search bindsearch="search" />
 </view>
 
 <!--  banner  -->

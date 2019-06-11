@@ -79,13 +79,10 @@ Page({
       url: '/pages/login/login',
     })
   },
-  search: function(e) {
-    if (config.debug) console.log("search event", e)
-    if (e.detail.value != '') {
-      wx.navigateTo({
-        url: '/pages/search/search?wd=' + e.detail.value,
-      })
-    }
+  search: function (e) {
+    wx.navigateTo({
+      url: '/pages/search/search?wd=' + e.detail,
+    })
   },
   formSubmit:function(e){
     if(this.data.wd!=''){

@@ -62,6 +62,7 @@ Page({
       }, 1500)
 
     }).catch((err) => {
+      if (config.debug) console.log(err);
       this.setData({ loading: false })
       if (err.data) {
         util.toastError(err.data.message)

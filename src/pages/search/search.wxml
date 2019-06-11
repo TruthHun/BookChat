@@ -1,8 +1,8 @@
-<!--  搜索框  -->
-
-<view class='search base-padding base-margin-bottom'>
+<view class='search base-padding mgb-30rpx'>
   <search focus="{{focus}}" wd="{{wd}}" />
 </view>
+
+<tab wx:if="{{lists.Length>0}}" tabs="{{tabs}}" gridLen="6" />
 
 <view class='base-padding'>
   <book-list books="{{books}}" />

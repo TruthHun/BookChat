@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/search/search",
     "pages/me/me",
     "pages/cate/cate",
-    "pages/index/index",
     "pages/bookself/bookself",
     "pages/ucenter/ucenter",
     "pages/list/list",

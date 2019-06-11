@@ -95,5 +95,10 @@ Page({
   },
   onReady: function() {
     wx.hideLoading()
+  },
+  search:function(e){
+    wx.navigateTo({
+      url: '/pages/search/search?wd='+e.detail,
+    })
   }
 })

@@ -6,7 +6,7 @@
       <view>我们给了你一个华丽的书架</view>
       <view>你却没有一本书籍...</view>
       <view class='action'>
-        <search/>
+        <search bindsearch="search" />
       </view>
     </block>
     <block wx:if="{{token == ''}}">
@@ -23,13 +23,6 @@
     <view wx:for="{{books}}" wx:key="index" wx:for-item="book" class='col-4'>
       <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book text-muted'>
         <image mode='widthFix' class='box-shadow cover' src='{{book.cover}}'></image>
-        <!-- <view class='progress'>
-          <view>
-            <text>阅读进度</text>
-            <text class='pull-right'>20%</text>
-          </view>
-          <progress percent="20.08"/>
-        </view> -->
         <view class='font-lv3  ellipsis-2row'>{{book.book_name}}</view>
       </navigator>
     </view>

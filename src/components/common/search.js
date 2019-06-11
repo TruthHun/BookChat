@@ -30,18 +30,13 @@ Component({
    */
   methods: {
     search: function(e) {
-      if (config.debug) console.log("search event", e)
       if (e.detail.value != '') {
-        wx.navigateTo({
-          url: '/pages/search/search?wd=' + e.detail.value,
-        })
+        this.triggerEvent('search', e.detail.value)
       }
     },
     formSubmit: function(e) {
       if (this.data.wd != '') {
-        wx.navigateTo({
-          url: '/pages/search/search?wd=' + this.data.wd,
-        })
+        this.triggerEvent('search', this.data.wd)
       }
     },
     changeValue: function(e) {
