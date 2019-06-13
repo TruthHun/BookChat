@@ -1,0 +1,4 @@
+/* components/common/footer.wxss */
+@import '../../app.wxss';
+.footer image{width: 64rpx;height: 64rpx;}
+.footer .text-center{padding: 60rpx 0;}

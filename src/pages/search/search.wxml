@@ -31,3 +31,5 @@
     </view>
   </block>
 </view>
+
+<footer loading="{{loading}}" tips="{{tips}}"/>

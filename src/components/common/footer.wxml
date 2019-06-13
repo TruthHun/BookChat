@@ -1,0 +1,6 @@
+<view class='footer'>
+  <view class='text-center font-lv3 color-grey'>
+    <image wx:if="{{loading}}" src='/assets/images/loading.png' class='loading'></image>
+    <text wx:else>{{tips}}</text>
+  </view>
+</view>

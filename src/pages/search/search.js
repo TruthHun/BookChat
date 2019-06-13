@@ -8,7 +8,7 @@ Page({
     page: 1,
     size: 10,
     tabValue: "book",
-    showTab:false,
+    showTab: false,
     focus: false,
     tabs: [{
         title: "书籍",
@@ -32,12 +32,15 @@ Page({
       wd: wd,
       page: 1,
       lists: [],
-      showTab:true,
+      showTab: true,
     })
     this.execSearch(wd)
   },
+  onReachBottom: function() {
+    this.execSearch()
+  },
   tabClick: function(e) {
-    if (e.detail.value == this.data.tabValue){
+    if (e.detail.value == this.data.tabValue) {
       return
     }
     this.setData({
@@ -60,9 +63,27 @@ Page({
   execSearch: function() {
     let that = this
     let api = config.api.searchDoc
+
+    if (that.data.pedding) return
+
+    if (that.data.page > 0) {
+      that.setData({
+        loading: true,
+        pending:true,
+      })
+    } else {
+      that.setData({
+        loading: false,
+        tips: '没有找到更多资源...',
+        pedding:false,
+      })
+      return
+    }
+
     if (that.data.tabValue != "doc") {
       api = config.api.searchBook
     }
+
     util.request(api, {
       wd: that.data.wd,
       page: that.data.page,
@@ -81,10 +102,25 @@ Page({
       }
       that.setData({
         page: page,
-        lists: result
+        lists: that.data.lists.concat(result),
+        loading: page > 0,
+        tips: "没有找到更多资源...",
+        pedding:false,
       })
     }).catch((e) => {
       if (config.debug) console.log(e)
+      let message = '';
+      if (e.errMsg) {
+        message = e.errMsg
+      } else {
+        message = e.data.message
+      }
+      that.setData({
+        loading: false,
+        tips: message,
+        page: 0,
+        pedding: false,
+      })
     })
   }
 })
