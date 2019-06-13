@@ -12,9 +12,9 @@
       <image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image> {{book.user}}</view>
     <view class='progress mgt-30rpx'>
       <view class='font-lv3 color-grey'>阅读进度
-        <view class='pull-right'>0%(未登录)</view>
+        <view class='pull-right'>{{book.percent}}% <text wx:if="{{isLogin == false}}">(未登录)</text>{{end}}</view>
       </view>
-      <progress class='mgt-15rpx' percent="20" />
+      <progress class='mgt-15rpx' percent="{{book.percent}}" />
     </view>
   </view>
 </view>

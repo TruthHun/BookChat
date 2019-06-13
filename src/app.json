@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/search/search",
     "pages/index/index",
+    "pages/intro/intro",
+    "pages/search/search",
     "pages/me/me",
     "pages/cate/cate",
     "pages/bookself/bookself",
@@ -19,7 +20,6 @@
     "pages/login/login",
     "pages/reg/reg",
     "pages/findpwd/findpwd",
-    "pages/intro/intro",
     "pages/notfound/notfound"
   ],
   "window": {

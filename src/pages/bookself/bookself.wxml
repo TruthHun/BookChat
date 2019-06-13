@@ -29,6 +29,4 @@
   </block>
 </view>
 
-<view wx:if="{{page>0 && books.length>0}}" class='text-center font-lv3 color-grey pdb-30rpx'>
-  <image src='/assets/images/loading.png' class='icon'></image>
-</view>
+<footer loading="{{page>0 && books.length>0}}"/>

@@ -8,9 +8,11 @@ Page({
     books: [],
     token: '',
     showTips: false,
+    pending: false,
     wd: '',
   },
   onLoad: function() {
+    this.loadBooks()
   },
   onShow: function() {
     this.loadBooks()
@@ -19,12 +21,20 @@ Page({
     this.loadBooks()
   },
   loadBooks: function() {
+
+    if (this.data.pending) return;
+
+    this.setData({
+      pending: true
+    })
+
     let token = util.getToken() || ''
     if (!token) {
       this.setData({
         showTips: true,
         books: [],
         token: token,
+        pending: false,
       })
       return
     }
@@ -37,7 +47,7 @@ Page({
       size: that.data.size,
     }).then((res) => {
       if (config.debug) console.log(config.api.bookshelf, res)
-      if (res.data && res.data.books && res.data.readed) {
+      if (res.data && res.data.books) {
         let page = that.data.page
         if (res.data.books.length >= that.data.size) {
           page++
@@ -45,16 +55,18 @@ Page({
           page = 0
         }
         this.setData({
-          showTips: true,
+          showTips: that.data.books.length == 0,
           books: that.data.books.concat(res.data.books),
           token: token,
           page: page,
+          pending: false,
         })
       } else {
         this.setData({
           showTips: true,
           token: token,
           page: 1,
+          pending: false,
         })
       }
     }).catch((e) => {
@@ -70,6 +82,7 @@ Page({
         books: books,
         showTips: true,
         page: 1,
+        pending: false,
       })
     })
   },
@@ -79,19 +92,21 @@ Page({
       url: '/pages/login/login',
     })
   },
-  search: function (e) {
+  search: function(e) {
     wx.navigateTo({
       url: '/pages/search/search?wd=' + e.detail,
     })
   },
-  formSubmit:function(e){
-    if(this.data.wd!=''){
+  formSubmit: function(e) {
+    if (this.data.wd != '') {
       wx.navigateTo({
         url: '/pages/search/search?wd=' + this.data.wd,
       })
     }
   },
-  changeValue:function(e){
-    this.setData({wd:e.detail.value})
+  changeValue: function(e) {
+    this.setData({
+      wd: e.detail.value
+    })
   }
 })

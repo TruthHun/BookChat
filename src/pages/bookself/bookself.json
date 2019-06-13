@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "书架",
   "usingComponents":{
-    "search":"/components/common/search"
+    "search":"/components/common/search",
+    "footer":"/components/common/footer"
   }
 }

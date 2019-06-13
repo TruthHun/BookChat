@@ -6,7 +6,7 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
+		"autoAudits": true,
 		"checkInvalidKey": true
 	},
 	"compileType": "miniprogram",
