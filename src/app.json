@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/menu/menu",
     "pages/index/index",
     "pages/intro/intro",
     "pages/search/search",
@@ -15,7 +16,6 @@
     "pages/history/history",
     "pages/comment/comment",
     "pages/bookmarks/bookmarks",
-    "pages/menu/menu",
     "pages/about/about",
     "pages/login/login",
     "pages/reg/reg",

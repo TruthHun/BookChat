@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "menu-tree": "/components/book/menu-tree"
+  }
+}

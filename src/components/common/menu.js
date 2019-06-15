@@ -1,12 +1,21 @@
-// components/book/list/list.js
+// components/common/menu.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    books: {
+    book: {
+      type: Object,
+    },
+    menu: {
       type: Array,
       value: []
+    },
+    bookmarks: {
+      type: Array
+    },
+    result: {
+      type: Array
     }
   },
 
@@ -14,7 +23,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    books: []
+    pid: 0
   },
 
   /**
@@ -23,4 +32,5 @@ Component({
   methods: {
 
   }
+
 })

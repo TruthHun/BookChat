@@ -1,12 +1,15 @@
-// components/book/list/list.js
+// components/book/menu-tree.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    books: {
-      type: Array,
-      value: []
+    menu: {
+      type: Array
+    },
+    pid: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -14,7 +17,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    books: []
+
   },
 
   /**

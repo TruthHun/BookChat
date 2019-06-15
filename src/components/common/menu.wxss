@@ -1,0 +1,74 @@
+@import '../../app.wxss';
+
+.book {
+  border-bottom: 1px solid #efefef;
+  padding-bottom: 30rpx;
+}
+
+.book navigator image {
+  width: 100%;
+  border-radius: 6rpx;
+}
+
+.book-title {
+  white-space: nowrap;
+  padding-top: 7rpx;
+}
+
+.book-info {
+  box-sizing: border-box;
+  padding-left: 30rpx;
+}
+
+/* menu */
+
+.menu {
+  padding-top: 30rpx;
+  padding-bottom: 120rpx;
+  line-height: 260%;
+  overflow-x: hidden;
+}
+
+.ul {
+  padding-left: 0rpx;
+}
+
+.li {
+  padding-left: 1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.li.active {
+  color: #008cff;
+}
+
+.li navigator {
+  margin-left: 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+image.readed {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+/* footer */
+
+.footer {
+  box-shadow: 0rpx 0rpx 10rpx #efefef;
+  border-top: 1px solid #efefef;
+  background-color: #fff;
+  position: fixed;
+  height: 90rpx;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  line-height: 90rpx;
+}
+
+.footer .active {
+  color: #008cff;
+}
