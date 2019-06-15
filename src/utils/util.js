@@ -182,6 +182,40 @@ const activeReadedStorageMenu = (docId) => {
   setStorageMenu(menu)
 }
 
+const _findChildren = (menu, pid) => {
+  let children = []
+  let left = []
+  for (let i = 0; i < menu.length; i++) {
+    if (menu[i].pid == pid) {
+      children.push(menu[i])
+    } else {
+      left.push(menu[i])
+    }
+  }
+  return left, children
+}
+
+const menuToTree = (menu) => {
+  // 来自这篇博客，谢谢: https://blog.csdn.net/u013373006/article/details/82108873
+  menu.forEach(function(item) {
+    delete item.children;
+  });
+  var map = {};
+  menu.forEach(function(item) {
+    map[item.id] = item;
+  });
+  var val = [];
+  menu.forEach(function(item) {
+    var parent = map[item.pid];
+    if (parent) {
+      (parent.children || (parent.children = [])).push(item);
+    } else {
+      val.push(item);
+    }
+  });
+  return val;
+}
+
 module.exports = {
   formatTime,
   now,
@@ -198,4 +232,5 @@ module.exports = {
   getStorageMenu,
   setStorageMenu,
   activeReadedStorageMenu,
+  menuToTree,
 }
