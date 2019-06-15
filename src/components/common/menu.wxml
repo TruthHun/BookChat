@@ -19,7 +19,7 @@
 </view>
 <view wx:else>
   <view class='search base-padding mgb-30rpx'>
-    <search bindsearch="search" />
+    <search wd="{{wd}}" bindsearch="search" />
   </view>
   <view wx:if="{{book.book_id>0}}" class='book base-padding row mgb-30rpx'>
     <view class='book-cover col-3'>
@@ -45,12 +45,18 @@
       </view>
     </navigator>
   </view>
-  <menu-tree menu="{{menu}}" pid="{{pid}}" />
+  <block wx:if="{{result.length>0 && activeTab == 'result'}}">
+    <menu-tree menu="{{result}}" pid="0" />
+  </block>
+  <block wx:else>
+    <menu-tree menu="{{menu}}" pid="{{pid}}" />
+  </block>
 </view>
 
 
 <view class='footer font-lv3'>
   <view class='row'>
+    <view wx:if='{{result.length>0}}' class='col {{activeTab == "result" ? "active":""}}' bindtap="tabClick" data-tab="result" data-title="搜索">搜索</view>
     <view class='col {{activeTab == "menu" ? "active":""}}' bindtap="tabClick" data-tab="menu" data-title="目录">目录</view>
     <view class='col {{activeTab == "bookmark" ? "active":""}}' bindtap="tabClick" data-tab="bookmark" data-title="书签">书签</view>
   </view>

@@ -233,5 +233,3 @@ page{
 .score-10,.score-11,.score-12,.score-9,.score-8,.score-7{background-position-y: -239rpx;}
 .score-5,.score-6,.score-4,.score-3{background-position-y: -269rpx;}
 .score-2,.score-1,.score-0{background-position-y: -299rpx;}
-
-navigator:hover{background: transparent;}

@@ -21,6 +21,9 @@ Component({
       type: String,
       value: 'menu' // menu or bookmark
     },
+    wd: {
+      type: String
+    },
     result: {
       type: Array,
       value: []
@@ -45,6 +48,9 @@ Component({
     },
     delBookmark: function(e) {
       this.triggerEvent('delBookmark', e.target.dateset)
+    },
+    search: function(e) {
+      this.triggerEvent('search', e.detail)
     }
   }
 })

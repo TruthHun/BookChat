@@ -15,7 +15,8 @@ Page({
     identify: '',
     activeTab: 'menu',
     bookmark: [],
-    tips: ''
+    tips: '',
+    wd: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -77,7 +78,7 @@ Page({
       if (resBook.data && resBook.data.book) {
         book = resBook.data.book
         book.score_float = Number(book.score / 10).toFixed(1)
-        book.percent = Number(book.cnt_readed / book.cnt_doc *100).toFixed(2)
+        book.percent = Number(book.cnt_readed / book.cnt_doc * 100).toFixed(2)
       }
     }).catch(function(e) {
       console.log(e)
@@ -110,6 +111,32 @@ Page({
         bookmark: bookmark,
         tips: ' -- 您暂时还有没有书签 -- '
       })
+      wx.hideLoading()
+    })
+  },
+  search: function(e) {
+    util.loading("玩命搜索中...")
+    let that = this
+    let result = []
+    util.request(config.api.searchDoc, {
+      identify: that.data.identify,
+      wd: e.detail
+    }).then(function(res) {
+      if (config.debug) console.log(config.api.searchDoc, res)
+      if (res.data && res.data.result) {
+        result = res.data.result
+      }
+    }).catch(function(e) {
+      console.log(e)
+    }).finally(function() {
+      that.setData({
+        result: result,
+        activeTab: "result",
+        wd: e.detail,
+      })
+      if (result.length== 0) {
+        util.toastError("没有搜索到结果")
+      }
       wx.hideLoading()
     })
   }
