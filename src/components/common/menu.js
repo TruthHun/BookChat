@@ -17,9 +17,13 @@ Component({
     result: {
       type: Array
     },
-    activeTab:{
-      type:String,
+    activeTab: {
+      type: String,
       value: 'menu' // menu or bookmark
+    },
+    result: {
+      type: Array,
+      value: []
     }
   },
 
@@ -34,10 +38,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    tabClick:function(e){
-      if (e.target.dataset.tab != this.data.activeTab){
+    tabClick: function(e) {
+      if (e.target.dataset.tab != this.data.activeTab) {
         this.triggerEvent('tabClick', e.target.dataset)
       }
+    },
+    delBookmark: function(e) {
+      this.triggerEvent('delBookmark', e.target.dateset)
     }
   }
 })

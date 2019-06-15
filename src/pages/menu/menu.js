@@ -14,6 +14,8 @@ Page({
     onHide: false,
     identify: '',
     activeTab: 'menu',
+    bookmark: [],
+    tips: ''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -53,7 +55,7 @@ Page({
     this.setData({
       activeTab: e.detail.tab
     })
-    if (e.detail.tab == 'bookmark'){
+    if (e.detail.tab == 'bookmark') {
       this.loadBookmark()
     }
   },
@@ -75,7 +77,7 @@ Page({
       if (resBook.data && resBook.data.book) {
         book = resBook.data.book
         book.score_float = Number(book.score / 10).toFixed(1)
-        book.percent = Number(book.cnt_readed / book.cnt_doc).toFixed(2)
+        book.percent = Number(book.cnt_readed / book.cnt_doc *100).toFixed(2)
       }
     }).catch(function(e) {
       console.log(e)
@@ -90,14 +92,24 @@ Page({
   },
   loadBookmark: function() {
     let that = this
-    util.loading()
+    let bookmark = []
+
+    if (that.data.bookmark.length == 0) util.loading()
+
     util.request(config.api.bookmark, {
       identify: that.data.identify
     }).then(function(res) {
-      console.log(res)
+      if (config.debug) console.log("config.api.bookmark", res)
+      if (res.data && res.data.bookmarks) {
+        bookmark = res.data.bookmarks
+      }
     }).catch(function(e) {
       console.log(e)
     }).finally(function() {
+      that.setData({
+        bookmark: bookmark,
+        tips: ' -- 您暂时还有没有书签 -- '
+      })
       wx.hideLoading()
     })
   }

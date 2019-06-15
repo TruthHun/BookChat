@@ -1,6 +1,8 @@
 @import '../../app.wxss';
 
-page{padding-bottom: 120rpx;}
+page {
+  padding-bottom: 120rpx;
+}
 
 .book {
   border-bottom: 1px solid #efefef;
@@ -8,7 +10,8 @@ page{padding-bottom: 120rpx;}
 }
 
 .book navigator image {
-  width: 170rpx;height: 223.5rpx;
+  width: 170rpx;
+  height: 223.5rpx;
 }
 
 .book-title {
@@ -20,7 +23,6 @@ page{padding-bottom: 120rpx;}
   box-sizing: border-box;
   padding-left: 30rpx;
 }
-
 
 /* footer */
 
@@ -38,4 +40,33 @@ page{padding-bottom: 120rpx;}
 
 .footer .active {
   color: #008cff;
+}
+
+.bookmarks  image {
+  width: 20rpx;
+  height: 20rpx;
+  float: right;
+  margin-top: 30rpx;
+}
+
+.bookmarks .col-10 text {
+  display: inline-block;
+  color: #888;
+  margin-right: 15rpx;
+}
+
+.bookmarks .col-10 navigator {
+  color: #353535;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bookmarks .row {
+  border-bottom: 1rpx solid #efefef;
+  line-height: 300%;
+}
+
+.bookmarks .col-10 text.color-semi {
+  color: #353535;
 }
