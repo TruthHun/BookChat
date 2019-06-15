@@ -1,7 +1,7 @@
 <wxs src="../common.wxs" module="common" />
 
 <!--  搜索框  -->
-<view class='search base-padding base-margin-bottom'>
+<view wx:if="{{showSearch}}" class='search base-padding base-margin-bottom'>
   <search bindsearch="search" />
 </view>
 
@@ -47,34 +47,7 @@
       </view>
     </view>
     <view class='panel-body'>
-    <book-list books="{{category.books}}"/>
-      <!-- <block wx:for="{{category.books}}" wx:key="index1" wx:for-item="book">
-        <view class='row'>
-          <view class='row-left'>
-            <navigator url="/pages/intro/intro?id={{book.book_id}}">
-              <image lazy-load='true' mode='widthFix' class='box-shadow' src='{{book.cover}}' />
-            </navigator>
-          </view>
-          <navigator url='/pages/intro/intro?id={{book.book_id}}' class='row-right'>
-            <view class='ellipsis-1row font-lv2'>{{book.book_name}}</view>
-            <view class='text-muted info'>
-              <view class='col-4'>
-                <image src='../../assets/images/eye.png'></image>
-                <text>{{common.fixView(book.view)}} 阅读</text>
-              </view>
-              <view class='col-4'>
-                <image src='../../assets/images/document.png'></image>
-                <text>{{book.cnt_doc}} 章节</text>
-              </view>
-              <view class='col-4'>
-                <image src='../../assets/images/clock.png'></image>
-                <text>{{common.relativeTime(book.created_at)}}</text>
-              </view>
-            </view>
-            <view class='text-muted ellipsis-2row desc'>{{book.description}}</view>
-          </navigator>
-        </view>
-      </block> -->
+      <book-list books="{{category.books}}" />
     </view>
   </view>
 </block>

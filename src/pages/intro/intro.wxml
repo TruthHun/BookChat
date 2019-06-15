@@ -1,5 +1,5 @@
-<wxs src="../common.wxs" module="common"/>
-<view class='row info'>
+<wxs src="../common.wxs" module="common" />
+<view class='row info' wx:if="{{book.book_id>0}}">
   <view class='col-4'>
     <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
   </view>
@@ -12,7 +12,8 @@
       <image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image> {{book.user}}</view>
     <view class='progress mgt-30rpx'>
       <view class='font-lv3 color-grey'>阅读进度
-        <view class='pull-right'>{{book.percent}}% <text wx:if="{{isLogin == false}}">(未登录)</text>{{end}}</view>
+        <view class='pull-right'>{{book.percent}}%
+          <text wx:if="{{isLogin == false}}">(未登录)</text>{{end}}</view>
       </view>
       <progress class='mgt-15rpx' percent="{{book.percent}}" />
     </view>

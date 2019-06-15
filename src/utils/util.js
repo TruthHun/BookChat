@@ -84,6 +84,28 @@ const getToken = () => {
   return ""
 }
 
+
+//添加事件结束
+Promise.prototype.finally = function(callback) {
+  var Promise = this.constructor;
+  return this.then(
+    function(value) {
+      Promise.resolve(callback()).then(
+        function() {
+          return value;
+        }
+      );
+    },
+    function(reason) {
+      Promise.resolve(callback()).then(
+        function() {
+          throw reason;
+        }
+      );
+    }
+  );
+}
+
 // 只有请求结果返回 200 的时候，才会resolve，否则reject
 const request = (api, params = {}, method = "GET", header = {}) => {
   return new Promise(function(resolve, reject) {

@@ -4,8 +4,7 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
-    userInfo: {},
-    banners: {},
+    banners: [],
     categoryBooks: [],
     recommendBooks: [],
     indicatorDots: true,
@@ -14,91 +13,96 @@ Page({
     duration: 500,
     width: '100%',
     height: '150px',
-    wd:''
+    wd: '',
+    pending: false,
+    showSearch: false,
   },
   onLoad: function() {
+    wx.stopPullDownRefresh() //刷新完成后停止下拉刷新动效
     let info = wx.getSystemInfoSync()
-    let width = info.windowWidth * info.pixelRatio - 60;// 转成 rpx，因为小程序边距设置为 30rpx
+    let width = info.windowWidth * info.pixelRatio - 60; // 转成 rpx，因为小程序边距设置为 30rpx
     let height = width / config.bannerRatio
     this.setData({
       width: width / info.pixelRatio + "px",
       height: height / info.pixelRatio + "px"
     })
-
     util.loading()
-
+    this.loadData()
+  },
+  onPullDownRefresh: function() {
+    console.log("pull down")
+    this.onLoad()
+  },
+  loadData: function() {
     let that = this
-
-    util.request(config.api.banners).then((res) => {
-      if (config.debug) console.log('api.getBanners:', res)
-      if (res.data.banners && res.data.banners.length > 0) {
-        that.setData({
-          banners: res.data.banners
-        })
-      }
-    }).catch((e) => {
-      console.log(e)
+    if (that.data.pending) return
+    that.setData({
+      pending: true
     })
 
-    util.request(config.api.bookLists, {
-      page: 1,
-      size: 12,
-      sort: 'latest-recommend'
-    }).then((res) => {
-      if (config.debug) console.log(config.api.bookLists, res)
-      if (res.data.books) {
-        that.setData({
-          "recommendBooks": res.data.books
-        })
-      }
-    }).catch((e) => {
-      console.log(e)
-    })
+    let cids = []
+    let categories = []
 
     api.getCategories().then(function(res) {
-      if (config.debug) console.log('api.getCategories:', res)
       if (res.length > 0) {
-        let cids = []
-        let categories = res.filter(function(category) {
+        categories = res.filter(function(category) {
           let b = category.pid == 0 && category.cnt > 0
           if (b) cids.push(category.id)
           return b
         })
-        if (cids.length > 0) {
-          util.request(config.api.bookListsByCids, {
-            page: 1,
-            size: 5,
-            sort: 'new',
-            cids: cids
-          }).then((res) => {
-            let books = res.data.books
-            if (config.debug) console.log(config.api.bookListsByCids, books)
-            let categoryBooks = categories.map(function(category) {
-              let book = books[category.id]
-              if (book != undefined && book.length > 0) {
-                category.books = book
-              } else {
-                category.books = []
-              }
-              return category
-            })
-            if (config.debug) console.log('categoryBooks:', categoryBooks)
-            that.setData({
-              categoryBooks: categoryBooks
-            })
+      }
+      if (config.debug) console.log(res, categories, cids)
+    }).catch(function(e) {
+      console.log("api.getCategories()", e)
+    }).finally(function() {
+
+      let banners = []
+      let recommendBooks = []
+      let bookLists = []
+
+      Promise.all([util.request(config.api.banners), util.request(config.api.bookLists, {
+        page: 1,
+        size: 12,
+        sort: 'latest-recommend'
+      }), util.request(config.api.bookListsByCids, {
+        page: 1,
+        size: 5,
+        sort: 'new',
+        cids: cids
+      })]).then(function([resBanners, resRecommendBooks, resBookLists]) {
+        if (config.debug) console.log(resBanners, resRecommendBooks, resBookLists)
+
+        if (resBanners.data && resBanners.data.banners) banners = resBanners.data.banners
+        if (resRecommendBooks.data && resRecommendBooks.data.books) recommendBooks = resRecommendBooks.data.books
+
+        if (resBookLists.data && resBookLists.data.books) {
+          categories = categories.map(function (category) {
+            let book = resBookLists.data.books[category.id]
+            if (book != undefined && book.length > 0) {
+              category.books = book
+            } else {
+              category.books = []
+            }
+            return category
           })
         }
-      }
-    }).catch(function(e) {
-      console.log(e)
+      }).catch(function(e) {
+        console.log(e)
+      }).finally(function() {
+        that.setData({
+          banners: banners,
+          categoryBooks: categories,
+          recommendBooks: recommendBooks,
+          showSearch: true,
+          pending: false,
+        })
+        wx.hideLoading()
+      })
     })
   },
-  onReady: function() {
-    wx.hideLoading()
-  },
-  search:function(e){
+  search: function(e) {
     wx.navigateTo({
-      url: '/pages/search/search?wd='+e.detail,
+      url: '/pages/search/search?wd=' + e.detail,
     })
   }
 })
