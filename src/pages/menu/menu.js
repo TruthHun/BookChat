@@ -12,20 +12,24 @@ Page({
     token: util.getToken(),
     book: {},
     onHide: false,
+    identify: '',
+    activeTab: 'menu',
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     let identify = options.id || options.identify || 'docker-practice';
     util.loading()
-    this.loadData(identify)
+    this.setData({
+      identify: identify
+    })
+    this.loadData()
   },
   onShow: function() {
     if (this.data.onHide) {
       this.setData({
-        menu: util.getStorageMenu(),
+        menu: util.menuToTree(util.getStorageMenu()),
         onHide: false
       })
     }
@@ -44,10 +48,20 @@ Page({
   search: function(e) {
     console.log(e)
   },
-  loadData: function(identify) {
+  tabClick: function(e) {
+    console.log(e)
+    this.setData({
+      activeTab: e.detail.tab
+    })
+    if (e.detail.tab == 'bookmark'){
+      this.loadBookmark()
+    }
+  },
+  loadData: function() {
     let that = this
     let menu = []
     let book = {}
+    let identify = that.data.identify
 
     Promise.all([util.request(config.api.bookMenu, {
       identify: identify
@@ -67,11 +81,24 @@ Page({
       console.log(e)
     }).finally(function() {
       that.setData({
-        menu: menu,
+        menu: util.menuToTree(menu),
         book: book,
       })
       wx.hideLoading()
       util.setStorageMenu(menu)
+    })
+  },
+  loadBookmark: function() {
+    let that = this
+    util.loading()
+    util.request(config.api.bookmark, {
+      identify: that.data.identify
+    }).then(function(res) {
+      console.log(res)
+    }).catch(function(e) {
+      console.log(e)
+    }).finally(function() {
+      wx.hideLoading()
     })
   }
 })

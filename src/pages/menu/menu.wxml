@@ -1,1 +1,1 @@
-<menu book="{{book}}" menu="{{menu}}"/>
+<menu book="{{book}}" bookmark="{{bookmark}}" activeTab="{{activeTab}}" bindtabClick="tabClick" menu="{{menu}}"/>

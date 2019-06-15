@@ -38,7 +38,7 @@ Page({
     })
 
     util.request(config.api.bookRelated, {
-      book_id: id
+      identify: id
     }).then((res) => {
       if (config.debug) console.log(config.api.bookRelated, res)
       if (res.data.books) that.setData({

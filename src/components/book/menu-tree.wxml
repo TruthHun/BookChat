@@ -1,12 +1,8 @@
-<view wx:for="{{menu}}" wx:key="index" wx:for-item="item" wx:if="{{item.pid == pid}}" class='ul menu-tree font-lv3 color-semi'>
-  <view wx:if="{{item.readed}}" class='li readed'>
+<view wx:for="{{menu}}" wx:key="index" wx:for-item="item" class='ul menu-tree font-lv3 color-semi'>
+  <view class='li {{item.readed ? "readed":""}}'>
     <navigator url='/pages/read/read?identify={{item.book_id}}/{{item.id}}'>
       <text>{{item.title}}</text>
     </navigator>
-    <menu-tree menu="{{menu}}" pid="{{item.id}}" />
-  </view>
-  <view wx:else class='li'>
-    <navigator catchtap='clickDoc' data-id="{{item.id}}" url='/pages/read/read?identify={{item.book_id}}/{{item.id}}'>{{item.title}}</navigator>
-    <menu-tree menu="{{menu}}" pid="{{item.id}}" />
+    <menu-tree menu="{{item.children}}"/>
   </view>
 </view>

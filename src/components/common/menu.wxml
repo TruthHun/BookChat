@@ -1,36 +1,44 @@
-<view class='search base-padding mgb-30rpx'>
-  <search bindsearch="search" />
+<view wx:if="{{activeTab == 'bookmark'}}">
+  显示书签
 </view>
-
-<view wx:if="{{book.book_id>0}}" class='book base-padding row mgb-30rpx'>
-  <view class='book-cover col-3'>
-    <navigator url='/pages/intro/intro?id={{book.book_id}}' class=''>
-      <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
+<view wx:else>
+  <view class='search base-padding mgb-30rpx'>
+    <search bindsearch="search" />
+  </view>
+  <view wx:if="{{book.book_id>0}}" class='book base-padding row mgb-30rpx'>
+    <view class='book-cover col-3'>
+      <navigator url='/pages/intro/intro?id={{book.book_id}}' class=''>
+        <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
+      </navigator>
+    </view>
+    <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book-info col-9'>
+      <view class='book-title font-lv1 ellipsis-1row'>{{book.book_name}}</view>
+      <view class='mgt-30rpx'>
+        <view class='score score-{{book.score}} pull-left'>
+          <text>{{book.score_float}} 分</text>
+          <text class='pull-right'>{{book.cnt_doc}} 章节</text>
+        </view>
+      </view>
+      <view class='progress mgt-30rpx'>
+        <view class='font-lv3 color-grey'>阅读进度
+          <view class='pull-right'>{{book.percent}}%
+            <text wx:if="{{token == ''}}">(未登录)</text>
+          </view>
+        </view>
+        <progress class='mgt-15rpx' percent="{{book.percent}}" />
+      </view>
     </navigator>
   </view>
-  <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book-info col-9'>
-    <view class='book-title font-lv1 ellipsis-1row'>{{book.book_name}}</view>
-    <view class='mgt-30rpx'>
-      <view class='score score-{{book.score}} pull-left'>
-        <text>{{book.score_float}} 分</text>
-        <text class='pull-right'>{{book.cnt_doc}} 章节</text>
-      </view>
-    </view>
-    <view class='progress mgt-30rpx'>
-      <view class='font-lv3 color-grey'>阅读进度
-        <view class='pull-right'>{{book.percent}}% <text wx:if="{{token == ''}}">(未登录)</text></view>
-      </view>
-      <progress class='mgt-15rpx' percent="{{book.percent}}" />
-    </view>
-  </navigator>
-</view>
 
-<menu-tree menu="{{menu}}" pid="{{pid}}" />
+  <menu-tree menu="{{menu}}" pid="{{pid}}" />
+
+
+</view>
 
 
 <view class='footer font-lv3'>
   <view class='row'>
-    <view class='col active' data-tab="menu">目录</view>
-    <view class='col' data-tab="bookmarks">书签</view>
+    <view class='col {{activeTab == "menu" ? "active":""}}' bindtap="tabClick" data-tab="menu" data-title="目录">目录</view>
+    <view class='col {{activeTab == "bookmark" ? "active":""}}' bindtap="tabClick" data-tab="bookmark" data-title="书签">书签</view>
   </view>
 </view>
