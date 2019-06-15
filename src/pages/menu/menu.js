@@ -8,7 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menu: []
+    menu: [],
+    token: util.getToken(),
+    book: {},
+    onHide: false,
   },
 
   /**
@@ -16,16 +19,22 @@ Page({
    */
   onLoad: function(options) {
     let identify = options.id || options.identify || 'docker-practice';
+    util.loading()
     this.loadData(identify)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+  onShow: function() {
+    if (this.data.onHide) {
+      this.setData({
+        menu: util.getStorageMenu(),
+        onHide: false
+      })
+    }
   },
-
+  onHide: function() {
+    this.setData({
+      onHide: true
+    })
+  },
   /**
    * 用户点击右上角分享
    */
@@ -37,20 +46,32 @@ Page({
   },
   loadData: function(identify) {
     let that = this
+    let menu = []
+    let book = {}
 
     Promise.all([util.request(config.api.bookMenu, {
       identify: identify
-    })]).then(function([resMenu]) {
-      if(config.debug) console.log(resMenu)
+    }), util.request(config.api.bookInfo, {
+      identify: identify
+    })]).then(function([resMenu, resBook]) {
+      if (config.debug) console.log(resMenu, resBook)
       if (resMenu.data && resMenu.data.menu) {
-        that.setData({
-          menu: resMenu.data.menu
-        })
+        menu = resMenu.data.menu
+      }
+      if (resBook.data && resBook.data.book) {
+        book = resBook.data.book
+        book.score_float = Number(book.score / 10).toFixed(1)
+        book.percent = Number(book.cnt_readed / book.cnt_doc).toFixed(2)
       }
     }).catch(function(e) {
-
+      console.log(e)
     }).finally(function() {
+      that.setData({
+        menu: menu,
+        book: book,
+      })
       wx.hideLoading()
+      util.setStorageMenu(menu)
     })
   }
 })

@@ -1,13 +1,14 @@
 @import '../../app.wxss';
 
+page{padding-bottom: 120rpx;}
+
 .book {
   border-bottom: 1px solid #efefef;
   padding-bottom: 30rpx;
 }
 
 .book navigator image {
-  width: 100%;
-  border-radius: 6rpx;
+  width: 170rpx;height: 223.5rpx;
 }
 
 .book-title {
@@ -20,40 +21,6 @@
   padding-left: 30rpx;
 }
 
-/* menu */
-
-.menu {
-  padding-top: 30rpx;
-  padding-bottom: 120rpx;
-  line-height: 260%;
-  overflow-x: hidden;
-}
-
-.ul {
-  padding-left: 0rpx;
-}
-
-.li {
-  padding-left: 1em;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.li.active {
-  color: #008cff;
-}
-
-.li navigator {
-  margin-left: 10rpx;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-image.readed {
-  width: 32rpx;
-  height: 32rpx;
-}
 
 /* footer */
 

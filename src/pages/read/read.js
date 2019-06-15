@@ -59,10 +59,6 @@ Page({
 	<div style="margin-top:10px;">
 		<h3 style="color: #000;">支持图片自适应</h3>
 		<blockquote>wxParse可以动态计算图片大小并进行自适应适配</blockquote>
-		<div style="margin-top:10px;">
-			<img src="http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg" alt="">
-			<img src="http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg" alt="">
-		</div>
 	</div>
 	<div style="margin-top:10px;">
 		<h3 style="color: #000;">支持图片点击预览,左右滑动预览</h3>

@@ -1,4 +1,5 @@
 const keyUser = 'user';
+const keyMenu = 'menu';
 
 const formatTime = date => {
   const year = date.getFullYear()
@@ -161,6 +162,25 @@ const toastSuccess = (content) => {
   })
 }
 
+const setStorageMenu = (menu) => {
+  wx.setStorageSync(keyMenu, JSON.stringify(menu))
+}
+
+const getStorageMenu = () => {
+  let js = wx.getStorageSync(keyMenu)
+  return JSON.parse(js) || []
+}
+
+const activeReadedStorageMenu = (docId) => {
+  let menu = getStorageMenu()
+  for (let i = 0; i < menu.length; i++) {
+    if (menu[i].id == docId) {
+      menu[i].readed = true
+      break
+    }
+  }
+  setStorageMenu(menu)
+}
 
 module.exports = {
   formatTime,
@@ -175,4 +195,7 @@ module.exports = {
   clearUser,
   getUser,
   getToken,
+  getStorageMenu,
+  setStorageMenu,
+  activeReadedStorageMenu,
 }
