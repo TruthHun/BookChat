@@ -81,7 +81,6 @@
 .markdown-body .-h4, .markdown-body .-h5, .markdown-body .-h6 {
   margin-top: 30rpx;
   margin-bottom: 30rpx;
-  line-height: 1.1;
   font-weight: 400;
 }
 
@@ -98,7 +97,7 @@
 }
 
 .markdown-body .-h4,.markdown-body .-strong {
-  font-size: 38px !important;
+  font-size: 38rpx !important;
 }
 
 .markdown-body .-h5,.markdown-body .-strong {
