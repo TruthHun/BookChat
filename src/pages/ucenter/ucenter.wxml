@@ -7,21 +7,8 @@
 </view>
 
 <view class='base-margin-bottom'>
-  <tab tabs="{{tabs}}" bindclick="tabClick" gridLen="10"/>
+  <tab tabs="{{tabs}}" active="{{tabValue}}" bindclick="tabClick" gridLen="10"/>
 </view>
-
-<!-- <view class='breadcrumb base-padding base-margin-bottom'>
-  <view class='row'>
-    <view class='col-10'>
-      <view class='row'>
-        <view bindtap='tabClick' data-tab='release' data-title='发布' class='col {{tab=="release" ? "active":""}}'>发布</view>
-        <view bindtap='tabClick' data-tab='star' data-title='收藏' class='col {{tab=="star" ? "active":""}}'>收藏</view>
-        <view bindtap='tabClick' data-tab='follow' data-title='关注' class='col {{tab=="follow" ? "active":""}}'>关注</view>
-        <view bindtap='tabClick' data-tab='fans' data-title='粉丝' class='col {{tab=="fans" ? "active":""}}'>粉丝</view>
-      </view>
-    </view>
-  </view>
-</view> -->
 
 
 <view wx:if="{{(tabValue == 'release' || tabValue == 'star') && lists.length>0}}" class='list base-padding base-margin-bottom'>

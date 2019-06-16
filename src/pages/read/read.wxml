@@ -16,4 +16,8 @@
   <view class='col'>
     <image src='../../assets/images/next.png'></image>
   </view>
+  <!-- 字体大小设置，背景色设置，使用右抽屉的方式。后期增加一个笔记的功能 -->
+   <view class='col'>
+    <image src='../../assets/images/more.png'></image>
+  </view>
 </view>

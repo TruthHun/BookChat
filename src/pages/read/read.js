@@ -49,6 +49,9 @@ Page({
         util.toastError(e.data.message)
       }
     }).finally(function() {
+      if(article.content == ''){
+        article.content = '<div style="color:#888;margin:100px auto;text-align:center;"> -- 本章节内容为空 -- </div>'
+      }
       that.setData({
         article: article,
         identify: identify,

@@ -34,7 +34,6 @@ Page({
    */
   onLoad: function(options) {
     if (config.debug) console.log("params", options)
-
     if (options.tab) this.setData({
       tabValue: options.tab
     })

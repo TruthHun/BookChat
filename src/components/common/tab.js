@@ -11,6 +11,9 @@ Component({
     tabs: {
       type: Array,
       value: []
+    },
+    active:{
+      type:String
     }
     // value's struct like this ==> {title:"tab title", value:"tab value",class:"tab class if needed"}
   },
@@ -19,7 +22,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    activeValue: '',
+    active: '',
   },
 
   /**
@@ -28,7 +31,7 @@ Component({
   methods: {
     tabClick: function(e) {
       this.setData({
-        activeValue: e.target.dataset.value
+        active: e.target.dataset.value
       })
       this.triggerEvent('click', e.target.dataset)
     }
@@ -37,7 +40,7 @@ Component({
   attached: function() {
     if (this.data.tabs.length > 0) {
       this.setData({
-        activeValue: this.data.tabs[0].value
+        active: this.data.tabs[0].value
       })
     }
   }
