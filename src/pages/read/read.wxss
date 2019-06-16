@@ -1,17 +1,28 @@
-/* pages/read/read.wxss */
-@import "/wxParse/wxParse.wxss";
+@import 'markdown.wxss';
 
-.wxParse{
-  padding: 15rpx;
-  padding-bottom: 150rpx;
+page {
+  padding-bottom: 100rpx;
 }
 
+.markdown-body pre {
+  display: block;
+  width: 100%;
+  overflow: scroll !important;
+  border: 1px solid red !important;
+  background-color: red !important;
+}
 
 /* --- footer ---- */
+
+pre {
+  border: 1px solid red;
+}
+
 /* footer */
-.footer{
+
+.footer {
   box-shadow: 0rpx 0rpx 10rpx #efefef;
-  border-top:1px solid #efefef;
+  border-top: 1px solid #efefef;
   background-color: #fff;
   position: fixed;
   height: 90rpx;
@@ -20,7 +31,9 @@
   text-align: center;
   line-height: 90rpx;
 }
-.footer image{
+
+.footer image {
   margin-top: 20rpx;
-  width: 50rpx;height: 50rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
