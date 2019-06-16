@@ -7,18 +7,11 @@
 
 .markdown-body {
   color: #353535;
-  overflow-x: scroll;
-  font-size: 32rpx;
+  overflow: auto;
+  font-size: 28rpx;
   line-height: 1.6;
   word-wrap: break-word;
-}
-
-.markdown-body .-a {
-  background: transparent;
-}
-
-.markdown-body .-a:active, .markdown-body .-a:hover {
-  outline: 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .markdown-body .-strong {
@@ -27,6 +20,7 @@
 
 .markdown-body .-img {
   max-width: 100%;
+  box-sizing: border-box;
 }
 
 .markdown-body .-hr {
@@ -36,39 +30,6 @@
 
 .markdown-body .-pre {
   overflow: auto;
-}
-
-.markdown-body .-code, .markdown-body .-kbd, .markdown-body .-pre {
-  font-family: "Meiryo UI",
-                 "YaHei Consolas Hybrid",
-                 Consolas,
-                 "Malgun Gothic",
-                 "Segoe UI",
-                 "Trebuchet MS",
-                 Helvetica,
-                 monospace,
-                 monospace;
-  font-size: 1em;
-}
-
-.markdown-body .-input {
-  color: inherit;
-  font: inherit;
-  margin: 0;
-}
-
-.markdown-body .-html .-input[disabled] {
-  cursor: default;
-}
-
-.markdown-body .-input {
-  line-height: normal;
-}
-
-.markdown-body .-input[type="checkbox"] {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0;
 }
 
 .markdown-body .-table {
@@ -86,16 +47,6 @@
   padding: 30rpx;
 }
 
-.markdown-body .-input {
-  font: 13px/1.4 Helvetica,
-          arial,
-          freesans,
-          clean,
-          sans-serif,
-          "Segoe UI Emoji",
-          "Segoe UI Symbol";
-}
-
 .markdown-body .-a {
   color: #4183c4;
   text-decoration: none;
@@ -107,11 +58,11 @@
 
 .markdown-body .-hr {
   height: 0;
-  margin: 15px 0;
+  margin: 15rpx 0;
   overflow: hidden;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
 }
 
 .markdown-body .-hr:before {
@@ -127,33 +78,33 @@
 
 .markdown-body .-h1, .markdown-body .-h2, .markdown-body .-h3,
 .markdown-body .-h4, .markdown-body .-h5, .markdown-body .-h6 {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
   line-height: 1.1;
 }
 
 .markdown-body .-h1 {
-  font-size: 26px;
+  font-size: 50rpx !important;
 }
 
 .markdown-body .-h2 {
-  font-size: 24px;
+  font-size: 46rpx !important;
 }
 
 .markdown-body .-h3 {
-  font-size: 22px;
+  font-size: 42rpx !important;
 }
 
 .markdown-body .-h4 {
-  font-size: 20px;
+  font-size: 38px !important;
 }
 
 .markdown-body .-h5 {
-  font-size: 18px;
+  font-size: 34rpx !important;
 }
 
 .markdown-body .-h6 {
-  font-size: 16px;
+  font-size: 30rpx !important;
 }
 
 .markdown-body .-blockquote {
@@ -181,13 +132,11 @@
 
 .markdown-body .-code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 12px;
 }
 
 .markdown-body .-pre {
   margin-top: 0;
   margin-bottom: 0;
-  font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
 
 .markdown-body .octicon {
@@ -195,11 +144,6 @@
   line-height: 1;
   display: inline-block;
   text-decoration: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
@@ -220,35 +164,16 @@
 .markdown-body .-h1, .markdown-body .-h2, .markdown-body .-h3,
 .markdown-body .-h4, .markdown-body .-h5, .markdown-body .-h6 {
   position: relative;
-  margin-top: 1em;
-  margin-bottom: 16px;
-  font-weight: bold;
-  line-height: 1.4;
+  font-weight: normal;
+  /* line-height: 1.4; */
 }
 
 .markdown-body .-h1 .octicon-link, .markdown-body .-h2 .octicon-link,
 .markdown-body .-h3 .octicon-link, .markdown-body .-h4 .octicon-link,
 .markdown-body .-h5 .octicon-link, .markdown-body .-h6 .octicon-link {
   display: none;
-  color: #000;
+  color: #353535;
   vertical-align: middle;
-}
-
-.markdown-body .-h1:hover .anchor, .markdown-body .-h2:hover .anchor,
-.markdown-body .-h3:hover .anchor, .markdown-body .-h4:hover .anchor,
-.markdown-body .-h5:hover .anchor, .markdown-body .-h6:hover .anchor {
-  padding-left: 8px;
-  margin-left: -30px;
-  text-decoration: none;
-}
-
-.markdown-body .-h1:hover .anchor .octicon-link,
-.markdown-body .-h2:hover .anchor .octicon-link,
-.markdown-body .-h3:hover .anchor .octicon-link,
-.markdown-body .-h4:hover .anchor .octicon-link,
-.markdown-body .-h5:hover .anchor .octicon-link,
-.markdown-body .-h6:hover .anchor .octicon-link {
-  display: inline-block;
 }
 
 .markdown-body .-p, .markdown-body .-blockquote, .markdown-body .-ul,
@@ -259,7 +184,7 @@
 }
 
 .markdown-body .-ul, .markdown-body .-ol {
-  padding-left: 1em;
+  padding-left: 2em;
 }
 
 .markdown-body .-ul .-ul, .markdown-body .-ul .-ol, .markdown-body .-ol .-ol,
@@ -268,19 +193,14 @@
   margin-bottom: 0;
 }
 
-.markdown-body .-li > .-p {
-  margin-top: 16px;
-}
-
 .markdown-body .-dl {
   padding: 0;
 }
 
 .markdown-body .-dl .-dt {
   padding: 0;
-  margin-top: 16px;
   font-size: 1em;
-  font-style: italic;
+  font-style: normal;
   font-weight: bold;
 }
 
@@ -308,28 +228,18 @@
 
 .markdown-body .-table .-th, .markdown-body .-table .-td {
   padding: 6px 13px;
-  border: 1px solid #ddd;
+  border: 1px solid #eee;
 }
 
 .markdown-body .-table .-tr {
   background-color: #fff;
-  border-top: 1px solid #ccc;
-}
-
-.markdown-body .-table .-tr:nth-child(2n) {
-  background-color: #f8f8f8;
-}
-
-.markdown-body .-img {
-  box-sizing: border-box;
+  border-top: 1px solid #ddd;
 }
 
 .markdown-body .-code {
-  padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   margin: 0;
-  font-size: 85%;
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 3px;
 }
@@ -513,18 +423,6 @@
   margin-top: 3px;
 }
 
-.markdown-body .task-list-item input {
-  float: left;
-  margin: 0.3em 0 0.25em -1.6em;
-  vertical-align: middle;
-}
-
-.markdown-body :checked + .radio-label {
-  z-index: 1;
-  position: relative;
-  border-color: #4183c4;
-}
-
 .editormd-preview-container, .editormd-html-preview {
   text-align: left;
   font-size: 14px;
@@ -533,6 +431,7 @@
   overflow: auto;
   width: 100%;
   background-color: #fff;
+  -webkit-overflow-scrolling: touch;
 }
 
 .editormd-preview-container .-blockquote, .editormd-html-preview .-blockquote {
@@ -541,7 +440,6 @@
   padding-left: 20px;
   margin-left: 0;
   font-size: 14px;
-  font-style: italic;
 }
 
 .editormd-preview-container .-p .-code, .editormd-html-preview .-p .-code {
@@ -585,18 +483,6 @@
 
 .editormd-preview-container .-pre, .editormd-preview-container .-code,
 .editormd-preview-container kbd, .editormd-html-preview .-pre,
-.editormd-html-preview .-code, .editormd-html-preview kbd {
-  font-family: "YaHei Consolas Hybrid",
-                 Consolas,
-                 "Meiryo UI",
-                 "Malgun Gothic",
-                 "Segoe UI",
-                 "Trebuchet MS",
-                 Helvetica,
-                 monospace,
-                 monospace;
-}
-
 .editormd-preview-container .-table .-thead .-tr,
 .editormd-html-preview .-table .-thead .-tr {
   background-color: #f8f8f8;
@@ -635,20 +521,6 @@
   margin: 0 auto;
 }
 
-.editormd-preview-container .sequence-diagram text,
-.editormd-preview-container .flowchart text,
-.editormd-html-preview .sequence-diagram text,
-.editormd-html-preview .flowchart text {
-  font-size: 15px !important;
-  font-family: "YaHei Consolas Hybrid",
-                 Consolas,
-                 "Microsoft YaHei",
-                 "Malgun Gothic",
-                 "Segoe UI",
-                 Helvetica,
-                 Arial !important;
-}
-
 /*! .-pretty printing styles. Used with .-prettify.js. */
 
 /* SPAN elements with the classes below are added by .-prettyprint. */
@@ -659,95 +531,71 @@
 
 /* plain text */
 
-@media screen {
-  .str {
-    color: #080;
-  }/* string content */
-
-  .kwd {
-    color: #008;
-  }/* a keyword */
-
-  .com {
-    color: #800;
-  }/* a comment */
-
-  .typ {
-    color: #606;
-  }/* a type name */
-
-  .lit {
-    color: #066;
-  }/* a literal value *//* punctuation, lisp open bracket, lisp close bracket */
-
-  .pun, .opn, .clo {
-    color: #660;
-  }
-
-  .tag {
-    color: #008;
-  }/* a markup tag name */
-
-  .atn {
-    color: #606;
-  }/* a markup attribute name */
-
-  .atv {
-    color: #080;
-  }/* a markup attribute value */
-
-  .dec, .var {
-    color: #606;
-  }/* a declaration; a variable name */
-
-  .fun {
-    color: red;
-  }/* a function name */
+.str {
+  color: #080;
 }
 
-/* Use higher contrast and text-weight for printable form. */
+/* string content */
 
-@media print, projection {
-  .str {
-    color: #060;
-  }
-
-  .kwd {
-    color: #006;
-    font-weight: bold;
-  }
-
-  .com {
-    color: #600;
-    font-style: italic;
-  }
-
-  .typ {
-    color: #404;
-    font-weight: bold;
-  }
-
-  .lit {
-    color: #044;
-  }
-
-  .pun, .opn, .clo {
-    color: #440;
-  }
-
-  .tag {
-    color: #006;
-    font-weight: bold;
-  }
-
-  .atn {
-    color: #404;
-  }
-
-  .atv {
-    color: #060;
-  }
+.kwd {
+  color: #008;
 }
+
+/* a keyword */
+
+.com {
+  color: #800;
+}
+
+/* a comment */
+
+.typ {
+  color: #606;
+}
+
+/* a type name */
+
+.lit {
+  color: #066;
+}
+
+/* a literal value */
+
+/* punctuation, lisp open bracket, lisp close bracket */
+
+.pun, .opn, .clo {
+  color: #660;
+}
+
+.tag {
+  color: #008;
+}
+
+/* a markup tag name */
+
+.atn {
+  color: #606;
+}
+
+/* a markup attribute name */
+
+.atv {
+  color: #080;
+}
+
+/* a markup attribute value */
+
+.dec, .var {
+  color: #606;
+}
+
+/* a declaration; a variable name */
+
+.fun {
+  color: red;
+}
+
+/* a function name */
 
 /* Put a border around .-prettyprinted .-code snippets. */
 
@@ -762,15 +610,6 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-
-
-
-/* Alternate shading for lines */
-
-.-li.L1, .-li.L3, .-li.L5, .-li.L7, .-li.L9 {
-  background: #eee;
-}
-
 .editormd-preview-container .-pre.prettyprint,
 .editormd-html-preview .-pre.prettyprint {
   padding: 10px;
@@ -833,15 +672,7 @@
   -o-border-radius: 4px;
   border-radius: 4px;
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  /* Webkit browsers */
-  -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  /* Firefox */
-  -ms-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  /* IE9 */
-  -o-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  /* Opera(Old) */
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  /* IE9+, News */
 }
 
 .editormd-preview-container .editormd-toc-menu > .markdown-toc > .-ul > li .-ul,
@@ -864,17 +695,9 @@
   padding: 6px 10px;
   display: block;
   -webkit-transition: background-color 500ms ease-out;
-  /* Safari, Chrome */
-  -moz-transition: background-color 500ms ease-out;
-  /* Firefox 4.0~16.0 */
   transition: background-color 500ms ease-out;
-  /* IE >9, FF >15, Opera >12.0 */
 }
 
-.editormd-preview-container .editormd-toc-menu > .markdown-toc > .-ul > .-li .-a:hover,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc > .-ul > .-li .-a:hover {
-  background-color: #f6f6f6;
-}
 
 .editormd-preview-container .editormd-toc-menu > .markdown-toc .-li,
 .editormd-html-preview .editormd-toc-menu > .markdown-toc .-li {
@@ -972,11 +795,8 @@
   height: 2px;
 }
 
-.editormd-html-preview textarea {
-  display: none;
-}
 
-.editormd-html-preview hr.editormd-page-break {
+.editormd-html-preview .-hr.editormd-page-break {
   background: none;
   border: none;
   height: 0;
@@ -1000,9 +820,7 @@
   transition: background-color 300ms ease-out;
 }
 
-.editormd-preview-close-btn:hover {
-  background-color: #999;
-}
+
 
 .editormd-preview-active {
   width: 100%;
@@ -1021,7 +839,6 @@
 
 .editormd-preview-container .-pre, .editormd-html-preview .-pre {
   border: 0 !important;
-  padding-bottom: 0 !important;
   background-color: #f6f6f6;
 }
 
@@ -1032,8 +849,9 @@
   font-size: 14px;
   background: none repeat scroll 0 0 rgba(102, 128, 153, 0.05);
   margin: 8px 0;
-  padding: 8px;padding-bottom: 8px !important;
+  padding: 8px;
 }
-.-blockquote .-p{
+
+.-blockquote .-p {
   margin-bottom: 0;
 }
