@@ -1,52 +1,53 @@
 <wxs src="../common.wxs" module="common" />
-<view class='row info' wx:if="{{book.book_id>0}}">
-  <view class='col-4'>
-    <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
-  </view>
-  <view class='col-8'>
-    <text class='ellipsis-2row font-lv1'>{{book.book_name}}</text>
-    <view class='score score-{{book.score}} mgt-30rpx'>
-      <text>{{book.float_score}} 分</text>
+<block wx:if="{{book.book_id>0}}">
+  <view class='row info'>
+    <view class='col-4'>
+      <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
     </view>
-    <view class='mgt-15rpx font-lv3 color-semi'>
-      <image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image> {{book.user}}</view>
-    <view class='progress mgt-30rpx'>
-      <view class='font-lv3 color-grey'>阅读进度
-        <view class='pull-right'>{{book.percent}}%
-          <text wx:if="{{isLogin == false}}">(未登录)</text>{{end}}</view>
+    <view class='col-8'>
+      <text class='ellipsis-2row font-lv1'>{{book.book_name}}</text>
+      <view class='score score-{{book.score}} mgt-30rpx'>
+        <text>{{book.float_score}} 分</text>
       </view>
-      <progress class='mgt-15rpx' percent="{{book.percent}}" />
+      <view class='mgt-15rpx font-lv3 color-semi'>
+        <image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image> {{book.user}}</view>
+      <view class='progress mgt-30rpx'>
+        <view class='font-lv3 color-grey'>阅读进度
+          <view class='pull-right'>{{book.percent}}%
+            <text wx:if="{{isLogin == false}}">(未登录)</text>{{end}}</view>
+        </view>
+        <progress class='mgt-15rpx' percent="{{book.percent}}" />
+      </view>
     </view>
   </view>
-</view>
 
-<view class='data'>
-  <view class='row'>
-    <view class='col'>
-      <text class='font-lv3'>{{book.cnt_doc}}</text>
-      <text class='text-muted font-lv5'>章节</text>
-    </view>
-    <view class='col'>
-      <text class='font-lv3'>{{book.view}}</text>
-      <text class='text-muted font-lv5'>阅读</text>
-    </view>
-    <view class='col'>
-      <text class='font-lv3'>{{book.star}}</text>
-      <text class='text-muted font-lv5'>收藏</text>
+  <view class='data'>
+    <view class='row'>
+      <view class='col'>
+        <text class='font-lv3'>{{book.cnt_doc}}</text>
+        <text class='text-muted font-lv5'>章节</text>
+      </view>
+      <view class='col'>
+        <text class='font-lv3'>{{book.view}}</text>
+        <text class='text-muted font-lv5'>阅读</text>
+      </view>
+      <view class='col'>
+        <text class='font-lv3'>{{book.star}}</text>
+        <text class='text-muted font-lv5'>收藏</text>
+      </view>
     </view>
   </view>
-</view>
 
-<view class='intro font-lv3 color-grey'>
-  <text>{{book.description}}</text>
-  <view wx:if="{{book.author.length>0}}" class='ellipsis-1row'>来源: {{book.author}} - {{book.author_url}}</view>
-</view>
-<navigator url='/pages/menu/menu?identify={{book.book_id}}' class='menu row'>
-  <view class='col font-lv3'>查看目录</view>
-  <view class='col font-lv4 color-grey text-right'>最后更新：{{common.relativeTime(book.updated_at)}}</view>
-</navigator>
+  <view class='intro font-lv3 color-grey'>
+    <text>{{book.description}}</text>
+    <view wx:if="{{book.author.length>0}}" class='ellipsis-1row'>来源: {{book.author}} - {{book.author_url}}</view>
+  </view>
+  <navigator url='/pages/menu/menu?identify={{book.book_id}}' class='menu row'>
+    <view class='col font-lv3'>查看目录</view>
+    <view class='col font-lv4 color-grey text-right'>最后更新：{{common.relativeTime(book.updated_at)}}</view>
+  </navigator>
 
-<!-- TODO: 这里放几本相关书籍 -->
+</block>
 
 <view wx:if="{{relatedBooks.length>0}}" class='panel related-books'>
   <view class='panel-heading base-padding'>
@@ -63,131 +64,63 @@
         </block>
       </view>
     </scroll-view>
-
   </view>
 </view>
 
 
-<view class='panel comments'>
+<view wx:if="{{book.book_id>0}}" class='panel comments'>
   <view class='panel-heading base-padding'>
     <view class='panel-title pdt-30rpx strong font-lv2'>书友点评</view>
   </view>
   <view class='panel-body base-padding'>
-
-    <!-- <view class='row comment-list'>
-      <view class='col-2 comment-left'>
-        <image class='img-responsive radius-circle border-basic' mode='widthFix' src='../../assets/images/example/avatar.jpeg'></image>
+    <block wx:if="{{comments.length>0}}">
+      <view wx:for="{{comments}}" wx:key="index" wx:for-item="comment" class='row comment-list'>
+        <view class='col-2 comment-left'>
+          <image class='img-responsive radius-circle border-basic' src='{{comment.avatar}}'></image>
+        </view>
+        <view class='col-10 comment-right'>
+          <view class='row comment-info'>
+            <view class='col font-lv2 color-semi'>{{comment.nickname}}</view>
+            <view class='col'>
+              <view class='score score-50'></view>
+            </view>
+            <view class='col'>
+              <view class='pull-right font-lv4 color-grey'>{{common.relativeTime(comment.created_at)}}</view>
+            </view>
+          </view>
+          <view class='row comment-content color-grey font-lv3 mgt-15rpx'>{{comment.content}}</view>
+        </view>
       </view>
-      <view class='col-10 comment-right'>
-        <view class='row comment-info'>
-          <view class='col font-lv2 color-semi'>进击的皇虫</view>
-          <view class='col'>
-            <view class='score score-50'></view>
-          </view>
-          <view class='col'>
-            <view class='pull-right font-lv4 color-grey'>2小时前</view>
-          </view>
-        </view>
-        <view class='row comment-content color-grey font-lv3 mgt-15rpx'>
-          感谢分享。
-        </view>
-      </view>
-    </view>
-
-    <view class='row comment-list'>
-      <view class='col-2 comment-left'>
-        <image class='img-responsive radius-circle border-basic' mode='widthFix' src='../../assets/images/example/avatar1.png'></image>
-      </view>
-      <view class='col-10 comment-right'>
-        <view class='row comment-info'>
-          <view class='col font-lv2 color-semi'>大蟒蛇</view>
-          <view class='col'>
-            <view class='score score-50'></view>
-          </view>
-          <view class='col'>
-            <view class='pull-right font-lv4 color-grey'>2小时前</view>
-          </view>
-        </view>
-        <view class='row comment-content color-grey font-lv3 mgt-15rpx'>
-          一册在手，天下我有。
-        </view>
+    </block>
+    <view wx:else class='row comment-list'>
+      <view class='col-12 text-center'>
+        <text class='color-grey font-lv3'>还没有人点评该书籍，期待您的金玉良言</text>
       </view>
     </view>
-
-    <view class='row comment-list'>
-      <view class='col-2 comment-left'>
-        <image class='img-responsive radius-circle border-basic' mode='widthFix' src='../../assets/images/example/avatar2.png'></image>
-      </view>
-      <view class='col-10 comment-right'>
-        <view class='row comment-info'>
-          <view class='col font-lv2 color-semi'>远方</view>
-          <view class='col'>
-            <view class='score score-50'></view>
-          </view>
-          <view class='col'>
-            <view class='pull-right font-lv4 color-grey'>2小时前</view>
-          </view>
-        </view>
-        <view class='row comment-content color-grey font-lv3 mgt-15rpx'>
-          非常给力的Beego开发手册，内容详细。
-        </view>
-      </view>
-    </view>
-
-    <view class='row comment-list'>
-      <view class='col-2 comment-left'>
-        <image class='img-responsive radius-circle border-basic' mode='widthFix' src='../../assets/images/example/avatar4.jpeg'></image>
-      </view>
-      <view class='col-10 comment-right'>
-        <view class='row comment-info'>
-          <view class='col font-lv2 color-semi ellipsis-1row'>BookStack官方</view>
-          <view class='col'>
-            <view class='score score-50'></view>
-          </view>
-          <view class='col'>
-            <view class='pull-right font-lv4 color-grey'>2小时前</view>
-          </view>
-        </view>
-        <view class='row comment-content color-grey font-lv3 mgt-15rpx'>
-          强烈推荐。
-        </view>
-      </view>
-    </view> -->
-
   </view>
 </view>
-
-
-
-
-
 <!-- 底部功能栏  -->
 <view class='fix-bottom'>
   <view class='row'>
-    <navigator url='' class='col item-min'>
+    <view bindtap='' class='col item-min'>
       <image src='../../assets/images/download.png'></image>
       <text>下载</text>
-    </navigator>
-    <navigator url='/pages/bookmarks/bookmarks' class='col item-min'>
+    </view>
+    <navigator url='/pages/menu/menu?tab=bookmark' class='col item-min'>
       <image src='../../assets/images/bookmark.png'></image>
       <text>书签</text>
     </navigator>
-
     <view class='col'>
-      <navigator url='/pages/read/read' class='read'>
+      <navigator url='/pages/read/read?identify={{book.book_id}}' class='read'>
         <image src='../../assets/images/read-white.png' mode='scaleToFill'></image>
         <text>阅读</text>
       </navigator>
     </view>
-    <!-- <navigator url='/pages/share/share' class='col item-min'>
-        <image src='../../assets/images/share.png'></image>
-        <text>分享</text>
-      </navigator> -->
-    <navigator url='' class='col item-min'>
+    <view bindtap='' class='col item-min'>
       <image src='../../assets/images/star.png'></image>
       <text>收藏</text>
-    </navigator>
-    <navigator url='/pages/comment/comment' class='col item-min'>
+    </view>
+    <navigator url='/pages/comment/comment?identify={{book.book_id}}&my_score={{myScore}}' class='col item-min'>
       <image src='../../assets/images/comment.png'></image>
       <text>点评</text>
     </navigator>

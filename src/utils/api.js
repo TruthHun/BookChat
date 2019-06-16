@@ -3,7 +3,7 @@ const util = require('./util.js')
 
 const keyCategories = 'categories';
 const keyCacheExpire = 'categories-expire';
-const expire = 60; // 60 second
+const expire = 600; // 600 second
 
 // 获取书籍分类
 const getCategories = () => {

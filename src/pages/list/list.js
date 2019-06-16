@@ -105,7 +105,6 @@ Page({
   setTitle: function() {
     let that = this
     let tabTitle = that.data.tabTitle
-
     switch (that.data.tab) {
       case 'new':
         tabTitle = '最新';

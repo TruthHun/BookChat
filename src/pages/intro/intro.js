@@ -4,49 +4,119 @@ const util = require('../../utils/util.js')
 
 Page({
   data: {
+    bookId: 0,
     book: {},
+    relatedBooks: [],
     isLogin: util.getToken() != "",
+    page: 1,
+    size: 10,
+    myScore: 0,
+    comments: []
   },
   onLoad: function(options) {
-    util.loading()
-
     if (config.debug) console.log(options)
-
     let id = parseInt(options.id)
     if (options.id == undefined || id <= 0) {
-      wx.navigateTo({
-        url: '/pages/notfound/notfound',
-      })
-      return
+      if (config.debug) {
+        id = 2180
+      } else {
+        wx.redirectTo({
+          url: '/pages/notfound/notfound',
+        })
+        return
+      }
     }
 
+    this.setData({
+      bookId: id
+    })
+    this.loadData()
+  },
+  onPullDownRefresh: function() {
+    this.loadData()
+  },
+  loadData: function() {
+    wx.stopPullDownRefresh()
+
+    util.loading()
+
     let that = this
-    util.request(config.api.bookInfo, {
-      identify: id
-    }).then((res) => {
-      if (config.debug) console.log(config.api.bookInfo, res)
-      let book = res.data.book
-      wx.setNavigationBarTitle({
-        title: book.book_name,
-      })
+    let book = {}
+    let books = []
+
+    Promise.all([util.request(config.api.bookInfo, {
+      identify: that.data.bookId
+    }), util.request(config.api.bookRelated, {
+      identify: that.data.bookId
+    })]).then(function([resInfo, resRelated]) {
+      if (config.debug) console.log(resInfo, resRelated)
+
+      if (resInfo.data && resInfo.data.book) {
+        book = resInfo.data.book
+      }
+      if (resRelated.data && resRelated.data.books) {
+        books = resRelated.data.books
+      }
+    }).catch(function(e) {
+      wx.hideLoading()
+      if (e.errMsg) {
+        util.toastError(e.errMsg)
+      } else {
+        util.toastError(e.data.message)
+      }
+    }).finally(function() {
+      if (book.book_id <= 0) {
+        wx.redirectTo({
+          url: '/pages/notfound/notfound',
+        })
+        return
+      }
       book.float_score = (book.score / 10).toFixed(1)
       book.description = book.description || book.book_name
       book.percent = Number(book.cnt_readed / book.cnt_doc * 100).toFixed(2)
+      wx.setNavigationBarTitle({
+        title: book.book_name,
+      })
       that.setData({
-        book
+        book: book,
+        relatedBooks: books,
+        page: 1
       })
-    })
-
-    util.request(config.api.bookRelated, {
-      identify: id
-    }).then((res) => {
-      if (config.debug) console.log(config.api.bookRelated, res)
-      if (res.data.books) that.setData({
-        relatedBooks: res.data.books
-      })
+      wx.hideLoading()
+      that.getComments()
     })
   },
-  onReady: function() {
-    wx.hideLoading()
+  onReachBottom: function() {
+    this.getComments()
+  },
+  getComments: function() {
+    let that = this
+    let comments = that.data.comments
+    let myScore = 0
+
+    if (that.data.page <= 0 || that.data.pending) {
+      return
+    }
+    that.setData({
+      pending: true
+    })
+
+    util.request(config.api.comment, {
+      identify: that.data.bookId,
+      page: that.data.page,
+    }).then(function(res) {
+      if (config.debug) console.log(config.api.comment, res)
+      if (res.data && res.data.comments) comments = comments.concat(res.data.comments)
+      if (res.data && res.data.my_score) myScore = res.data.my_score
+    }).catch(function(e) {
+      console.log(e)
+    }).finally(function() {
+      that.setData({
+        comments: comments,
+        page: comments.length >= that.data.size ? (that.data.page + 1) : 0,
+        pending: false,
+        myScore: myScore
+      })
+    })
   }
 })
