@@ -41,7 +41,7 @@
   <text>{{book.description}}</text>
   <view wx:if="{{book.author.length>0}}" class='ellipsis-1row'>来源: {{book.author}} - {{book.author_url}}</view>
 </view>
-<navigator url='/pages/menu/menu' class='menu row'>
+<navigator url='/pages/menu/menu?identify={{book.book_id}}' class='menu row'>
   <view class='col font-lv3'>查看目录</view>
   <view class='col font-lv4 color-grey text-right'>最后更新：{{common.relativeTime(book.updated_at)}}</view>
 </navigator>
@@ -74,7 +74,7 @@
   </view>
   <view class='panel-body base-padding'>
 
-    <view class='row comment-list'>
+    <!-- <view class='row comment-list'>
       <view class='col-2 comment-left'>
         <image class='img-responsive radius-circle border-basic' mode='widthFix' src='../../assets/images/example/avatar.jpeg'></image>
       </view>
@@ -152,7 +152,7 @@
           强烈推荐。
         </view>
       </view>
-    </view>
+    </view> -->
 
   </view>
 </view>

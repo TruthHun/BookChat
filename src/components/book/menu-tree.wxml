@@ -1,8 +1,8 @@
 <view wx:for="{{menu}}" wx:key="index" wx:for-item="item" class='ul menu-tree font-lv3 color-semi'>
-  <view class='li {{item.readed ? "readed":""}}'>
-    <navigator url='/pages/read/read?identify={{item.book_id}}/{{item.id}}'>
+  <view class="li">
+    <navigator class="{{item.readed ? 'readed':''}}" url='/pages/read/read?identify={{item.book_id}}/{{item.id}}'>
       <text>{{item.title}}</text>
     </navigator>
-    <menu-tree menu="{{item.children}}"/>
+    <menu-tree menu="{{item.children}}" />
   </view>
 </view>

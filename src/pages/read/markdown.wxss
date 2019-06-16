@@ -14,9 +14,10 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.markdown-body .-strong {
-  font-weight: bold;
+.-strong {
+  font-size: 32rpx;font-weight: 400;
 }
+
 
 .markdown-body .-img {
   max-width: 100%;
@@ -53,7 +54,7 @@
 }
 
 .markdown-body .-a:hover, .markdown-body .-a:active {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .markdown-body .-hr {
@@ -81,29 +82,30 @@
   margin-top: 30rpx;
   margin-bottom: 30rpx;
   line-height: 1.1;
+  font-weight: 400;
 }
 
-.markdown-body .-h1 {
+.markdown-body .-h1,.markdown-body .-strong {
   font-size: 50rpx !important;
 }
 
-.markdown-body .-h2 {
+.markdown-body .-h2,.markdown-body .-strong {
   font-size: 46rpx !important;
 }
 
-.markdown-body .-h3 {
+.markdown-body .-h3,.markdown-body .-strong {
   font-size: 42rpx !important;
 }
 
-.markdown-body .-h4 {
+.markdown-body .-h4,.markdown-body .-strong {
   font-size: 38px !important;
 }
 
-.markdown-body .-h5 {
+.markdown-body .-h5,.markdown-body .-strong {
   font-size: 34rpx !important;
 }
 
-.markdown-body .-h6 {
+.markdown-body .-h6,.markdown-body .-strong {
   font-size: 30rpx !important;
 }
 
@@ -610,6 +612,7 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
 .editormd-preview-container .-pre.prettyprint,
 .editormd-html-preview .-pre.prettyprint {
   padding: 10px;
@@ -697,7 +700,6 @@
   -webkit-transition: background-color 500ms ease-out;
   transition: background-color 500ms ease-out;
 }
-
 
 .editormd-preview-container .editormd-toc-menu > .markdown-toc .-li,
 .editormd-html-preview .editormd-toc-menu > .markdown-toc .-li {
@@ -795,7 +797,6 @@
   height: 2px;
 }
 
-
 .editormd-html-preview .-hr.editormd-page-break {
   background: none;
   border: none;
@@ -820,8 +821,6 @@
   transition: background-color 300ms ease-out;
 }
 
-
-
 .editormd-preview-active {
   width: 100%;
   padding: 40px;
@@ -829,11 +828,11 @@
 
 .editormd-preview-container .-code, .editormd-html-preview .-code {
   border: 0;
-  display: inline-block;
-  padding-bottom: 0px;
+  /* display: inline-block; */
+  /* padding-bottom: 0px; */
   background-color: #f6f6f6;
   color: #c7254e;
-  padding-top: 2rpx;
+  padding: 6rpx 8rpx;
   margin: 5rpx;
 }
 
