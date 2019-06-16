@@ -27,6 +27,9 @@ Component({
     result: {
       type: Array,
       value: []
+    },
+    tips:{
+      type:String
     }
   },
 
