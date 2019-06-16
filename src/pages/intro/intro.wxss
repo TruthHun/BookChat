@@ -197,11 +197,11 @@ page {
 }
 
 .comment-info {
-  line-height: 150%;
+  margin-bottom: 20rpx;
 }
 
 .comment-info .score {
-  position: relative
+  position: relative;margin-bottom: 0;
 }
 
 .comment-info .pull-right {

@@ -5,6 +5,7 @@ Page({
   data: {
     user: {},
     now: new Date().getFullYear(),
+    about: config.about,
   },
   onLoad: function() {
     this.initUser()

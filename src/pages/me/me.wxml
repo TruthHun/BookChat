@@ -36,7 +36,7 @@
 </view>
 
 <view class='base-padding row base-info'>
-  <navigator url='/pages/about/about' class='col-12'>
+  <navigator url='/pages/read/read?identify={{about}}' class='col-12'>
     <image src='../../assets/images/about-us.png'></image>
     关于我们
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>

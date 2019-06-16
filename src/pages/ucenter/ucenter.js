@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabValue: 'fans',
+    tabValue: 'release',
     page: 1,
     size: 10,
     lists: [],
@@ -50,7 +50,7 @@ Page({
     }
 
     if (!uid) {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/notfound/notfound',
       })
       return

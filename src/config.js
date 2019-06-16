@@ -8,6 +8,8 @@ const debug = true
 // 横幅图片比例，宽高比，小数或者比例
 const bannerRatio = 825/315
 
+const about = 'help/about'
+
 const api = {
   banners: `${host}/api/v1/banners`, 
   register: `${host}/api/v1/register`, 
@@ -37,5 +39,6 @@ const api = {
 module.exports = {
   api,
   debug,
-  bannerRatio
+  bannerRatio,
+  about,
 }

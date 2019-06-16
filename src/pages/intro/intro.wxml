@@ -75,12 +75,12 @@
   <view class='panel-body base-padding'>
     <block wx:if="{{comments.length>0}}">
       <view wx:for="{{comments}}" wx:key="index" wx:for-item="comment" class='row comment-list'>
-        <view class='col-2 comment-left'>
+        <navigator url='/pages/ucenter/ucenter?uid={{comment.uid}}' class='col-2 comment-left'>
           <image class='img-responsive radius-circle border-basic' src='{{comment.avatar}}'></image>
-        </view>
+        </navigator>
         <view class='col-10 comment-right'>
           <view class='row comment-info'>
-            <view class='col font-lv2 color-semi'>{{comment.nickname}}</view>
+            <navigator url='/pages/ucenter/ucenter?uid={{comment.uid}}' class='col font-lv2 color-semi'>{{comment.nickname}}</navigator>
             <view class='col'>
               <view class='score score-50'></view>
             </view>
