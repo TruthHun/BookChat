@@ -102,13 +102,14 @@
 <!-- 底部功能栏  -->
 <view class='fix-bottom'>
   <view class='row'>
-    <view bindtap='' class='col item-min'>
-      <image src='../../assets/images/download.png'></image>
-      <text>下载</text>
-    </view>
-    <navigator url='/pages/menu/menu?tab=bookmark' class='col item-min'>
+    
+    <navigator url='/pages/menu/menu?tab=bookmark&identify={{book.book_id}}' class='col item-min'>
       <image src='../../assets/images/bookmark.png'></image>
       <text>书签</text>
+    </navigator>
+        <navigator url='/pages/menu/menu?tab=menu&identify={{book.book_id}}' class='col item-min'>
+      <image src='../../assets/images/menu.png'></image>
+      <text>目录</text>
     </navigator>
     <view class='col'>
       <navigator url='/pages/read/read?identify={{book.book_id}}' class='read'>

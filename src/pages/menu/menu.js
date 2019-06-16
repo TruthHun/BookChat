@@ -23,17 +23,23 @@ Page({
    */
   onLoad: function(options) {
     let identify = options.id || options.identify;
-    if (!identify || identify == undefined){
+    if (!identify || identify == undefined) {
       wx.navigateTo({
         url: '/pages/notfound/notfound',
       })
       return
     }
-    util.loading()
+    let tab = options.tab || 'menu'
+
     this.setData({
-      identify: identify
+      identify: identify,
+      activeTab: tab
     })
-    this.loadData()
+    if (tab == 'menu'){
+      this.loadData()
+    }else{
+      this.loadBookmark()
+    }
   },
   onShow: function() {
     if (this.data.onHide) {
@@ -58,12 +64,13 @@ Page({
     console.log(e)
   },
   tabClick: function(e) {
-    console.log(e)
     this.setData({
       activeTab: e.detail.tab
     })
     if (e.detail.tab == 'bookmark') {
       this.loadBookmark()
+    }else{
+      this.loadData()
     }
   },
   loadData: function() {
@@ -71,6 +78,11 @@ Page({
     let menu = []
     let book = {}
     let identify = that.data.identify
+
+    if (that.data.book.book_id>0){
+      return
+    }
+    util.loading()
 
     Promise.all([util.request(config.api.bookMenu, {
       identify: identify
@@ -140,7 +152,7 @@ Page({
         activeTab: "result",
         wd: e.detail,
       })
-      if (result.length== 0) {
+      if (result.length == 0) {
         util.toastError("没有搜索到结果")
       }
       wx.hideLoading()

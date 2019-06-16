@@ -56,6 +56,9 @@ Page({
         article: article,
         identify: identify,
       })
+      if(article.title) wx.setNavigationBarTitle({
+        title: article.title,
+      })
       wx.hideLoading()
     })
   }
