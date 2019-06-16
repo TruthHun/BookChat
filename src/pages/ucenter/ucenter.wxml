@@ -6,7 +6,7 @@
   <view class='color-grey font-lv3'>{{user.intro}}</view>
 </view>
 
-<view class='base-margin-bottom'>
+<view class='pdb-30rpx'>
   <tab tabs="{{tabs}}" active="{{tabValue}}" bindclick="tabClick" gridLen="10"/>
 </view>
 

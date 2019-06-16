@@ -35,9 +35,9 @@ Page({
       identify: identify,
       activeTab: tab
     })
-    if (tab == 'menu'){
+    if (tab == 'menu') {
       this.loadData()
-    }else{
+    } else {
       this.loadBookmark()
     }
   },
@@ -67,11 +67,22 @@ Page({
     this.setData({
       activeTab: e.detail.tab
     })
+    let title = ''
     if (e.detail.tab == 'bookmark') {
+      title = '书签'
       this.loadBookmark()
-    }else{
-      this.loadData()
+    }else if (e.detail.tab == 'result') {
+      title = '搜索 - ' + this.data.wd
+    } else {
+      title = '目录'
+        this.loadData()
     }
+    if (title) {
+      wx.setNavigationBarTitle({
+        title: title,
+      })
+    }
+
   },
   loadData: function() {
     let that = this
@@ -79,7 +90,7 @@ Page({
     let book = {}
     let identify = that.data.identify
 
-    if (that.data.book.book_id>0){
+    if (that.data.book.book_id > 0) {
       return
     }
     util.loading()
@@ -112,7 +123,9 @@ Page({
   loadBookmark: function() {
     let that = this
     let bookmark = []
-
+    wx.setNavigationBarTitle({
+      title: '书签',
+    })
     if (that.data.bookmark.length == 0) util.loading()
 
     util.request(config.api.bookmark, {
@@ -152,10 +165,14 @@ Page({
         activeTab: "result",
         wd: e.detail,
       })
+      wx.hideLoading()
       if (result.length == 0) {
         util.toastError("没有搜索到结果")
+      } else {
+        wx.setNavigationBarTitle({
+          title: '搜索 - ' + e.detail,
+        })
       }
-      wx.hideLoading()
     })
   }
 })
