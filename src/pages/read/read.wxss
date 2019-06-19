@@ -1,12 +1,8 @@
 @import 'markdown.wxss';
-page{
-  padding-bottom: 120rpx;
-}
 
 .markdown-body {
   transition: left 0.5s;
-  border: 1px solid #fff;
-  padding: 0 30rpx;
+  padding: 30rpx 30rpx 120rpx;
   box-sizing: border-box;
 }
 
@@ -35,7 +31,7 @@ page{
 /* 抽屉 */
 
 .drawer {
-  width: 70%;
+  width: 80%;
   position: fixed;
   z-index: 99;
   height: 100%;
@@ -44,6 +40,7 @@ page{
   background-color: #fff;
   transition: all 0.5s;
   -webkit-overflow-scrolling: touch;
+  border: 1px solid #fff;
 }
 
 .drawer .drawer-content {
@@ -52,7 +49,6 @@ page{
   padding: 30rpx;
   box-sizing: border-box;
   padding-bottom: 120rpx;
-  border:1px solid #fff;
 }
 
 .drawer-left {

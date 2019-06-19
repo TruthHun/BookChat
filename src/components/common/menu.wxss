@@ -1,9 +1,5 @@
 @import '../../app.wxss';
 
-page {
-  padding-bottom: 120rpx;
-}
-
 .book {
   border-bottom: 1px solid #efefef;
   padding-bottom: 30rpx;

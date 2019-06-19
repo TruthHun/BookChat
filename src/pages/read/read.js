@@ -11,9 +11,12 @@ Page({
     article: {},
     content: {},
     menu: [],
+    bookmark: [],//书签
     showMenu: false,
     showMore: false,
-    height: 'auto',
+    wd: '', //搜索关键字
+    bg: '#fff',// background-color
+    fontSize: '28rpx'
   },
 
   /**
@@ -34,9 +37,6 @@ Page({
    */
   onReady: function() {
 
-  },
-  richTap: function(e) {
-    console.log(e)
   },
   getArticle: function(identify) {
     let article = {}
@@ -65,6 +65,12 @@ Page({
         title: article.title,
       })
       wx.hideLoading()
+    })
+  },
+  contentClick: function(e) {
+    this.setData({
+      showMenu: false,
+      showMore: false
     })
   },
   clickMenu: function(e) {

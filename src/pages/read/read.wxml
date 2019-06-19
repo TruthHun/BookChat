@@ -1,45 +1,10 @@
-  <view class='markdown-body editormd-preview-container'>
-    <rich-text nodes="{{article.content}}" bindtap="richTap"></rich-text>
+  <view class='markdown-body editormd-preview-container' bindtap='contentClick' style='background-color:{{bg}};font-size:{{fontSize}}'>
+    <rich-text nodes="{{article.content}}"></rich-text>
   </view>
 
   <view class='drawer drawer-left {{showMenu ? "show":""}}'>
     <view class='drawer-content'>
-      <view>这是左抽屉1</view>
-      <view>这是左抽屉2</view>
-      <view>这是左抽屉3</view>
-      <view>这是左抽屉4</view>
-      <view>这是左抽屉5</view>
-      <view>这是左抽屉6</view>
-      <view>这是左抽屉1</view>
-      <view>这是左抽屉2</view>
-      <view>这是左抽屉3</view>
-      <view>这是左抽屉4</view>
-      <view>这是左抽屉5</view>
-      <view>这是左抽屉6</view>
-      <view>这是左抽屉1</view>
-      <view>这是左抽屉2</view>
-      <view>这是左抽屉3</view>
-      <view>这是左抽屉4</view>
-      <view>这是左抽屉5</view>
-      <view>这是左抽屉6</view>
-      <view>这是左抽屉1</view>
-      <view>这是左抽屉2</view>
-      <view>这是左抽屉3</view>
-      <view>这是左抽屉4</view>
-      <view>这是左抽屉5</view>
-      <view>这是左抽屉6</view>
-      <view>这是左抽屉1</view>
-      <view>这是左抽屉2</view>
-      <view>这是左抽屉3</view>
-      <view>这是左抽屉4</view>
-      <view>这是左抽屉5</view>
-      <view>这是左抽屉6</view>
-      <view>这是左抽屉1</view>
-      <view>这是左抽屉2</view>
-      <view>这是左抽屉3</view>
-      <view>这是左抽屉4</view>
-      <view>这是左抽屉5</view>
-      <view>这是左抽屉6</view>
+      <menu book="{{book}}" wd="{{wd}}" result="{{result}}" bookmark="{{bookmark}}" activeTab="{{activeTab}}" bindsearch="search" tips="{{tips}}" bindtabClick="tabClick" menu="{{menu}}" />
     </view>
   </view>
 
@@ -64,7 +29,13 @@
     <view class='col' bindtap='clickNext'>
       <image src='../../assets/images/next.png'></image>
     </view>
-    <!-- 字体大小设置，背景色设置，使用右抽屉的方式。后期增加一个笔记的功能 -->
+    <!-- 
+      亮度（滑动）、
+      字体大小设置（滑动），
+      背景色设置（色块）,
+      并把用户的这些阅读偏好存到localstorage里面。
+      后期增加一个笔记的功能 
+    -->
     <view class='col' bindtap='clickMore'>
       <image src='../../assets/images/more.png'></image>
     </view>
