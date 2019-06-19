@@ -1,21 +1,13 @@
 @import 'markdown.wxss';
-
-page {
-  padding-bottom: 100rpx;
+page{
+  padding-bottom: 120rpx;
 }
 
-.markdown-body pre {
-  display: block;
-  width: 100%;
-  overflow: scroll !important;
-  border: 1px solid red !important;
-  background-color: red !important;
-}
-
-/* --- footer ---- */
-
-pre {
-  border: 1px solid red;
+.markdown-body {
+  transition: left 0.5s;
+  border: 1px solid #fff;
+  padding: 0 30rpx;
+  box-sizing: border-box;
 }
 
 /* footer */
@@ -29,6 +21,8 @@ pre {
   bottom: 0px;
   width: 100%;
   text-align: center;
+  z-index: 100;
+  box-sizing: border-box;
   line-height: 90rpx;
 }
 
@@ -36,4 +30,45 @@ pre {
   margin-top: 20rpx;
   width: 50rpx;
   height: 50rpx;
+}
+
+/* 抽屉 */
+
+.drawer {
+  width: 70%;
+  position: fixed;
+  z-index: 99;
+  height: 100%;
+  overflow-y: scroll;
+  top: 0;
+  background-color: #fff;
+  transition: all 0.5s;
+  -webkit-overflow-scrolling: touch;
+}
+
+.drawer .drawer-content {
+  width: 100%;
+  background-color: #fff;
+  padding: 30rpx;
+  box-sizing: border-box;
+  padding-bottom: 120rpx;
+  border:1px solid #fff;
+}
+
+.drawer-left {
+  right: 100%;
+}
+
+.drawer-right {
+  left: 100%;
+}
+
+.drawer-left.show {
+  right: 30%;
+  border-right: 1px solid #efefef;
+}
+
+.drawer-right.show {
+  left: 30%;
+  border-left: 1px solid #efefef;
 }

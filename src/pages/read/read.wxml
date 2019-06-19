@@ -1,23 +1,72 @@
+  <view class='markdown-body editormd-preview-container'>
+    <rich-text nodes="{{article.content}}" bindtap="richTap"></rich-text>
+  </view>
 
-<view class='markdown-body editormd-preview-container'>
-  <rich-text nodes="{{article.content}}" bindtap="richTap"></rich-text>
-</view>
+  <view class='drawer drawer-left {{showMenu ? "show":""}}'>
+    <view class='drawer-content'>
+      <view>这是左抽屉1</view>
+      <view>这是左抽屉2</view>
+      <view>这是左抽屉3</view>
+      <view>这是左抽屉4</view>
+      <view>这是左抽屉5</view>
+      <view>这是左抽屉6</view>
+      <view>这是左抽屉1</view>
+      <view>这是左抽屉2</view>
+      <view>这是左抽屉3</view>
+      <view>这是左抽屉4</view>
+      <view>这是左抽屉5</view>
+      <view>这是左抽屉6</view>
+      <view>这是左抽屉1</view>
+      <view>这是左抽屉2</view>
+      <view>这是左抽屉3</view>
+      <view>这是左抽屉4</view>
+      <view>这是左抽屉5</view>
+      <view>这是左抽屉6</view>
+      <view>这是左抽屉1</view>
+      <view>这是左抽屉2</view>
+      <view>这是左抽屉3</view>
+      <view>这是左抽屉4</view>
+      <view>这是左抽屉5</view>
+      <view>这是左抽屉6</view>
+      <view>这是左抽屉1</view>
+      <view>这是左抽屉2</view>
+      <view>这是左抽屉3</view>
+      <view>这是左抽屉4</view>
+      <view>这是左抽屉5</view>
+      <view>这是左抽屉6</view>
+      <view>这是左抽屉1</view>
+      <view>这是左抽屉2</view>
+      <view>这是左抽屉3</view>
+      <view>这是左抽屉4</view>
+      <view>这是左抽屉5</view>
+      <view>这是左抽屉6</view>
+    </view>
+  </view>
 
-<view class='footer row font-lv3'>
-  <view class='col'>
-    <image src='../../assets/images/bookmark-add.png'></image>
+  <view class='drawer drawer-right  {{showMore ? "show":""}}'>
+    <view class='drawer-content'>
+      <text>这是右抽屉</text>
+    </view>
   </view>
-  <view class='col'>
-    <image src='../../assets/images/pre.png'></image>
+
+
+
+  <view class='footer row font-lv3'>
+    <view class='col' bindtap='clickBookmark'>
+      <image src='../../assets/images/bookmark-add.png'></image>
+    </view>
+    <view class='col' bindtap='clickPrev'>
+      <image src='../../assets/images/pre.png'></image>
+    </view>
+    <view class='col' bindtap='clickMenu'>
+      <image src='../../assets/images/menu.png'></image>
+    </view>
+    <view class='col' bindtap='clickNext'>
+      <image src='../../assets/images/next.png'></image>
+    </view>
+    <!-- 字体大小设置，背景色设置，使用右抽屉的方式。后期增加一个笔记的功能 -->
+    <view class='col' bindtap='clickMore'>
+      <image src='../../assets/images/more.png'></image>
+    </view>
   </view>
-  <view class='col'>
-    <image src='../../assets/images/menu.png'></image>
-  </view>
-  <view class='col'>
-    <image src='../../assets/images/next.png'></image>
-  </view>
-  <!-- 字体大小设置，背景色设置，使用右抽屉的方式。后期增加一个笔记的功能 -->
-   <view class='col'>
-    <image src='../../assets/images/more.png'></image>
-  </view>
-</view>
+

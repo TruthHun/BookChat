@@ -9,7 +9,11 @@ Page({
   data: {
     identify: '',
     article: {},
-    content: {}
+    content: {},
+    menu: [],
+    showMenu: false,
+    showMore: false,
+    height: 'auto',
   },
 
   /**
@@ -21,6 +25,7 @@ Page({
     // 2. 如果没传文档标识参数，则用目录的首个章节作为默认获取的文章
     let that = this;
     let identify = options.identify || 'help/Ubuntu.md'
+
     that.getArticle(identify)
   },
 
@@ -49,17 +54,29 @@ Page({
         util.toastError(e.data.message)
       }
     }).finally(function() {
-      if(article.content == ''){
+      if (article.content == '') {
         article.content = '<div style="color:#888;margin:100px auto;text-align:center;"> -- 本章节内容为空 -- </div>'
       }
       that.setData({
         article: article,
         identify: identify,
       })
-      if(article.title) wx.setNavigationBarTitle({
+      if (article.title) wx.setNavigationBarTitle({
         title: article.title,
       })
       wx.hideLoading()
+    })
+  },
+  clickMenu: function(e) {
+    this.setData({
+      showMenu: !this.data.showMenu,
+      showMore: false,
+    })
+  },
+  clickMore: function(e) {
+    this.setData({
+      showMore: !this.data.showMore,
+      showMenu: false,
     })
   }
 })
