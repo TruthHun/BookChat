@@ -49,7 +49,7 @@
     <menu-tree menu="{{result}}" pid="0" />
   </block>
   <block wx:else>
-    <menu-tree menu="{{menu}}" pid="{{pid}}" />
+    <menu-tree bind:itemClick="itemClick" menu="{{menu}}" pid="{{pid}}" />
   </block>
 </view>
 

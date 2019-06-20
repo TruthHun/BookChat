@@ -24,6 +24,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    
+    itemClick: function(e) {
+      this.triggerEvent('itemClick', e.currentTarget.dataset)
+    },
+    menuClick:function(e){
+      this.triggerEvent('itemClick', e.detail)
+    }
   }
 })

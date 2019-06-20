@@ -1,1 +1,1 @@
-<menu book="{{book}}" wd="{{wd}}" result="{{result}}" bookmark="{{bookmark}}" activeTab="{{activeTab}}" bindsearch="search" tips="{{tips}}" bindtabClick="tabClick" menu="{{menu}}" />
+<menu book="{{book}}" wd="{{wd}}" result="{{result}}" bookmark="{{bookmark}}" activeTab="{{activeTab}}" bindsearch="search" tips="{{tips}}" bind:itemClick="itemClick" bind:tabClick="tabClick" menu="{{menu}}" />

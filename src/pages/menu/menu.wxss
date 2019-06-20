@@ -1,4 +1,7 @@
 /* pages/menu/menu.wxss */
+page{
+  padding-bottom: 120rpx;
+}
 
 /* search */
 .search icon{

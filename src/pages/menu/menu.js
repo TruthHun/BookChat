@@ -22,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let identify = options.id || options.identify;
+    let identify = options.id || options.identify || 'dochub';
     if (!identify || identify == undefined) {
       wx.navigateTo({
         url: '/pages/notfound/notfound',
@@ -112,6 +112,12 @@ Page({
     }).catch(function(e) {
       console.log(e)
     }).finally(function() {
+      if (menu.length == 0){
+        wx.redirectTo({
+          url: '/pages/notfound/notfound',
+        })
+        return
+      }
       that.setData({
         menu: util.menuToTree(menu),
         book: book,
@@ -143,6 +149,12 @@ Page({
         tips: ' -- 您暂时还有没有书签 -- '
       })
       wx.hideLoading()
+    })
+  },
+  itemClick:function(e){
+    // TODO: 设置已读章节，然后跳转到书籍阅读页面
+    wx.navigateTo({
+      url: '/pages/read/read?identify='+e.detail.identify,
     })
   },
   search: function(e) {

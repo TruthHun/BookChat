@@ -28,8 +28,8 @@ Component({
       type: Array,
       value: []
     },
-    tips:{
-      type:String
+    tips: {
+      type: String
     }
   },
 
@@ -54,6 +54,9 @@ Component({
     },
     search: function(e) {
       this.triggerEvent('search', e.detail)
+    },
+    itemClick: function (e) {
+      this.triggerEvent('itemClick', e.detail)
     }
   }
 })
