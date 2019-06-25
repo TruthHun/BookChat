@@ -7,16 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    identify: '',
+    book: {},
     article: {},
-    content: {},
-    menu: [],
-    bookmark: [],//书签
+    menuSortIds: [],
+    menuTree: [],
+    menuIndex: 0,
+    bookmark: [], //书签
     showMenu: false,
     showMore: false,
     wd: '', //搜索关键字
-    bg: '#fff',// background-color
-    fontSize: '28rpx'
+    bg: '#fff', // background-color
+    // fontSize: '28rpx'
   },
 
   /**
@@ -27,9 +28,58 @@ Page({
     // 1. 先获取书籍目录
     // 2. 如果没传文档标识参数，则用目录的首个章节作为默认获取的文章
     let that = this;
-    let identify = options.identify || 'help/Ubuntu.md'
+    let identify = options.identify || 'help'
+    let arr = String(identify).split("/")
+    let book = {}
+    let menu = []
 
-    that.getArticle(identify)
+    if (arr.length == 0) {
+      wx.navigateTo({
+        url: '/pages/notfound/notfound',
+      })
+      return
+    }
+
+    util.loading()
+
+    Promise.all([util.request(config.api.bookMenu, {
+      identify: arr[0]
+    }), util.request(config.api.bookInfo, {
+      identify: arr[0]
+    })]).then(function([resMenu, resBook]) {
+      if (config.debug) console.log(resMenu, resBook)
+      if (resMenu.data && resMenu.data.menu) {
+        menu = resMenu.data.menu
+      }
+      if (resBook.data && resBook.data.book) {
+        book = resBook.data.book
+        book.score_float = Number(book.score / 10).toFixed(1)
+        book.percent = Number(book.cnt_readed / book.cnt_doc * 100).toFixed(2)
+      }
+    }).catch(function(e) {
+      console.log(e)
+    }).finally(function() {
+      if (menu.length == 0) {
+        wx.redirectTo({
+          url: '/pages/notfound/notfound',
+        })
+        return
+      }
+
+      let menuTree = util.menuToTree(menu)
+
+      that.setData({
+        menuSortIds: util.menuSortIds(menuTree),
+        menuTree: menuTree,
+        book: book,
+      })
+
+      if (arr.length < 2) {
+        identify = book.book_id + "/" + menuTree[0].id
+      }
+
+      that.getArticle(identify)
+    })
   },
 
   /**
@@ -64,6 +114,9 @@ Page({
       if (article.title) wx.setNavigationBarTitle({
         title: article.title,
       })
+      wx.pageScrollTo({
+        scrollTop: 0,
+      })
       wx.hideLoading()
     })
   },
@@ -84,5 +137,35 @@ Page({
       showMore: !this.data.showMore,
       showMenu: false,
     })
+  },
+  clickNext: function(e) {
+    let that = this
+    let idx = that.data.menuSortIds.indexOf(that.data.article.id)
+    idx++
+    if (idx < that.data.menuSortIds.length) {
+      util.loading()
+      that.getArticle(that.data.book.book_id + "/" + that.data.menuSortIds[idx])
+    } else {
+      wx.showToast({
+        title: '没有下一章节了',
+        mask: true,
+        image: '/assets/images/error.png'
+      })
+    }
+  },
+  clickPrev: function(e) {
+    let that = this
+    let idx = that.data.menuSortIds.indexOf(that.data.article.id)
+    idx--
+    if (idx > -1) {
+      util.loading()
+      that.getArticle(that.data.book.book_id + "/" + that.data.menuSortIds[idx])
+    } else {
+      wx.showToast({
+        title: '没有上一章节了',
+        mask: true,
+        image: '/assets/images/error.png'
+      })
+    }
   }
 })

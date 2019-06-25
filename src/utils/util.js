@@ -216,6 +216,17 @@ const menuToTree = (menu) => {
   return val;
 }
 
+const menuSortIds = (menuTree) =>{
+  let docs = []
+  for (let i in menuTree) {
+    docs.push(menuTree[i].id)
+    if (menuTree[i].children) {
+      docs = docs.concat(menuSortIds(menuTree[i].children))
+    }
+  }
+  return docs
+}
+
 module.exports = {
   formatTime,
   now,
@@ -233,4 +244,5 @@ module.exports = {
   setStorageMenu,
   activeReadedStorageMenu,
   menuToTree,
+  menuSortIds,
 }

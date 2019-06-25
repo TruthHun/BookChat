@@ -133,7 +133,6 @@ Page({
       title: '书签',
     })
     if (that.data.bookmark.length == 0) util.loading()
-
     util.request(config.api.bookmark, {
       identify: that.data.identify
     }).then(function(res) {

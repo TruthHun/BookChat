@@ -10,6 +10,10 @@ Component({
     pid: {
       type: Number,
       value: 0
+    },
+    currentDocId: {
+      type: Number,
+      value: 0,
     }
   },
 
