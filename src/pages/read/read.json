@@ -1,5 +1,5 @@
 {
   "usingComponents":{
-    "memu":"/components/common/menu"
+    "menu":"/components/common/menu"
   }
 }

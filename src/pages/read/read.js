@@ -54,6 +54,7 @@ Page({
       if (resBook.data && resBook.data.book) {
         book = resBook.data.book
         book.score_float = Number(book.score / 10).toFixed(1)
+        book.is_read = 1 
         book.percent = Number(book.cnt_readed / book.cnt_doc * 100).toFixed(2)
       }
     }).catch(function(e) {

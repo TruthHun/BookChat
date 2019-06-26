@@ -9,6 +9,10 @@
   width: 170rpx;
   height: 223.5rpx;
 }
+.book navigator image.cover{
+  max-width: 100%;
+  max-height: auto;
+}
 
 .book-title {
   white-space: nowrap;

@@ -29,13 +29,14 @@
     </view>
     <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book-info col-9'>
       <view class='book-title font-lv1 ellipsis-1row'>{{book.book_name}}</view>
+      <view wx:if="{{book.is_read == 1}}" class='mgt-15rpx'><text class='font-lv3 color-grey'>{{book.cnt_doc}} 章节</text></view>
       <view class='mgt-30rpx'>
         <view class='score score-{{book.score}} pull-left'>
           <text>{{book.score_float}} 分</text>
-          <text class='pull-right'>{{book.cnt_readed}} / {{book.cnt_doc}} 章节</text>
+          <text wx:if="{{book.is_read != 1}}" class='pull-right'>{{book.cnt_readed}} / {{book.cnt_doc}} 章节</text>
         </view>
       </view>
-      <view class='progress mgt-30rpx'>
+      <view wx:if="{{book.is_read != 1}}" class='progress mgt-30rpx'>
         <view class='font-lv3 color-grey'>阅读进度
           <view class='pull-right'>{{book.percent}}%
             <text wx:if="{{token == ''}}">(未登录)</text>

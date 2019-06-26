@@ -46,7 +46,6 @@
 .drawer .drawer-content {
   width: 100%;
   background-color: #fff;
-  padding: 30rpx;
   box-sizing: border-box;
   padding-bottom: 120rpx;
 }
@@ -60,11 +59,11 @@
 }
 
 .drawer-left.show {
-  right: 30%;
+  right: 20%;
   border-right: 1px solid #efefef;
 }
 
 .drawer-right.show {
-  left: 30%;
+  left: 20%;
   border-left: 1px solid #efefef;
 }
