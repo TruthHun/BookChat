@@ -33,6 +33,9 @@ Page({
     this.loadData()
   },
   onPullDownRefresh: function() {
+    this.setData({
+      page: 1
+    })
     this.loadData()
   },
   loadData: function() {
@@ -106,7 +109,13 @@ Page({
       page: that.data.page,
     }).then(function(res) {
       if (config.debug) console.log(config.api.comment, res)
-      if (res.data && res.data.comments) comments = comments.concat(res.data.comments)
+      if (res.data && res.data.comments) {
+        if (that.data.page==1){
+          comments = res.data.comments
+        }else{
+          comments = comments.concat(res.data.comments)
+        }
+      }
       if (res.data && res.data.my_score) myScore = res.data.my_score
     }).catch(function(e) {
       console.log(e)

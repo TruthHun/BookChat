@@ -67,3 +67,5 @@
   left: 20%;
   border-left: 1px solid #efefef;
 }
+
+menu .footer{display: none;}
