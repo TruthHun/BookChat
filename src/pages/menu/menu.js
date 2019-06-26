@@ -151,7 +151,7 @@ Page({
     })
   },
   itemClick:function(e){
-    // TODO: 设置已读章节，然后跳转到书籍阅读页面
+    console.log(e)
     wx.navigateTo({
       url: '/pages/read/read?identify='+e.detail.identify,
     })

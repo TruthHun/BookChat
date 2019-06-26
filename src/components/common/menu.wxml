@@ -46,7 +46,7 @@
     </navigator>
   </view>
   <block wx:if="{{result.length>0 && activeTab == 'result'}}">
-    <menu-tree menu="{{result}}" pid="0" />
+    <menu-tree bind:itemClick="itemClick" menu="{{result}}" pid="0" />
   </block>
   <block wx:else>
     <menu-tree bind:itemClick="itemClick" menu="{{menu}}" pid="{{pid}}" />
