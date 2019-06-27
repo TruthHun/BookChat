@@ -1,5 +1,5 @@
 /* pages/bookmarks/bookmarks.wxss */
 .recycle image{width: 20rpx;height: 20rpx;float: right;margin-top: 30rpx;}
-.col-11 text{display: inline-block;color: #888;margin-right: 15rpx;}
 .col-11 navigator{color: #353535;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.col-11 text{display: inline-block;margin-right: 15rpx;}
 .row{border-bottom: 1rpx solid #efefef;line-height: 300%;}

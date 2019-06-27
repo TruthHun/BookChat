@@ -1,82 +1,15 @@
+<wxs src="../common.wxs" module="common" />
 <view class='bookmarks base-padding font-lv3 color-grey'>
-  <view class='row'>
+  <view wx:if="{{bookmarks.length>0}}" wx:for="{{bookmarks}}" wx:for-item="bookmark" wx:key="index" class='row'>
     <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> Javascript 保留字</navigator>
+      <navigator url='/pages/read/read?identify={{bookmark.book_id}}/{{bookmark.doc_id}}'>
+        <text class='color-grey'>[ {{common.timeFormat(bookmark.created_at)}} ]</text>
+        <text>{{bookmark.title}}</text>
+      </navigator>
     </view>
-    <view class='col-1 recycle'>
+    <view bindtap='delBookmark' data-id="{{bookmark.doc_id}}" class='col-1 recycle'>
       <image src='../../assets/images/recycle.png'></image>
     </view>
   </view>
-  <view class='row'>
-    <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> Javascript 关键词</navigator>
-    </view>
-    <view class='col-1 recycle'>
-      <image src='../../assets/images/recycle.png'></image>
-    </view>
-  </view>
-  <view class='row'>
-    <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> 预定义的全局变量和函数</navigator>
-    </view>
-    <view class='col-1 recycle'>
-      <image src='../../assets/images/recycle.png'></image>
-    </view>
-  </view>
-  <view class='row'>
-    <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> Number 数字</navigator>
-    </view>
-    <view class='col-1 recycle'>
-      <image src='../../assets/images/recycle.png'></image>
-    </view>
-  </view>
-  <view class='row'>
-    <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> String 字符串</navigator>
-    </view>
-    <view class='col-1 recycle'>
-      <image src='../../assets/images/recycle.png'></image>
-    </view>
-  </view>
-  <view class='row'>
-    <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> Array 数组</navigator>
-    </view>
-    <view class='col-1 recycle'>
-      <image src='../../assets/images/recycle.png'></image>
-    </view>
-  </view>
-  <view class='row'>
-    <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> Boolean 布尔</navigator>
-    </view>
-    <view class='col-1 recycle'>
-      <image src='../../assets/images/recycle.png'></image>
-    </view>
-  </view>
-  <view class='row'>
-    <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> Date 日期</navigator>
-    </view>
-    <view class='col-1 recycle'>
-      <image src='../../assets/images/recycle.png'></image>
-    </view>
-  </view>
-  <view class='row'>
-    <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> Global 全局</navigator>
-    </view>
-    <view class='col-1 recycle'>
-      <image src='../../assets/images/recycle.png'></image>
-    </view>
-  </view>
-  <view class='row'>
-    <view class='col-11'>
-      <navigator class='color'><text>[10-12 12:09]</text> Math 数学</navigator>
-    </view>
-    <view class='col-1 recycle'>
-      <image src='../../assets/images/recycle.png'></image>
-    </view>
-  </view>
+  <view class='font-lv3 mgt-30rpx color-grey text-center pdt-30rpx'>{{tips}}</view>
 </view>

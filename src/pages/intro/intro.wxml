@@ -103,7 +103,7 @@
 <view class='fix-bottom'>
   <view class='row'>
     
-    <navigator url='/pages/menu/menu?tab=bookmark&identify={{book.book_id}}' class='col item-min'>
+    <navigator url='/pages/bookmarks/bookmarks?identify={{book.book_id}}' class='col item-min'>
       <image src='../../assets/images/bookmark.png'></image>
       <text>书签</text>
     </navigator>

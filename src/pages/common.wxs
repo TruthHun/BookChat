@@ -1,16 +1,16 @@
-function fixView(view){
-  if(view > 10000){
+function fixView(view) {
+  if (view > 10000) {
     view = (view / 10000).toFixed(1) + "w"
-  }else if (view > 1000) {
+  } else if (view > 1000) {
     view = (view / 1000).toFixed(1) + "k"
   }
   return view
 }
 
 
-function relativeTime(t){
+function relativeTime(t) {
 
-  var timestamp = parseInt(getDate(t)/1000)
+  var timestamp = parseInt(getDate(t) / 1000)
   var n = parseInt(getDate() / 1000)
   var diff = n - timestamp
 
@@ -38,7 +38,24 @@ function relativeTime(t){
   return '刚刚';
 }
 
+
+function timeFormat(t) {
+  var d = getDate(t)
+  var m = d.getMonth() + 1
+  var day = d.getDate()
+  var h = d.getHours()
+  var min = d.getMinutes()
+  var s = d.getSeconds()
+  m = m > 9 ? m : '0' + m
+  day = day > 9 ? day : '0'+day
+  h = h > 9 ? h : '0' + h
+  min = min > 9 ? min : '0' + min
+  s = s > 9 ? s : '0' + s
+  return m + "-" + day + " " + h + ":" + min + ":" + s
+}
+
 module.exports = {
   fixView: fixView,
   relativeTime: relativeTime,
+  timeFormat: timeFormat,
 };
