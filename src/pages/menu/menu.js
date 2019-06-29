@@ -100,7 +100,7 @@ Page({
     }).finally(function() {
       that.setData({
         result: result,
-        wd: e.detail,
+        wd: e.detail.wd,
       })
       wx.hideLoading()
       if (result.length == 0) {

@@ -56,9 +56,7 @@ Page({
   },
   tabClick: function(e) {
     if (config.debug) console.log("tabClick", e)
-
     if (e.detail.tabValue == this.data.tabValue) return;
-
     this.setData({
       tabValue: e.detail.value,
       tabTitle: e.detail.title,
@@ -103,9 +101,10 @@ Page({
     })
   },
   setTitle: function() {
+    console.log('1111111111')
     let that = this
     let tabTitle = that.data.tabTitle
-    switch (that.data.tab) {
+    switch (that.data.tabValue) {
       case 'new':
         tabTitle = '最新';
         break
@@ -127,11 +126,13 @@ Page({
           categoryTitle: category.title
         })
       }
+      
+    }).catch((e) => {
+      console.log(e)
+    }).finally(function(){
       wx.setNavigationBarTitle({
         title: that.data.categoryTitle + ' · ' + tabTitle,
       })
-    }).catch((e) => {
-      console.log(e)
     })
   }
 })

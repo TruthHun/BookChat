@@ -9,8 +9,10 @@
       <view class='score score-{{book.score}} mgt-30rpx'>
         <text>{{book.float_score}} 分</text>
       </view>
-      <view class='mgt-15rpx font-lv3 color-semi'>
-        <image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image> {{book.user}}</view>
+      <navigator url="/pages/ucenter/ucenter?uid={{book.uid}}" class='mgt-15rpx font-lv3 color-semi'>
+        <image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image>
+        <text> {{book.user}}</text>
+      </navigator>
       <view class='progress mgt-30rpx'>
         <view class='font-lv3 color-grey'>阅读进度
           <view class='pull-right'>{{book.percent}}%
@@ -102,12 +104,12 @@
 <!-- 底部功能栏  -->
 <view class='fix-bottom'>
   <view class='row'>
-    
+
     <navigator url='/pages/bookmarks/bookmarks?identify={{book.book_id}}' class='col item-min'>
       <image src='../../assets/images/bookmark.png'></image>
       <text>书签</text>
     </navigator>
-        <navigator url='/pages/menu/menu?tab=menu&identify={{book.book_id}}' class='col item-min'>
+    <navigator url='/pages/menu/menu?tab=menu&identify={{book.book_id}}' class='col item-min'>
       <image src='../../assets/images/menu.png'></image>
       <text>目录</text>
     </navigator>
