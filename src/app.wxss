@@ -148,7 +148,7 @@ page {
 
 /*  信息提示颜色  */
 
-.color-info, .color-link {
+.color-info, .color-link,.color-active {
   color: #00acff;
 }
 

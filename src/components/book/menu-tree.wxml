@@ -1,8 +1,8 @@
 <view wx:for="{{menu}}" wx:key="index" wx:for-item="item" class='ul menu-tree font-lv3 color-semi'>
   <view class="li">
-    <view class="navigator {{item.readed ? 'readed':''}} {{currentDocId == item.Id ? 'active':''}}" catchtap='itemClick' data-identify='{{item.book_id}}/{{item.id}}'>
+    <view class="navigator {{item.readed ? 'readed':''}} {{currentDocId == item.id ? 'color-active':''}}" catchtap='itemClick' data-identify='{{item.book_id}}/{{item.id}}'>
       <text>{{item.title}}</text>
     </view>
-    <menu-tree bind:itemClick="menuClick" menu="{{item.children}}" />
+    <menu-tree bind:itemClick="menuClick" currentDocId="{{currentDocId}}" menu="{{item.children}}" />
   </view>
 </view>

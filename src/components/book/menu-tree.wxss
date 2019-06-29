@@ -27,6 +27,10 @@
   overflow: hidden;
 }
 
+.li .navigator.color-active{
+  color: #00acff;
+}
+
 .readed, .readed:hover {
   color: #888;
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA0ElEQVQ4T92SMQtBURiGn49SKPu9d/EPlB/gB9hlMlmk7iDXotQdSDlW2Yx+gNXmT5iVe0w2Bpajq4i6V7dMnPE753163/N+wpdHvtTza4CjW+CSdbAn20f05BG0n4PTBqSElc8j/jWEJAMYP8PhtAapYGjiqEW0g8BbATucqftsx9TSHIrhvIrQxlLz1+beHehuC1LhgyG2GmD8FPq8RKhHiaMj6F4fGIHpAGWQRpw4/g8CTyHi3a1G2I6P8Hqje2OEPZaafdrWZC18IPwB4AbdfTERzxYCSwAAAABJRU5ErkJggg==') no-repeat 0rpx center;

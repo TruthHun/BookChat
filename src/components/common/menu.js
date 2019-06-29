@@ -11,15 +11,8 @@ Component({
       type: Array,
       value: []
     },
-    bookmark: {
-      type: Array
-    },
     result: {
       type: Array
-    },
-    activeTab: {
-      type: String,
-      value: 'menu' // menu or bookmark
     },
     wd: {
       type: String
@@ -28,8 +21,9 @@ Component({
       type: Array,
       value: []
     },
-    tips: {
-      type: String
+    currentDocId:{
+      type:Number,
+      Value: 0,
     }
   },
 

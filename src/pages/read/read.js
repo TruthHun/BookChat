@@ -113,6 +113,7 @@ Page({
         identify: identify,
         showMenu: false,
         showMore: false,
+        menuTree: util.menuTreeReaded(that.data.menuTree, article.id),
       })
       if (article.title) wx.setNavigationBarTitle({
         title: article.title,

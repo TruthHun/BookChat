@@ -4,7 +4,7 @@
 
   <view class='drawer drawer-left {{showMenu ? "show":""}}'>
     <view class='drawer-content'>
-      <menu book="{{book}}" wd="{{wd}}" bind:clear="clear" result="{{result}}" bind:search="search" tips="{{tips}}" bind:itemClick="itemClick" menu="{{menuTree}}" />
+      <menu book="{{book}}" currentDocId="{{article.id}}" wd="{{wd}}" bind:clear="clear" result="{{result}}" bind:search="search" tips="{{tips}}" bind:itemClick="itemClick" menu="{{menuTree}}" />
     </view>
   </view>
 

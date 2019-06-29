@@ -216,7 +216,7 @@ const menuToTree = (menu) => {
   return val;
 }
 
-const menuSortIds = (menuTree) =>{
+const menuSortIds = (menuTree) => {
   let docs = []
   for (let i in menuTree) {
     docs.push(menuTree[i].id)
@@ -225,6 +225,19 @@ const menuSortIds = (menuTree) =>{
     }
   }
   return docs
+}
+
+const menuTreeReaded = (menuTree, docId) => {
+  for (let i in menuTree) {
+    if (menuTree[i].id == docId) {
+      menuTree[i].readed = true
+      break
+    }
+    if (menuTree[i].children) {
+      menuTree[i].children = menuTreeReaded(menuTree[i].children, docId)
+    }
+  }
+  return menuTree
 }
 
 module.exports = {
@@ -240,9 +253,10 @@ module.exports = {
   clearUser,
   getUser,
   getToken,
-  getStorageMenu,
-  setStorageMenu,
-  activeReadedStorageMenu,
+  // getStorageMenu,
+  // setStorageMenu,
+  // activeReadedStorageMenu,
   menuToTree,
   menuSortIds,
+  menuTreeReaded,
 }

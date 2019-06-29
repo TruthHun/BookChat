@@ -44,7 +44,7 @@
       <menu-tree bind:itemClick="itemClick" class='result' menu="{{result}}" pid="0" />
     </block>
     <block wx:else>
-      <menu-tree bind:itemClick="itemClick" menu="{{menu}}" pid="{{pid}}" />
+      <menu-tree bind:itemClick="itemClick" currentDocId="{{currentDocId}}" menu="{{menu}}" pid="{{pid}}" />
     </block>
   </view>
 
