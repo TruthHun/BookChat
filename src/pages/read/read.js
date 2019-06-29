@@ -34,7 +34,7 @@ Page({
     let menu = []
 
     if (arr.length == 0) {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/notfound/notfound',
       })
       return

@@ -1,5 +1,7 @@
 /* pages/notfound/notfound.wxss */
 
-image{width: 60%;margin:100rpx auto;display: block;}
+image{width: 60%;margin:80rpx auto;display: block;}
 text.font-lv1{font-size: 60rpx !important;color: #353535;}
 text{display: block;text-align: center;color: #888888;margin: 30rpx 0;}
+.go-home{color: #353535}
+.go-home image{width: 160rpx;height: 160rpx;margin-bottom: 0;}

@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/notfound/notfound",
     "pages/read/read",
     "pages/index/index",
     "pages/menu/menu",
@@ -19,8 +20,7 @@
     "pages/about/about",
     "pages/login/login",
     "pages/reg/reg",
-    "pages/findpwd/findpwd",
-    "pages/notfound/notfound"
+    "pages/findpwd/findpwd"
   ],
   "window": {
     "backgroundTextStyle": "light",

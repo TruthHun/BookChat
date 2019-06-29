@@ -73,7 +73,7 @@ Page({
         book: book,
       })
       wx.setNavigationBarTitle({
-        title: '目录 - ' + book.book_name,
+        title: '目录 · ' + book.book_name,
       })
       wx.hideLoading()
     })
