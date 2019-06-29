@@ -32,12 +32,16 @@ Component({
   methods: {
     search: function(e) {
       if (e.detail.value != '') {
-        this.triggerEvent('search', e.detail.value)
+        this.setData({
+          wd: e.detail.value,
+          showClear: e.detail.value != ""
+        })
+        this.triggerEvent('search', { wd: e.detail.value})
       }
     },
     formSubmit: function(e) {
       if (this.data.wd != '') {
-        this.triggerEvent('search', this.data.wd)
+        this.triggerEvent('search', { wd: this.data.wd})
       }
     },
     changeValue: function(e) {

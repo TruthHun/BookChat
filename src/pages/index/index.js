@@ -30,7 +30,6 @@ Page({
     this.loadData()
   },
   onPullDownRefresh: function() {
-    console.log("pull down")
     this.onLoad()
   },
   loadData: function() {
@@ -102,7 +101,7 @@ Page({
   },
   search: function(e) {
     wx.navigateTo({
-      url: '/pages/search/search?wd=' + e.detail,
+      url: '/pages/search/search?wd=' + e.detail.wd,
     })
   }
 })

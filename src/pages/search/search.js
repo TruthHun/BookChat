@@ -53,7 +53,7 @@ Page({
   },
   search: function(e) {
     this.setData({
-      wd: e.detail,
+      wd: e.detail.wd,
       page: 1,
       lists: [],
       showTab: true
