@@ -101,7 +101,6 @@ Page({
     })
   },
   setTitle: function() {
-    console.log('1111111111')
     let that = this
     let tabTitle = that.data.tabTitle
     switch (that.data.tabValue) {

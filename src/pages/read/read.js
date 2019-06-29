@@ -175,7 +175,37 @@ Page({
     util.loading()
     this.getArticle(e.detail.identify)
   },
-  search:function(e){
-    console.log(e)
+  search: function(e) {
+    let that = this
+    let result = []
+
+    if(that.data.wd==e.detail.wd) return;
+
+    util.loading("玩命搜索中...")
+    util.request(config.api.searchDoc, {
+      identify: that.data.book.book_id,
+      wd: e.detail.wd
+    }).then(function(res) {
+      if (config.debug) console.log(config.api.searchDoc, res)
+      if (res.data && res.data.result) {
+        result = res.data.result
+      }
+    }).catch(function(e) {
+      console.log(e)
+    }).finally(function() {
+      that.setData({
+        result: result,
+        wd: e.detail.wd,
+      })
+      wx.hideLoading()
+      if (result.length == 0) {
+        util.toastError("没有搜索到结果")
+      }
+    })
+  },
+  clear: function(e) {
+    this.setData({
+      result: []
+    })
   }
 })

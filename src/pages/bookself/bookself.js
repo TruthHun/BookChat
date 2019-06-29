@@ -94,7 +94,7 @@ Page({
   },
   search: function(e) {
     wx.navigateTo({
-      url: '/pages/search/search?wd=' + e.detail,
+      url: '/pages/search/search?wd=' + e.detail.wd,
     })
   },
   formSubmit: function(e) {
