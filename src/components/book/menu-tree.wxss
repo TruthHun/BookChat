@@ -1,9 +1,5 @@
 @import '../../app.wxss';
 
-.menu-tree {
-  line-height: 246%;
-  overflow-x: hidden;
-}
 
 .ul {
   padding-left: 30rpx;
@@ -14,16 +10,21 @@
 .li {
   width: 100%;
   box-sizing: border-box;
-  padding-right: 30rpx;
-  border: 1px solid red;
 }
 
 .li .navigator {
+  padding-right: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
   padding-left: 40rpx;
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
+  height: 70rpx;
+  line-height: 70rpx;
   cursor: pointer;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .readed, .readed:hover {
