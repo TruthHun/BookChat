@@ -14,7 +14,7 @@ form.search input {
   display: block;
   border-radius: 10rpx;
   text-align: left;
-  padding: 0 90rpx 0 26rpx;
+  padding: 0 130rpx 0 26rpx;
 }
 
 form.search image {
@@ -24,5 +24,9 @@ form.search image {
   box-sizing: border-box;
   height: 90rpx;
   width: 90rpx;
-  padding: 20rpx;
+  padding: 20rpx;z-index: 99
+}
+
+form.search image.clear {
+  right:60rpx;z-index: 88
 }

@@ -22,7 +22,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    wd: ''
+    wd: '',
+    showClear: false,
   },
 
   /**
@@ -40,9 +41,20 @@ Component({
       }
     },
     changeValue: function(e) {
+      if (this.data.wd != "" && e.detail.value == "") {
+        this.triggerEvent('clear')
+      }
       this.setData({
-        wd: e.detail.value
+        wd: e.detail.value,
+        showClear: e.detail.value != ""
       })
+    },
+    clear: function(e) {
+      this.setData({
+        wd: "",
+        showClear:false,
+      })
+      this.triggerEvent('clear')
     }
   }
 })

@@ -1,4 +1,5 @@
 <form class='search'>
   <input auto-focus='{{focus}}' bindinput='changeValue' bindconfirm='search' name="wd" value="{{wd}}" type='search' placeholder="{{placeholder}}" />
+  <image bindtap='clear' wx:if="{{showClear}}" class='clear' src='/assets/images/clear.png'></image>
   <image bindtap='formSubmit' src='/assets/images/search.png'></image>
 </form>

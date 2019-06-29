@@ -3,7 +3,7 @@
 <view class='menu'>
   <!-- 搜索 -->
   <view class='search base-padding mgb-30rpx'>
-    <search wd="{{wd}}" bindsearch="search" />
+    <search wd="{{wd}}" bind:search="search" bind:clear="clear" />
   </view>
 
   <!-- 书籍信息 -->

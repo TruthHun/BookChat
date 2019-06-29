@@ -72,6 +72,9 @@ Page({
         menuTree: util.menuToTree(menu),
         book: book,
       })
+      wx.setNavigationBarTitle({
+        title: '目录 - ' + book.book_name,
+      })
       wx.hideLoading()
     })
   },
@@ -103,6 +106,11 @@ Page({
       if (result.length == 0) {
         util.toastError("没有搜索到结果")
       }
+    })
+  },
+  clear: function(e) {
+    this.setData({
+      result: []
     })
   }
 })

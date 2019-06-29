@@ -55,8 +55,11 @@ Component({
     search: function(e) {
       this.triggerEvent('search', e.detail)
     },
-    itemClick: function (e) {
+    itemClick: function(e) {
       this.triggerEvent('itemClick', e.detail)
+    },
+    clear: function(e) {
+      this.triggerEvent('clear')
     }
   }
 })
