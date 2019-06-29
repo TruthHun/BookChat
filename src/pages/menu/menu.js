@@ -89,7 +89,7 @@ Page({
     let result = []
     util.request(config.api.searchDoc, {
       identify: that.data.identify,
-      wd: e.detail
+      wd: e.detail.wd
     }).then(function(res) {
       if (config.debug) console.log(config.api.searchDoc, res)
       if (res.data && res.data.result) {
