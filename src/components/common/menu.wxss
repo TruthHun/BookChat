@@ -9,7 +9,8 @@
   width: 170rpx;
   height: 223.5rpx;
 }
-.book navigator image.cover{
+
+.book navigator image.cover {
   max-width: 100%;
   max-height: auto;
 }
@@ -24,49 +25,3 @@
   padding-left: 30rpx;
 }
 
-/* footer */
-
-.footer {
-  box-shadow: 0rpx 0rpx 10rpx #efefef;
-  border-top: 1px solid #efefef;
-  background-color: #fff;
-  position: fixed;
-  height: 90rpx;
-  bottom: 0px;
-  width: 100%;
-  text-align: center;
-  line-height: 90rpx;
-}
-
-.footer .active {
-  color: #008cff;
-}
-
-.bookmarks  image {
-  width: 20rpx;
-  height: 20rpx;
-  float: right;
-  margin-top: 30rpx;
-}
-
-.bookmarks .col-10 text {
-  display: inline-block;
-  color: #888;
-  margin-right: 15rpx;
-}
-
-.bookmarks .col-10 navigator {
-  color: #353535;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.bookmarks .row {
-  border-bottom: 1rpx solid #efefef;
-  line-height: 300%;
-}
-
-.bookmarks .col-10 text.color-semi {
-  color: #353535;
-}

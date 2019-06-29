@@ -1,4 +1,4 @@
-<view wx:for="{{menu}}" wx:key="index" wx:for-item="item" class='ul menu-tree font-lv3 color-semi'>
+<view wx:for="{{menu}}" wx:key="index" wx:for-item="item" class='ul menu-tree font-lv4 color-semi'>
   <view class="li">
     <view class="navigator {{item.readed ? 'readed':''}} {{currentDocId == item.Id ? 'active':''}}" catchtap='itemClick' data-identify='{{item.book_id}}/{{item.id}}'>
       <text>{{item.title}}</text>

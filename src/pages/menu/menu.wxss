@@ -1,6 +1,6 @@
 /* pages/menu/menu.wxss */
 page{
-  padding-bottom: 120rpx;
+  padding-bottom: 30rpx;
 }
 
 /* search */
@@ -11,6 +11,7 @@ page{
   top: 20rpx;
   font-size: 30rpx;
 }
+
 .search input{
   height: 90rpx;
   line-height: 90rpx;

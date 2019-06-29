@@ -1,69 +1,51 @@
 <wxs src="../../pages/common.wxs" module="common" />
 
 <view class='menu'>
-  <view class='bookmarks' wx:if="{{activeTab == 'bookmark'}}">
-    <view wx:if="{{bookmark.length>0}}" class='base-padding font-lv3 color-grey'>
-      <view wx:for="{{bookmark}}" wx:key="index" wx:for-item="item" class='row'>
-        <view class='col-10'>
-          <navigator url='/pages/read/read?identify={{item.book_id}}/{{item.doc_id}}'>
-            <text class='color-grey'>[ {{common.relativeTime(item.created_at)}} ]</text>
-            <text class='color-semi'>{{item.title}}</text>
-          </navigator>
-        </view>
-        <view class='col-2' bindtap='delBookmark' data-bookid="{{item.book_id}}" data-docid="{{item.doc_id}}">
-          <image src='../../assets/images/recycle.png'></image>
-        </view>
-      </view>
-    </view>
-    <view wx:else class='mgt-30rpx pdt-30rpx base-padding font-lv3 color-grey text-center'>
-      <text class='tips'>{{tips}}</text>
-    </view>
+  <!-- 搜索 -->
+  <view class='search base-padding mgb-30rpx'>
+    <search wd="{{wd}}" bindsearch="search" />
   </view>
-  <view wx:else>
-    <view class='search base-padding mgb-30rpx'>
-      <search wd="{{wd}}" bindsearch="search" />
-    </view>
-    <view wx:if="{{book.book_id>0}}" class='book base-padding row mgb-30rpx'>
-      <view class='book-cover col-3'>
-        <navigator url='/pages/intro/intro?id={{book.book_id}}' class=''>
-          <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
-        </navigator>
-      </view>
-      <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book-info col-9'>
-        <view class='book-title font-lv1 ellipsis-1row'>{{book.book_name}}</view>
-        <view wx:if="{{book.is_read == 1}}" class='mgt-15rpx'>
-          <text class='font-lv3 color-grey'>{{book.cnt_doc}} 章节</text>
-        </view>
-        <view class='mgt-30rpx'>
-          <view class='score score-{{book.score}} pull-left'>
-            <text>{{book.score_float}} 分</text>
-            <text wx:if="{{book.is_read != 1}}" class='pull-right'>{{book.cnt_readed}} / {{book.cnt_doc}} 章节</text>
-          </view>
-        </view>
-        <view wx:if="{{book.is_read != 1}}" class='progress mgt-30rpx'>
-          <view class='font-lv3 color-grey'>阅读进度
-            <view class='pull-right'>{{book.percent}}%
-              <text wx:if="{{token == ''}}">(未登录)</text>
-            </view>
-          </view>
-          <progress class='mgt-15rpx' percent="{{book.percent}}" />
-        </view>
+
+  <!-- 书籍信息 -->
+  <view wx:if="{{book.book_id>0}}" class='book base-padding row mgb-30rpx'>
+    <view class='book-cover col-3'>
+      <navigator url='/pages/intro/intro?id={{book.book_id}}' class=''>
+        <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
       </navigator>
     </view>
-    <block wx:if="{{result.length>0 && activeTab == 'result'}}">
-      <menu-tree bind:itemClick="itemClick" menu="{{result}}" pid="0" />
+    <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book-info col-9'>
+      <view class='book-title font-lv1 ellipsis-1row'>{{book.book_name}}</view>
+      <view wx:if="{{book.is_read == 1}}" class='mgt-15rpx'>
+        <text class='font-lv3 color-grey'>{{book.cnt_doc}} 章节</text>
+      </view>
+      <view class='mgt-30rpx'>
+        <view class='score score-{{book.score}} pull-left'>
+          <text>{{book.score_float}} 分</text>
+          <text wx:if="{{book.is_read != 1}}" class='pull-right'>{{book.cnt_readed}} / {{book.cnt_doc}} 章节</text>
+        </view>
+      </view>
+      <view wx:if="{{book.is_read != 1}}" class='progress mgt-30rpx'>
+        <view class='font-lv3 color-grey'>阅读进度
+          <view class='pull-right'>{{book.percent}}%
+            <text wx:if="{{token == ''}}">(未登录)</text>
+          </view>
+        </view>
+        <progress class='mgt-15rpx' percent="{{book.percent}}" />
+      </view>
+    </navigator>
+
+
+
+  </view>
+
+  <!-- 书籍目录 -->
+  <view class='row menu-list'>
+    <block wx:if="{{result.length>0}}">
+      <menu-tree bind:itemClick="itemClick" class='result' menu="{{result}}" pid="0" />
     </block>
     <block wx:else>
       <menu-tree bind:itemClick="itemClick" menu="{{menu}}" pid="{{pid}}" />
     </block>
   </view>
 
-
-  <view class='footer font-lv3'>
-    <view class='row'>
-      <view wx:if='{{result.length>0}}' class='col {{activeTab == "result" ? "active":""}}' bindtap="tabClick" data-tab="result" data-title="搜索">搜索</view>
-      <view class='col {{activeTab == "menu" ? "active":""}}' bindtap="tabClick" data-tab="menu" data-title="目录">目录</view>
-      <view class='col {{activeTab == "bookmark" ? "active":""}}' bindtap="tabClick" data-tab="bookmark" data-title="书签">书签</view>
-    </view>
-  </view>
 </view>
