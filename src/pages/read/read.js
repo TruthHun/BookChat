@@ -15,6 +15,8 @@ Page({
     bookmark: [], //书签
     showMenu: false,
     showMore: false,
+    preDisable: false,
+    nextDisable: false,
     wd: '', //搜索关键字
     bg: '#fff', // background-color
     // fontSize: '28rpx'
@@ -75,6 +77,10 @@ Page({
         book: book,
       })
 
+      wx.setNavigationBarTitle({
+        title: book.book_name,
+      })
+
       if (arr.length < 2) {
         identify = book.book_id + "/" + menuTree[0].id
       }
@@ -108,15 +114,18 @@ Page({
       if (article.content == '') {
         article.content = '<div style="color:#888;margin:100px auto;text-align:center;"> -- 本章节内容为空 -- </div>'
       }
+
+      let nextDisable = that.data.menuSortIds.indexOf(article.id) + 1 == that.data.menuSortIds.length
+      let preDisable = that.data.menuSortIds.indexOf(article.id) == 0
+
       that.setData({
         article: article,
         identify: identify,
         showMenu: false,
         showMore: false,
+        nextDisable:nextDisable,
+        preDisable:preDisable,
         menuTree: util.menuTreeReaded(that.data.menuTree, article.id),
-      })
-      if (article.title) wx.setNavigationBarTitle({
-        title: article.title,
       })
       wx.pageScrollTo({
         scrollTop: 0,
@@ -180,7 +189,7 @@ Page({
     let that = this
     let result = []
 
-    if(that.data.wd==e.detail.wd) return;
+    if (that.data.wd == e.detail.wd) return;
 
     util.loading("玩命搜索中...")
     util.request(config.api.searchDoc, {
@@ -207,6 +216,42 @@ Page({
   clear: function(e) {
     this.setData({
       result: []
+    })
+  },
+  clickBookmark: function(e) {
+    let that = this
+    if (e.currentTarget.dataset.action == "cancel") {
+      wx.showModal({
+        title: '温馨提示',
+        content: '您确定要取消该书签吗？',
+        success: function(res) {
+          if (res.confirm) {
+            that._clickBookmark('cancel')
+          }
+        }
+      })
+    } else {
+      that._clickBookmark('add')
+    }
+  },
+  _clickBookmark: function(action) {
+    let that = this
+    let article = this.data.article
+    let method = action == "cancel" ? 'DELETE' : 'PUT'
+
+    util.request(config.api.bookmark + "?doc_id=" + article.id, {}, method).then(function(res) {
+      if (config.debug) console.log(config.api.bookmark + "?doc_id=" + article.id, res)
+      article.bookmark = !article.bookmark
+      that.setData({
+        article: article
+      })
+      wx.showToast({
+        title: action == "cancel" ? '移除书签成功' : '添加书签成功'
+      })
+    }).catch(function(e) {
+      wx.showToast({
+        title: e.errMsg || e.data.message,
+      })
     })
   }
 })

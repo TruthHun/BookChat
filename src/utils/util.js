@@ -157,8 +157,8 @@ const toastError = (content) => {
 const toastSuccess = (content) => {
   wx.showToast({
     title: content,
-    image: '../../assets/images/success.png',
-    duration: 2000
+    // image: '../../assets/images/success.png',
+    // duration: 2000
   })
 }
 

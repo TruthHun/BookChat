@@ -1,43 +1,53 @@
-  <view class='markdown-body editormd-preview-container' bindtap='contentClick' style='background-color:{{bg}};font-size:{{fontSize}}'>
-    <rich-text nodes="{{article.content}}"></rich-text>
+<view class='title font-lv1 text-center'>{{article.title}}</view>
+<view class='markdown-body editormd-preview-container' bindtap='contentClick' style='background-color:{{bg}};font-size:{{fontSize}}'>
+  <rich-text nodes="{{article.content}}"></rich-text>
+</view>
+
+<view class='drawer drawer-left {{showMenu ? "show":""}}'>
+  <view class='drawer-content'>
+    <menu book="{{book}}" currentDocId="{{article.id}}" wd="{{wd}}" bind:clear="clear" result="{{result}}" bind:search="search" tips="{{tips}}" bind:itemClick="itemClick" menu="{{menuTree}}" />
+  </view>
+</view>
+
+<view class='drawer drawer-right  {{showMore ? "show":""}}'>
+  <view class='drawer-content'>
+    <text>这是右抽屉</text>
+  </view>
+</view>
+<view class='footer row font-lv3'>
+  <view wx:if="{{article.bookmark}}" class='col' bindtap='clickBookmark' data-action="cancel">
+    <image src='../../assets/images/bookmark-added.png'></image>
   </view>
 
-  <view class='drawer drawer-left {{showMenu ? "show":""}}'>
-    <view class='drawer-content'>
-      <menu book="{{book}}" currentDocId="{{article.id}}" wd="{{wd}}" bind:clear="clear" result="{{result}}" bind:search="search" tips="{{tips}}" bind:itemClick="itemClick" menu="{{menuTree}}" />
-    </view>
+  <view wx:else class='col' bindtap='clickBookmark' data-action="add">
+    <image src='../../assets/images/bookmark-add.png'></image>
   </view>
 
-  <view class='drawer drawer-right  {{showMore ? "show":""}}'>
-    <view class='drawer-content'>
-      <text>这是右抽屉</text>
-    </view>
+  <view class='col' wx:if="{{preDisable}}">
+    <image src='../../assets/images/pre-disable.png'></image>
+  </view>
+  <view class='col' wx:else bindtap='clickPrev'>
+    <image src='../../assets/images/pre.png'></image>
+  </view>
+  <view class='col' bindtap='clickMenu'>
+    <image src='../../assets/images/menu.png'></image>
   </view>
 
+  <view class='col' wx:if="{{nextDisable}}">
+    <image src='../../assets/images/next-disable.png'></image>
+  </view>
+  <view class='col' wx:else bindtap='clickNext'>
+    <image src='../../assets/images/next.png'></image>
+  </view>
 
-
-  <view class='footer row font-lv3'>
-    <view class='col' bindtap='clickBookmark'>
-      <image src='../../assets/images/bookmark-add.png'></image>
-    </view>
-    <view class='col' bindtap='clickPrev'>
-      <image src='../../assets/images/pre.png'></image>
-    </view>
-    <view class='col' bindtap='clickMenu'>
-      <image src='../../assets/images/menu.png'></image>
-    </view>
-    <view class='col' bindtap='clickNext'>
-      <image src='../../assets/images/next.png'></image>
-    </view>
-    <!-- 
+  <!-- 
       亮度（滑动）、
       字体大小设置（滑动），
       背景色设置（色块）,
       并把用户的这些阅读偏好存到localstorage里面。
       后期增加一个笔记的功能 
     -->
-    <view class='col' bindtap='clickMore'>
-      <image src='../../assets/images/more.png'></image>
-    </view>
+  <view class='col' bindtap='clickMore'>
+    <image src='../../assets/images/more.png'></image>
   </view>
-
+</view>

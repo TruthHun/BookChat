@@ -1,5 +1,7 @@
 @import 'markdown.wxss';
 
+.title{line-height: 1.6;border-bottom: 1px solid #efefef;padding: 30rpx;}
+
 .markdown-body {
   transition: left 0.5s;
   padding: 30rpx 30rpx 120rpx;
