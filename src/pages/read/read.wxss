@@ -1,5 +1,9 @@
 @import 'markdown.wxss';
-page{height: 100%;}
+
+page {
+  height: 100%;
+}
+
 .title {
   line-height: 1.6;
   border-bottom: 1px solid #efefef;
@@ -26,6 +30,11 @@ page{height: 100%;}
   z-index: 100;
   box-sizing: border-box;
   line-height: 90rpx;
+  background-color: #fff;
+  transition: bottom 0.2s;
+}
+.footer.hide{
+  bottom: -100rpx;
 }
 
 .footer image {
@@ -45,6 +54,7 @@ page{height: 100%;}
   top: 0;
   transition: all 0.5s;
   -webkit-overflow-scrolling: touch;
+  background-color: #fff;
 }
 
 .drawer .drawer-content {
@@ -55,10 +65,12 @@ page{height: 100%;}
 
 .drawer-left {
   right: 100%;
+  border-right: 1rpx solid #efefef;
 }
 
 .drawer-right {
   left: 100%;
+  border-left: 1rpx solid #efefef;
 }
 
 .drawer-left.show {
@@ -69,10 +81,6 @@ page{height: 100%;}
 .drawer-right.show {
   left: 20%;
   border-left: 1px solid #efefef;
-}
-
-menu .footer {
-  display: none;
 }
 
 .more-setting {
@@ -101,6 +109,7 @@ menu .footer {
 
 .setting-btn {
   margin-bottom: 0;
+  background-color: transparent;
 }
 
 .setting-btn navigator {
@@ -110,6 +119,10 @@ menu .footer {
 .more-setting .col:nth-of-type(2) {
   border-right: 1rpx solid #efefef;
   border-left: 1rpx solid #efefef;
+}
+
+.more-setting .setting-bg .col:nth-of-type(2) {
+  border: 0;
 }
 
 .more-setting image {

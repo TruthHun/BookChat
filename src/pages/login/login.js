@@ -60,15 +60,10 @@ Page({
           url: '/pages/me/me',
         })
       }, 1500)
-
-    }).catch((err) => {
-      if (config.debug) console.log(err);
+    }).catch((e) => {
+      if (config.debug) console.log(e);
       this.setData({ loading: false })
-      if (err.data) {
-        util.toastError(err.data.message)
-      } else {
-        util.toastError(err.errMsg)
-      }
+      util.toastError(e.data.message || e.errMsg)
     })
   }
 })

@@ -62,11 +62,7 @@ Page({
       }
     }).catch(function(e) {
       wx.hideLoading()
-      if (e.errMsg) {
-        util.toastError(e.errMsg)
-      } else {
-        util.toastError(e.data.message)
-      }
+      util.toastError(e.data.message || e.errMsg)
     }).finally(function() {
       if (book.book_id <= 0) {
         wx.redirectTo({

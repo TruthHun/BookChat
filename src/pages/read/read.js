@@ -18,9 +18,15 @@ Page({
     preDisable: false,
     nextDisable: false,
     wd: '', //搜索关键字
-    themeIndex:0, 
-    fontIndex:0,
-    fontIndexs:['28rpx','30rpx','32rpx','34rpx','36rpx']
+    setting: {
+      themeIndex: 0,
+      fontIndex: 0,
+    },
+    defautScreenBrightness: 0,
+    screenBrightness: 0,
+    showFooter: true,
+    // screen: 0,// 屏幕亮度
+    fontIndexs: ['28rpx', '30rpx', '32rpx', '34rpx', '36rpx']
   },
 
   /**
@@ -42,6 +48,8 @@ Page({
       })
       return
     }
+
+    that.initReaderSetting()
 
     util.loading()
 
@@ -96,6 +104,11 @@ Page({
   onReady: function() {
 
   },
+  onReachBottom: function() {
+    this.setData({
+      showFooter: true
+    })
+  },
   getArticle: function(identify) {
     let article = {}
     let that = this
@@ -106,11 +119,8 @@ Page({
         article = res.data.article
       }
     }).catch(function(e) {
-      if (e.errMsg) {
-        util.toastError(e.errMsg)
-      } else {
-        util.toastError(e.data.message)
-      }
+      let message = e.data.message || e.errMsg
+      util.toastError(message)
     }).finally(function() {
       if (article.content == '') {
         article.content = '<div style="color:#888;margin:100px auto;text-align:center;"> -- 本章节内容为空 -- </div>'
@@ -124,8 +134,8 @@ Page({
         identify: identify,
         showMenu: false,
         showMore: false,
-        nextDisable:nextDisable,
-        preDisable:preDisable,
+        nextDisable: nextDisable,
+        preDisable: preDisable,
         menuTree: util.menuTreeReaded(that.data.menuTree, article.id),
       })
       wx.pageScrollTo({
@@ -135,9 +145,11 @@ Page({
     })
   },
   contentClick: function(e) {
+    if (config.debug) console.log('contentClick', e)
     this.setData({
       showMenu: false,
-      showMore: false
+      showMore: false,
+      showFooter: this.data.showMenu == true || this.data.showMore == true ? this.data.showFooter : !this.data.showFooter,
     })
   },
   clickMenu: function(e) {
@@ -235,6 +247,70 @@ Page({
       that._clickBookmark('add')
     }
   },
+  setFont: function(e) {
+    // 0 ~ 4
+    if (config.debug) console.log(e)
+    let that = this
+    let setting = that.data.setting
+    if (e.currentTarget.dataset.action == 'minus') {
+      if (setting.fontIndex > 0) setting.fontIndex = setting.fontIndex - 1
+    } else {
+      if (setting.fontIndex < 4) setting.fontIndex = setting.fontIndex + 1
+    }
+    that.setData({
+      setting: setting
+    })
+    util.setReaderSetting(Object(setting))
+  },
+  setTheme: function(e) {
+    if (config.debug) console.log(e)
+    // 0 ~ 4
+    let that = this
+    let setting = that.data.setting
+    if (e.currentTarget.dataset.theme >= 0 && e.currentTarget.dataset.theme < 5) {
+      setting.themeIndex = e.currentTarget.dataset.theme
+    } else {
+      setting.themeIndex = 0
+    }
+    that.setData({
+      setting: setting
+    })
+    util.setReaderSetting(Object(setting))
+  },
+  setBrightnessScreen: function(e) {
+    if (config.debug) console.log(e)
+    this.setData({
+      screenBrightness: e.detail.value
+    })
+    wx.setScreenBrightness({
+      value: e.detail.value,
+    })
+  },
+  initReaderSetting: function() {
+    let setting = util.getReaderSetting()
+    let screenBrightness = 0
+    wx.getScreenBrightness({
+      success: function(res) {
+        screenBrightness = res.value
+      }
+    })
+    this.setData({
+      setting: setting,
+      defautScreenBrightness: screenBrightness,
+      screenBrightness: screenBrightness,
+    })
+  },
+  resetSetting: function() {
+    let setting = {
+      fontIndex: 0,
+      themeIndex: 0
+    }
+    this.setData({
+      setting: setting,
+      screenBrightness: this.data.defautScreenBrightness,
+    })
+    util.setReaderSetting(setting)
+  },
   _clickBookmark: function(action) {
     let that = this
     let article = this.data.article
@@ -250,9 +326,7 @@ Page({
         title: action == "cancel" ? '移除书签成功' : '添加书签成功'
       })
     }).catch(function(e) {
-      wx.showToast({
-        title: e.errMsg || e.data.message,
-      })
+      util.toastError(e.data.message || e.errMsg)
     })
   }
 })

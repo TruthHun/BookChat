@@ -69,13 +69,13 @@ Page({
     if (that.data.page > 0) {
       that.setData({
         loading: true,
-        pending:true,
+        pending: true,
       })
     } else {
       that.setData({
         loading: false,
         tips: '没有找到更多资源...',
-        pedding:false,
+        pedding: false,
       })
       return
     }
@@ -105,19 +105,13 @@ Page({
         lists: that.data.lists.concat(result),
         loading: page > 0,
         tips: "没有找到更多资源...",
-        pedding:false,
+        pedding: false,
       })
     }).catch((e) => {
       if (config.debug) console.log(e)
-      let message = '';
-      if (e.errMsg) {
-        message = e.errMsg
-      } else {
-        message = e.data.message
-      }
       that.setData({
         loading: false,
-        tips: message,
+        tips: e.data.message || e.errMsg,
         page: 0,
         pedding: false,
       })

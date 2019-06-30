@@ -1,5 +1,6 @@
-const keyUser = 'user';
-const keyMenu = 'menu';
+const keyUser = 'user'
+const keyMenu = 'menu'
+const keyReaderSetting = 'reader-setting'
 
 const formatTime = date => {
   const year = date.getFullYear()
@@ -240,6 +241,21 @@ const menuTreeReaded = (menuTree, docId) => {
   return menuTree
 }
 
+const setReaderSetting = (obj) => {
+  wx.setStorageSync(keyReaderSetting, JSON.stringify(obj))
+}
+
+const getReaderSetting = () => {
+  let val = wx.getStorageSync(keyReaderSetting)
+  if(!val) {
+    return {
+      themeIndex: 0,
+      fontIndex: 0,
+    }
+  }
+  return JSON.parse(val)
+}
+
 module.exports = {
   formatTime,
   now,
@@ -259,4 +275,6 @@ module.exports = {
   menuToTree,
   menuSortIds,
   menuTreeReaded,
+  setReaderSetting,
+  getReaderSetting,
 }
