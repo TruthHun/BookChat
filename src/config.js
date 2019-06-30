@@ -30,6 +30,7 @@ const api = {
   userFans: `${host}/api/v1/user/fans`,
   userFollow: `${host}/api/v1/user/follow`,
   bookshelf: `${host}/api/v1/user/bookshelf`,
+  bookStar: `${host}/api/v1/book/star`,
   comment: `${host}/api/v1/book/comment`,
   bookRelated: `${host}/api/v1/book/related`,
   changeAvatar: `${host}/api/v1/user/change-avatar`,

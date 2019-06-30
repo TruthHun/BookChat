@@ -106,9 +106,9 @@ Page({
     }).then(function(res) {
       if (config.debug) console.log(config.api.comment, res)
       if (res.data && res.data.comments) {
-        if (that.data.page==1){
+        if (that.data.page == 1) {
           comments = res.data.comments
-        }else{
+        } else {
           comments = comments.concat(res.data.comments)
         }
       }
@@ -122,6 +122,31 @@ Page({
         pending: false,
         myScore: myScore
       })
+    })
+  },
+  bookStar: function(e) {
+    if (config.debug) console.log("bookStar", e)
+
+    let that = this
+    let book = that.data.book
+
+    util.request(config.api.bookStar, {
+      identify: book.book_id
+    }).then(function(res) {
+      if (config.debug) console.log(config.api.bookStar, res)
+      if (res.data.data && res.data.data.is_cancel) {
+        book.is_star = false
+      } else {
+        book.is_star = true
+      }
+      that.setData({
+        book: book
+      })
+      wx.showToast({
+        title: book.is_star ? '收藏书籍成功' : '移除收藏成功',
+      })
+    }).catch(function(e) {
+      util.toastError(e.data.message || e.errMsg)
     })
   }
 })

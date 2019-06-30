@@ -119,10 +119,16 @@
         <text>阅读</text>
       </navigator>
     </view>
-    <view bindtap='' class='col item-min'>
+     <view wx:if="{{book.is_star}}" bindtap='bookStar' data-action="cancel" class='col item-min'>
+      <image src='../../assets/images/star-highlight.png'></image>
+      <text>收藏</text>
+    </view>
+    <view wx:else bindtap='bookStar' data-action="star" class='col item-min'>
       <image src='../../assets/images/star.png'></image>
       <text>收藏</text>
     </view>
+
+
     <navigator url='/pages/comment/comment?identify={{book.book_id}}&my_score={{myScore}}' class='col item-min'>
       <image src='../../assets/images/comment.png'></image>
       <text>点评</text>
