@@ -26,7 +26,7 @@ Page({
     screenBrightness: 0,
     showFooter: true,
     // screen: 0,// 屏幕亮度
-    fontIndexs: ['28rpx', '30rpx', '32rpx', '34rpx', '36rpx']
+    fontIndexs: ['32rpx', '34rpx', '36rpx', '38rpx', '40rpx']
   },
 
   /**

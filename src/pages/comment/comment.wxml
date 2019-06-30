@@ -1,18 +1,18 @@
 <view class="comment">
   <form>
-    <textarea  class='font-lv3' placeholder="您的点评能帮助其他小伙伴了解内容哟" auto-focus />
+    <textarea bindinput='inputComment'  class='font-lv3 color-semi' placeholder="您的点评能帮助其他小伙伴了解内容哟" auto-focus />
     <view class='comment-score mgt-30rpx'>
       <text class='font-lv3'>书籍评分</text>
-      <image src='../../assets/images/star-highlight.png'></image>
-      <image src='../../assets/images/star-highlight.png'></image>
-      <image src='../../assets/images/star-highlight.png'></image>
-      <image src='../../assets/images/star-highlight.png'></image>
-      <image src='../../assets/images/star.png'></image>
-      <text class='font-lv3 color-grey'>非常赞！</text>
+      <image data-score="1" bindtap='touchStar' src='../../assets/images/star{{score>0 ? "-highlight":""}}.png'></image>
+      <image data-score="2" bindtap='touchStar' src='../../assets/images/star{{score>1 ? "-highlight":""}}.png'></image>
+      <image data-score="3" bindtap='touchStar' src='../../assets/images/star{{score>2 ? "-highlight":""}}.png'></image>
+      <image data-score="4" bindtap='touchStar' src='../../assets/images/star{{score>3 ? "-highlight":""}}.png'></image>
+      <image data-score="5" bindtap='touchStar' src='../../assets/images/star{{score>4 ? "-highlight":""}}.png'></image>
+      <text class='font-lv3 color-grey'>{{messages[score]}}</text>
     </view>
     <view class='submit'>
       <text class='font-lv3 color-grey'>文明评论，理性发言.</text>
-      <button type="warn" size='mini' class='pull-right btn-submit'> 发表点评 </button>
+      <button bindtap='submit' loading='{{loading}}' type="warn" size='mini' class='pull-right btn-submit'> 发表点评 </button>
     </view>
   </form>
 </view>

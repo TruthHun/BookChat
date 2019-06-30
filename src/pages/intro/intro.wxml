@@ -127,9 +127,7 @@
       <image src='../../assets/images/star.png'></image>
       <text>收藏</text>
     </view>
-
-
-    <navigator url='/pages/comment/comment?identify={{book.book_id}}&my_score={{myScore}}' class='col item-min'>
+    <navigator url='/pages/comment/comment?identify={{book.book_id}}&score={{myScore}}' class='col item-min'>
       <image src='../../assets/images/comment.png'></image>
       <text>点评</text>
     </navigator>
