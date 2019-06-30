@@ -67,15 +67,15 @@ Page({
         page: 1,
         size: 5,
         sort: 'new',
-        cids: cids
+        cids: cids.join(',')
       })]).then(function([resBanners, resRecommendBooks, resBookLists]) {
-        if (config.debug) console.log(resBanners, resRecommendBooks, resBookLists)
+        if (config.debug) console.log(cids, resBanners, resRecommendBooks, resBookLists)
 
         if (resBanners.data && resBanners.data.banners) banners = resBanners.data.banners
         if (resRecommendBooks.data && resRecommendBooks.data.books) recommendBooks = resRecommendBooks.data.books
 
         if (resBookLists.data && resBookLists.data.books) {
-          categories = categories.map(function (category) {
+          categories = categories.map(function(category) {
             let book = resBookLists.data.books[category.id]
             if (book != undefined && book.length > 0) {
               category.books = book
