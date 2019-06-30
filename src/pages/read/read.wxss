@@ -1,9 +1,14 @@
 @import 'markdown.wxss';
-
-.title{line-height: 1.6;border-bottom: 1px solid #efefef;padding: 30rpx;}
+page{height: 100%;}
+.title {
+  line-height: 1.6;
+  border-bottom: 1px solid #efefef;
+  padding: 0 0 30rpx;
+  margin-bottom: 30rpx;
+}
 
 .markdown-body {
-  transition: left 0.5s;
+  transition: all 0.5s;
   padding: 30rpx 30rpx 120rpx;
   box-sizing: border-box;
 }
@@ -13,7 +18,6 @@
 .footer {
   box-shadow: 0rpx 0rpx 10rpx #efefef;
   border-top: 1px solid #efefef;
-  background-color: #fff;
   position: fixed;
   height: 90rpx;
   bottom: 0px;
@@ -39,15 +43,12 @@
   height: 100%;
   overflow-y: scroll;
   top: 0;
-  background-color: #fff;
   transition: all 0.5s;
   -webkit-overflow-scrolling: touch;
-  border: 1px solid #fff;
 }
 
 .drawer .drawer-content {
   width: 100%;
-  background-color: #fff;
   box-sizing: border-box;
   padding-bottom: 120rpx;
 }
@@ -70,4 +71,72 @@
   border-left: 1px solid #efefef;
 }
 
-menu .footer{display: none;}
+menu .footer {
+  display: none;
+}
+
+.more-setting {
+  position: absolute;
+  width: 100%;
+  bottom: 120rpx;
+}
+
+.setting-tips {
+  padding: 15rpx 15rpx;
+}
+
+.setting-item {
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 32rpx;
+  border: 1rpx solid #efefef;
+  border-left: 0;
+  border-right: 0;
+  margin-bottom: 45rpx;
+}
+
+.more-setting .col {
+  padding: 30rpx 0;
+}
+
+.setting-btn {
+  margin-bottom: 0;
+}
+
+.setting-btn navigator {
+  border-left: 1rpx solid #efefef;
+}
+
+.more-setting .col:nth-of-type(2) {
+  border-right: 1rpx solid #efefef;
+  border-left: 1rpx solid #efefef;
+}
+
+.more-setting image {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+slider {
+  width: 100%;
+}
+
+.bg-theme0 {
+  background-color: #fff !important;
+}
+
+.bg-theme1 {
+  background-color: rgb(232, 232, 232) !important;
+}
+
+.bg-theme2 {
+  background-color: rgb(223, 214, 198) !important;
+}
+
+.bg-theme3 {
+  background-color: rgb(208, 189, 138) !important;
+}
+
+.bg-theme4 {
+  background-color: rgb(165, 205, 205) !important;
+}

@@ -18,8 +18,9 @@ Page({
     preDisable: false,
     nextDisable: false,
     wd: '', //搜索关键字
-    bg: '#fff', // background-color
-    // fontSize: '28rpx'
+    themeIndex:0, 
+    fontIndex:0,
+    fontIndexs:['28rpx','30rpx','32rpx','34rpx','36rpx']
   },
 
   /**
