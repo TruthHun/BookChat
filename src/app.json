@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/intro/intro",
+    "pages/reg/reg",
     "pages/index/index",
+    "pages/intro/intro",
     "pages/read/read",
     "pages/menu/menu",
     "pages/search/search",
@@ -18,7 +19,6 @@
     "pages/bookmarks/bookmarks",
     "pages/about/about",
     "pages/login/login",
-    "pages/reg/reg",
     "pages/notfound/notfound",
     "pages/findpwd/findpwd"
   ],

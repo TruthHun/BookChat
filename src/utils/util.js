@@ -163,6 +163,11 @@ const toastSuccess = (content) => {
   })
 }
 
+function isEmail(email) {
+  let pattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
+  return pattern.test(email);
+} 
+
 const setStorageMenu = (menu) => {
   wx.setStorageSync(keyMenu, JSON.stringify(menu))
 }
@@ -277,4 +282,5 @@ module.exports = {
   menuTreeReaded,
   setReaderSetting,
   getReaderSetting,
+  isEmail,
 }

@@ -1,77 +1,102 @@
-// pages/reg/reg.js
+const util = require('../../utils/util.js')
+const config = require('../../config.js')
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    loading: false,
+    email: '',
+    username: '',
+    nickname: '',
+    password: '',
+    re_password: '',
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-  toLogin:function(){
+  toLogin: function() {
     wx.navigateTo({
       url: '/pages/login/login',
     })
   },
-  wechatLogin: function () {
+  wechatLogin: function() {
     wx.showModal({
       title: '温馨提示',
       content: 'BookChat暂未开通微信授权登录，敬请期待',
+    })
+  },
+  input: function(e) {
+    if (config.debug) console.log(e)
+
+    let value = e.detail.value.trim()
+    let name = e.target.dataset.name
+
+    switch (name) {
+      case 'username':
+        this.setData({
+          username: value
+        })
+        break;
+      case 'password':
+        this.setData({
+          password: value
+        })
+        break;
+      case 'nickname':
+        this.setData({
+          nickname: value
+        })
+        break;
+      case 're_password':
+        this.setData({
+          re_password: value
+        })
+        break;
+      case 'email':
+        this.setData({
+          email: value
+        })
+        break;
+    }
+  },
+  submit: function(e) {
+    if (config.debug) console.log(this.data)
+    let that = this
+
+    if(that.data.loading) return
+
+    if (!util.isEmail(that.data.email)) {
+      util.toastError('邮箱格式不正确')
+      return
+    }
+    if (that.data.password != that.data.re_password) {
+      util.toastError('两次输入的密码不一致，请重新输入')
+      return
+    }
+
+    if (that.data.username == '' || that.data.nickname == '' || that.data.password == '' || that.data.re_password == '') {
+      util.toastError('以上资料项均为必填项，请认真填写')
+      return
+    }
+    
+    util.loading('正在注册中...')
+    that.setData({loading:true})
+    util.request(config.api.register,that.data,'POST').then(function(res){
+      if (config.debug) console.log(config.api.register,res)
+      util.setUser(res.data.user)
+      wx.showToast({
+        title: '注册成功',
+      })
+     setTimeout(function(){
+       wx.switchTab({
+         url: '/pages/me/me',
+       })
+     },1500)
+    }).catch(function(e){
+      if (config.debug) console.log(config.api.register, e)
+      util.toastError(e.data.message || e.errMsg)
+    }).finally(function(){
+      that.setData({loading:false})
     })
   }
 })
