@@ -3,7 +3,7 @@
   <search bindsearch="search" focus="{{focus}}" wd="{{wd}}" />
 </view>
 
-<view wx:if="{{showTab}}" class="base-margin-bottom">
+<view wx:if="{{showTab}}" class="mgb-30rpx">
   <tab bindclick="tabClick" tabs="{{tabs}}" gridLen="6" />
 </view>
 
