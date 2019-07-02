@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/login/login",
+    "pages/me/me",
     "pages/index/index",
     "pages/cate/cate",
     "pages/reg/reg",
@@ -7,15 +9,12 @@
     "pages/read/read",
     "pages/menu/menu",
     "pages/search/search",
-    "pages/me/me",
     "pages/bookself/bookself",
     "pages/ucenter/ucenter",
     "pages/list/list",
     "pages/comment/comment",
     "pages/bookmarks/bookmarks",
-    "pages/login/login",
-    "pages/notfound/notfound",
-    "pages/findpwd/findpwd"
+    "pages/notfound/notfound"
   ],
   "window": {
     "backgroundTextStyle": "light",

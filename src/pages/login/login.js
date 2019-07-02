@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    loading:false
+    loading:false,
+    about: config.about,
   },
   onShow:function(){
     let token = util.getToken()
@@ -64,6 +65,12 @@ Page({
       if (config.debug) console.log(e);
       this.setData({ loading: false })
       util.toastError(e.data.message || e.errMsg)
+    })
+  },
+  findPassword:function(e){
+    wx.showModal({
+      title: '温馨提示',
+      content: '目前BookChat小程序暂不支持找回密码的功能，如果忘记了密码，请打开书栈网(https://www.bookstack.cn)将密码找回',
     })
   }
 })

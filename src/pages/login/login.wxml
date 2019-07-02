@@ -18,8 +18,8 @@
       </view>
     </view>
     <view class='row mgb-30rpx font-lv3 color-grey'>
-      <navigator class='col' url='/pages/about/about'>关于我们</navigator>
-      <navigator class='col text-right' url='/pages/findpwd/findpwd'>忘记密码？</navigator>
+      <navigator class='col' url='/pages/read/read?identify={{about}}'>关于我们</navigator>
+      <view class='col text-right' bindtap='findPassword'>忘记密码？</view>
     </view>
     <view class='row'>
       <button class='btn-submit btn-block' loading='{{loading}}' form-type='submit'> 马上登录 </button>
