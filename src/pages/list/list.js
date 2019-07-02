@@ -118,7 +118,6 @@ Page({
           categoryTitle: category.title
         })
       }
-      
     }).catch((e) => {
       console.log(e)
     }).finally(function(){

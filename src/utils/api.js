@@ -49,6 +49,14 @@ const getCategoryByCid = (cid) => {
       if (cid == categories[i].id) {
         found = true
         category = categories[i]
+      } else if (categories[i].children.length>0){
+        let children = categories[i].children
+        for (let i = 0; found == false && i < children.length; i++) {
+          if (cid == children[i].id) {
+            found = true
+            category = children[i]
+          }
+        }
       }
     }
     return category
