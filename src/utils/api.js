@@ -30,9 +30,10 @@ const getCategories = () => {
     } else {
       if (config.debug) console.log("从接口获取数据");
       util.request(config.api.categories).then(function(res) {
-        wx.setStorageSync(keyCategories, JSON.stringify(res.data.categories))
+        let tree = util.menuToTree(res.data.categories)
+        wx.setStorageSync(keyCategories, JSON.stringify(tree))
         wx.setStorageSync(keyCacheExpire, now + expire)
-        resolve(res.data.categories)
+        resolve(tree)
       }).catch(function(e) {
         reject(e)
       })

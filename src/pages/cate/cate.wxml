@@ -1,11 +1,11 @@
 <view class='base-padding'>
   <block wx:for="{{categories}}" wx:key='index' wx:for-item="category">
-    <view class='panel' wx:if="{{category.pid==0 && category.cnt >0 && category.status}}">
+    <view class='panel' wx:if="{{category.cnt >0 && category.status}}">
       <view class='panel-heading'>
         <view class='font-lv1 strong'>{{category.title}}</view>
       </view>
       <view class='row'>
-        <block wx:for="{{categories}}" wx:key='index1' wx:for-item="child">
+        <block wx:for="{{category.children}}" wx:key='index1' wx:for-item="child">
           <navigator url='/pages/list/list?cid={{child.id}}' class='col-6 item' wx:if="{{child.cnt>0 && child.pid==category.id && child.status}}">
             <view class='row'>
               <view class='col-4'>
