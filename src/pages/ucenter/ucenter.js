@@ -238,5 +238,10 @@ Page({
     }).catch((e) => {
       console.log(e)
     })
+  },
+  onShareAppMessage: function () {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 })

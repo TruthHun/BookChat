@@ -108,5 +108,10 @@ Page({
     this.setData({
       wd: e.detail.value
     })
+  },
+  onShareAppMessage: function () {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 })

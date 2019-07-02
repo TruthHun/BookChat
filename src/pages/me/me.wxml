@@ -41,11 +41,6 @@
     关于我们
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
-  <navigator class='col-12'>
-    <image src='../../assets/images/share.png'></image>
-    分享好友
-    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
-  </navigator>
 </view>
 
 <view class='base-padding row base-info'>

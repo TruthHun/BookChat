@@ -13,7 +13,7 @@ Page({
   onShow: function() {
     this.initUser()
   },
-  onUnload:function(){
+  onUnload: function() {
     this.initUser()
   },
   initUser: function() {
@@ -38,7 +38,7 @@ Page({
       content: '您确定要退出登录吗？',
       success(res) {
         if (res.confirm) {
-          util.request(config.api.logout)// 只需调用，不需要处理返回结果
+          util.request(config.api.logout) // 只需调用，不需要处理返回结果
           util.clearUser()
           util.toastSuccess('退出成功')
           that.initUser()
@@ -54,5 +54,10 @@ Page({
       })
       return
     }
+  },
+  onShareAppMessage: function() {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 })

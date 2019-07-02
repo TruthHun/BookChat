@@ -103,5 +103,10 @@ Page({
     wx.navigateTo({
       url: '/pages/search/search?wd=' + e.detail.wd,
     })
+  },
+  onShareAppMessage:function(){
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 })

@@ -6,8 +6,7 @@ const app = getApp()
 
 Page({
   data: {
-    categories: {},
-    height: 0
+    categories: [],
   },
   onLoad: function() {
     util.loading()
@@ -26,7 +25,12 @@ Page({
   onReady: function() {
     wx.hideLoading()
   },
-  tabClick:function(e){
+  tabClick: function(e) {
     console.log(e)
+  },
+  onShareAppMessage: function() {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 })

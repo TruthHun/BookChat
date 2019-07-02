@@ -328,5 +328,10 @@ Page({
     }).catch(function(e) {
       util.toastError(e.data.message || e.errMsg)
     })
+  },
+  onShareAppMessage: function () {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 })

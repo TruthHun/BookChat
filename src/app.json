@@ -11,13 +11,8 @@
     "pages/bookself/bookself",
     "pages/ucenter/ucenter",
     "pages/list/list",
-    "pages/star/star",
-    "pages/fans/fans",
-    "pages/share/share",
-    "pages/history/history",
     "pages/comment/comment",
     "pages/bookmarks/bookmarks",
-    "pages/about/about",
     "pages/login/login",
     "pages/notfound/notfound",
     "pages/findpwd/findpwd"

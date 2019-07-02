@@ -116,5 +116,10 @@ Page({
         pedding: false,
       })
     })
+  },
+  onShareAppMessage: function () {
+    wx.showShareMenu({
+      withShareTicket: true
+    })
   }
 })
