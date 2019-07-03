@@ -15,8 +15,10 @@ Page({
   },
   onLoad: function(options) {
     if (config.debug) console.log(options)
-    let id = parseInt(options.id)
-    if (options.id == undefined || id <= 0) {
+    
+    let id = parseInt(options.id) || parseInt(options.scene)
+
+    if (id == undefined || id <= 0) {
       if (config.debug) {
         id = 2180
       } else {
@@ -26,7 +28,6 @@ Page({
         return
       }
     }
-
     this.setData({
       bookId: id
     })
