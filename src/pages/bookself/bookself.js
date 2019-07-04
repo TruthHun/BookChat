@@ -4,7 +4,7 @@ const util = require('../../utils/util.js')
 Page({
   data: {
     page: 1,
-    size: 12,
+    size: 24,
     books: [],
     token: '',
     showTips: false,
@@ -21,6 +21,7 @@ Page({
     this.loadBooks()
   },
   loadBooks: function() {
+    wx.stopPullDownRefresh()
 
     if (this.data.pending) return;
 
@@ -85,6 +86,11 @@ Page({
         pending: false,
       })
     })
+  },
+  onPullDownRefresh:function(){
+    util.loading()
+    this.loadBooks()
+    wx.hideLoading()
   },
   login: function(e) {
     console.log(e)

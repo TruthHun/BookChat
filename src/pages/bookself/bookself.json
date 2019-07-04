@@ -3,5 +3,6 @@
   "usingComponents":{
     "search":"/components/common/search",
     "footer":"/components/common/footer"
-  }
+  },
+  "enablePullDownRefresh": true
 }

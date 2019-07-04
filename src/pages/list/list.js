@@ -35,6 +35,7 @@ Page({
   onLoad: function(options) {
     let that = this
     let cid = parseInt(options.cid)
+    let tab = options.tab || 'popular';
     that.setData({
       cid: cid
     })

@@ -43,7 +43,7 @@
   <view wx:if="{{category.books.length>0}}" class='panel base-padding base-margin-bottom cate-data'>
     <view class='panel-heading'>
       <view class='panel-title font-lv1 strong'>{{category.title}}
-        <navigator url='/pages/list/list?cid={{category.id}}' class='pull-right color-link font-lv3'>更多</navigator>
+        <navigator url='/pages/list/list?cid={{category.id}}&tab=new' class='pull-right color-link font-lv3'>更多</navigator>
       </view>
     </view>
     <view class='panel-body'>
