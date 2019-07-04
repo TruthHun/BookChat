@@ -26,7 +26,7 @@ Page({
     screenBrightness: 0,
     showFooter: true,
     // screen: 0,// 屏幕亮度
-    fontIndexs: ['30rpx', '32rpx', '34rpx', '36rpx', '38rpx']
+    fontIndexs: ['30rpx', '32rpx', '34rpx', '36rpx', '38rpx','40rpx','42rpx']
   },
 
   /**
@@ -248,14 +248,14 @@ Page({
     }
   },
   setFont: function(e) {
-    // 0 ~ 4
+    // 0 ~ 6
     if (config.debug) console.log(e)
     let that = this
     let setting = that.data.setting
     if (e.currentTarget.dataset.action == 'minus') {
       if (setting.fontIndex > 0) setting.fontIndex = setting.fontIndex - 1
     } else {
-      if (setting.fontIndex < 4) setting.fontIndex = setting.fontIndex + 1
+      if (setting.fontIndex < 6) setting.fontIndex = setting.fontIndex + 1
     }
     that.setData({
       setting: setting

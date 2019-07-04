@@ -33,7 +33,8 @@ page {
   background-color: #fff;
   transition: bottom 0.2s;
 }
-.footer.hide{
+
+.footer.hide {
   bottom: -100rpx;
 }
 
@@ -151,5 +152,5 @@ slider {
 }
 
 .bg-theme4 {
-  background-color: rgb(165, 205, 205) !important;
+  background-color: rgb(207, 231, 207) !important;
 }
