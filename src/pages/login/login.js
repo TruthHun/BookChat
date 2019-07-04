@@ -7,12 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    loading:false,
+    loading: false,
     about: config.about,
   },
-  onShow:function(){
+  onShow: function() {
     let token = util.getToken()
-    if(token){
+    if (token) {
       wx.switchTab({
         url: '/pages/me/me',
       })
@@ -40,7 +40,9 @@ Page({
       return
     }
 
-    this.setData({loading:true})
+    this.setData({
+      loading: true
+    })
 
     util.request(config.api.login, e.detail.value, 'POST').then((res) => {
       if (config.debug) console.log(config.api.login, res);
@@ -48,7 +50,9 @@ Page({
       let user = res.data.user
       if (user == undefined || user.uid <= 0 || user.token == '') {
         util.toastError('登录失败：未知错误')
-        this.setData({ loading: false })
+        this.setData({
+          loading: false
+        })
         return
       }
 
@@ -63,11 +67,13 @@ Page({
       }, 1500)
     }).catch((e) => {
       if (config.debug) console.log(e);
-      this.setData({ loading: false })
+      this.setData({
+        loading: false
+      })
       util.toastError(e.data.message || e.errMsg)
     })
   },
-  findPassword:function(e){
+  findPassword: function(e) {
     wx.showModal({
       title: '温馨提示',
       content: '目前BookChat小程序暂不支持找回密码的功能，如果忘记了密码，请打开书栈网(https://www.bookstack.cn)将密码找回',
