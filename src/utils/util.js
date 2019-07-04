@@ -149,7 +149,6 @@ const loading = (title) => {
 const toastError = (content) => {
   wx.showToast({
     title: content,
-    // image: '../../assets/images/error.png',
     icon: 'none',
     duration: 3000
   })
@@ -158,8 +157,6 @@ const toastError = (content) => {
 const toastSuccess = (content) => {
   wx.showToast({
     title: content,
-    // image: '../../assets/images/success.png',
-    // duration: 2000
   })
 }
 
