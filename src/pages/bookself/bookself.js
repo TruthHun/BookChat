@@ -48,6 +48,7 @@ Page({
     let data = {
       pending: false,
       token: token,
+      books: that.data.books,
     }
 
     util.request(config.api.bookshelf, {
@@ -61,17 +62,18 @@ Page({
       } else {
         if (page == 1) {
           data.books = []
-          data.showTips=true
+          data.showTips = true
         }
         page = 0
       }
+      console.log(data.books)
       data.showTips = data.books.length == 0
       data.page = page
       that.setData(data)
       if (isClearAll) wx.pageScrollTo({
         scrollTop: 0,
       })
-    }).catch((e) => {
+    }).catch(function(e) {
       util.toastError(e.data.message || e.errMsg)
     })
   },
@@ -81,7 +83,6 @@ Page({
     wx.hideLoading()
   },
   login: function(e) {
-    console.log(e)
     wx.navigateTo({
       url: '/pages/login/login',
     })

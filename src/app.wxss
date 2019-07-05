@@ -1,15 +1,3 @@
-/* 
-微信小程序不支持CSS3的CSS变量，但是这里定义样式变量，主要是为了规范诸如颜色、边线、字体大小等
-*/
-
-page {
-  font-family: -apple-system-font, Helvetica Neue, sans-serif;
-}
-
-.hidden {
-  display: none !important;
-}
-
 .text-center {
   text-align: center;
 }
@@ -36,10 +24,6 @@ page {
   font-size: 20rpx !important;
 }
 
-.strong {
-  font-weight: bold;
-}
-
 /*  margin   */
 
 .mgt-15rpx {
@@ -50,28 +34,12 @@ page {
   margin-bottom: 15rpx;
 }
 
-.mgl-15rpx {
-  margin-left: 15rpx;
-}
-
-.mgr-15rpx {
-  margin-right: 15rpx;
-}
-
 .mgt-30rpx {
   margin-top: 30rpx;
 }
 
 .mgb-30rpx {
   margin-bottom: 30rpx;
-}
-
-.mgl-30rpx {
-  margin-left: 30rpx;
-}
-
-.mgr-30rpx {
-  margin-right: 30rpx;
 }
 
 /*  padding  */
@@ -82,14 +50,6 @@ page {
 
 .pdb-15rpx {
   padding-bottom: 15rpx;
-}
-
-.pdl-15rpx {
-  padding-left: 15rpx;
-}
-
-.pdr-15rpx {
-  padding-right: 15rpx;
 }
 
 .pdt-30rpx {
@@ -110,49 +70,33 @@ page {
 
 /*  颜色规范  */
 
-/*  黑  */
-
 .color-black {
   color: #000;
 }
-
-/*  淡黑  */
 
 .color-semi {
   color: #353535;
 }
 
-/*  灰色  */
-
 .color-grey {
   color: #888;
 }
-
-/*  浅灰  */
 
 .color-light {
   color: #b2b2b2;
 }
 
-/*  绿色  */
-
 .color-green {
   color: #09bb09;
 }
-
-/*  红色  */
 
 .color-red {
   color: #e64340;
 }
 
-/*  信息提示颜色  */
-
-.color-info, .color-link,.color-active {
+.color-info, .color-link, .color-active {
   color: #00acff;
 }
-
-/*  背景和边线颜色  */
 
 .bd-color {
   border-color: #f1f1f1;
@@ -166,37 +110,9 @@ page {
   max-width: 100%;
 }
 
-.img-maxwidth {
-  width: 100%;
-}
-
 .border-basic {
   border: 1px solid #efefef;
 }
-
-/*  行高 line-height  */
-
-.lh-100 {
-  line-height: 100%;
-}
-
-.lh-150 {
-  line-height: 150%;
-}
-
-.lh-170 {
-  line-height: 170%;
-}
-
-.lh-180 {
-  line-height: 180%;
-}
-
-.lh-200 {
-  line-height: 200%;
-}
-
-/*  圆角  */
 
 .radius-basic, .cover {
   border-radius: 6rpx;
@@ -204,12 +120,6 @@ page {
 
 .radius-circle {
   border-radius: 100%;
-}
-
-/*  过渡动画  */
-
-.transition {
-  transition: all 0.5s;
 }
 
 .row {
@@ -336,14 +246,6 @@ navigator:hover, navigator:active {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.ellipsis-4row {
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
