@@ -7,7 +7,8 @@ Page({
     book: {},
     menuTree: [],
     identify: '',
-    wd: ''
+    wd: '',
+    token: ''
   },
   onLoad: function(options) {
     let identify = options.id || options.identify || 'dochub';
@@ -22,6 +23,9 @@ Page({
     })
   },
   onShow: function() {
+    this.setData({
+      token: util.getToken() || ''
+    })
     this.loadData()
   },
   search: function(e) {

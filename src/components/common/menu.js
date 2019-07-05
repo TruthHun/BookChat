@@ -18,9 +18,12 @@ Component({
       type: Array,
       value: []
     },
-    currentDocId:{
-      type:Number,
+    currentDocId: {
+      type: Number,
       Value: 0,
+    },
+    token: {
+      type: String
     }
   },
   data: {

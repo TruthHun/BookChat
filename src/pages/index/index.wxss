@@ -17,20 +17,12 @@ swiper-item {
 
 .recommend .panel-body {
   display: flex;
-  /* justify-content:space-around; */
+  word-break: break-all;
   justify-content: space-between;
 }
 
 .panel-body navigator {
   width: 30%;
-}
-
-.recommend .title {
-  font-size: 28rpx;
-  color: #666;
-  text-align: left;
-  line-height: 160%;
-  margin-top: 15rpx;
 }
 
 .cate-data .row {
