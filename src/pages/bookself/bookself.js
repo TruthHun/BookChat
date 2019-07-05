@@ -59,10 +59,13 @@ Page({
         res.data.books.length >= size ? page++ : page = 0
         data.books = isClearAll ? res.data.books : that.data.books.concat(res.data.books)
       } else {
-        if (page == 1) data.books = []
+        if (page == 1) {
+          data.books = []
+          data.showTips=true
+        }
         page = 0
       }
-      data.showTips = that.data.books.length == 0
+      data.showTips = data.books.length == 0
       data.page = page
       that.setData(data)
       if (isClearAll) wx.pageScrollTo({

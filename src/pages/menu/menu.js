@@ -3,20 +3,12 @@ const api = require('../../utils/api.js')
 const config = require('../../config.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     book: {},
     menuTree: [],
-    token: util.getToken(),
     identify: '',
     wd: ''
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     let identify = options.id || options.identify || 'dochub';
     if (!identify || identify == undefined) {
@@ -113,7 +105,7 @@ Page({
       result: []
     })
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
     wx.showShareMenu({
       withShareTicket: true
     })

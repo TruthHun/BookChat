@@ -15,8 +15,10 @@
       </navigator>
       <view class='progress mgt-30rpx'>
         <view class='font-lv3 color-grey'>阅读进度
-          <view class='pull-right'>{{book.percent}}%
-            <text wx:if="{{isLogin == false}}">(未登录)</text>{{end}}</view>
+          <view class='pull-right'>
+            <text>{{book.percent}}%</text>
+            <text wx:if="{{isLogin == false}}">(未登录)</text>
+          </view>
         </view>
         <progress class='mgt-15rpx' percent="{{book.percent}}" />
       </view>
@@ -48,7 +50,6 @@
     <view class='col font-lv3'>查看目录</view>
     <view class='col font-lv4 color-grey text-right'>最后更新：{{common.relativeTime(book.updated_at)}}</view>
   </navigator>
-
 </block>
 
 <view wx:if="{{relatedBooks.length>0}}" class='panel related-books'>
@@ -119,7 +120,7 @@
         <text>阅读</text>
       </navigator>
     </view>
-     <view wx:if="{{book.is_star}}" bindtap='bookStar' data-action="cancel" class='col item-min'>
+    <view wx:if="{{book.is_star}}" bindtap='bookStar' data-action="cancel" class='col item-min'>
       <image src='../../assets/images/star-highlight.png'></image>
       <text>收藏</text>
     </view>

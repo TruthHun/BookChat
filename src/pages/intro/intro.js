@@ -33,6 +33,11 @@ Page({
     })
     this.loadData()
   },
+  onShow: function() {
+    this.setData({
+      isLogin: util.getToken() != ""
+    })
+  },
   onPullDownRefresh: function() {
     this.setData({
       page: 1
