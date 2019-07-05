@@ -11,85 +11,69 @@ Page({
     pending: false,
     wd: '',
   },
-  onLoad: function() {
-    this.loadBooks()
-  },
+  onLoad: function() {},
   onShow: function() {
-    this.loadBooks()
+    if (config.debug) console.log("onShow", "bookshelfChanged", getApp().globalData.bookshelfChanged)
+    this.loadBooks(getApp().globalData.bookshelfChanged)
+    getApp().globalData.bookshelfChanged = false
   },
   onReachBottom: function() {
     this.loadBooks()
   },
-  loadBooks: function() {
+  loadBooks: function(isClearAll) {
     wx.stopPullDownRefresh()
 
-    if (this.data.pending) return;
-
-    this.setData({
-      pending: true
-    })
-
+    let that = this
     let token = util.getToken() || ''
-    if (!token) {
-      this.setData({
+
+    if (token == '') {
+      that.setData({
         showTips: true,
         books: [],
         token: token,
         pending: false,
+        page: 1,
       })
       return
     }
 
-    let that = this
+    if ((that.data.pending || that.data.page == 0) && !isClearAll) return;
 
-    if (that.data.page == 0) return
+    that.setData({
+      pending: true
+    })
+
+    let page = isClearAll ? 1 : that.data.page
+    let size = that.data.size
+    let data = {
+      pending: false,
+      token: token,
+    }
+
     util.request(config.api.bookshelf, {
-      page: that.data.page,
-      size: that.data.size,
+      page: page,
+      size: size,
     }).then((res) => {
       if (config.debug) console.log(config.api.bookshelf, res)
       if (res.data && res.data.books) {
-        let page = that.data.page
-        if (res.data.books.length >= that.data.size) {
-          page++
-        } else {
-          page = 0
-        }
-        this.setData({
-          showTips: that.data.books.length == 0,
-          books: that.data.books.concat(res.data.books),
-          token: token,
-          page: page,
-          pending: false,
-        })
+        res.data.books.length >= size ? page++ : page = 0
+        data.books = isClearAll ? res.data.books : that.data.books.concat(res.data.books)
       } else {
-        this.setData({
-          showTips: true,
-          token: token,
-          page: 1,
-          pending: false,
-        })
+        page = 0
       }
-    }).catch((e) => {
-      let books = that.data.books
-      if (e.statusCode == 401) {
-        token = ''
-        util.clearUser()
-        books = []
-      }
-      this.setData({
-        showTips: true,
-        token: token,
-        books: books,
-        showTips: true,
-        page: 1,
-        pending: false,
+      data.showTips = that.data.books.length == 0
+      data.page = page
+      that.setData(data)
+      if (isClearAll) wx.pageScrollTo({
+        scrollTop: 0,
       })
+    }).catch((e) => {
+      util.toastError(e.data.message || e.errMsg)
     })
   },
-  onPullDownRefresh:function(){
+  onPullDownRefresh: function() {
     util.loading()
-    this.loadBooks()
+    this.loadBooks(true)
     wx.hideLoading()
   },
   login: function(e) {
@@ -115,7 +99,7 @@ Page({
       wd: e.detail.value
     })
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
     wx.showShareMenu({
       withShareTicket: true
     })

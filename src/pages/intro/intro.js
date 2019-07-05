@@ -15,7 +15,7 @@ Page({
   },
   onLoad: function(options) {
     if (config.debug) console.log(options)
-    
+
     let id = parseInt(options.id) || parseInt(options.scene)
 
     if (id == undefined || id <= 0) {
@@ -146,6 +146,7 @@ Page({
       wx.showToast({
         title: book.is_star ? '收藏书籍成功' : '移除收藏成功',
       })
+      getApp().globalData.bookshelfChanged = true
     }).catch(function(e) {
       util.toastError(e.data.message || e.errMsg)
     })

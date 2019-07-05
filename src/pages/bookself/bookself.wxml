@@ -19,7 +19,7 @@
       </view>
     </block>
   </view>
-  <block wx:if="{{books.length>0}}">
+  <block wx:if="{{books.length>0 && token!=''}}">
     <view wx:for="{{books}}" wx:key="index" wx:for-item="book" class='col-4'>
       <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book text-muted'>
         <image mode='widthFix' class='box-shadow cover' src='{{book.cover}}'></image>
@@ -29,4 +29,4 @@
   </block>
 </view>
 
-<footer loading="{{page>0 && books.length>0}}"/>
+<footer loading="{{page>0 && books.length>0}}" />

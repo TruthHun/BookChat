@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/bookself/bookself",
     "pages/login/login",
     "pages/me/me",
     "pages/cate/cate",
@@ -9,7 +10,6 @@
     "pages/read/read",
     "pages/menu/menu",
     "pages/search/search",
-    "pages/bookself/bookself",
     "pages/ucenter/ucenter",
     "pages/list/list",
     "pages/comment/comment",
