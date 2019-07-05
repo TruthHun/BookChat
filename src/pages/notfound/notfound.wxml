@@ -1,4 +1,3 @@
-<!--pages/notfound/notfound.wxml-->
 <view>
   <view>
     <image src='../../assets/images/404.png'></image>

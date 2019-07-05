@@ -2,10 +2,6 @@ const config = require('../../config.js')
 const util = require('../../utils/util.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     book: {},
     article: {},
@@ -25,13 +21,8 @@ Page({
     defautScreenBrightness: 0,
     screenBrightness: 0,
     showFooter: true,
-    // screen: 0,// 屏幕亮度
     fontIndexs: ['30rpx', '32rpx', '34rpx', '36rpx', '38rpx','40rpx','42rpx']
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     // 步骤：
     // 1. 先获取书籍目录
@@ -96,13 +87,6 @@ Page({
 
       that.getArticle(identify)
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
   },
   onReachBottom: function() {
     this.setData({

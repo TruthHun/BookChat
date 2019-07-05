@@ -2,10 +2,6 @@ const config = require('../../config.js')
 const util = require('../../utils/util.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     beforeScore: 0,
     score: 0,
@@ -14,10 +10,6 @@ Page({
     messages: ['期待您的打分', '惨不忍睹', '太差了', '一般般', '还不错', '非常棒'],
     loading: false,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     if (config.debug) console.log(options)
 

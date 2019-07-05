@@ -2,26 +2,15 @@ const util = require('../../utils/util.js')
 const config = require('../../config.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     bookmarks: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     if (config.debug) console.log("options", options)
     this.setData({
       identify: options.identify ? options.identify : ''
     })
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function() {
     this.loadBookmarks()
   },

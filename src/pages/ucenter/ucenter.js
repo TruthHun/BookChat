@@ -3,10 +3,6 @@ let util = require('../../utils/util.js')
 let api = require('../../utils/api.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     tabValue: 'release',
     page: 1,
@@ -28,10 +24,6 @@ Page({
       value: "fans"
     }]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     if (config.debug) console.log("params", options)
     if (options.tab) this.setData({
@@ -85,9 +77,6 @@ Page({
 
     this.setTitile()
   },
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function() {
     switch (this.data.tabValue) {
       case 'release':

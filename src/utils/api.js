@@ -9,7 +9,6 @@ const expire = 600; // 600 second
 const getCategories = () => {
   if (config.debug) console.log(config.api.categories);
   // 从缓存中读取，判断缓存存不存在，并且有没有过期
-
   return new Promise((resolve, reject) => {
     let categories = {};
     let now = util.now();

@@ -3,17 +3,13 @@ const util = require('../../utils/util.js')
 const config = require('../../config.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     total: 0,
     cid: 0,
     page: 1,
     books: [],
-    tabValue: 'popular',
-    tabTitle: '热门',
+    tabValue: 'new',
+    tabTitle: '最新',
     categoryTitle: '书籍列表',
     size: 10,
     tips: '哼，我也是一只有底线的猿',
@@ -28,23 +24,16 @@ Page({
       value: 'recommend'
     }]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function(options) {
     let that = this
     let cid = parseInt(options.cid)
-    let tab = options.tab || 'popular';
+    let tab = options.tab || 'new';
     that.setData({
       cid: cid
     })
     that.setTitle()
     that.loadBooks(true)
   },
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function() {
     this.loadBooks()
   },
@@ -121,13 +110,13 @@ Page({
       }
     }).catch((e) => {
       console.log(e)
-    }).finally(function(){
+    }).finally(function() {
       wx.setNavigationBarTitle({
         title: that.data.categoryTitle + ' · ' + tabTitle,
       })
     })
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
     wx.showShareMenu({
       withShareTicket: true
     })

@@ -2,10 +2,6 @@ const util = require('../../utils/util.js')
 const config = require('../../config.js')
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     loading: false,
     about: config.about,

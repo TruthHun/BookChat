@@ -6,15 +6,6 @@
         <input bindinput='input' data-name="email" value='{{email}}' placeholder="请输入邮箱地址" />
       </view>
     </view>
-    <!-- <view class='row'>
-      <view class='col-3'>验证码</view>
-      <view class='col-6'>
-        <input name="captcha" placeholder="邮箱验证码" />
-      </view>
-      <view class='col-3 text-right'>
-        <button size='mini' class='btn-captcha' type='warn'>获取</button>
-      </view>
-    </view> -->
     <view class='row'>
       <view class='col-3'>用户名</view>
       <view class='col-9'>

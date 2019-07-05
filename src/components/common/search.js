@@ -1,8 +1,4 @@
-// components/common/search.js
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
     wd: {
       type: String,
@@ -17,18 +13,10 @@ Component({
       value: false,
     }
   },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
     wd: '',
     showClear: false,
   },
-
-  /**
-   * 组件的方法列表
-   */
   methods: {
     search: function(e) {
       if (e.detail.value != '') {

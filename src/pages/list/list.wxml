@@ -1,18 +1,6 @@
 <wxs src="../common.wxs" module="common" />
-<!-- <view class='breadcrumb base-padding base-margin-bottom'>
-  <view class='row'>
-    <view class='col-8'>
-      <view class='row'>
-        <view bindtap='tabClick' data-tab='popular' data-title='热门' class="col {{tab=='popular' ? 'active': ''}}">热门</view>
-        <view bindtap='tabClick' data-tab='new' data-title='最新' class="col {{tab=='new' ? 'active': ''}}">最新</view>
-        <view bindtap='tabClick' data-tab='recommend' data-title='推荐' class="col {{tab=='recommend' ? 'active': ''}}">推荐</view>
-      </view>
-    </view>
-  </view>
-</view> -->
-
 <view class='tab'>
-  <tab tabs="{{tabs}}" gridLen="8" bindclick="tabClick" istyle="margin-bottom:30rpx;" />
+  <tab tabs="{{tabs}}" active="{{tabValue}}" gridLen="8" bindclick="tabClick" istyle="margin-bottom:30rpx;" />
 </view>
 
 <view class='base-padding base-margin-bottom'>
