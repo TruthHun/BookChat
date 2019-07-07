@@ -2,7 +2,7 @@
 
 # BookChat - 通用的书籍阅读微信小程序
 
-![](screenshot/logo.png)
+![](srceenshot/logo.png)
 
 ## BookChat 介绍
 
@@ -22,8 +22,8 @@
 - 强大：微信官方小程序开发工具自带的`Audits`体验评分为`A`，性能和体验出色，给您原生APP的用户体验
 - 小巧：没有引用任何第三方组件和UI，整个小程序，不使用zip打包压缩的情况下，大小不到 `200KB`，zip压缩后的大小只有`133KB`。
 	
-	![](screenshot/size.png)
-	![](screenshot/size-zip.png)
+	![](srceenshot/size.png)
+	![](srceenshot/size-zip.png)
 
 
 ## 扫码体验
@@ -32,7 +32,7 @@
 
 微信扫描下方小程序码，即可体验和感受下`BookChat`小程序：
 
-![](screenshot/qrcode.png)
+![](srceenshot/qrcode.png)
 
 希望，我们没有让你失望。
 
@@ -68,7 +68,7 @@ QQ交流群：457803862（猿军团）
 - QQ： `1272881215`
 - 微信： `flying999999`
 
-![](screenshot/wechat-contact.png)
+![](srceenshot/wechat-contact.png)
 
 ## 支持作者
 
@@ -77,56 +77,55 @@ QQ交流群：457803862（猿军团）
 1. 收藏`BookChat`微信小程序，分享和转发给身边的朋友，如果您认为值得分享。
 1. 扫描下方支付宝和微信二维码，犒劳一下作者的`发际线`，助他早日“聪明`绝顶`”
 
-	![支付宝二维码.jpg](screenshot/alipay.jpg)
+	![支付宝二维码.jpg](srceenshot/alipay.jpg)
 	
-	![微信二维码.jpg](screenshot/wxpay.jpg)
+	![微信二维码.jpg](srceenshot/wxpay.jpg)
 
 ## BookChat 照骗
 
 ### 首页
 
-<img scr="screenshot/index.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/index.png" style="max-width:480px;border:1px solid #efefef;"/>
 
-<img scr="" style="max-width:480px;border:1px solid #efefef;"/>
 
 ### 分类页
 
-<img scr="screenshot/category.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/category.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 
 
 ### 登录页
 
-<img scr="screenshot/login.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/login.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 ### 个人中心
 
-<img scr="screenshot/ucenter.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/ucenter.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 
 ### 书架页
 
-<img scr="screenshot/bookshelf.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/bookshelf.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 
 ### 书籍页
 
-<img scr="screenshot/intro.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/intro.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 ### 内容阅读
 
-<img scr="screenshot/read.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/read.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 ### 书籍目录
 
-<img scr="screenshot/read-menu.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/read-menu.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 ### 阅读偏好设置
 
-<img scr="screenshot/read-setting.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/read-setting.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 ### 搜索结果页
 
-<img scr="screenshot/search-book.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/search-book.png" style="max-width:480px;border:1px solid #efefef;"/>
 
-<img scr="screenshot/search-doc.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="srceenshot/search-doc.png" style="max-width:480px;border:1px solid #efefef;"/>
