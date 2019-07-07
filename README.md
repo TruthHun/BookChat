@@ -2,6 +2,15 @@
 
 ![LOGO](screenshot/logo.png)
 
+# 温馨提示
+
+> **家里网络不稳定，把源码push到GitHub要等上好半天，所以从`BookChat` v2.0 版本开始，`BookChat` 微信小程序只在码云（Gitee）发布和更新**
+
+
+码云仓库地址： https://gitee.com/truthhun/BookChat
+
+
+
 ## 项目介绍
 
 
