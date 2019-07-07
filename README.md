@@ -1,198 +1,132 @@
+[TOC]
+
 # BookChat - 通用的书籍阅读微信小程序
 
-![LOGO](screenshot/logo.png)
+![](screenshot/logo.png)
 
-## 项目介绍
-
+## BookChat 介绍
 
 微信叫`WeChat`，所以我们叫`BookChat`.
 
-`BookChat` - 基于 Apache 2.0 开源协议进行开源的通用书籍阅读微信小程序，助您轻松实现小说、电子书、各种文档手册和书籍的在线阅读。
-
-
-起初仅仅是想作为[BookStack](https://www.bookstack.cn)的配套小程序，但是后来想了一下，小说书籍和文档阅读类的小程序，不外乎也就是那些功能，所以把`BookChat`开发为通用的书籍阅读类小程序，以方便更多想要开发阅读类小程序的个人和企业。
-
-小程序可能还有一些设计的不是很合理的地方，所以您在使用的过程中，遇到问题或者有更perfect的想法，请提交issues，让我们携手将小程序做的尽善尽美。
-
-
+`BookChat` - 面向程序员的开源书籍和文档阅读学习小程序，同时也是一款基于 Apache 2.0 开源协议进行开源的通用书籍阅读微信小程序，助您轻松实现小说、电子书、各种文档手册和书籍的在线阅读。
 
 ## 开发设计
 
-`BookChat`采用CSS3的`flex`实现的页面布局，文字大小和主题配色参照了腾讯官方的[微信小程序设计指南](https://developers.weixin.qq.com/miniprogram/design/index.html)，小程序的图标来自热心的设计师们在[iconfont](http://iconfont.cn/)分享的小图标，HTML和markdown文本的渲染采用[wxParse](https://github.com/icindy/wxParse)。
+`BookChat`采用CSS3的`flex`实现的页面布局，文字大小和主题配色参照了腾讯官方的[微信小程序设计指南](https://developers.weixin.qq.com/miniprogram/design/index.html)，小程序的图标来自热心的设计师们在[iconfont](http://iconfont.cn/)分享的小图标，HTML的渲染直接采用微信小程序自带的富文本组件`rich-text`实现。
 
-小程序的源码，放在`src`目录下.
+## 功能特点
 
-`BookChat`小程序，预计会迭代发布三个版本：
-
- **第一个版本**： 纯模板页面小程序，实现页面间的链接跳转。适合有能力开发前后端的个人或企业。
-
- **第二个版本**： 使用 [YAPI](https://github.com/YMFE/yapi) 约定所有后端API接口参数，实现对动态数据的请求和渲染。适用于拥有后端API接口开发能力的个人或企业。
-
- **第三个版本**： 套接 [BookStack](https://gitee.com/truthhun/BookStack) 的API接口，实现真正意义上的书籍阅读（届时会提前发布BookStack v2.x版本）。适用于没有开发能力的个人或企业。
-
-当前最新版本为v1.0版本，即第一个版本.
-
-由于没有原型，小程序的功能和页面布局，主要借(抄)鉴(袭)了3个手机APP，所以，请允许我免费给他们打个小广告：
-
-- [iReader](http://www.zhangyue.com/) - 引领品质阅读
-- [微信读书](http://weread.qq.com/) - 让阅读不再孤独
-- [熊猫阅读](http://www.pandadushu.com/) - (没有slogan就是最好的slogan...)
-
--------
-
-好吧，他们都有一个响亮的Slogan，那么我们也要有一个：
-
-> `BookChat` - 让学习，成为一种本能
-
-----------
-
-**QQ交流群**
-
-> 457803862（猿军团）
-
-加群请备注`来自BookChat`
-
-> 说明：该群是一个技术交流群。如果是开源程序遇到问题，请直接提交issues，群里不解答问题.
-
-## 源码托管
-
-- Gitee: https://gitee.com/truthhun/BookChat
-- GitHub: https://github.com/TruthHun/BookChat
-
-## 小程序体验
-
-目前`BookChat`是第一个版本，只是一个模板小程序，实现了页面间的链接跳转。您可以在微信上通过关键字`BookChat`搜索并体验该小程序，或者直接扫描下方的二维码进行体验。
-
-![](screenshot/qrcode.jpg)
+- 开源：基于 Apache 2.0 开源协议进行开源，对商业友好
+- 秀气：简洁、美观，给您焕然一新的视觉体验，让你都不敢相信这是一个后端程序员设计和开发实现的
+- 丰富：注册、登录、搜索、书架、书签、阅读偏好设置等功能齐全，麻雀虽小，五脏俱全
+- 强大：微信官方小程序开发工具自带的`Audits`体验评分为`A`，性能和体验出色，给您原生APP的用户体验
+- 小巧：没有引用任何第三方组件和UI，整个小程序，不使用zip打包压缩的情况下，大小不到 `200KB`，zip压缩后的大小只有`133KB`。
+	
+	![](screenshot/size.png)
+	![](screenshot/size-zip.png)
 
 
-## 页面预览
+## 扫码体验
 
+小程序好不好，当然要凭实力说话。
+
+微信扫描下方小程序码，即可体验和感受下`BookChat`小程序：
+
+![](screenshot/qrcode.png)
+
+希望，我们没有让你失望。
+
+## 开源地址
+
+- Gitee（码云）: https://gitee.com/truthhun/BookChat
+- ~~GitHub: https://github.com/truthhun/bookchat~~
+
+> 家里网络不稳定，把源码push到GitHub要等上好半天，所以从 `BookChat` v2.0 版本开始，BookChat微信小程序只在`码云（Gitee）`发布和更新
+
+**后端程序是BookStack**
+
+- Gitee（码云）: https://gitee.com/truthhun/BookStack
+- GitHub: https://github.com/truthhun/BookStack
+
+`BookChat` 需要配套`BookStack` 2.0 以上版本使用。
+
+## QQ交流群
+
+QQ交流群：457803862（猿军团）
+
+> 加群请备注`来自BookChat`
+
+说明：
+> 该群是一个技术交流群。如果是开源程序遇到问题，请直接提交issues，群里不解答问题.
+
+
+## 联系作者
+
+作者：皇虫（TruthHun）
+
+- Email: `TruthHun#QQ.COM`（把 # 换成 @ ）
+- QQ： `1272881215`
+- 微信： `flying999999`
+
+![](screenshot/wechat-contact.png)
+
+## 支持作者
+
+`BookChat` 微信小程序是完全开源的，如果您觉得这个小程序很棒，可以通过以下两种方式支持作者：
+
+1. 收藏`BookChat`微信小程序，分享和转发给身边的朋友，如果您认为值得分享。
+1. 扫描下方支付宝和微信二维码，犒劳一下作者的`发际线`，助他早日“聪明`绝顶`”
+
+	![支付宝二维码.jpg](screenshot/alipay.jpg)
+	
+	![微信二维码.jpg](screenshot/wxpay.jpg)
+
+## BookChat 照骗
 
 ### 首页
 
-<img width="480" style="border:1px solid #ccc" src="screenshot/index1.png"/>
+<img scr="screenshot/index.png" style="max-width:480px;border:1px solid #efefef;"/>
 
-<br/>
-<br/>
-<br/>
+<img scr="" style="max-width:480px;border:1px solid #efefef;"/>
 
-<img width="480" style="border:1px solid #ccc"  src="screenshot/index.png"/>
+### 分类页
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-### 分类
+<img scr="screenshot/category.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 
-<img width="480" style="border:1px solid #ccc"  src="screenshot/cate.png"/>
 
+### 登录页
 
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-### 分类书籍列表
-
-<img width="480" style="border:1px solid #ccc"  src="screenshot/list.png"/>
-
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-### 书架
-
-
-<img width="480" style="border:1px solid #ccc"  src="screenshot/bookshelf.png"/>
-
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
+<img scr="screenshot/login.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 ### 个人中心
 
-<img width="480" style="border:1px solid #ccc"  src="screenshot/me.png"/>
+<img scr="screenshot/ucenter.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 
-### 书籍介绍
+### 书架页
 
-<img width="480" style="border:1px solid #ccc"  src="screenshot/intro.png"/>
-<br/>
-<br/>
-<br/>
+<img scr="screenshot/bookshelf.png" style="max-width:480px;border:1px solid #efefef;"/>
+
+
+### 书籍页
+
+<img scr="screenshot/intro.png" style="max-width:480px;border:1px solid #efefef;"/>
+
+### 内容阅读
+
+<img scr="screenshot/read.png" style="max-width:480px;border:1px solid #efefef;"/>
 
 ### 书籍目录
 
-<img width="480" style="border:1px solid #ccc"  src="screenshot/menu.png"/>
-<br/>
-<br/>
-<br/>
+<img scr="screenshot/read-menu.png" style="max-width:480px;border:1px solid #efefef;"/>
 
-### 书籍阅读
+### 阅读偏好设置
 
-<img width="480" style="border:1px solid #ccc"  src="screenshot/read.png"/>
-<br/>
-<br/>
-<br/>
+<img scr="screenshot/read-setting.png" style="max-width:480px;border:1px solid #efefef;"/>
 
+### 搜索结果页
 
-### 注册、登录
+<img scr="screenshot/search-book.png" style="max-width:480px;border:1px solid #efefef;"/>
 
-
-<img width="480" style="border:1px solid #ccc"  src="screenshot/reg.png"/>
-
-
-<br/>
-<br/>
-
-<img width="480" style="border:1px solid #ccc"  src="screenshot/login.png"/>
-
-
-<br/>
-<br/>
-<br/>
-
-
-### 书籍点评
-
-<img width="480" style="border:1px solid #ccc"  src="screenshot/comment.png"/>
-<br/>
-<br/>
-<br/>
-
-### 书籍搜索结果
-
-<img width="480" style="border:1px solid #ccc"  src="screenshot/search.png"/>
-<br/>
-<br/>
-<br/>
-
-
-
-## 赞助
-
-  如果您觉得`BookChat`帮助到了您，可以通过扫描下方二维码在您力所能及的范围内给我们小小的赞助，以支持和鼓励`BookChat`开源项目.
-
-
-### 支付宝
-![](screenshot/alipay.jpg)
-
-
-
-### 微信
-![](screenshot/wxpay.jpg)
+<img scr="screenshot/search-doc.png" style="max-width:480px;border:1px solid #efefef;"/>
