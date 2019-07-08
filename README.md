@@ -10,6 +10,17 @@
 
 `BookChat` - 面向程序员的开源书籍和文档阅读学习小程序，同时也是一款基于 Apache 2.0 开源协议进行开源的通用书籍阅读微信小程序，助您轻松实现小说、电子书、各种文档手册和书籍的在线阅读。
 
+## 后端程序
+
+后端程序也是开源的：
+
+- Gitee(码云): https://gitee.com/truthhun/BookStack
+- Github: https://github.com/TruthHun/BookStack
+
+**后端程序官网** 
+
+https://www.bookstack.cn
+
 ## 开发设计
 
 `BookChat`采用CSS3的`flex`实现的页面布局，文字大小和主题配色参照了腾讯官方的[微信小程序设计指南](https://developers.weixin.qq.com/miniprogram/design/index.html)，小程序的图标来自热心的设计师们在[iconfont](http://iconfont.cn/)分享的小图标，HTML的渲染直接采用微信小程序自带的富文本组件`rich-text`实现。
@@ -85,47 +96,47 @@ QQ交流群：457803862（猿军团）
 
 ### 首页
 
-<img src="screenshot/index.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/index.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
 
 ### 分类页
 
-<img src="screenshot/category.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/category.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
 
 
 ### 登录页
 
-<img src="screenshot/login.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/login.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
 ### 个人中心
 
-<img src="screenshot/ucenter.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/ucenter.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
 
 ### 书架页
 
-<img src="screenshot/bookshelf.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/bookshelf.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
 
 ### 书籍页
 
-<img src="screenshot/intro.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/intro.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
 ### 内容阅读
 
-<img src="screenshot/read.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/read.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
 ### 书籍目录
 
-<img src="screenshot/read-menu.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/read-menu.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
 ### 阅读偏好设置
 
-<img src="screenshot/read-setting.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/read-setting.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
 ### 搜索结果页
 
-<img src="screenshot/search-book.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/search-book.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
 
-<img src="screenshot/search-doc.png" style="max-width:480px;border:1px solid #efefef;"/>
+<img src="screenshot/search-doc.png" style="max-width:400px;width:100%;border:1px solid #efefef;"/>
