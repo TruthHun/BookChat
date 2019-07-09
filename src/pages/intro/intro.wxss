@@ -11,17 +11,18 @@ page {
 
 .icon-avatar {
   width: 38rpx;
+  height: 38rpx;
   position: relative;
   top: 6rpx;
 }
 
 .info {
   padding: 30rpx;
-  padding-top: 10rpx;
 }
 
 .info .cover {
-  width: 230rpx;height: 302.3rpx;
+  width: 230rpx;
+  height: 302.3rpx;
 }
 
 .title {
@@ -57,6 +58,11 @@ page {
 .data .col:nth-of-type(2n) {
   border-left: 1px solid #f1f1f1;
   border-right: 1px solid #f1f1f1;
+}
+
+.score text .color-red {
+  position: relative;
+  top: 0;
 }
 
 .data .col .text-muted {
@@ -201,7 +207,8 @@ page {
 }
 
 .comment-info .score {
-  position: relative;margin-bottom: 0;
+  position: relative;
+  margin-bottom: 0;
 }
 
 .comment-info .pull-right {
@@ -218,7 +225,11 @@ page {
   padding-bottom: 30rpx;
   margin-bottom: 40rpx;
 }
-.comment-list image{width: 120rpx;height: 120rpx;}
+
+.comment-list image {
+  width: 120rpx;
+  height: 120rpx;
+}
 
 .hor {
   display: flex;
@@ -236,5 +247,6 @@ page {
 }
 
 .hor navigator image {
-  width: 170rpx;height: 223.5rpx;
+  width: 170rpx;
+  height: 223.5rpx;
 }

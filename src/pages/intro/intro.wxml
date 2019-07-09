@@ -2,15 +2,16 @@
 <block wx:if="{{book.book_id>0}}">
   <view class='row info'>
     <view class='col-4'>
-      <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
+      <image class='cover box-shadow' src='{{book.cover}}'></image>
     </view>
     <view class='col-8'>
       <text class='ellipsis-2row font-lv1'>{{book.book_name}}</text>
       <view class='score score-{{book.score}} mgt-30rpx'>
         <text>{{book.float_score}} 分</text>
+        <text wx:if="{{book.lang.length>0}}" class='pull-right'>[ <text class='color-red'>{{book.lang}}</text> ]</text>
       </view>
       <navigator url="/pages/ucenter/ucenter?uid={{book.uid}}" class='mgt-15rpx font-lv3 color-semi'>
-        <image class='icon-avatar' src='../../assets/images/me.png' mode='widthFix'></image>
+        <image class='icon-avatar' src='../../assets/images/me.png'></image>
         <text> {{book.user}}</text>
       </navigator>
       <view class='progress mgt-30rpx'>
@@ -61,7 +62,7 @@
       <view class='hor'>
         <block wx:for="{{relatedBooks}}" wx:key='index' wx:for-item="book">
           <navigator url="/pages/intro/intro?id={{book.book_id}}">
-            <image mode='widthFix' class='box-shadow cover' src='{{book.cover}}' />
+            <image class='box-shadow cover' src='{{book.cover}}' />
             <view class='font-lv3 ellipsis-2row mgt-15rpx'>{{book.book_name}}</view>
           </navigator>
         </block>

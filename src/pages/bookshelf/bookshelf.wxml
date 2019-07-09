@@ -22,7 +22,7 @@
   <block wx:if="{{books.length>0 && token!=''}}">
     <view wx:for="{{books}}" wx:key="index" wx:for-item="book" class='col-4'>
       <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book text-muted'>
-        <image mode='widthFix' class='box-shadow cover' src='{{book.cover}}'></image>
+        <image class='box-shadow cover' src='{{book.cover}}'></image>
         <view class='font-lv3  ellipsis-2row'>{{book.book_name}}</view>
       </navigator>
     </view>

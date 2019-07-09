@@ -29,7 +29,7 @@
       <view class='hor'>
         <block wx:for="{{recommendBooks}}" wx:key='index' wx:for-item="book">
           <navigator url="/pages/intro/intro?id={{book.book_id}}">
-            <image mode='widthFix' lazy-load='true' class='box-shadow cover' src='{{book.cover}}' />
+            <image lazy-load='true' class='box-shadow cover' src='{{book.cover}}' />
             <view class='font-lv3 ellipsis-2row mgt-15rpx'>{{book.book_name}}</view>
           </navigator>
         </block>

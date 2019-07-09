@@ -16,9 +16,9 @@ Page({
   onLoad: function(options) {
     if (config.debug) console.log(options)
 
-    let id = parseInt(options.id) || parseInt(options.scene)
+    let id = options.id || options.scene
 
-    if (id == undefined || id <= 0) {
+    if (id == undefined || id == NaN || id <= 0) {
       if (config.debug) {
         id = 2180
       } else {
@@ -28,6 +28,7 @@ Page({
         return
       }
     }
+
     this.setData({
       bookId: id
     })
@@ -62,6 +63,17 @@ Page({
 
       if (resInfo.data && resInfo.data.book) {
         book = resInfo.data.book
+        switch (book.lang) {
+          case 'zh':
+            book.lang = '中文';
+            break;
+          case 'en':
+            book.lang = '英文';
+            break;
+          default:
+            book.lang = '其他';
+            break;
+        }
       }
       if (resRelated.data && resRelated.data.books) {
         books = resRelated.data.books
@@ -140,7 +152,7 @@ Page({
       wx.showModal({
         title: '温馨提示',
         content: '您当前未登录，无法发表点评，您是否要先登录？',
-        success: function (res) {
+        success: function(res) {
           if (res.confirm) {
             wx.navigateTo({
               url: '/pages/login/login?redirect=' + encodeURIComponent(url),

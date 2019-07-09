@@ -217,18 +217,33 @@ Page({
   },
   clickBookmark: function(e) {
     let that = this
-    if (e.currentTarget.dataset.action == "cancel") {
+
+    if(util.getToken()==''){
       wx.showModal({
         title: '温馨提示',
-        content: '您确定要取消该书签吗？',
-        success: function(res) {
-          if (res.confirm) {
-            that._clickBookmark('cancel')
+        content: '您当前未登录，无法添加书签，是否要跳转登录？',
+        success:function(res){
+          if(res.confirm){
+            wx.navigateTo({
+              url: '/pages/login/login?redirect='+encodeURIComponent('/pages/read/read?identify='+that.data.book.book_id+'/'+that.data.article.id),
+            })
           }
         }
       })
-    } else {
-      that._clickBookmark('add')
+    }else{
+      if (e.currentTarget.dataset.action == "cancel") {
+        wx.showModal({
+          title: '温馨提示',
+          content: '您确定要取消该书签吗？',
+          success: function (res) {
+            if (res.confirm) {
+              that._clickBookmark('cancel')
+            }
+          }
+        })
+      } else {
+        that._clickBookmark('add')
+      }
     }
   },
   setFont: function(e) {
