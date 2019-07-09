@@ -10,7 +10,7 @@
   <view wx:if="{{book.book_id>0}}" class='book base-padding row mgb-30rpx'>
     <view class='book-cover col-3'>
       <navigator url='/pages/intro/intro?id={{book.book_id}}' class=''>
-        <image class='cover box-shadow' src='{{book.cover}}'></image>
+        <image mode='widthFix' class='cover box-shadow' src='{{book.cover}}'></image>
       </navigator>
     </view>
     <navigator url='/pages/intro/intro?id={{book.book_id}}' class='book-info col-9'>
