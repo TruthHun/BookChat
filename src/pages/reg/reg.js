@@ -13,10 +13,19 @@ Page({
     nickname: '',
     password: '',
     re_password: '',
+    redirect: encodeURIComponent('/pages/me/me')
+  },
+  onLoad: function(option) {
+    if (config.debug) console.log(option)
+    if (option.redirect) {
+      this.setData({
+        redirect: option.redirect
+      })
+    }
   },
   toLogin: function() {
     wx.navigateTo({
-      url: '/pages/login/login',
+      url: '/pages/login/login?redirect=' + this.data.redirect,
     })
   },
   wechatLogin: function() {
@@ -63,7 +72,7 @@ Page({
     if (config.debug) console.log(this.data)
     let that = this
 
-    if(that.data.loading) return
+    if (that.data.loading) return
 
     if (!util.isEmail(that.data.email)) {
       util.toastError('邮箱格式不正确')
@@ -78,25 +87,27 @@ Page({
       util.toastError('以上资料项均为必填项，请认真填写')
       return
     }
-    
+
     util.loading('正在注册中...')
-    that.setData({loading:true})
-    util.request(config.api.register,that.data,'POST').then(function(res){
-      if (config.debug) console.log(config.api.register,res)
+    that.setData({
+      loading: true
+    })
+    util.request(config.api.register, that.data, 'POST').then(function(res) {
+      if (config.debug) console.log(config.api.register, res)
       util.setUser(res.data.user)
       wx.showToast({
         title: '注册成功',
       })
-     setTimeout(function(){
-       wx.switchTab({
-         url: '/pages/me/me',
-       })
-     },1500)
-    }).catch(function(e){
+      setTimeout(function() {
+        util.redirect(decodeURIComponent(that.data.redirect))
+      }, 1500)
+    }).catch(function(e) {
       if (config.debug) console.log(config.api.register, e)
       util.toastError(e.data.message || e.errMsg)
-    }).finally(function(){
-      that.setData({loading:false})
+    }).finally(function() {
+      that.setData({
+        loading: false
+      })
     })
   }
 })

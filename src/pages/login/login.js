@@ -5,12 +5,21 @@ Page({
   data: {
     loading: false,
     about: config.about,
+    redirect: encodeURIComponent('/pages/me/me'),
+  },
+  onLoad: function(option) {
+    if (config.debug) console.log(option)
+    if (option.redirect) {
+      this.setData({
+        redirect: option.redirect,
+      })
+    }
   },
   onShow: function() {
     let token = util.getToken()
     if (token) {
       wx.switchTab({
-        url: '/pages/me/me',
+        url: decodeURIComponent(this.data.redirect),
       })
     }
     return
@@ -23,7 +32,7 @@ Page({
   },
   toRegister: function() {
     wx.navigateTo({
-      url: '/pages/reg/reg',
+      url: '/pages/reg/reg?redirect=' + this.data.redirect,
     })
   },
   formSubmit: function(e) {
@@ -40,30 +49,27 @@ Page({
       loading: true
     })
 
+    let that = this
+
     util.request(config.api.login, e.detail.value, 'POST').then((res) => {
       if (config.debug) console.log(config.api.login, res);
 
       let user = res.data.user
       if (user == undefined || user.uid <= 0 || user.token == '') {
         util.toastError('登录失败：未知错误')
-        this.setData({
+        that.setData({
           loading: false
         })
         return
       }
-
       util.setUser(user)
-
       util.toastSuccess('登录成功')
-
       setTimeout(function() {
-        wx.switchTab({
-          url: '/pages/me/me',
-        })
+        util.redirect(decodeURIComponent(that.data.redirect))
       }, 1500)
     }).catch((e) => {
       if (config.debug) console.log(e);
-      this.setData({
+      that.setData({
         loading: false
       })
       util.toastError(e.data.message || e.errMsg)

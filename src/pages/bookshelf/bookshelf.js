@@ -84,7 +84,7 @@ Page({
   },
   login: function(e) {
     wx.navigateTo({
-      url: '/pages/login/login',
+      url: '/pages/login/login?redirect='+encodeURIComponent('/pages/bookshelf/bookshelf'),
     })
   },
   search: function(e) {

@@ -3,9 +3,6 @@
     <view class='title font-lv1 text-center'>{{article.title}}</view>
     <rich-text nodes="{{article.content}}"></rich-text>
   </view>
-
-
-
 </view>
 
 <view class='drawer drawer-left {{showMenu ? "show":""}}'>

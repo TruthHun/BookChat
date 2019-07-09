@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/bookself/bookself",
+    "pages/read/read",
+    "pages/bookshelf/bookshelf",
     "pages/login/login",
     "pages/me/me",
     "pages/cate/cate",
     "pages/reg/reg",
     "pages/intro/intro",
-    "pages/read/read",
     "pages/menu/menu",
     "pages/search/search",
     "pages/ucenter/ucenter",
@@ -37,7 +37,7 @@
         "selectedIconPath": "/assets/images/cate-selected.png"
       },
       {
-        "pagePath": "pages/bookself/bookself",
+        "pagePath": "pages/bookshelf/bookshelf",
         "text": "书架",
         "iconPath": "/assets/images/collect.png",
         "selectedIconPath": "/assets/images/collect-selected.png"

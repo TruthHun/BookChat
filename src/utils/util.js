@@ -108,6 +108,19 @@ Promise.prototype.finally = function(callback) {
   );
 }
 
+const redirect = (uriWithDecode) => {
+  // 带问号的，用 redirectTo，不带问号的，用switchTab
+  if (uriWithDecode.indexOf("?") > -1) {
+    wx.redirectTo({
+      url: uriWithDecode,
+    })
+  } else {
+    wx.switchTab({
+      url: uriWithDecode,
+    })
+  }
+}
+
 // 只有请求结果返回 200 的时候，才会resolve，否则reject
 const request = (api, params = {}, method = "GET", header = {}) => {
   return new Promise(function(resolve, reject) {
@@ -163,26 +176,6 @@ const toastSuccess = (content) => {
 function isEmail(email) {
   let pattern = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/
   return pattern.test(email);
-} 
-
-const setStorageMenu = (menu) => {
-  wx.setStorageSync(keyMenu, JSON.stringify(menu))
-}
-
-const getStorageMenu = () => {
-  let js = wx.getStorageSync(keyMenu)
-  return JSON.parse(js) || []
-}
-
-const activeReadedStorageMenu = (docId) => {
-  let menu = getStorageMenu()
-  for (let i = 0; i < menu.length; i++) {
-    if (menu[i].id == docId) {
-      menu[i].readed = true
-      break
-    }
-  }
-  setStorageMenu(menu)
 }
 
 const _findChildren = (menu, pid) => {
@@ -249,7 +242,7 @@ const setReaderSetting = (obj) => {
 
 const getReaderSetting = () => {
   let val = wx.getStorageSync(keyReaderSetting)
-  if(!val) {
+  if (!val) {
     return {
       themeIndex: 0,
       fontIndex: 0,
@@ -271,9 +264,7 @@ module.exports = {
   clearUser,
   getUser,
   getToken,
-  // getStorageMenu,
-  // setStorageMenu,
-  // activeReadedStorageMenu,
+  redirect,
   menuToTree,
   menuSortIds,
   menuTreeReaded,

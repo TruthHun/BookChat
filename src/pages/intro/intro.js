@@ -130,7 +130,49 @@ Page({
       })
     })
   },
+  comment: function(e) {
+    let that = this
+    let url = e.currentTarget.dataset.url
+
+    if (config.debug) console.log(e, url)
+
+    if (!that.data.isLogin) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '您当前未登录，无法发表点评，您是否要先登录？',
+        success: function (res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login?redirect=' + encodeURIComponent(url),
+            })
+          }
+        }
+      })
+    } else {
+      wx.navigateTo({
+        url: url,
+      })
+    }
+  },
   bookStar: function(e) {
+    let that = this
+    if (!that.data.isLogin) {
+      wx.showModal({
+        title: '温馨提示',
+        content: '您当前未登录，无法将书籍收藏到书架，您是否要先登录？',
+        success: function(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: '/pages/login/login?redirect=' + encodeURIComponent('/pages/intro/intro?id=' + that.data.bookId),
+            })
+          }
+        }
+      })
+    } else {
+      that._bookStar(e)
+    }
+  },
+  _bookStar: function(e) {
     if (config.debug) console.log("bookStar", e)
 
     let that = this
