@@ -23,3 +23,15 @@
   border-top-left-radius: 6rpx;
   border-top-right-radius: 6rpx;
 }
+
+.tab navigator {
+  float: right;
+  padding: 0 15rpx 0 30rpx;
+}
+
+.tab image {
+  width: 50rpx;
+  height: 50rpx;
+  top: 10rpx;
+  position: relative;
+}

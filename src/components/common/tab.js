@@ -8,12 +8,17 @@ Component({
       type: Array,
       value: []
     },
-    active:{
-      type:String
+    active: {
+      type: String
+    },
+    showSearch: {
+      type: Boolean,
+      value: false,
     }
   },
   data: {
     active: '',
+    gridLenLeft: 4,
   },
   methods: {
     tabClick: function(e) {
@@ -24,9 +29,12 @@ Component({
     }
   },
   attached: function() {
-    if (this.data.tabs.length > 0 && this.data.active=='') {
+    let gridLenLeft = 12 - this.data.gridLen
+
+    if (this.data.tabs.length > 0 && this.data.active == '') {
       this.setData({
-        active: this.data.tabs[0].value
+        active: this.data.tabs[0].value,
+        gridLenLeft: gridLenLeft,
       })
     }
   }

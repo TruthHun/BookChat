@@ -1,6 +1,6 @@
 <wxs src="../common.wxs" module="common" />
 <view class='tab'>
-  <tab tabs="{{tabs}}" active="{{tabValue}}" gridLen="8" bindclick="tabClick" istyle="margin-bottom:30rpx;" />
+  <tab tabs="{{tabs}}" showSearch="true" active="{{tabValue}}" gridLen="8" bindclick="tabClick" istyle="margin-bottom:30rpx;" />
 </view>
 
 <view class='base-padding base-margin-bottom'>
