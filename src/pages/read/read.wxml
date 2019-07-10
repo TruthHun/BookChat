@@ -1,5 +1,5 @@
 <view class='bg-theme{{setting.themeIndex}}' bindtap='contentClick' style='min-height:100%;'>
-  <view class='markdown-body editormd-preview-container bg-theme{{setting.themeIndex}}' style='font-size:{{fontIndexs[setting.fontIndex]}}'>
+  <view class='markdown-body editormd-preview-container bg-theme{{setting.themeIndex}}' style='line-height:1.6;font-size:{{fontIndexs[setting.fontIndex]}}'>
     <view class='title font-lv1 text-center'>{{article.title}}</view>
     <rich-text nodes="{{article.content}}"></rich-text>
   </view>
@@ -14,7 +14,12 @@
 <view class='drawer drawer-right {{showMore ? "show":""}}'>
   <view class='drawer-content'>
     <view class='more-setting'>
-
+      <view class='row setting-tips'>
+        <text class='color-grey font-lv4'>屏幕亮度</text>
+      </view>
+      <view class='row setting-screen setting-item '>
+        <slider min='0' max='1' step='0.1' block-size='18' bindchange="setBrightnessScreen" value='{{screenBrightness}}' show-value></slider>
+      </view>
       <view class='row setting-tips'>
         <text class='color-grey font-lv4'>字体大小</text>
       </view>
@@ -47,12 +52,7 @@
           <image wx:if="{{setting.themeIndex == 4}}" src='/assets/images/checked.png'></image>
         </view>
       </view>
-      <view class='row setting-tips'>
-        <text class='color-grey font-lv4'>屏幕亮度</text>
-      </view>
-      <view class='row setting-screen setting-item '>
-        <slider min='0' max='1' step='0.1' block-size='18' bindchange="setBrightnessScreen" value='{{screenBrightness}}' show-value></slider>
-      </view>
+
       <view class='row setting-btn setting-item color-grey font-lv3'>
         <view class='col' bindtap='resetSetting'>
           <text>恢复默认值</text>

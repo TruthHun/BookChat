@@ -21,7 +21,7 @@ Page({
     defautScreenBrightness: 0,
     screenBrightness: 0,
     showFooter: true,
-    fontIndexs: ['30rpx', '32rpx', '34rpx', '36rpx', '38rpx','40rpx','42rpx']
+    fontIndexs: ['30rpx', '32rpx', '34rpx', '36rpx', '38rpx', '40rpx', '42rpx'],
   },
   onLoad: function(options) {
     // 步骤：
@@ -148,12 +148,12 @@ Page({
       showMenu: false,
     })
   },
-  clickNext: function(e) {
+  clickNext: function() {
     let that = this
     let idx = that.data.menuSortIds.indexOf(that.data.article.id)
     idx++
     if (idx < that.data.menuSortIds.length) {
-      util.loading()
+      util.loading('加载下一章节...')
       that.getArticle(that.data.book.book_id + "/" + that.data.menuSortIds[idx])
     } else {
       wx.showToast({
@@ -163,12 +163,12 @@ Page({
       })
     }
   },
-  clickPrev: function(e) {
+  clickPrev: function() {
     let that = this
     let idx = that.data.menuSortIds.indexOf(that.data.article.id)
     idx--
     if (idx > -1) {
-      util.loading()
+      util.loading('加载上一章节...')
       that.getArticle(that.data.book.book_id + "/" + that.data.menuSortIds[idx])
     } else {
       wx.showToast({
@@ -218,24 +218,24 @@ Page({
   clickBookmark: function(e) {
     let that = this
 
-    if(util.getToken()==''){
+    if (util.getToken() == '') {
       wx.showModal({
         title: '温馨提示',
         content: '您当前未登录，无法添加书签，是否要跳转登录？',
-        success:function(res){
-          if(res.confirm){
+        success: function(res) {
+          if (res.confirm) {
             wx.navigateTo({
-              url: '/pages/login/login?redirect='+encodeURIComponent('/pages/read/read?identify='+that.data.book.book_id+'/'+that.data.article.id),
+              url: '/pages/login/login?redirect=' + encodeURIComponent('/pages/read/read?identify=' + that.data.book.book_id + '/' + that.data.article.id),
             })
           }
         }
       })
-    }else{
+    } else {
       if (e.currentTarget.dataset.action == "cancel") {
         wx.showModal({
           title: '温馨提示',
           content: '您确定要取消该书签吗？',
-          success: function (res) {
+          success: function(res) {
             if (res.confirm) {
               that._clickBookmark('cancel')
             }
@@ -302,7 +302,7 @@ Page({
   resetSetting: function() {
     let setting = {
       fontIndex: 0,
-      themeIndex: 0
+      themeIndex: 0,
     }
     this.setData({
       setting: setting,
@@ -328,7 +328,7 @@ Page({
       util.toastError(e.data.message || e.errMsg)
     })
   },
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
     wx.showShareMenu({
       withShareTicket: true
     })

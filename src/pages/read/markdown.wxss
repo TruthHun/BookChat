@@ -4,7 +4,6 @@
   color: #353535;
   overflow: auto;
   font-size: 28rpx;
-  line-height: 1.6;
   word-wrap: break-word;
   -webkit-overflow-scrolling: touch;
 }
@@ -132,7 +131,6 @@
 
 .markdown-body .octicon {
   font: normal normal 16px octicons-anchor;
-  line-height: 1;
   display: inline-block;
   text-decoration: none;
   user-select: none;
@@ -257,7 +255,6 @@
   padding: 16px;
   overflow: auto;
   font-size: 85%;
-  line-height: 1.45;
   background-color: #f7f7f7;
   border-radius: 3px;
 }
@@ -291,7 +288,6 @@
   display: inline-block;
   padding: 3px 5px;
   font-size: 11px;
-  line-height: 10px;
   color: #555;
   vertical-align: middle;
   background-color: #fcfcfc;
@@ -395,7 +391,6 @@
   display: inline-block;
   padding: 3px 5px;
   font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  line-height: 10px;
   color: #555;
   vertical-align: middle;
   background-color: #fcfcfc;
@@ -416,7 +411,6 @@
 .editormd-preview-container, .editormd-html-preview {
   text-align: left;
   font-size: 14px;
-  line-height: 1.6;
   padding: 20px;
   overflow: auto;
   width: 100%;
@@ -745,7 +739,6 @@
 .editormd-html-preview .editormd-toc-menu .-h1 {
   font-size: 16px;
   padding: 5px 0 10px 10px;
-  line-height: 1;
   border-bottom: 1px solid #eee;
 }
 
@@ -773,10 +766,6 @@
 
 .markdown-body .editormd-toc-menu .-ul {
   padding-left: 0;
-}
-
-.markdown-body .highlight .-pre, .markdown-body .-pre {
-  line-height: 1.6;
 }
 
 .-hr.editormd-page-break {

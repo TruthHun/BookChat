@@ -245,10 +245,13 @@ const getReaderSetting = () => {
   if (!val) {
     return {
       themeIndex: 0,
-      fontIndex: 0,
+      fontIndex: 0
     }
   }
-  return JSON.parse(val)
+  val = JSON.parse(val)
+  if (val.themeIndex == undefined) val.themeIndex = 0
+  if (val.fontIndex == undefined) val.fontIndex = 0
+  return val
 }
 
 module.exports = {
