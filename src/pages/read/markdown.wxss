@@ -1,7 +1,5 @@
-/*! github-markdown-css | The MIT License (MIT) | Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com) | https://github.com/sindresorhus/github-markdown-css */
-
 .markdown-body {
-  color: #353535;
+  color: #555;
   overflow: auto;
   font-size: 28rpx;
   word-wrap: break-word;
@@ -487,9 +485,9 @@
   height: 24px;
 }
 
-.editormd-preview-container .katex, .editormd-html-preview .katex {
+/* .editormd-preview-container .katex, .editormd-html-preview .katex {
   font-size: 1.4em;
-}
+} */
 
 .editormd-preview-container .sequence-diagram,
 .editormd-preview-container .flowchart, .editormd-html-preview .sequence-diagram,
@@ -504,10 +502,6 @@
 .editormd-html-preview .flowchart .-svg {
   margin: 0 auto;
 }
-
-/*! .-pretty printing styles. Used with .-prettify.js. */
-
-/* SPAN elements with the classes below are added by .-prettyprint. */
 
 .pln {
   color: #000;
@@ -815,6 +809,7 @@
 .editormd-preview-container .-pre, .editormd-html-preview .-pre {
   border: 0 !important;
   background-color: #f6f6f6;
+  line-height: 1.5;
 }
 
 .editormd-preview-container .-blockquote, .editormd-html-preview .-blockquote {

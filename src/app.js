@@ -8,7 +8,7 @@ App({
           updateManager.onUpdateReady(function () {
             wx.showModal({
               title: '升级提示',
-              content: '新版本已经为您准备就绪，是否重启升级应用？',
+              content: '新版本已经为您准备就绪，是否升级应用？',
               success: function (res) {
                 if (res.confirm)  updateManager.applyUpdate()
               }
