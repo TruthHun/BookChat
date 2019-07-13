@@ -1,0 +1,20 @@
+@import '/pages/reg/reg.wxss';
+
+.row-tab {
+  text-align: center;
+}
+
+.row-tab .col {
+  border-bottom: 1px solid #efefef;
+  padding: 30rpx 0;
+}
+
+.row-tab .active {
+  border-bottom: 1px solid #00acff;
+  color: #00acff;
+}
+
+form{
+  padding: 30rpx;
+  width: 100%;box-sizing: border-box;
+}

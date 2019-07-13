@@ -1,6 +1,6 @@
 // api host，最后不要带斜杠。后端程序是BookStack (https://gitee.com/truthhun/BookStack)
-let host = 'https://www.bookstack.cn/bookchat'
-// let host = 'http://localhost:8181/bookchat'
+// let host = 'https://www.bookstack.cn/bookchat'
+let host = 'http://localhost:8181/bookchat'
 
 // 是否是调试模式。如果是生产环境，请设置为false
 const debug = true
@@ -15,6 +15,8 @@ const api = {
   banners: `${host}/api/v1/banners`, 
   register: `${host}/api/v1/register`, 
   login: `${host}/api/v1/login`,
+  wechatLogin: `${host}/api/v1/wechat-login`,
+  wechatLoginBind: `${host}/api/v1/wechat-login-bind`,
   logout: `${host}/api/v1/logout`,
   categories: `${host}/api/v1/book/categories`,
   bookLists: `${host}/api/v1/book/lists`,

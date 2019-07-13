@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/bind/bind",
+    "pages/login/login",
     "pages/index/index",
     "pages/read/read",
     "pages/intro/intro",
     "pages/bookshelf/bookshelf",
-    "pages/login/login",
     "pages/me/me",
     "pages/cate/cate",
     "pages/reg/reg",

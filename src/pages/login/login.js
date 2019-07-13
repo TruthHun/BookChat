@@ -53,7 +53,6 @@ Page({
 
     util.request(config.api.login, e.detail.value, 'POST').then((res) => {
       if (config.debug) console.log(config.api.login, res);
-
       let user = res.data.user
       if (user == undefined || user.uid <= 0 || user.token == '') {
         util.toastError('登录失败：未知错误')
@@ -79,6 +78,44 @@ Page({
     wx.showModal({
       title: '温馨提示',
       content: '目前BookChat小程序暂不支持找回密码的功能，如果忘记了密码，请打开书栈网(https://www.bookstack.cn)将密码找回',
+    })
+  },
+  wechatLogin: function(e) {
+    let that = this
+    getApp().globalData.wechatUser=e.detail
+    wx.login({
+      success(res) {
+        if (config.debug) console.log("微信登录", res)
+        if (res.code) {
+          util.request(config.api.wechatLogin, { code: res.code }, 'POST').then(function (res) {
+            // 登录成功
+            let user = res.data.user
+            if (user == undefined || user.uid <= 0 || user.token == '') {
+              util.toastError('登录失败：未知错误')
+              that.setData({
+                loading: false
+              })
+              return
+            }
+            util.setUser(user)
+            util.toastSuccess('登录成功')
+            setTimeout(function () {
+              util.redirect(decodeURIComponent(that.data.redirect))
+            }, 1500)
+          }).catch(function(e){
+            // 如果是 401，则跳转到信息绑定页面，否则直接提示相关错误信息
+            console.log(e)
+            wx.navigateTo({
+              url: '/pages/bind/bind?redirect='+that.data.redirect+"&code="+res.code,
+            })
+          })
+        } else {
+          util.toastError('登录失败！' + res.errMsg)
+        }
+      },
+      fail: function(e) {
+        util.toastError(e.errMsg)
+      }
     })
   }
 })
