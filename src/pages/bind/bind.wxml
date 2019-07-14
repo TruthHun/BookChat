@@ -1,4 +1,12 @@
 <view wx:if="{{show}}">
+  <view class='row avatar'>
+    <image src='{{avatar}}' />
+  </view>
+  <view class='row'>
+    <view class='nickname font-lv2 color-semi'>
+      {{nickname}}
+    </view>
+  </view>
   <view class="row row-tab font-lv2">
     <view bindtap='changeTab' class='col {{bindNew ? "":"active"}}' data-bind="old">绑定已有账号</view>
     <view bindtap='changeTab' class='col {{bindNew ? "active":""}}' data-bind="new">绑定新账号</view>
@@ -22,7 +30,7 @@
           <view class='row'>
             <view class='col-3'>用户昵称</view>
             <view class='col-9'>
-              <input bindinput='input' value='{{nickname}}' name="nickname" placeholder="请输入昵称" />
+              <input bindinput='input' name="nickname" placeholder="请输入昵称" />
             </view>
           </view>
           <view class='row'>

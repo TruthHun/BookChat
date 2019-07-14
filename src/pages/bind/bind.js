@@ -26,6 +26,7 @@ Page({
       redirect: options.redirect || encodeURIComponent('/pages/me/me'),
       code: options.code || '',
       nickname: user.userInfo.nickName || '',
+      avatar: user.userInfo.avatarUrl || '/assets/images/logo.png',
       show: true,
     })
     wx.setNavigationBarTitle({

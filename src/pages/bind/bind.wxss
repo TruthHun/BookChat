@@ -14,7 +14,25 @@
   color: #00acff;
 }
 
-form{
+form {
   padding: 30rpx;
-  width: 100%;box-sizing: border-box;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.avatar image {
+  width: 160rpx;
+  height: 160rpx;
+  margin: 30rpx auto;
+  display: block;
+  border: 1px solid #efefef;
+  border-radius: 50%;
+  padding: 5rpx;
+  box-sizing: border-box;
+}
+
+.nickname {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 60rpx;
 }
