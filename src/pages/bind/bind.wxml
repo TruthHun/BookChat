@@ -1,59 +1,61 @@
-<view class="row row-tab font-lv2">
-  <view bindtap='changeTab' class='col {{bindNew ? "":"active"}}' data-bind="old">绑定已有账号</view>
-  <view bindtap='changeTab' class='col {{bindNew ? "active":""}}' data-bind="new">绑定新账号</view>
-</view>
-<view class='row row-form'>
-  <form bindsubmit='formSubmit'>
-    <view class='form-body'>
-      <block wx:if="{{bindNew}}">
-        <view class='row'>
-          <view class='col-3'>邮箱</view>
-          <view class='col-9'>
-            <input bindinput='input' name="email" placeholder="请输入邮箱地址" />
+<view wx:if="{{show}}">
+  <view class="row row-tab font-lv2">
+    <view bindtap='changeTab' class='col {{bindNew ? "":"active"}}' data-bind="old">绑定已有账号</view>
+    <view bindtap='changeTab' class='col {{bindNew ? "active":""}}' data-bind="new">绑定新账号</view>
+  </view>
+  <view class='row row-form'>
+    <form bindsubmit='formSubmit'>
+      <view class='form-body'>
+        <block wx:if="{{bindNew}}">
+          <view class='row'>
+            <view class='col-3'>邮箱</view>
+            <view class='col-9'>
+              <input bindinput='input' name="email" placeholder="请输入邮箱地址" />
+            </view>
           </view>
-        </view>
-        <view class='row'>
-          <view class='col-3'>用户名</view>
-          <view class='col-9'>
-            <input bindinput='input' name="username" placeholder="请输入用户名" />
+          <view class='row'>
+            <view class='col-3'>用户名</view>
+            <view class='col-9'>
+              <input bindinput='input' name="username" placeholder="由字母和数字组成" />
+            </view>
           </view>
-        </view>
-        <view class='row'>
-          <view class='col-3'>用户昵称</view>
-          <view class='col-9'>
-            <input bindinput='input' name="nickname" placeholder="请输入昵称" />
+          <view class='row'>
+            <view class='col-3'>用户昵称</view>
+            <view class='col-9'>
+              <input bindinput='input' value='{{nickname}}' name="nickname" placeholder="请输入昵称" />
+            </view>
           </view>
-        </view>
-        <view class='row'>
-          <view class='col-3'>登录密码</view>
-          <view class='col-9'>
-            <input password bindinput='input' name="password" placeholder="请输入密码" />
+          <view class='row'>
+            <view class='col-3'>登录密码</view>
+            <view class='col-9'>
+              <input password bindinput='input' name="password" placeholder="请输入密码，至少6位" />
+            </view>
           </view>
-        </view>
-        <view class='row'>
-          <view class='col-3'>确认密码</view>
-          <view class='col-9'>
-            <input password bindinput='input' name="re_password" placeholder="请再次输入密码" />
+          <view class='row'>
+            <view class='col-3'>确认密码</view>
+            <view class='col-9'>
+              <input password bindinput='input' name="re_password" placeholder="请再次输入密码，至少6位" />
+            </view>
           </view>
-        </view>
-      </block>
-      <block wx:else>
-        <view class='row'>
-          <view class='col-3'>账号</view>
-          <view class='col-9'>
-            <input name="username" placeholder="请输入用户名或邮箱" />
+        </block>
+        <block wx:else>
+          <view class='row'>
+            <view class='col-3'>账号</view>
+            <view class='col-9'>
+              <input name="username" placeholder="请输入用户名或邮箱" />
+            </view>
           </view>
-        </view>
-        <view class='row'>
-          <view class='col-3'>密码</view>
-          <view class='col-9'>
-            <input password name="password" placeholder="请输入密码" />
+          <view class='row'>
+            <view class='col-3'>密码</view>
+            <view class='col-9'>
+              <input password name="password" placeholder="请输入密码" />
+            </view>
           </view>
-        </view>
-      </block>
-    </view>
-    <view class='row'>
-      <button class='btn-submit btn-block' loading='{{loading}}' form-type='submit'> 提交绑定 </button>
-    </view>
-  </form>
+        </block>
+      </view>
+      <view class='row'>
+        <button class='btn-submit btn-block' loading='{{loading}}' form-type='submit'> 提交绑定 </button>
+      </view>
+    </form>
+  </view>
 </view>

@@ -104,10 +104,13 @@ Page({
             }, 1500)
           }).catch(function(e){
             // 如果是 401，则跳转到信息绑定页面，否则直接提示相关错误信息
-            console.log(e)
-            wx.navigateTo({
-              url: '/pages/bind/bind?redirect='+that.data.redirect+"&code="+res.code,
-            })
+            if(e.statusCode==401){
+              wx.navigateTo({
+                url: '/pages/bind/bind?redirect=' + that.data.redirect + "&code=" + res.code,
+              })
+            }else{
+              util.toastError(e.errMsg)
+            }
           })
         } else {
           util.toastError('登录失败！' + res.errMsg)

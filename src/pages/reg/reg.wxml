@@ -9,7 +9,7 @@
     <view class='row'>
       <view class='col-3'>用户名</view>
       <view class='col-9'>
-        <input bindinput='input' value='{{username}}' data-name="username" placeholder="请输入用户名" />
+        <input bindinput='input' value='{{username}}' data-name="username" placeholder="有字母和数字组成" />
       </view>
     </view>
     <view class='row'>
@@ -21,13 +21,13 @@
     <view class='row'>
       <view class='col-3'>登录密码</view>
       <view class='col-9'>
-        <input password bindinput='input' value='{{password}}' data-name="password" placeholder="请输入密码" />
+        <input password bindinput='input' value='{{password}}' data-name="password" placeholder="请输入密码，至少6位" />
       </view>
     </view>
     <view class='row'>
       <view class='col-3'>确认密码</view>
       <view class='col-9'>
-        <input password bindinput='input' value='{{re_password}}' data-name="re_password" placeholder="请再次输入密码" />
+        <input password bindinput='input' value='{{re_password}}' data-name="re_password" placeholder="请再次输入密码，至少6位" />
       </view>
     </view>
   </view>
