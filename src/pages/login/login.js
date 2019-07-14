@@ -82,13 +82,16 @@ Page({
   },
   wechatLogin: function(e) {
     let that = this
-    getApp().globalData.wechatUser=e.detail
+    let weUser = e.detail
     wx.login({
       success(res) {
-        if (config.debug) console.log("微信登录", res)
+        if (config.debug) console.log("微信登录", res, weUser)
         if (res.code) {
-          util.request(config.api.wechatLogin, { code: res.code }, 'POST').then(function (res) {
-            // 登录成功
+          util.request(config.api.loginByWechat, {
+            code: res.code,
+            iv: weUser.iv,
+            encryptedData: weUser.encryptedData,
+          }, 'POST').then(function (res) {            // 登录成功
             let user = res.data.user
             if (user == undefined || user.uid <= 0 || user.token == '') {
               util.toastError('登录失败：未知错误')
@@ -99,17 +102,18 @@ Page({
             }
             util.setUser(user)
             util.toastSuccess('登录成功')
-            setTimeout(function () {
+            setTimeout(function() {
               util.redirect(decodeURIComponent(that.data.redirect))
             }, 1500)
-          }).catch(function(e){
+          }).catch(function(e) {
             // 如果是 401，则跳转到信息绑定页面，否则直接提示相关错误信息
-            if(e.statusCode==401){
+            if (e.statusCode == 401) {
+              getApp().globalData.wechatUser = weUser
               wx.navigateTo({
-                url: '/pages/bind/bind?redirect=' + that.data.redirect + "&code=" + res.code,
+                url: '/pages/bind/bind?redirect=' + that.data.redirect + "&sess=" +e.data.data.sess,
               })
-            }else{
-              util.toastError(e.errMsg)
+            } else {
+              util.toastError(e.data.data.message || e.errMsg)
             }
           })
         } else {

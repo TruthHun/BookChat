@@ -6,7 +6,7 @@ Page({
     bindNew: false,
     loading: false,
     redirect: '',
-    code: '',
+    sess: '',
     nickname: '',
     show: false,
   },
@@ -24,7 +24,7 @@ Page({
 
     this.setData({
       redirect: options.redirect || encodeURIComponent('/pages/me/me'),
-      code: options.code || '',
+      sess: options.sess || '',
       nickname: user.userInfo.nickName || '',
       avatar: user.userInfo.avatarUrl || '/assets/images/logo.png',
       show: true,
@@ -52,13 +52,11 @@ Page({
     let that = this
     let user = getApp().globalData.wechatUser
     let form = e.detail.value
-    form.iv = user.iv
-    form.encryptedData = user.encryptedData
-    form.code = that.data.code
+    form.sess = that.data.sess
 
     if (config.debug) console.log("form data", form);
 
-    util.request(config.api.wechatLoginBind, form, 'POST').then(function(res) {
+    util.request(config.api.loginBindWechat, form, 'POST').then(function(res) {
       if (config.debug) console.log(config.api.wechatLoginBind, res)
     }).catch(function(e) {
       util.toastError(e.data.message || e.errMsg)
