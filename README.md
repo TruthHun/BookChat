@@ -2,7 +2,9 @@
 
 # BookChat - 通用的书籍阅读微信小程序
 
+
 ![](screenshot/logo.png)
+
 
 ## BookChat 介绍
 
