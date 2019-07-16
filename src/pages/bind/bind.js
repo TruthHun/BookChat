@@ -24,7 +24,7 @@ Page({
 
     this.setData({
       redirect: options.redirect || encodeURIComponent('/pages/me/me'),
-      sess: options.sess || '',
+      sess: decodeURIComponent(options.sess) || '',
       nickname: user.userInfo.nickName || '',
       avatar: user.userInfo.avatarUrl || '/assets/images/logo.png',
       show: true,
@@ -43,29 +43,22 @@ Page({
   },
   formSubmit: function(e) {
     if (config.debug) console.log("formSubmit", e);
-
     if (this.data.loading) return;
     this.setData({
       loading: true
     })
-
     let that = this
     let user = getApp().globalData.wechatUser
     let form = e.detail.value
     form.sess = that.data.sess
-
     if (config.debug) console.log("form data", form);
-
     util.request(config.api.loginBindWechat, form, 'POST').then(function(res) {
       if (config.debug) console.log(config.api.wechatLoginBind, res)
     }).catch(function(e) {
       util.toastError(e.data.message || e.errMsg)
     })
-
     that.setData({
       loading: false
     })
-
-
   },
 })

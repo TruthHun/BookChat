@@ -25,10 +25,7 @@
       <button class='btn-submit btn-block' loading='{{loading}}' form-type='submit'> 马上登录 </button>
     </view>
     <view class='row'>
-      <button bindgetuserinfo='wechatLogin' open-type="getUserInfo" class='btn-auth btn-block'> 使用微信授权登录 </button>
-    </view>
-    <view class='row'>
-      <button class='btn-block btn-reg' bindtap='toRegister'> 立即注册 </button>
+      <button bindgetuserinfo='wechatLogin' loading='{{loadingWechat}}' open-type="getUserInfo" class='btn-auth btn-block'> 使用微信授权登录 </button>
     </view>
   </form>
 </view>

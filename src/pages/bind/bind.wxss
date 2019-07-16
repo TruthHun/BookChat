@@ -1,4 +1,4 @@
-@import '/pages/reg/reg.wxss';
+@import '/pages/login/login.wxss';
 
 .row-tab {
   text-align: center;

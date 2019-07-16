@@ -4,6 +4,7 @@ const config = require('../../config.js')
 Page({
   data: {
     loading: false,
+    loadingWechat: false,
     about: config.about,
     redirect: encodeURIComponent('/pages/me/me'),
   },
@@ -24,33 +25,17 @@ Page({
     }
     return
   },
-  wechatLogin: function() {
-    wx.showModal({
-      title: '温馨提示',
-      content: 'BookChat暂未开通微信授权登录，敬请期待',
-    })
-  },
-  toRegister: function() {
-    wx.navigateTo({
-      url: '/pages/reg/reg?redirect=' + this.data.redirect,
-    })
-  },
   formSubmit: function(e) {
     if (config.debug) console.log("formSubmit", e);
-
     if (this.data.loading) return;
-
     if (e.detail.value.password == '' || e.detail.value.username == '') {
       util.toastError('账号和密码均不能为空')
       return
     }
-
     this.setData({
       loading: true
     })
-
     let that = this
-
     util.request(config.api.login, e.detail.value, 'POST').then((res) => {
       if (config.debug) console.log(config.api.login, res);
       let user = res.data.user
@@ -83,20 +68,23 @@ Page({
   wechatLogin: function(e) {
     let that = this
     let weUser = e.detail
+
+    if (that.data.loadingWechat) return
+    that.setData({loadingWechat: true})
+    
     wx.login({
       success(res) {
         if (config.debug) console.log("微信登录", res, weUser)
         if (res.code) {
           util.request(config.api.loginByWechat, {
             code: res.code,
-            iv: weUser.iv,
-            encryptedData: weUser.encryptedData,
-          }, 'POST').then(function (res) {            // 登录成功
+            userInfo: weUser.rawData,
+          }, 'POST').then(function(res) { // 登录成功
             let user = res.data.user
             if (user == undefined || user.uid <= 0 || user.token == '') {
               util.toastError('登录失败：未知错误')
               that.setData({
-                loading: false
+                loadingWechat: false
               })
               return
             }
@@ -105,16 +93,19 @@ Page({
             setTimeout(function() {
               util.redirect(decodeURIComponent(that.data.redirect))
             }, 1500)
-          }).catch(function(e) {
-            // 如果是 401，则跳转到信息绑定页面，否则直接提示相关错误信息
+          }).catch(function(e) { // 如果是 401，则跳转到信息绑定页面，否则直接提示相关错误信息
+            if (config.debug) console.log(e)
             if (e.statusCode == 401) {
               getApp().globalData.wechatUser = weUser
               wx.navigateTo({
-                url: '/pages/bind/bind?redirect=' + that.data.redirect + "&sess=" +e.data.data.sess,
+                url: '/pages/bind/bind?redirect=' + that.data.redirect + "&sess=" + encodeURIComponent(e.data.data.sess),
               })
             } else {
-              util.toastError(e.data.data.message || e.errMsg)
+              util.toastError(e.data.message || e.errMsg)
             }
+            that.setData({
+              loadingWechat: false
+            })
           })
         } else {
           util.toastError('登录失败！' + res.errMsg)
