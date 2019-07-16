@@ -14,7 +14,6 @@ swiper-item {
 }
 
 
-
 .recommend .panel-body {
   display: flex;
   word-break: break-all;
