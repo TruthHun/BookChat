@@ -54,11 +54,21 @@ Page({
     if (config.debug) console.log("form data", form);
     util.request(config.api.loginBindWechat, form, 'POST').then(function(res) {
       if (config.debug) console.log(config.api.wechatLoginBind, res)
+      if (res.data && res.data.user){
+        util.setUser(res.data.user)
+        util.toastSuccess('登录成功')
+        setTimeout(function () {
+          util.redirect(decodeURIComponent(that.data.redirect))
+        }, 1500)
+      }else{
+        util.toastError('数据解析不正确')
+      }
     }).catch(function(e) {
       util.toastError(e.data.message || e.errMsg)
-    })
-    that.setData({
-      loading: false
+    }).finally(function(){
+      that.setData({
+        loading: false
+      })
     })
   },
 })
