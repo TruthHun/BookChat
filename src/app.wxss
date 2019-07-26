@@ -24,6 +24,28 @@
   font-size: 20rpx !important;
 }
 
+@media (min-width:500px) {
+  .font-lv1 {
+    font-size: 30rpx !important;
+  }
+
+  .font-lv2 {
+    font-size: 26rpx !important;
+  }
+
+  .font-lv3 {
+    font-size: 22rpx !important;
+  }
+
+  .font-lv4 {
+    font-size: 18rpx !important;
+  }
+
+  .font-lv5 {
+    font-size: 14rpx !important;
+  }
+}
+
 /*  margin   */
 
 .mgt-15rpx {

@@ -45,7 +45,7 @@
 
   <view class='intro font-lv3 color-grey'>
     <text>{{book.description}}</text>
-    <view wx:if="{{book.author.length>0}}" class='ellipsis-1row'>来源: {{book.author}} - {{book.author_url}}</view>
+    <view wx:if="{{book.author.length>0}}" class='ellipsis-1row font-lv4'>来源: {{book.author}} - {{book.author_url}}</view>
   </view>
   <navigator url='/pages/menu/menu?identify={{book.book_id}}' class='menu row'>
     <view class='col font-lv3'>查看目录</view>

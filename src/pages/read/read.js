@@ -40,6 +40,13 @@ Page({
       return
     }
 
+    if (wx.getSystemInfoSync().windowWidth > 500) {
+      let fontIndexs = ['26rpx', '28rpx', '30rpx', '32rpx', '34rpx', '36rpx', '38rpx']
+      that.setData({
+        fontIndexs: fontIndexs,
+      })
+    }
+
     that.initReaderSetting()
 
     util.loading()

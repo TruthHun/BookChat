@@ -1,14 +1,14 @@
 {
   "pages": [
-    "pages/me/me",
-    "pages/read/read",
+    "pages/intro/intro",
     "pages/index/index",
+    "pages/menu/menu",
+    "pages/read/read",
+    "pages/me/me",
     "pages/bind/bind",
     "pages/login/login",
-    "pages/intro/intro",
     "pages/bookshelf/bookshelf",
     "pages/cate/cate",
-    "pages/menu/menu",
     "pages/search/search",
     "pages/ucenter/ucenter",
     "pages/list/list",
