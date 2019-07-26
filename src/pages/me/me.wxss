@@ -45,6 +45,7 @@ page{
   padding-bottom: 30rpx;
   padding-top: 30rpx;
   color: #666;
+  font-size: 34rpx;
 }
 
 .base-info .col-12:last-of-type{

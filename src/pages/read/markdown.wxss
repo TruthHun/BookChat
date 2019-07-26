@@ -1,7 +1,6 @@
 .markdown-body {
   color: #555;
   overflow: auto;
-  font-size: 28rpx;
   word-wrap: break-word;
   -webkit-overflow-scrolling: touch;
 }
@@ -252,7 +251,7 @@
 .markdown-body .highlight .-pre, .markdown-body .-pre {
   padding: 16px;
   overflow: auto;
-  font-size: 85%;
+  /* font-size: 85%; */
   background-color: #f7f7f7;
   border-radius: 3px;
 }
@@ -285,7 +284,7 @@
 .markdown-body .-kbd {
   display: inline-block;
   padding: 3px 5px;
-  font-size: 11px;
+  /* font-size: 11px; */
   color: #555;
   vertical-align: middle;
   background-color: #fcfcfc;
@@ -388,7 +387,6 @@
 .markdown-body .-kbd {
   display: inline-block;
   padding: 3px 5px;
-  font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
   color: #555;
   vertical-align: middle;
   background-color: #fcfcfc;
@@ -408,7 +406,6 @@
 
 .editormd-preview-container, .editormd-html-preview {
   text-align: left;
-  font-size: 14px;
   padding: 20px;
   overflow: auto;
   width: 100%;
@@ -421,7 +418,7 @@
   border-left: 4px solid #ddd;
   padding-left: 20px;
   margin-left: 0;
-  font-size: 14px;
+  /* font-size: 14px; */
 }
 
 .editormd-preview-container .-p .-code, .editormd-html-preview .-p .-code {
@@ -445,7 +442,7 @@
   background: #f6f6f6;
   padding: 3px;
   border-radius: 3px;
-  font-size: 14px;
+  /* font-size: 14px; */
 }
 
 .editormd-preview-container .-pre, .editormd-html-preview .-pre {
@@ -484,10 +481,6 @@
   width: 24px;
   height: 24px;
 }
-
-/* .editormd-preview-container .katex, .editormd-html-preview .katex {
-  font-size: 1.4em;
-} */
 
 .editormd-preview-container .sequence-diagram,
 .editormd-preview-container .flowchart, .editormd-html-preview .sequence-diagram,
@@ -599,7 +592,7 @@
 
 .editormd-preview-container .-ol.linenums, .editormd-html-preview .-ol.linenums {
   color: #999;
-  padding-left: 2.5em;
+  padding-left: 2.2em;
 }
 
 .editormd-preview-container .-ol.linenums li,
@@ -612,189 +605,6 @@
   border: none;
   background: none;
   padding: 0;
-}
-
-.editormd-preview-container .editormd-toc-menu,
-.editormd-html-preview .editormd-toc-menu {
-  margin: 8px 0 12px 0;
-  display: inline-block;
-}
-
-.editormd-preview-container .editormd-toc-menu > .markdown-toc,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc {
-  position: relative;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  display: inline-block;
-  font-size: 1em;
-}
-
-.editormd-preview-container .editormd-toc-menu > .markdown-toc > .-ul,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc > .-ul {
-  width: 160%;
-  min-width: 180px;
-  position: absolute;
-  left: -1px;
-  top: -2px;
-  z-index: 100;
-  padding: 0 10px 10px;
-  display: none;
-  background: #fff;
-  border: 1px solid #ddd;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.editormd-preview-container .editormd-toc-menu > .markdown-toc > .-ul > li .-ul,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc > .-ul > li .-ul {
-  width: 100%;
-  min-width: 180px;
-  border: 1px solid #ddd;
-  display: none;
-  background: #fff;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-}
-
-.editormd-preview-container .editormd-toc-menu > .markdown-toc > .-ul > .-li .-a,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc > .-ul > .-li .-a {
-  color: #666;
-  padding: 6px 10px;
-  display: block;
-  -webkit-transition: background-color 500ms ease-out;
-  transition: background-color 500ms ease-out;
-}
-
-.editormd-preview-container .editormd-toc-menu > .markdown-toc .-li,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc .-li {
-  position: relative;
-}
-
-.editormd-preview-container .editormd-toc-menu > .markdown-toc .-li > .-ul,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc .-li > .-ul {
-  position: absolute;
-  top: 32px;
-  left: 10%;
-  display: none;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-}
-
-.editormd-preview-container .editormd-toc-menu > .markdown-toc li > .-ul:before,
-.editormd-preview-container .editormd-toc-menu > .markdown-toc li > .-ul:after,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc li > .-ul:before,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc li > .-ul:after {
-  pointer-events: pointer-events;
-  position: absolute;
-  left: 15px;
-  top: -6px;
-  display: block;
-  content: "";
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-width: 0 6px 6px;
-  z-index: 10;
-}
-
-.editormd-preview-container .editormd-toc-menu > .markdown-toc .-li > .-ul:before,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc .-li > .-ul:before {
-  border-bottom-color: #ccc;
-}
-
-.editormd-preview-container .editormd-toc-menu > .markdown-toc .-li > .-ul:after,
-.editormd-html-preview .editormd-toc-menu > .markdown-toc .-li > .-ul:after {
-  border-bottom-color: #fff;
-  top: -5px;
-}
-
-.editormd-preview-container .editormd-toc-menu .-ul,
-.editormd-html-preview .editormd-toc-menu .-ul {
-  list-style: none;
-}
-
-.editormd-preview-container .editormd-toc-menu .-a,
-.editormd-html-preview .editormd-toc-menu .-a {
-  text-decoration: none;
-}
-
-.editormd-preview-container .editormd-toc-menu .-h1,
-.editormd-html-preview .editormd-toc-menu .-h1 {
-  font-size: 16px;
-  padding: 5px 0 10px 10px;
-  border-bottom: 1px solid #eee;
-}
-
-.editormd-preview-container .editormd-toc-menu .toc-menu-btn,
-.editormd-html-preview .editormd-toc-menu .toc-menu-btn {
-  color: #666;
-  min-width: 180px;
-  padding: 5px 10px;
-  border-radius: 4px;
-  display: inline-block;
-  transition: background-color 500ms ease-out;
-}
-
-.editormd-preview-container .editormd-toc-menu .toc-menu-btn:hover,
-.editormd-html-preview .editormd-toc-menu .toc-menu-btn:hover {
-  background-color: #f6f6f6;
-}
-
-.editormd-preview-container .editormd-toc-menu .toc-menu-btn .fa,
-.editormd-html-preview .editormd-toc-menu .toc-menu-btn .fa {
-  float: right;
-  padding: 3px 0 0 10px;
-  font-size: 1.3em;
-}
-
-.markdown-body .editormd-toc-menu .-ul {
-  padding-left: 0;
-}
-
-.-hr.editormd-page-break {
-  border: 1px dotted #ccc;
-  font-size: 0;
-  height: 2px;
-}
-
-.editormd-html-preview .-hr.editormd-page-break {
-  background: none;
-  border: none;
-  height: 0;
-}
-
-.editormd-preview-close-btn {
-  color: #fff;
-  padding: 4px 6px;
-  font-size: 18px;
-  -webkit-border-radius: 500px;
-  -moz-border-radius: 500px;
-  -ms-border-radius: 500px;
-  -o-border-radius: 500px;
-  border-radius: 500px;
-  display: none;
-  background-color: #ccc;
-  position: absolute;
-  top: 25px;
-  right: 35px;
-  z-index: 19;
-  transition: background-color 300ms ease-out;
-}
-
-.editormd-preview-active {
-  width: 100%;
-  padding: 40px;
 }
 
 .editormd-preview-container .-code, .editormd-html-preview .-code {
@@ -810,13 +620,15 @@
   border: 0 !important;
   background-color: #f6f6f6;
   line-height: 1.5;
+  font-size: 0.9em;
 }
 
 .editormd-preview-container .-blockquote, .editormd-html-preview .-blockquote {
   color: #999 !important;
   font-style: normal !important;
   border-left: 4px solid #d6dbdf;
-  font-size: 14px;
+  /* font-size: 14px; */
+  font-size: 0.9em;
   background: none repeat scroll 0 0 rgba(102, 128, 153, 0.05);
   margin: 8px 0;
   padding: 8px;

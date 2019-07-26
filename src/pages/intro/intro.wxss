@@ -102,7 +102,7 @@ page {
 .intro .ellipsis-1row {
   word-break: break-all;
   padding-top: 10rpx;
-  font-size: 13px;
+  font-size: 26rpx;
   margin-bottom: -10rpx;
   color: #aaa;
 }

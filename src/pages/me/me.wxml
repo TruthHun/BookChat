@@ -8,7 +8,7 @@
 <view class='base-padding row base-info'>
   <navigator url='/pages/search/search' class='col-12'>
     <image src='../../assets/images/search.png'></image>
-    书籍搜索
+    <text>书籍搜索</text>
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
   </navigator>
 </view>
