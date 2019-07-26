@@ -23,25 +23,25 @@ page {
   box-shadow: 0rpx 0rpx 10rpx #efefef;
   border-top: 1px solid #efefef;
   position: fixed;
-  height: 90rpx;
+  height: 50px;
+  line-height: 50px;
   bottom: 0px;
   width: 100%;
   text-align: center;
   z-index: 100;
   box-sizing: border-box;
-  line-height: 90rpx;
   background-color: #fff;
   transition: bottom 0.2s;
 }
 
 .footer.hide {
-  bottom: -100rpx;
+  bottom: -60px;
 }
 
 .footer image {
-  margin-top: 20rpx;
-  width: 50rpx;
-  height: 50rpx;
+  margin-top: 13px;
+  width: 25px;
+  height: 25px;
 }
 
 /* 抽屉 */
@@ -87,25 +87,25 @@ page {
 .more-setting {
   position: absolute;
   width: 100%;
-  bottom: 120rpx;
+  bottom: 70px;
 }
 
 .setting-tips {
-  padding: 15rpx 15rpx;
+  padding: 8px 8px;
 }
 
 .setting-item {
   text-align: center;
-  font-size: 32rpx;
-  line-height: 32rpx;
+  font-size: 16px;
+  line-height: 16px;
   border: 1rpx solid #efefef;
   border-left: 0;
   border-right: 0;
-  margin-bottom: 45rpx;
+  margin-bottom: 22px;
 }
 
 .more-setting .col {
-  padding: 30rpx 0;
+  padding: 15px 0;
 }
 
 .setting-btn {
@@ -127,8 +127,8 @@ page {
 }
 
 .more-setting image {
-  width: 32rpx;
-  height: 32rpx;
+  width: 16px;
+  height: 16px;
 }
 
 slider {

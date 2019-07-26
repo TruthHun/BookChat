@@ -41,7 +41,7 @@ Page({
     }
 
     if (wx.getSystemInfoSync().windowWidth > 500) {
-      let fontIndexs = ['26rpx', '28rpx', '30rpx', '32rpx', '34rpx', '36rpx', '38rpx']
+      let fontIndexs = ['24rpx', '26rpx', '28rpx', '30rpx', '32rpx', '34rpx', '36rpx']
       that.setData({
         fontIndexs: fontIndexs,
       })
