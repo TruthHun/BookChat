@@ -23,8 +23,8 @@ page {
   box-shadow: 0rpx 0rpx 10rpx #efefef;
   border-top: 1px solid #efefef;
   position: fixed;
-  height: 50px;
-  line-height: 50px;
+  height: 48px;
+  line-height: 48px;
   bottom: 0px;
   width: 100%;
   text-align: center;
@@ -39,7 +39,7 @@ page {
 }
 
 .footer image {
-  margin-top: 13px;
+  margin-top: 11px;
   width: 25px;
   height: 25px;
 }

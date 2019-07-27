@@ -156,7 +156,7 @@ page {
   text-align: center;
   background-color: #fff;
   box-shadow: 0rpx 0rpx 10rpx #ddd;
-  height: 50px;
+  height: 48px;
 }
 
 .fix-bottom .read {

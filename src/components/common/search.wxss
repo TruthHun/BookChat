@@ -1,4 +1,3 @@
-
 form.search {
   margin-top: 30rpx;
   position: relative;
@@ -8,7 +7,7 @@ form.search {
 form.search input {
   box-sizing: border-box;
   width: 100%;
-  background-color:#f8f8f8;
+  background-color: #f8f8f8;
   line-height: 90rpx;
   height: 90rpx;
   display: block;
@@ -18,6 +17,7 @@ form.search input {
   padding: 0 130rpx 0 26rpx;
 }
 
+
 form.search image {
   position: absolute;
   top: 0rpx;
@@ -25,9 +25,24 @@ form.search image {
   box-sizing: border-box;
   height: 90rpx;
   width: 90rpx;
-  padding: 20rpx;z-index: 99
+  padding: 20rpx;
+  z-index: 99;
 }
 
 form.search image.clear {
-  right:60rpx;z-index: 88
+  right: 60rpx;
+  z-index: 88;
+}
+
+
+@media (min-width:500px) {
+  form.search input {
+    line-height: 70rpx;
+    height: 70rpx;
+  }
+
+  form.search image {
+    height: 70rpx;
+    width: 70rpx;
+  }
 }
