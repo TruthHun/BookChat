@@ -13,8 +13,8 @@
                 <image wx:else class='img-responsive' src='../../assets/images/cate-default.png'></image>
               </view>
               <view class='col-8'>
-                <view class='ellipsis-1row'>{{child.title}}</view>
-                <view class='text-muted'>{{child.cnt}} 本</view>
+                <view class='ellipsis-1row font-lv2'>{{child.title}}</view>
+                <view class='text-muted font-lv3'>{{child.cnt}} 本</view>
               </view>
             </view>
           </navigator>

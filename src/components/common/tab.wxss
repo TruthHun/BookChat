@@ -2,23 +2,22 @@
 @import '../../app.wxss';
 
 .tab {
-  border-bottom: 1px solid #ddd;
-  line-height: 250%;
-  margin-top: 15rpx;
+  border-bottom: 1rpx solid #ddd;
   box-sizing: border-box;
   padding: 0 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
 }
 
 .tab .col {
   text-align: center;
+  height: 80rpx;
 }
 
 .tab .active {
   color: #00acff;
-  border: 1px solid #ddd;
+  border: 1rpx solid #ddd;
   border-bottom: 0rpx;
-  padding-bottom: 2rpx;
-  margin-bottom: -2rpx;
   background-color: #fff;
   border-top-left-radius: 6rpx;
   border-top-right-radius: 6rpx;
@@ -32,6 +31,24 @@
 .tab image {
   width: 50rpx;
   height: 50rpx;
-  top: 10rpx;
+  top: 15rpx;
   position: relative;
+}
+
+@media (min-width:700px) {
+  .tab {
+    height: 70rpx;
+    line-height: 70rpx;
+  }
+
+  .tab .col {
+    height: 70rpx;
+  }
+
+  .tab image {
+    width: 50rpx;
+    height: 50rpx;
+    top: 10rpx;
+    position: relative;
+  }
 }
