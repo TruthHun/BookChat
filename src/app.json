@@ -17,7 +17,7 @@
     "pages/notfound/notfound"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "BookChat",
     "navigationBarTextStyle": "black"
