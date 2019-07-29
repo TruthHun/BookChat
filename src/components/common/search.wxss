@@ -35,7 +35,7 @@ form.search image.clear {
 }
 
 
-@media (min-width:500px) {
+@media (min-width:700px) {
   form.search input {
     line-height: 70rpx;
     height: 70rpx;

@@ -24,7 +24,7 @@
   font-size: 20rpx !important;
 }
 
-@media (min-width:500px) {
+@media (min-width:700px) {
   .font-lv1 {
     font-size: 30rpx !important;
   }
@@ -262,6 +262,17 @@ navigator:hover, navigator:active {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* 适配平板 */
+@media (min-width:700px) {
+  .ellipsis-2row {
+    -webkit-line-clamp: 3;
+  }
+
+  .ellipsis-3row {
+    -webkit-line-clamp: 4;
+  }
 }
 
 .ellipsis-3row {

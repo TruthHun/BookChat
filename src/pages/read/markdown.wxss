@@ -97,57 +97,6 @@
 .markdown-body .-h6, .markdown-body .-strong {
   font-size: 1.1em !important;
 }
-
-/* .markdown-body .-h1, .markdown-body .-strong {
-  font-size: 50rpx !important;
-}
-
-.markdown-body .-h2, .markdown-body .-strong {
-  font-size: 46rpx !important;
-}
-
-.markdown-body .-h3, .markdown-body .-strong {
-  font-size: 42rpx !important;
-}
-
-.markdown-body .-h4, .markdown-body .-strong {
-  font-size: 38rpx !important;
-}
-
-.markdown-body .-h5, .markdown-body .-strong {
-  font-size: 34rpx !important;
-}
-
-.markdown-body .-h6, .markdown-body .-strong {
-  font-size: 30rpx !important;
-} */
-
-/* @media (min-width: 500px) {
-  .markdown-body .-h1, .markdown-body .-strong {
-    font-size: 38rpx !important;
-  }
-
-  .markdown-body .-h2, .markdown-body .-strong {
-    font-size: 35rpx !important;
-  }
-
-  .markdown-body .-h3, .markdown-body .-strong {
-    font-size: 31rpx !important;
-  }
-
-  .markdown-body .-h4, .markdown-body .-strong {
-    font-size: 28rpx !important;
-  }
-
-  .markdown-body .-h5, .markdown-body .-strong {
-    font-size: 26rpx !important;
-  }
-
-  .markdown-body .-h6, .markdown-body .-strong {
-    font-size: 26rpx !important;
-  }
-} */
-
 .markdown-body .-blockquote {
   margin: 0;
 }
