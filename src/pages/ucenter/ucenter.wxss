@@ -9,7 +9,7 @@
 }
 
 .username {
-  margin: 30rpx auto;
+  margin: 15rpx auto;
 }
 
 .user image {

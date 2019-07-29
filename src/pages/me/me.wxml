@@ -1,7 +1,7 @@
 <view class='base-padding row' bindtap='userLoginEvent'>
   <view class='user'>
     <image src='{{user.avatar}}'></image>
-    <view class='username'>{{user.nickname}}</view>
+    <view class='username font-lv2'>{{user.nickname}}</view>
     <view class='color-grey font-lv3'>{{user.intro}}</view>
   </view>
 </view>

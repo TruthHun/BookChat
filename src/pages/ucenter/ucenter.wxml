@@ -2,11 +2,11 @@
 
 <view class='base-padding row user'>
   <image src='{{user.avatar}}'></image>
-  <view class='username'>{{user.nickname}}</view>
+  <view class='username font-lv2'>{{user.nickname}}</view>
   <view class='color-grey font-lv3'>{{user.intro}}</view>
 </view>
 
-<view class='pdb-30rpx'>
+<view class='pdb-30rpx pdt-30rpx'>
   <tab tabs="{{tabs}}" active="{{tabValue}}" bindclick="tabClick" gridLen="10"/>
 </view>
 
