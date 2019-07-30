@@ -1,3 +1,4 @@
+<header title="{{title}}"/>
 <view class='base-padding row' bindtap='userLoginEvent'>
   <view class='user'>
     <image src='{{user.avatar}}'></image>

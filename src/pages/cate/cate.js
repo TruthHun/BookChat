@@ -7,6 +7,7 @@ const app = getApp()
 Page({
   data: {
     categories: [],
+    title:'分类',
   },
   onLoad: function() {
     util.loading()

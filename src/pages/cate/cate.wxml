@@ -1,3 +1,4 @@
+<header title="{{title}}"/>
 <view class='base-padding'>
   <block wx:for="{{categories}}" wx:key='index' wx:for-item="category">
     <view class='panel' wx:if="{{category.cnt >0 && category.status}}">

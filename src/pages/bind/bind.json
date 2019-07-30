@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "header": "/components/common/header/header"
+  }
 }      

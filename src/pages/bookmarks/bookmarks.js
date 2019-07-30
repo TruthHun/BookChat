@@ -3,7 +3,8 @@ const config = require('../../config.js')
 
 Page({
   data: {
-    bookmarks: []
+    bookmarks: [],
+    title:'我的书签'
   },
   onLoad: function(options) {
     if (config.debug) console.log("options", options)

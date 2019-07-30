@@ -9,6 +9,7 @@ Page({
     sess: '',
     nickname: '',
     show: false,
+    title:'绑定账号'
   },
   onLoad: function(options) {
     let user = getApp().globalData.wechatUser
@@ -28,9 +29,6 @@ Page({
       nickname: user.userInfo.nickName || '',
       avatar: user.userInfo.avatarUrl || '/assets/images/logo.png',
       show: true,
-    })
-    wx.setNavigationBarTitle({
-      title: '绑定账号',
     })
   },
   changeTab: function(e) {

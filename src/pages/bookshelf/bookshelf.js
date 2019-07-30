@@ -10,6 +10,7 @@ Page({
     showTips: false,
     pending: false,
     wd: '',
+    title:'书架',
   },
   onLoad: function() {},
   onShow: function() {

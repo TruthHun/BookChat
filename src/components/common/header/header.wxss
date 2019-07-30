@@ -1,0 +1,51 @@
+.header {
+  display: flex;
+  align-items: center;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  z-index: 99999;
+}
+
+.header .line {
+  border-left: 1rpx solid #eee;
+  height: 16px;
+}
+
+.header .back, .header .home {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header .title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 30px;
+  border: 1rpx solid #eee;
+  border-radius: 16px;
+  margin-left: 30rpx;
+}
+
+.header .title-bar image {
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  vertical-align: top;
+  margin: 0 12px;
+}
+
+.header .header-title {
+  position: absolute;
+  width: 40%;
+  left: 30%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 16px;
+  color: #000;
+  text-align: center;
+}

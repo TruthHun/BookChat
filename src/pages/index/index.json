@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "search": "/components/common/search",
-    "book-list": "/components/book/list"
+    "book-list": "/components/book/list",
+    "header":"/components/common/header/header"
   },
   "enablePullDownRefresh": true
 }

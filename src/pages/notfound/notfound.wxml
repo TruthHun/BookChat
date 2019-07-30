@@ -1,3 +1,5 @@
+<header showIcon title="{{title}}" />
+
 <view>
   <view>
     <image src='../../assets/images/404.png'></image>

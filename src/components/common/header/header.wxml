@@ -1,0 +1,10 @@
+<view style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+  <view class="header" style="height:{{titleBarHeight}}px;padding-top:{{statusBarHeight}}px">
+    <view wx:if="{{showIcon}}" class="title-bar">
+      <view class="back" bindtap="headerBack"><image src="/assets/images/header-back.png"></image></view>
+      <view class="line"></view>
+      <view class="home" bindtap="headerHome"><image src="/assets/images/header-home.png"></image></view>
+    </view>
+    <view class="header-title">{{title}}</view>
+  </view>
+</view>

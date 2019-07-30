@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "书签"
+  "usingComponents":{
+    "header": "/components/common/header/header"
+  }
 }

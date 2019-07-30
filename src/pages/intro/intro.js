@@ -11,7 +11,8 @@ Page({
     page: 1,
     size: 10,
     myScore: 0,
-    comments: []
+    comments: [],
+    title:'BookChat',
   },
   onLoad: function(options) {
     if (config.debug) console.log(options)
@@ -91,13 +92,11 @@ Page({
       book.float_score = (book.score / 10).toFixed(1)
       book.description = book.description || book.book_name
       book.percent = Number(book.cnt_readed / book.cnt_doc * 100).toFixed(2)
-      wx.setNavigationBarTitle({
-        title: book.book_name,
-      })
       that.setData({
         book: book,
         relatedBooks: books,
-        page: 1
+        page: 1,
+        title: book.book_name,
       })
       wx.hideLoading()
       that.getComments()

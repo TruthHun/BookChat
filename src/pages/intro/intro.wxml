@@ -1,3 +1,5 @@
+<header showIcon title="{{title}}" />
+
 <wxs src="../common.wxs" module="common" />
 <block wx:if="{{book.book_id>0}}">
   <view class='row info'>

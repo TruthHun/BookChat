@@ -1,3 +1,4 @@
+<header title="{{title}}"/>
 <view class='row box'>
   <view wx:if="{{showTips && books.length ==0 }}" class='tips col-12 font-lv2'>
     <block wx:if="{{token != ''}}">

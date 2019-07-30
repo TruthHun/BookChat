@@ -7,6 +7,7 @@ Page({
     loadingWechat: false,
     about: config.about,
     redirect: encodeURIComponent('/pages/me/me'),
+    title:'登录'
   },
   onLoad: function(option) {
     if (config.debug) console.log(option)

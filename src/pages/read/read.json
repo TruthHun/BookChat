@@ -1,5 +1,6 @@
 {
-  "usingComponents":{
-    "menu":"/components/common/menu"
+  "usingComponents": {
+    "menu": "/components/common/menu",
+    "header": "/components/common/header/header"
   }
 }

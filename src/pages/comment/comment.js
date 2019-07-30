@@ -9,6 +9,7 @@ Page({
     content: '',
     messages: ['期待您的打分', '惨不忍睹', '太差了', '一般般', '还不错', '非常棒'],
     loading: false,
+    title:'点评'
   },
   onLoad: function(options) {
     if (config.debug) console.log(options)

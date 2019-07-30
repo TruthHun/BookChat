@@ -22,6 +22,7 @@ Page({
     screenBrightness: 0,
     showFooter: true,
     fontIndexs: ['30rpx', '32rpx', '34rpx', '36rpx', '38rpx', '40rpx', '42rpx'],
+    title:'',
   },
   onLoad: function(options) {
     // 步骤：
@@ -82,9 +83,6 @@ Page({
         menuSortIds: util.menuSortIds(menuTree),
         menuTree: menuTree,
         book: book,
-      })
-
-      wx.setNavigationBarTitle({
         title: book.book_name,
       })
 

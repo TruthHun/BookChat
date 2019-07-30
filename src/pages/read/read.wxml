@@ -1,3 +1,4 @@
+<header showIcon title="{{title}}" />
 <view class='bg-theme{{setting.themeIndex}}' bindtap='contentClick' style='min-height:100%;'>
   <view class='markdown-body editormd-preview-container bg-theme{{setting.themeIndex}}' style='line-height:1.8;font-size:{{fontIndexs[setting.fontIndex]}}'>
     <view class='title font-lv1 text-center'>{{article.title}}</view>

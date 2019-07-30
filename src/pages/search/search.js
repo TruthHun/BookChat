@@ -18,7 +18,8 @@ Page({
         title: "文档",
         value: "doc"
       }
-    ]
+    ],
+    title:"搜索"
   },
   onLoad: function(options) {
     let wd = options.wd || ''

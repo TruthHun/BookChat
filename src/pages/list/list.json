@@ -1,6 +1,7 @@
 {
-  "usingComponents":{
-    "book-list":"/components/book/list",
-    "tab":"/components/common/tab"
+  "usingComponents": {
+    "book-list": "/components/book/list",
+    "tab": "/components/common/tab",
+    "header": "/components/common/header/header"
   }
 }

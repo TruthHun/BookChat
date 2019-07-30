@@ -25,7 +25,9 @@ App({
   },
   globalData: {
     userInfo: null,
-    bookshelfChanged: false
+    bookshelfChanged: false,
+    statusBarHeight: 0,
+    titleBarHeight: 0
   },
   
 })

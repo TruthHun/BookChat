@@ -1,3 +1,5 @@
+<header showIcon title="{{title}}" />
+
 <wxs src="../../pages/common.wxs" module="common" />
 <view class='search base-padding mgb-30rpx'>
   <search bindsearch="search" focus="{{focus}}" wd="{{wd}}" />
@@ -32,4 +34,4 @@
   </block>
 </view>
 
-<footer loading="{{loading}}" tips="{{tips}}"/>
+<footer loading="{{loading}}" tips="{{tips}}" />

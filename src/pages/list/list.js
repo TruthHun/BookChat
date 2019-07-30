@@ -101,18 +101,16 @@ Page({
         break;
     }
 
+    let categoryTitle = ''
     api.getCategoryByCid(that.data.cid).then((category) => {
       if (config.debug) console.log('api.getCategoryByCid', category)
-      if (category && category.title) {
-        that.setData({
-          categoryTitle: category.title
-        })
-      }
+      if (category && category.title) categoryTitle = category.title
     }).catch((e) => {
       console.log(e)
     }).finally(function() {
-      wx.setNavigationBarTitle({
-        title: that.data.categoryTitle + ' · ' + tabTitle,
+      that.setData({
+        categoryTitle: categoryTitle,
+        title: categoryTitle + ' · ' + tabTitle,
       })
     })
   },

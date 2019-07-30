@@ -154,9 +154,7 @@ Page({
           break;
       }
     }
-    wx.setNavigationBarTitle({
-      title: title,
-    })
+    this.setData({title:title})
   },
   _getBooks: function(api) {
     let that = this

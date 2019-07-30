@@ -1,1 +1,3 @@
+<header showIcon title="{{title}}" />
+
 <menu book="{{book}}" wd="{{wd}}" menu="{{menuTree}}" token="{{token}}" result="{{result}}" bind:search="search" bind:itemClick="itemClick" bind:tabClick="tabClick" bind:clear="clear" />

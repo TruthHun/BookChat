@@ -1,5 +1,5 @@
 <wxs src="../common.wxs" module="common" />
-
+<header title="{{title}}"/>
 <!--  搜索框  -->
 <view wx:if="{{showSearch}}" class='search base-padding mgb-30rpx'>
   <search bindsearch="search" />

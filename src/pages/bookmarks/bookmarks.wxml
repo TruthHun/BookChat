@@ -1,3 +1,5 @@
+<header showIcon title="{{title}}" />
+
 <wxs src="../common.wxs" module="common" />
 <view class='bookmarks base-padding font-lv3 color-grey'>
   <view wx:if="{{bookmarks.length>0}}" wx:for="{{bookmarks}}" wx:for-item="bookmark" wx:key="index" class='row'>

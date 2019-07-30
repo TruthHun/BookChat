@@ -1,3 +1,5 @@
+<header showIcon title="{{title}}" />
+
 <view class='base-padding'>
   <form bindsubmit='formSubmit'>
     <view class='form-body'>

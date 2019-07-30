@@ -8,7 +8,8 @@ Page({
     menuTree: [],
     identify: '',
     wd: '',
-    token: ''
+    token: '目录',
+
   },
   onLoad: function(options) {
     let identify = options.id || options.identify || 'dochub';
@@ -67,8 +68,6 @@ Page({
       that.setData({
         menuTree: util.menuToTree(menu),
         book: book,
-      })
-      wx.setNavigationBarTitle({
         title: '目录 · ' + book.book_name,
       })
       wx.hideLoading()

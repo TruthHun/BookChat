@@ -6,6 +6,7 @@ Page({
     user: {},
     now: new Date().getFullYear(),
     about: config.about,
+    title: '我的'
   },
   onLoad: function() {
     this.initUser()

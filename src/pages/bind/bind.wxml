@@ -1,3 +1,4 @@
+<header showIcon title="{{title}}"/>
 <view wx:if="{{show}}">
   <view class='row avatar'>
     <image src='{{avatar}}' />

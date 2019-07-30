@@ -1,3 +1,4 @@
+<header showIcon title="{{title}}"/>
 <view class="comment">
   <form>
     <textarea bindinput='inputComment'  class='font-lv3 color-semi' placeholder="您的点评能帮助其他小伙伴了解内容哟" auto-focus />

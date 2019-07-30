@@ -1,3 +1,5 @@
+<header showIcon title="{{title}}" />
+
 <wxs src="../common.wxs" module="common" />
 <view class='tab'>
   <tab tabs="{{tabs}}" showSearch="true" active="{{tabValue}}" gridLen="8" bindclick="tabClick" istyle="margin-bottom:30rpx;" />
