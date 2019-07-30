@@ -12,9 +12,9 @@
   </view>
 </view>
 
-<view class='drawer drawer-right {{showMore ? "show":""}}'>
+<view class='drawer drawer-right {{showMore ? "show":""}}' style="top:{{top}}px">
   <view class='drawer-content'>
-    <view class='more-setting'>
+    <view class='more-setting' style="bottom: {{top * 3}}px">
       <view class='row setting-tips'>
         <text class='color-grey font-lv4'>屏幕亮度</text>
       </view>

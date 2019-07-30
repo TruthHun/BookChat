@@ -87,7 +87,6 @@ page {
 .more-setting {
   position: absolute;
   width: 100%;
-  bottom: 70px;
 }
 
 .setting-tips {
