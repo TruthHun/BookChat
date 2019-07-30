@@ -52,7 +52,7 @@ page {
   z-index: 99;
   height: 100%;
   overflow-y: scroll;
-  top: 0;
+  top: 50px;
   transition: all 0.5s;
   -webkit-overflow-scrolling: touch;
   background-color: #fff;

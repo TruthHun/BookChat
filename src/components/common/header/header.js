@@ -14,9 +14,13 @@ Component({
   data: {
     statusBarHeight: 0,
     titleBarHeight: 0,
+    currentPagesLength:0,
   },
 
   ready: function() {
+    this.setData({
+      currentPagesLength:getCurrentPages().length
+    })
     if (app.globalData && app.globalData.statusBarHeight && app.globalData.titleBarHeight) {
       this.setData({
         statusBarHeight: app.globalData.statusBarHeight,
