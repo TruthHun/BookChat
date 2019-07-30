@@ -22,7 +22,7 @@ Page({
     screenBrightness: 0,
     showFooter: true,
     fontIndexs: ['30rpx', '32rpx', '34rpx', '36rpx', '38rpx', '40rpx', '42rpx'],
-    title:'',
+    title: '',
   },
   onLoad: function(options) {
     // 步骤：
@@ -33,6 +33,7 @@ Page({
     let arr = String(identify).split("/")
     let book = {}
     let menu = []
+
 
     if (arr.length == 0) {
       wx.redirectTo({
@@ -78,12 +79,13 @@ Page({
       }
 
       let menuTree = util.menuToTree(menu)
-
+      let app = getApp().globalData
       that.setData({
         menuSortIds: util.menuSortIds(menuTree),
         menuTree: menuTree,
         book: book,
         title: book.book_name,
+        top: app.statusBarHeight + app.titleBarHeight
       })
 
       if (arr.length < 2) {
