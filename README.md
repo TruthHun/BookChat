@@ -52,9 +52,8 @@ https://www.bookstack.cn
 ## 开源地址
 
 - Gitee（码云）: https://gitee.com/truthhun/BookChat
-- ~~GitHub: https://github.com/truthhun/bookchat~~
+- GitHub: https://github.com/truthhun/bookchat
 
-> 家里网络不稳定，把源码push到GitHub要等上好半天，所以从 `BookChat` v2.0 版本开始，BookChat微信小程序只在`码云（Gitee）`发布和更新
 
 **后端程序是BookStack**
 
