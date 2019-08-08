@@ -53,6 +53,8 @@ Page({
 
     util.loading()
 
+    let latestReadId = 0
+
     Promise.all([util.request(config.api.bookMenu, {
       identify: arr[0]
     }), util.request(config.api.bookInfo, {
@@ -61,6 +63,9 @@ Page({
       if (config.debug) console.log(resMenu, resBook)
       if (resMenu.data && resMenu.data.menu) {
         menu = resMenu.data.menu
+      }
+      if (resMenu.data && resMenu.data.latest_read_id){
+        latestReadId = resMenu.data.latest_read_id
       }
       if (resBook.data && resBook.data.book) {
         book = resBook.data.book
@@ -87,11 +92,12 @@ Page({
         title: book.book_name,
         top: app.statusBarHeight + app.titleBarHeight
       })
-
-      if (arr.length < 2) {
+      
+      if (latestReadId>0){
+        identify = book.book_id + "/" + latestReadId
+      }else if (arr.length < 2) {
         identify = book.book_id + "/" + menuTree[0].id
       }
-
       that.getArticle(identify)
     })
   },
