@@ -17,6 +17,7 @@ Page({
     pending: false,
     showSearch: false,
     title: 'BookChat',
+    showAd: false,
   },
   onLoad: function() {
     wx.stopPullDownRefresh() //刷新完成后停止下拉刷新动效
@@ -95,6 +96,7 @@ Page({
           recommendBooks: recommendBooks,
           showSearch: true,
           pending: false,
+          showAd: true,
         })
         wx.hideLoading()
       })

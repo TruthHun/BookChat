@@ -13,6 +13,7 @@ Page({
     myScore: 0,
     comments: [],
     title:'BookChat',
+    showAd: false,
   },
   onLoad: function(options) {
     if (config.debug) console.log(options)
@@ -97,6 +98,7 @@ Page({
         relatedBooks: books,
         page: 1,
         title: book.book_name,
+        showAd: true,
       })
       wx.hideLoading()
       that.getComments()

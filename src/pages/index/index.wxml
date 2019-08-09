@@ -1,5 +1,5 @@
 <wxs src="../common.wxs" module="common" />
-<header title="{{title}}"/>
+<header title="{{title}}" />
 <!--  搜索框  -->
 <view wx:if="{{showSearch}}" class='search base-padding mgb-30rpx'>
   <search bindsearch="search" />
@@ -18,6 +18,10 @@
   </swiper>
 </view>
 
+<!-- showAd: 内容加载完成再显示广告，避免广告先于内容显示 -->
+<view wx:if="{{showAd}}" class="base-margin-bottom base-padding">
+  <ad unit-id="adunit-d11912614ed7a5e4" ad-intervals="30"></ad>
+</view>
 
 <!--  推荐  -->
 <view wx:if="{{recommendBooks.length>0}}" class='panel base-padding recommend base-margin-bottom'>
@@ -37,6 +41,8 @@
     </scroll-view>
   </view>
 </view>
+
+
 
 <!--  各种分类的书籍的展示  -->
 <block wx:for="{{categoryBooks}}" wx:for-item="category" wx:key="index">
