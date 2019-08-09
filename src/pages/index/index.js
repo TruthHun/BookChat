@@ -18,6 +18,7 @@ Page({
     showSearch: false,
     title: 'BookChat',
     showAd: false,
+    adLoaded: false,
   },
   onLoad: function() {
     wx.stopPullDownRefresh() //刷新完成后停止下拉刷新动效
@@ -33,6 +34,11 @@ Page({
   },
   onPullDownRefresh: function() {
     this.onLoad()
+  },
+  adLoad() {
+    this.setData({
+      adLoaded: true
+    })
   },
   loadData: function() {
     let that = this
@@ -107,7 +113,7 @@ Page({
       url: '/pages/search/search?wd=' + e.detail.wd,
     })
   },
-  onShareAppMessage:function(){
+  onShareAppMessage: function() {
     wx.showShareMenu({
       withShareTicket: true
     })

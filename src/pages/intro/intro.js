@@ -14,6 +14,12 @@ Page({
     comments: [],
     title:'BookChat',
     showAd: false,
+    adLoaded: false,
+  },
+  adLoad() {
+    this.setData({
+      adLoaded: true
+    })
   },
   onLoad: function(options) {
     if (config.debug) console.log(options)
