@@ -19,6 +19,8 @@ Page({
     title: 'BookChat',
     showAd: false,
     adLoaded: false,
+    adClosed: false,
+    bannerAdUnitId: config.bannerAdUnitId,
   },
   onLoad: function() {
     wx.stopPullDownRefresh() //刷新完成后停止下拉刷新动效
@@ -38,6 +40,11 @@ Page({
   adLoad() {
     this.setData({
       adLoaded: true
+    })
+  },
+  adClose() {
+    this.setData({
+      adClosed: true
     })
   },
   loadData: function() {
@@ -96,13 +103,16 @@ Page({
       }).catch(function(e) {
         console.log(e)
       }).finally(function() {
+        wx.getImageInfo({
+          src: '',
+        })
         that.setData({
           banners: banners,
           categoryBooks: categories,
           recommendBooks: recommendBooks,
           showSearch: true,
           pending: false,
-          showAd: true,
+          showAd: that.data.bannerAdUnitId != '',
         })
         wx.hideLoading()
       })

@@ -12,13 +12,20 @@ Page({
     size: 10,
     myScore: 0,
     comments: [],
-    title:'BookChat',
+    title: 'BookChat',
     showAd: false,
     adLoaded: false,
+    adClosed: false,
+    bannerAdUnitId: config.bannerAdUnitId,
   },
   adLoad() {
     this.setData({
       adLoaded: true
+    })
+  },
+  adClose() {
+    this.setData({
+      adClosed: true
     })
   },
   onLoad: function(options) {
@@ -104,7 +111,7 @@ Page({
         relatedBooks: books,
         page: 1,
         title: book.book_name,
-        showAd: true,
+        showAd: that.data.bannerAdUnitId != '',
       })
       wx.hideLoading()
       that.getComments()

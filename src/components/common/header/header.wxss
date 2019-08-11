@@ -5,7 +5,7 @@
   position: fixed;
   width: 100%;
   background-color: #fff;
-  z-index: 99999;
+  z-index: 9999;
 }
 
 .header .line {

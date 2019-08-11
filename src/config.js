@@ -12,6 +12,9 @@ const bannerRatio = 825/315
 // "关于我们"的文档标识
 const about = 'help/bookchat'
 
+// 横幅广告id
+const bannerAdUnitId = 'adunit-d11912614ed7a5e4'
+
 const api = {
   banners: `${host}/api/v1/banners`, 
   register: `${host}/api/v1/register`, 
@@ -47,4 +50,5 @@ module.exports = {
   debug,
   bannerRatio,
   about,
+  bannerAdUnitId,
 }

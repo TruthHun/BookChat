@@ -40,8 +40,8 @@
 </view>
 
 <!-- showAd: 内容加载完成再显示广告，避免广告先于内容显示 -->
-<view wx:if="{{showAd}}" class="{{adLoaded ? 'base-margin-bottom': ''}} base-padding">
-  <ad bindload="adLoad" unit-id="adunit-d11912614ed7a5e4" ad-intervals="30"></ad>
+<view wx:if="{{showAd && !adClosed}}" class="{{adLoaded ? 'base-margin-bottom': ''}} base-padding">
+  <ad bindclose="adClose" bindload="adLoad" unit-id="{{bannerAdUnitId}}" ad-intervals="30"></ad>
 </view>
 
 <!--  各种分类的书籍的展示  -->

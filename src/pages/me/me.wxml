@@ -1,4 +1,4 @@
-<header title="{{title}}"/>
+<header title="{{title}}" />
 <view class='base-padding row' bindtap='userLoginEvent'>
   <view class='user'>
     <image src='{{user.avatar}}'></image>
@@ -36,6 +36,14 @@
   </navigator>
 </view>
 
+<view class='base-padding row base-info' bindtap="drawPoster">
+  <view class='col-12'>
+    <image src='/assets/images/share.png'></image>
+    分享到朋友圈
+    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+  </view>
+</view>
+
 <view class='base-padding row base-info'>
   <navigator url='/pages/read/read?identify={{about}}' class='col-12'>
     <image src='../../assets/images/about-us.png'></image>
@@ -48,8 +56,24 @@
   <view wx:if="{{user.uid>0}}" bindtap='logout' class='col-12'>
     <image src='../../assets/images/login.png'></image>
     退出登录
-    <image class='pull-right' src='../../assets/images/right-angle.png'></image>
+    <image class='pull-right' src='/assets/images/right-angle.png'></image>
   </view>
+</view>
+
+<!-- 分享容器 -->
+<view wx:if="{{showSharePoster}}" class="share-container">
+  <image wx:if="{{shareImage}}" src="{{shareImage}}" class="share-image"></image>
+  <block wx:else>
+    <canvasdrawer painting="{{painting}}" class="canvasdrawer" bind:getImage="showPoster" />
+  </block>
+  <view wx:if="{{shareImage}}" class="row btns font-lv2">
+      <view class="col close-image">
+        <text bindtap="closePoster" class="color-red">关闭</text>
+      </view>
+      <view class="col save-image">
+        <text bindtap="savePoster" class="color-green">保存到本地</text>
+      </view>
+    </view>
 </view>
 
 <view class='base-padding row base-info'>

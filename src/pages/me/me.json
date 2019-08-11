@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "header": "/components/common/header/header"
+    "header": "/components/common/header/header",
+    "canvasdrawer": "/components/canvasdrawer/canvasdrawer"
   }
 }
