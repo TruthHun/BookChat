@@ -97,7 +97,7 @@ Page({
       clear: true,
       views: [{
           type: 'image',
-          url: '/assets/images/bg-poster.png',
+          url: '/assets/images/bg-poster.jpg',
           top: 0,
           left: 0,
           width: 320,
