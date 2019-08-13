@@ -7,14 +7,14 @@
 </view>
 
 <view class='drawer drawer-left {{showMenu ? "show":""}}' style="top:{{top}}px">
-  <view class='drawer-content' style="padding-bottom:{{top * 3}}px">
+  <view class='drawer-content' style="padding-bottom: {{70 + top}}px">
     <menu book="{{book}}" currentDocId="{{article.id}}" wd="{{wd}}" bind:clear="clear" result="{{result}}" bind:search="search" tips="{{tips}}" bind:itemClick="itemClick" menu="{{menuTree}}" />
   </view>
 </view>
 
 <view class='drawer drawer-right {{showMore ? "show":""}}' style="top:{{top}}px">
   <view class='drawer-content'>
-    <view class='more-setting' style="bottom: {{top * 3}}px">
+    <view class='more-setting' style="bottom: {{70 + top}}px">
       <view class='row setting-tips'>
         <text class='color-grey font-lv4'>屏幕亮度</text>
       </view>

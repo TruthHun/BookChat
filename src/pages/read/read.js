@@ -85,12 +85,18 @@ Page({
 
       let menuTree = util.menuToTree(menu)
       let app = getApp().globalData
+      let top = app.statusBarHeight + app.titleBarHeight
+
+      console.log(wx.getSystemInfoSync(), app)
+
+      if (config.debug) console.log("top: ",top)
+
       that.setData({
         menuSortIds: util.menuSortIds(menuTree),
         menuTree: menuTree,
         book: book,
         title: book.book_name,
-        top: app.statusBarHeight + app.titleBarHeight
+        top: top,
       })
       
       if (latestReadId>0){

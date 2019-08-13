@@ -4,7 +4,7 @@ let host = 'https://www.bookstack.cn/bookchat'
 
 
 // 是否是调试模式。如果是生产环境，请设置为false
-const debug = false
+const debug = true
 
 // 横幅图片比例，宽高比，小数或者比例(后期从后端接口获取)
 const bannerRatio = 825/315
@@ -12,8 +12,8 @@ const bannerRatio = 825/315
 // "关于我们"的文档标识
 const about = 'help/bookchat'
 
-// 横幅广告id
-const bannerAdUnitId = 'adunit-d11912614ed7a5e4'
+// 横幅广告id // adunit-d11912614ed7a5e4
+const bannerAdUnitId = ''
 
 const api = {
   banners: `${host}/api/v1/banners`, 
