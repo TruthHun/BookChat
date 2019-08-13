@@ -87,8 +87,6 @@ Page({
       let app = getApp().globalData
       let top = app.statusBarHeight + app.titleBarHeight
 
-      console.log(wx.getSystemInfoSync(), app)
-
       if (config.debug) console.log("top: ",top)
 
       that.setData({

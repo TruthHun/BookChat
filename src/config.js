@@ -1,10 +1,8 @@
 // api host，最后不要带斜杠。后端程序是BookStack (https://github.com/truthhun/BookStack)
-// let host = 'http://localhost:8181/bookchat'
-let host = 'https://www.bookstack.cn/bookchat'
-
+let host = 'http://localhost:8181/bookchat'
 
 // 是否是调试模式。如果是生产环境，请设置为false
-const debug = true
+const debug = false
 
 // 横幅图片比例，宽高比，小数或者比例(后期从后端接口获取)
 const bannerRatio = 825/315
@@ -12,7 +10,7 @@ const bannerRatio = 825/315
 // "关于我们"的文档标识
 const about = 'help/bookchat'
 
-// 横幅广告id // adunit-d11912614ed7a5e4
+// 横幅广告id，如果申请了腾讯小程序的广告，则创建一个横幅广告，把广告的AdUnitId粘贴进来即可，不投放广告，则把该值设置为空
 const bannerAdUnitId = ''
 
 const api = {
