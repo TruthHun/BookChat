@@ -7,8 +7,13 @@ const debug = false
 // 横幅图片比例，宽高比，小数或者比例(后期从后端接口获取)
 const bannerRatio = 825/315
 
-// "关于我们"的文档标识
-const about = 'help/bookchat'
+const info = {
+  about: 'help/bookchat',
+  version: 'v2.4',
+  author: 'TruthHun',
+  license: 'Apache 2.0',
+  copyright: 'BookStack.CN'
+}
 
 // 横幅广告id，如果申请了腾讯小程序的广告，则创建一个横幅广告，把广告的AdUnitId粘贴进来即可，不投放广告，则把该值设置为空
 const bannerAdUnitId = ''
@@ -47,6 +52,6 @@ module.exports = {
   api,
   debug,
   bannerRatio,
-  about,
   bannerAdUnitId,
+  info,
 }

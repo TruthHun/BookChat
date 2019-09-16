@@ -44,8 +44,8 @@
   </view>
 </view>
 
-<view class='base-padding row base-info'>
-  <navigator url='/pages/read/read?identify={{about}}' class='col-12'>
+<view wx:if="{{info.about}}" class='base-padding row base-info'>
+  <navigator url='/pages/read/read?identify={{info.about}}' class='col-12'>
     <image src='../../assets/images/about-us.png'></image>
     关于我们
     <image class='pull-right' src='../../assets/images/right-angle.png'></image>
@@ -78,17 +78,17 @@
 
 <view class='base-padding row base-info'>
   <view class='col-12 text-center'>
-    <view>
-      <text class='font-lv4 color-grey'>Copyright © 2018-{{now}} BookStack.CN</text>
+    <view wx:if="{{info.copyright}}">
+      <text class='font-lv4 color-grey'>Copyright © {{now}} {{info.copyright}}</text>
     </view>
-    <view>
-      <text class='font-lv4 color-grey'>License：Apache 2.0</text>
+    <view wx:if="{{info.license}}">
+      <text class='font-lv4 color-grey'>License：{{info.license}}</text>
     </view>
-    <view>
-      <text class='font-lv4 color-grey'>Author：TruthHun</text>
+    <view wx:if="{{info.author}}">
+      <text class='font-lv4 color-grey'>Author：{{info.author}}</text>
     </view>
-    <view>
-      <text class='font-lv4 color-grey'>Version：2.3.0</text>
+    <view wx:if="{{info.version}}">
+      <text class='font-lv4 color-grey'>Version：{{info.version}}</text>
     </view>
   </view>
 </view>

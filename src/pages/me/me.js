@@ -8,7 +8,7 @@ Page({
   data: {
     user: {},
     now: new Date().getFullYear(),
-    about: config.about,
+    info: config.info,
     title: '我的',
     showSharePoster: false,
     wechatUserInfo: {},
