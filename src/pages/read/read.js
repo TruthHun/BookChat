@@ -167,6 +167,9 @@ Page({
   },
   clickNext: function() {
     let that = this
+    that.setData({
+      nextDisable: true
+    })
     let idx = that.data.menuSortIds.indexOf(that.data.article.id)
     idx++
     if (idx < that.data.menuSortIds.length) {
@@ -182,6 +185,9 @@ Page({
   },
   clickPrev: function() {
     let that = this
+    that.setData({
+      preDisable: true
+    })
     let idx = that.data.menuSortIds.indexOf(that.data.article.id)
     idx--
     if (idx > -1) {
