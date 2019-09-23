@@ -12,6 +12,23 @@
 
 `BookChat` - 面向程序员的开源书籍和文档阅读学习小程序，同时也是一款基于 Apache 2.0 开源协议进行开源的通用书籍阅读微信小程序，助您轻松实现小说、电子书、各种文档手册和书籍的在线阅读。
 
+## 停更说明
+
+`BookChat` 微信小程序 v2.4 版本是微信小程序`原生开发`的最后一个版本，当前仓库以后不再进行更新。
+
+不过这并不是坏事，我用`uni-app`重新实现了`BookChat`，不但可以编译生成微信小程序，其他各平台的小程序都可以生成。
+
+同时还支持编译生成 Android 和 iOS 的手机 App。
+
+`BookChatApp` 开源地址：
+
+- Gitee: https://gitee.com/truthhun/BookChatApp
+- GitHub: https://github.com/truthhun/BookChat
+
+至于为什么停更，主要是微信小程序新版本发布升级的时候审核没通过，所以还是决定开发手机 APP，最大限度地不让鸡蛋放一个篮子里。
+
+![](screenshot/bookchat-stop.png)
+
 ## 后端程序
 
 后端程序也是开源的：
@@ -21,7 +38,7 @@
 
 **后端程序官网** 
 
-https://www.bookstack.cn
+书栈网：https://www.bookstack.cn
 
 ## 开发设计
 
