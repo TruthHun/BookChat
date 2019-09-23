@@ -23,7 +23,7 @@
 `BookChatApp` 开源地址：
 
 - Gitee: https://gitee.com/truthhun/BookChatApp
-- GitHub: https://github.com/truthhun/BookChat
+- GitHub: https://github.com/truthhun/BookChatApp
 
 至于为什么停更，主要是微信小程序新版本发布升级的时候审核没通过，所以还是决定开发手机 APP，最大限度地不让鸡蛋放一个篮子里。
 
