@@ -16,18 +16,36 @@
 
 `BookChat` 微信小程序 v2.4 版本是微信小程序`原生开发`的最后一个版本，当前仓库以后不再进行更新。
 
-不过这并不是坏事，我用`uni-app`重新实现了`BookChat`，不但可以编译生成微信小程序，其他各平台的小程序都可以生成。
+因为已经用 `uni-app` 重新实现了一个更强大的`BookChat`，即`BookChatApp`，不但可以编译生成微信小程序，其他各平台的小程序都可以生成。
 
-同时还支持编译生成 Android 和 iOS 的手机 App。
 
 `BookChatApp` 开源地址：
 
 - Gitee: https://gitee.com/truthhun/BookChatApp
 - GitHub: https://github.com/truthhun/BookChatApp
 
-至于为什么停更，主要是微信小程序新版本发布升级的时候审核没通过，所以还是决定开发手机 APP，最大限度地不让鸡蛋放一个篮子里。
+`BookChatApp` 下载体验地址：
 
-![](screenshot/bookchat-stop.png)
+- https://www.bookstack.cn/app
+
+`BookChatApp` 预览
+
+![](screenshot/iphone/loading.png)
+
+![](screenshot/iphone/index.png)
+
+![](screenshot/iphone/bookshelf.png)
+
+![](screenshot/iphone/category.png)
+
+![](screenshot/iphone/intro.png)
+
+![](screenshot/iphone/me.png)
+
+![](screenshot/iphone/read.png)
+
+![](screenshot/iphone/search.png)
+
 
 ## 后端程序
 
